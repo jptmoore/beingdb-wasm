@@ -1,0 +1,21 @@
+; Browser entry point, compiled with wasm_of_ocaml. digestif is a virtual
+; library whose default implementation (digestif.c) uses C stubs, so the
+; pure-OCaml implementation is selected explicitly for WebAssembly.
+(executable
+ (name main)
+ (modes wasm)
+ (libraries beingdb_wasm digestif.ocaml js_of_ocaml))
+
+; Build the page alongside the WASM artefacts so _build/default/web can be served.
+(rule
+ (alias page)
+ (deps index.html demo.js main.bc.wasm.js)
+ (action (progn)))
+
+; WASM smoke test: load the artefact in Node and call BeingDB.query. It lives
+; here because the loader resolves its assets relative to the main script.
+(rule
+ (alias runtest)
+ (enabled_if %{bin-available:node})
+ (deps smoke.cjs main.bc.wasm.js)
+ (action (run node smoke.cjs)))

@@ -1,0 +1,4 @@
+; Native test of the same portable glue the browser uses.
+(test
+ (name test_query)
+ (libraries beingdb_wasm alcotest yojson))

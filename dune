@@ -1,0 +1,9 @@
+; vendor/beingdb_runtime is a symlink to ../beingdb/lib/runtime (the portable
+; BeingDB runtime), built from the local checkout rather than copied.
+(vendored_dirs vendor)
+
+; `dune build` also assembles the servable page in _build/default/web.
+(rule
+ (alias default)
+ (deps (alias_rec all) (alias web/page))
+ (action (progn)))

@@ -1,0 +1,5 @@
+; Portable glue: fixture + DSL query -> JSON. Shared by the browser entry
+; point (web/) and the native test (test/).
+(library
+ (name beingdb_wasm)
+ (libraries beingdb_runtime lwt yojson))
