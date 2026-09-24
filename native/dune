@@ -1,0 +1,25 @@
+; Native-only tooling (needs Irmin Pack). A separate dune root so the browser
+; build cannot see Irmin at all. Symlinks:
+;   vendor/beingdb_runtime   -> beingdb/lib/runtime
+;   vendor/beingdb_pack_unix -> beingdb/lib/pack_unix
+;   vendor/beingdb_wasm      -> ../src (the same portable glue the browser uses)
+;   data, fixtures           -> ../data, ../fixtures
+(vendored_dirs vendor)
+
+(library
+ (name pack_export)
+ (modules pack_export)
+ (libraries beingdb_pack_unix beingdb_wasm lwt yojson))
+
+(executable
+ (name export_browser)
+ (modules export_browser)
+ (libraries pack_export lwt lwt.unix))
+
+(test
+ (name test_parity)
+ (modules test_parity)
+ (libraries pack_export beingdb_wasm beingdb_runtime beingdb_pack_unix alcotest lwt lwt.unix yojson)
+ (deps
+  (glob_files data/*.json)
+  (glob_files fixtures/*.json)))

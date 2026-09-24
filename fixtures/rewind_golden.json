@@ -1,0 +1,10855 @@
+{
+ "predicates": {
+  "predicates": [
+   {
+    "name": "created_by",
+    "arity": 2,
+    "count": 137,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "static_acceleration"
+      },
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "the_force_behind_this_movement"
+      },
+      {
+       "type": "atom",
+       "value": "elsa"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "running_time"
+      },
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "rented_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "little_newport_street_soho"
+      },
+      {
+       "type": "atom",
+       "value": "the_other_cinema"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "shot_in",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "running_time_1979"
+      },
+      {
+       "type": "atom",
+       "value": "north_of_england"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "behind_the_veil"
+      },
+      {
+       "type": "atom",
+       "value": "saudi_arabia"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "sold_at",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "the_greatest_hits_of_scratch_video"
+      },
+      {
+       "type": "atom",
+       "value": "tower_records"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "sold_work_to",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "hooykaas_stansfield"
+      },
+      {
+       "type": "string",
+       "value": "a museum"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "studied_at",
+    "arity": 2,
+    "count": 5,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "atom",
+       "value": "slade_school_of_art"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "leeds_college_of_art"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "atom",
+       "value": "ealing_school"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "work_shown_in",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "clive_richardson"
+      },
+      {
+       "type": "atom",
+       "value": "royal_college"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_started",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "public_face_private_eye"
+      },
+      {
+       "type": "year",
+       "value": "1988"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_started_using_technology",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "string",
+       "value": "colour studio"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "string",
+       "value": "portapaks"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "contributed_text",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "josine_van_droffelaar"
+      },
+      {
+       "type": "atom",
+       "value": "audio_video_installations_catalogue"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "gave_exhibition_to",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "gallery_in_bremen"
+      },
+      {
+       "type": "atom",
+       "value": "hooykaas_stansfield"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "held_position",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "string",
+       "value": "Head of Department"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "interviewee",
+    "arity": 2,
+    "count": 10,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rewind_rose_garrard_interview"
+      },
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rewind_david_critchley_interview"
+      },
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rewind_george_barber_interview"
+      },
+      {
+       "type": "atom",
+       "value": "george_barber"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "participated_in",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "video_artists_on_tour"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_lab",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "kays_laboratory_soho"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "work",
+    "arity": 1,
+    "count": 176,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "window_water_baby_moving"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "elgar_figure_in_sculpture"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "coronation_street_piece"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "broadcast_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "lighthouse"
+      },
+      {
+       "type": "atom",
+       "value": "community_radio"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "first_shown_at",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "reservoir"
+      },
+      {
+       "type": "atom",
+       "value": "john_hansard_gallery"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "installed_at",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "spout_sculpture"
+      },
+      {
+       "type": "atom",
+       "value": "belle_vue_island"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "interviewed",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "terry_flaxton"
+      },
+      {
+       "type": "atom",
+       "value": "madonna"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "terry_flaxton"
+      },
+      {
+       "type": "atom",
+       "value": "annie_lennox"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "event",
+    "arity": 1,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "pop_tour"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "edinburgh_television_festival"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "residency_at",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "great_malvern"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_medium",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "sea_of_light"
+      },
+      {
+       "type": "string",
+       "value": "videotape"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "two_sides_of_a_story"
+      },
+      {
+       "type": "string",
+       "value": "monitors"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "two_sides_of_a_story"
+      },
+      {
+       "type": "string",
+       "value": "live video"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "venue_in_area",
+    "arity": 2,
+    "count": 4,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "covent_garden"
+      },
+      {
+       "type": "atom",
+       "value": "air_gallery"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "covent_garden"
+      },
+      {
+       "type": "atom",
+       "value": "pmj_self"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "covent_garden"
+      },
+      {
+       "type": "atom",
+       "value": "acme_gallery"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_left",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa"
+      },
+      {
+       "type": "year",
+       "value": "1991"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "acquired_by",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "arts_council"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "british_council"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "made_proposal_to",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "malvern_town_council"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "protagonist_in",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "stephen_hendry"
+      },
+      {
+       "type": "atom",
+       "value": "david_mach"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "ray_reardon"
+      },
+      {
+       "type": "atom",
+       "value": "david_mach"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "renamed_as",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "association_of_video_artists_in_the_netherlands"
+      },
+      {
+       "type": "atom",
+       "value": "time_based_arts"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "head_of_department",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "fine_art_media_department"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_in_work",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "field_free_space"
+      },
+      {
+       "type": "atom",
+       "value": "faraday_cage"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "video_void"
+      },
+      {
+       "type": "atom",
+       "value": "wapping_rotherhithe_tunnel"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_institutional_resource",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "atom",
+       "value": "royal_college_of_art"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_broadcast",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "public_face_private_eye"
+      },
+      {
+       "type": "year",
+       "value": "1989"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "conserved_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "inside_outside"
+      },
+      {
+       "type": "atom",
+       "value": "montevideo"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "council_member_of",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "london_video_arts"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "filmed_at",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "brewing"
+      },
+      {
+       "type": "atom",
+       "value": "hook_norton_brewery"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "motion_parallax"
+      },
+      {
+       "type": "atom",
+       "value": "richmond_park"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "first_exhibition_of",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "the_video_stairs"
+      },
+      {
+       "type": "atom",
+       "value": "hooykaas_stansfield"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "published_in",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "serpentine_1975_show"
+      },
+      {
+       "type": "atom",
+       "value": "organisation_art_and_artists"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "scratch_video_volume_1"
+      },
+      {
+       "type": "atom",
+       "value": "art_monthly"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "special_video_art_issue_may_1976"
+      },
+      {
+       "type": "atom",
+       "value": "studio_international"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_venue",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "hull_time_based_arts"
+      },
+      {
+       "type": "atom",
+       "value": "ye_olde_black_boy"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "wrote_about",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "michael_o_pray"
+      },
+      {
+       "type": "atom",
+       "value": "scratch_video_volume_1"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "sean_cubitt"
+      },
+      {
+       "type": "atom",
+       "value": "reservoir"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "active_in",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      },
+      {
+       "type": "atom",
+       "value": "miners_campaign_tapes"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "established",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "ma_virtual_realities"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "virtual_realities_as_fine_art_medium"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "organisation",
+    "arity": 1,
+    "count": 211,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "zg"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "slade_school_of_art"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "brighton"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "performed_at",
+    "arity": 2,
+    "count": 12,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "rotterdam"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "herbert_art_gallery_video_show_1970s"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "brewing"
+      },
+      {
+       "type": "atom",
+       "value": "royal_college"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_facilities",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "running_time"
+      },
+      {
+       "type": "atom",
+       "value": "maidstone_college_of_art"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "worked_at",
+    "arity": 2,
+    "count": 5,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "atom",
+       "value": "fantasy_factory"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "atom",
+       "value": "maidstone_college_of_art"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "josine_van_droffelaar"
+      },
+      {
+       "type": "atom",
+       "value": "de_appel_foundation"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "began_in",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "in_two_minds"
+      },
+      {
+       "type": "year",
+       "value": "1970"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "contains_photograph_of",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "electron"
+      },
+      {
+       "type": "string",
+       "value": "lizard in amber"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "electron"
+      },
+      {
+       "type": "string",
+       "value": "fly in amber"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "educated_at",
+    "arity": 2,
+    "count": 21,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "atom",
+       "value": "glasgow_school_of_art"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "george_barber"
+      },
+      {
+       "type": "atom",
+       "value": "st_martins"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "royal_college"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "involved_with",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "atom",
+       "value": "arts_lab"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "president_of",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "atom",
+       "value": "time_based_arts_in_amsterdam"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "atom",
+       "value": "association_of_video_artists_in_the_netherlands"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "atom",
+       "value": "time_based_arts"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "edited_by",
+    "arity": 2,
+    "count": 5,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "mandala"
+      },
+      {
+       "type": "atom",
+       "value": "mike_ray"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "all_the_pieces_i_never_did"
+      },
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "special_video_art_issue_may_1976"
+      },
+      {
+       "type": "atom",
+       "value": "richard_cork"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "wrote_for",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "studio_international"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "timeout"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "music_promotion_by",
+    "arity": 2,
+    "count": 5,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "dudu_pakwana"
+      },
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "remmy_onglala"
+      },
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "ali_farka_toure"
+      },
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "place",
+    "arity": 1,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "cardiff"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "commissioned_by",
+    "arity": 2,
+    "count": 12,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "television_interview"
+      },
+      {
+       "type": "atom",
+       "value": "arts_council_of_great_britain"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "tv_interventions_93"
+      },
+      {
+       "type": "atom",
+       "value": "mtv"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "the_car_piece"
+      },
+      {
+       "type": "atom",
+       "value": "film_and_video_umbrella"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "curated_by",
+    "arity": 2,
+    "count": 20,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "whitechapel_art_gallery"
+      },
+      {
+       "type": "atom",
+       "value": "jasia_reichardt"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "great_malvern"
+      },
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "about_time_at_the_ica_1980"
+      },
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "inspired_by",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "william_blake"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "t_s_eliot"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "moved_to",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      },
+      {
+       "type": "atom",
+       "value": "hull"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "promoted_medium",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "de_appel_foundation"
+      },
+      {
+       "type": "string",
+       "value": "video"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "set_up_at",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "the_other_side"
+      },
+      {
+       "type": "atom",
+       "value": "de_la_warr_pavilion"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_involved",
+    "arity": 3,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 2,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "atom",
+       "value": "arts_lab"
+      },
+      {
+       "type": "string",
+       "value": "1967 or 1968"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_travelled",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "hooykaas_stansfield"
+      },
+      {
+       "type": "year",
+       "value": "1984"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "exhibition_title",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "the_video_stairs"
+      },
+      {
+       "type": "string",
+       "value": "The Video Stairs"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "little_newport_street_soho"
+      },
+      {
+       "type": "atom",
+       "value": "london_video_arts_lva"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "country",
+    "arity": 1,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "canada"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "first_used_technique",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "flying_time"
+      },
+      {
+       "type": "string",
+       "value": "editing"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "interviewed_artist",
+    "arity": 1,
+    "count": 10,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "organised_by",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "locations_edinburgh"
+      },
+      {
+       "type": "atom",
+       "value": "scottish_arts_council"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "malvern_spa_association"
+      },
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "video_manifestation"
+      },
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "venue",
+    "arity": 1,
+    "count": 153,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "paris"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "dundee"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "supermarket_in_central_cardiff"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "based_in",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "de_appel_foundation"
+      },
+      {
+       "type": "string",
+       "value": "Netherlands"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "department_name",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "jan_van_eyck_academy"
+      },
+      {
+       "type": "string",
+       "value": "Time-Based Art"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "exhibited_at",
+    "arity": 2,
+    "count": 120,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "one_of_these_days"
+      },
+      {
+       "type": "atom",
+       "value": "london_film_festival"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "british_sculpture_out_of_the_sixties_1970"
+      },
+      {
+       "type": "atom",
+       "value": "ica_the_mall"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "television_interview"
+      },
+      {
+       "type": "atom",
+       "value": "edinburgh"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "named_by_competition",
+    "arity": 1,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "malvina_sculpture"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "worked_with_sound",
+    "arity": 1,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "document",
+    "arity": 1,
+    "count": 10,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rewind_rose_garrard_interview"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rewind_anna_ridley_interview"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rewind_david_critchley_interview"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "performed_in",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "richard_baker"
+      },
+      {
+       "type": "atom",
+       "value": "this_is_a_television_receiver"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "project_for",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "netherland_1"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "source_url",
+    "arity": 2,
+    "count": 10,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rewind_mike_stubbs_interview"
+      },
+      {
+       "type": "string",
+       "value": "https://rewind.ac.uk/rewind/wp-content/uploads/sites/146/2021/03/MS510.pdf"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rewind_david_critchley_interview"
+      },
+      {
+       "type": "string",
+       "value": "https://rewind.ac.uk/rewind/wp-content/uploads/sites/146/2021/03/DC503.pdf"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rewind_madelon_hooykaas_interview"
+      },
+      {
+       "type": "string",
+       "value": "https://rewind.ac.uk/rewind/wp-content/uploads/sites/146/2021/03/ESMH510.pdf"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_equipment",
+    "arity": 2,
+    "count": 5,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "flying_time"
+      },
+      {
+       "type": "string",
+       "value": "first colour camera"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "video_void"
+      },
+      {
+       "type": "string",
+       "value": "two huge, industrial ventilators"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "video_void"
+      },
+      {
+       "type": "string",
+       "value": "live camera on a stick"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "commissioning_editor_for",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "waldemar_januszczak"
+      },
+      {
+       "type": "atom",
+       "value": "channel_4"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "country_represented",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "flying_time"
+      },
+      {
+       "type": "string",
+       "value": "Netherlands"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "exhibition",
+    "arity": 1,
+    "count": 45,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "montreal_videotapes_retrospective_1988"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "baltic"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "musica"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "held_at",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "video_manifestation"
+      },
+      {
+       "type": "atom",
+       "value": "jan_van_eyck_academy"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "photographed_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "electron"
+      },
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_technology",
+    "arity": 2,
+    "count": 4,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "string",
+       "value": "mechanical transducer device"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "string",
+       "value": "colour studio"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "string",
+       "value": "black and white portapak"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "affiliated_with",
+    "arity": 2,
+    "count": 26,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "jan_van_eyck_academy"
+      },
+      {
+       "type": "atom",
+       "value": "maastricht"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "elsa"
+      },
+      {
+       "type": "atom",
+       "value": "jan_van_eyck_academy"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "birmingham_film_coop"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "became_cameraman",
+    "arity": 1,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "terry_flaxton"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "co_edited_by",
+    "arity": 3,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 2,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "special_video_art_issue_may_1976"
+      },
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "richard_cork"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "featured_person",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "running_time_1979"
+      },
+      {
+       "type": "string",
+       "value": "figure running in the landscape"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "funded_by",
+    "arity": 2,
+    "count": 35,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "london_video_arts"
+      },
+      {
+       "type": "atom",
+       "value": "arts_council"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "arts_council"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "malvern_well_dressing_festival"
+      },
+      {
+       "type": "atom",
+       "value": "arts_council"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "involved_in",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "atom",
+       "value": "arts_lab"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "anna_ridley"
+      },
+      {
+       "type": "atom",
+       "value": "video_show_at_the_serpentine_gallery_1975"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "music_by",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "one_of_these_days"
+      },
+      {
+       "type": "atom",
+       "value": "delia_derbyshire"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "mandala"
+      },
+      {
+       "type": "atom",
+       "value": "mike_ray"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "partner_of",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rita_donagh"
+      },
+      {
+       "type": "atom",
+       "value": "richard_hamilton"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "selected_for",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "british_art_show"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "showed_at",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "day_for_night"
+      },
+      {
+       "type": "atom",
+       "value": "visual_research_centre_in_dundee_contemporary_arts"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_exhibited",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "year",
+       "value": "1972"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "year",
+       "value": "1971"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "had_machine_made_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "reservoir"
+      },
+      {
+       "type": "atom",
+       "value": "john_wall"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "in_collection",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "from_the_museum_of_memory"
+      },
+      {
+       "type": "atom",
+       "value": "stedelijk_museum_amsterdam"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "museum_of_memory_1"
+      },
+      {
+       "type": "atom",
+       "value": "stedelijk_museum_amsterdam"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "shadow_pictures"
+      },
+      {
+       "type": "atom",
+       "value": "stedelijk_museum_amsterdam"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "met_at",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "serpentine_gallery"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "original_name_of",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "association_of_video_artists_in_the_netherlands"
+      },
+      {
+       "type": "atom",
+       "value": "foundation_time_based_arts"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "published_by",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "studio_international"
+      },
+      {
+       "type": "atom",
+       "value": "richard_cork"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "serpentine_1975_show"
+      },
+      {
+       "type": "atom",
+       "value": "organisation_art_and_artists"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "reviewed_in",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "between_the_lines"
+      },
+      {
+       "type": "atom",
+       "value": "the_sunday_times"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "art_and_artists"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "studio_international"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "travelled_to",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "hooykaas_stansfield"
+      },
+      {
+       "type": "string",
+       "value": "Japan"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_joined",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa"
+      },
+      {
+       "type": "year",
+       "value": "1980"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_started_work",
+    "arity": 3,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 2,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "atom",
+       "value": "jan_van_eyck_academy"
+      },
+      {
+       "type": "year",
+       "value": "1980"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "chairman_of",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "malvern_spa_association"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "distributed_by",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "london_video_arts_lva"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "time_spent"
+      },
+      {
+       "type": "atom",
+       "value": "lva"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "between_the_lines"
+      },
+      {
+       "type": "atom",
+       "value": "london_video_arts"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "founded_by",
+    "arity": 2,
+    "count": 4,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "association_of_video_artists_in_the_netherlands"
+      },
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "london_video_arts_lva"
+      },
+      {
+       "type": "atom",
+       "value": "david_hall"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "malvern_spa_association"
+      },
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "got_funding_for",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "string",
+       "value": "performance"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "produced_by",
+    "arity": 2,
+    "count": 4,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "stooky_bill_tv"
+      },
+      {
+       "type": "atom",
+       "value": "anna_ridley"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "this_is_a_television_receiver"
+      },
+      {
+       "type": "atom",
+       "value": "anna_ridley"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "this_is_a_television_receiver"
+      },
+      {
+       "type": "atom",
+       "value": "mark_kidel"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "received_funding_from",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "george_barber"
+      },
+      {
+       "type": "atom",
+       "value": "arts_council"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "taught_at",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "maidstone_college_of_art"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      },
+      {
+       "type": "atom",
+       "value": "dundee"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_in",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "day_for_night"
+      },
+      {
+       "type": "string",
+       "value": "non-linear DVD works using the shuffle method"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "flying_time"
+      },
+      {
+       "type": "string",
+       "value": "colour"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "employed_by",
+    "arity": 2,
+    "count": 34,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "sheffield"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "worcestershire"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "malcolm_le_grice"
+      },
+      {
+       "type": "atom",
+       "value": "saint_martins"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "external_examiner_at",
+    "arity": 2,
+    "count": 4,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "newcastle"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "the_royal_college"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "belfast"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "soundtrack_by",
+    "arity": 2,
+    "count": 7,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "cultural_quarter"
+      },
+      {
+       "type": "atom",
+       "value": "simon_thorne"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "lighthouse"
+      },
+      {
+       "type": "atom",
+       "value": "gerald_mair"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "cultural_quarter"
+      },
+      {
+       "type": "atom",
+       "value": "ulf_langheinrich"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "taught_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "stuart_marshall"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "uses_actors",
+    "arity": 1,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "venetian_ghost"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "taxi_driver_ii"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "founding_member_of",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "atom",
+       "value": "association_of_video_artists_in_the_netherlands"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "atom",
+       "value": "association_of_video_artists_in_the_netherlands"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "work_discussed_in",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "readings_magazine"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "the_kitchen"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "independent_media"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_created",
+    "arity": 2,
+    "count": 38,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "incidents_in_a_garden"
+      },
+      {
+       "type": "year",
+       "value": "1977"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "scratch_video_volume_1"
+      },
+      {
+       "type": "year",
+       "value": "1985"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "motion_parallax"
+      },
+      {
+       "type": "year",
+       "value": "1968"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "awarded_grant",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "northern_arts"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "arts_council"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "duration_minutes",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "integer"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "running_time_1979"
+      },
+      {
+       "type": "integer",
+       "value": "6"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "one_of_these_days"
+      },
+      {
+       "type": "integer",
+       "value": "30"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "established_programme",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "string",
+       "value": "Film, Video and Sound"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "started_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "de_appel_foundation"
+      },
+      {
+       "type": "year",
+       "value": "1975"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_editing_equipment_at",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "george_barber"
+      },
+      {
+       "type": "atom",
+       "value": "terry_flaxton"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "george_barber"
+      },
+      {
+       "type": "atom",
+       "value": "flextech"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_material",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "spout_sculpture"
+      },
+      {
+       "type": "string",
+       "value": "stone"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "spout_sculpture"
+      },
+      {
+       "type": "string",
+       "value": "bronze"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "worked_as_assistant_in_city",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "string",
+       "value": "Paris"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year_moved",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      },
+      {
+       "type": "year",
+       "value": "1985"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "applied_to",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "george_barber"
+      },
+      {
+       "type": "atom",
+       "value": "bfi"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "george_barber"
+      },
+      {
+       "type": "atom",
+       "value": "arts_council"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "conserved_in_project",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "inside_outside"
+      },
+      {
+       "type": "atom",
+       "value": "european_conservation_project"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "length_minutes",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "integer"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "running_time"
+      },
+      {
+       "type": "integer",
+       "value": "6"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "performed_work",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "an_audience_s_new_clothes"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "provided_soundtrack",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "one_of_these_days"
+      },
+      {
+       "type": "atom",
+       "value": "delia_derbyshire"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "supported_by",
+    "arity": 2,
+    "count": 6,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "lesley_greene"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "josine_van_droffelaar"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "vivian_lovell"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "uses_nonactors",
+    "arity": 1,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "shouting_match"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "year",
+    "arity": 1,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "year"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "year",
+       "value": "1988"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "approached",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "alistair_macintosh"
+      },
+      {
+       "type": "atom",
+       "value": "scottish_television"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "scottish_television"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "born_in",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "george_barber"
+      },
+      {
+       "type": "string",
+       "value": "West Indies"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "published_catalogues_of",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "gallery_in_bremen"
+      },
+      {
+       "type": "atom",
+       "value": "hooykaas_stansfield"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "used_software",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "avid_express_dv"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "avid"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "collaborated_with",
+    "arity": 2,
+    "count": 133,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "television_south_west"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      },
+      {
+       "type": "atom",
+       "value": "channel_4"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "yet_another_triangle"
+      },
+      {
+       "type": "atom",
+       "value": "tony_sinden"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "member_of",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      },
+      {
+       "type": "atom",
+       "value": "association_of_cinematographic_and_television_technicians"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "robin_page"
+      },
+      {
+       "type": "atom",
+       "value": "fluxus"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "ran",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "string",
+       "value": "cinema"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "string",
+       "value": "cinema at Arts Lab"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "broadcast_on",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "upside_down_minutiae"
+      },
+      {
+       "type": "atom",
+       "value": "channel_4"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "director_of",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "nick_serota"
+      },
+      {
+       "type": "atom",
+       "value": "museum_of_modern_art_oxford"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "nick_serota"
+      },
+      {
+       "type": "atom",
+       "value": "whitechapel"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "made_at",
+    "arity": 2,
+    "count": 26,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "zero_reaches_zeno"
+      },
+      {
+       "type": "atom",
+       "value": "oval_house"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "sea_of_light"
+      },
+      {
+       "type": "atom",
+       "value": "cardiff"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "mirror"
+      },
+      {
+       "type": "atom",
+       "value": "rome"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "uses_medium",
+    "arity": 2,
+    "count": 62,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "running_time"
+      },
+      {
+       "type": "atom",
+       "value": "photographic_images"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "motion_parallax"
+      },
+      {
+       "type": "atom",
+       "value": "film"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "television_commercial"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "artist_in_residence",
+    "arity": 1,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "hooykaas_stansfield"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "financed_by",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "string",
+       "value": "project by project funding, galleries, sales of silk-screens"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "string",
+       "value": "project by project funding, galleries, sound work in Industry, commercials"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "invited_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "mick_hartney"
+      },
+      {
+       "type": "atom",
+       "value": "video_manifestation"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "teaching_at",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "dartington"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "corydon"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "assistant_to",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "atom",
+       "value": "john_latham"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "edited_at",
+    "arity": 2,
+    "count": 8,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "london_video_arts"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "duncan_of_jordanstone_college_of_art_and_design"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "all_the_pieces_i_never_did"
+      },
+      {
+       "type": "atom",
+       "value": "fantasy_factory"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "influenced_by",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "atom",
+       "value": "kandinsky"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "atom",
+       "value": "hans_jenning"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "atom",
+       "value": "turner"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "reviewed_by",
+    "arity": 2,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "sarah_kent"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "john_roberts"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "waldemar_januszczak"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "uses_venue",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "reservoir"
+      },
+      {
+       "type": "atom",
+       "value": "southampton"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "silver_lining"
+      },
+      {
+       "type": "atom",
+       "value": "tate_liverpool"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "worked_as",
+    "arity": 2,
+    "count": 2,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "string",
+       "value": "technician invigilator"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "string",
+       "value": "attendant"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "idea_for",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "video_document"
+      },
+      {
+       "type": "atom",
+       "value": "iron_horses"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "invited_to",
+    "arity": 2,
+    "count": 6,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "locations_edinburgh"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "ulrike_rosenbach"
+      },
+      {
+       "type": "atom",
+       "value": "jan_van_eyck_academy"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "bridget_riley"
+      },
+      {
+       "type": "atom",
+       "value": "jan_van_eyck_academy"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "person",
+    "arity": 1,
+    "count": 280,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "david_curtis"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "stephen_willats"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "don_pennebaker"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "programmed",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "elsa_stansfield"
+      },
+      {
+       "type": "string",
+       "value": "films"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "city",
+    "arity": 1,
+    "count": 3,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "edinburgh"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "montreal"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "maastricht"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "depicts_location",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "silver_lining"
+      },
+      {
+       "type": "atom",
+       "value": "thames"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "documented_by",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "video_document"
+      },
+      {
+       "type": "atom",
+       "value": "anna_ridley"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "mentor_of",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "parish_chakraborti"
+      },
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "mission_statement_created_for",
+    "arity": 2,
+    "count": 1,
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ]
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ]
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "london_video_arts"
+      },
+      {
+       "type": "atom",
+       "value": "david_critchley"
+      }
+     ]
+    ]
+   }
+  ],
+  "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec",
+  "languageVersion": "beingdb-dsl/1"
+ },
+ "queries": {
+  "simple_created_by": {
+   "variables": [
+    "Artist",
+    "Work"
+   ],
+   "results": [
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "static_acceleration"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_force_behind_this_movement"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "museum_of_memory_1"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "television_interview"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "field_free_space"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "an_audience_s_new_clothes"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lyrical_doubt"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "between_the_lines"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "museum_of_memory_1"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "scratch_video_volume_2"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "mirror"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "inside_outside"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "absence_of_satan"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "monologues"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "scratch_video_volume_1"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "all_the_pieces_i_never_did"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "motion_parallax"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "sea_of_light"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_wind_works"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "venetian_ghost"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "shadow_pictures"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time_1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "from_the_museum_of_memory"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "naval_death"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "luminous_portrait"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "yes_frank_no_smoke"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "monument_value_lost"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tape_tape"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "universal_man_in_forty_five_tasks"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "mandala"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "zero_reaches_zeno"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "gallery_guide"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "compass"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "incidents_in_a_garden"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "celtic_in_mind"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "pieces_i_never_did"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "minutiae"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_tape"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "pandora_the_bringer_of_gifts"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "shadow_pictures"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "cultural_quarter"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "elsas_article_on_memory"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "josine_van_droffelaar"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "audio_video_installations_catalogue"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "eve_arnold"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "behind_the_veil"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "horizontal_flow"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_garden_of_earthly_delights"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "time_spent"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "sea_of_light"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "shouting_match"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_force_behind_this_movement"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "on_boundaries"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tumbled_frame"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "passing_ship"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "one_of_these_days"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "homing"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lighthouse"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "bill_viola"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "anthem"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "upside_down"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "one_of_these_days"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "cooking_with_katie"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "videokalos"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "scratch_pieces"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "intercom_island"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "flying_time"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "river_sky"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time_1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "waiter_there_is_a_fly_on_my_wall"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "ian_breakwell"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "continuous_diary"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "on_boundaries"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vertical"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "reservoir"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "whats_it_to_you"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "revision"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "split_seconds"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "walking_off_court"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "cradle_to_grave"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "intercom_island"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "changing"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "from_the_museum_of_memory"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_signs_of_la"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "hooykaas_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "two_sides_of_a_story"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "what_the_eye_doesn_t_see_post_industrial_studies_number_1"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "deep_looking"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tv_interruptions"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "contortions"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "refusing_potatoes"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_wind_works"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "three_minute_16_millimetre_film_of_kevin_atherton_as_a_boxer"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "in_two_minds"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "flying_time"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "move_towards_the_verticality_of_the_horizon"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "yet_another_triangle"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lva_london_video_arts"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "instruction_limitation"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "whats_it_to_you"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "anna_ridley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tumble_frame"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "american_landscapes"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "automotive_action_painting"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "gina_czarnecki"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lighthouse"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "another_sphere"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "brewing"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "magnetic_north"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "deep_looking"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "joan_jonas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vertical_roll"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "joanna_millet"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "what_the_eye_doesn_t_see_post_industrial_studies_number_1"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "time_check"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "zg_presents"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "entering"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "gift"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_eleventh_hour"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "split_seconds"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "compass"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tumble_frame"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "video_void"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "horizontal_flow"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "ian_breakwell"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "christmas_diary"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "revision"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "this_is_a_television_receiver"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "electron"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "sea_of_light"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "field_free_space"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "inside_outside"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "taxi_driver_ii"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "recoil"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "video_void"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "brixton_pieces"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "magnetic_north"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "descry"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "video_times"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_greatest_hits_of_scratch_video"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "any_questions"
+     }
+    }
+   ],
+   "count": 137,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "constant_binding": {
+   "variables": [
+    "Work"
+   ],
+   "results": [
+    {
+     "Work": {
+      "type": "atom",
+      "value": "the_garden_of_earthly_delights"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "lyrical_doubt"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "monument_value_lost"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "descry"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "reservoir"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "american_landscapes"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "mirror"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "luminous_portrait"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "electron"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "time_spent"
+     }
+    }
+   ],
+   "count": 10,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "join_exhibited": {
+   "variables": [
+    "Artist",
+    "Work",
+    "Gallery"
+   ],
+   "results": [
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "pandora_the_bringer_of_gifts"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "tv_south_west"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "incidents_in_a_garden"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "acme_gallery"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "celtic_in_mind"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "glasgow_1990"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "between_the_lines"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "japanese_video_festival"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "between_the_lines"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "whitechapel_gallery"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tumbled_frame"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "channel_4"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "descry"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "blue_coat_gallery"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "descry"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "kettles_yard"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "descry"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "kunstburger"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "reservoir"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "portugal"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "reservoir"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "tate_liverpool"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "mirror"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "estonia"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "videokalos"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "second_house_bbc"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "an_audience_s_new_clothes"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "musee_d_art_moderne"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "an_audience_s_new_clothes"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "un_certain_art_anglais"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "video_times"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "ikon_gallery_birmingham"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "television_interview"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "southampton"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "television_interview"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "ikon_gallery_birmingham"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "television_interview"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "edinburgh"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "television_interview"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "british_art_show_ii"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "intercom_island"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "edinburgh"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "intercom_island"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "calton_hill"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "intercom_island"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "edinburgh_abbey"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "sea_of_light"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "chapter_art_centre"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "flying_time"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "tate"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "flying_time"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "sidney_biennale"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "one_of_these_days"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "london_film_festival"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time_1979"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "retrospective_festivals"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "whats_it_to_you"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "third_eye_centre"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "horizontal_flow"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "teesside_college_of_art"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "horizontal_flow"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "lyc_museum_banks"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "horizontal_flow"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "lyc_museum"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "cradle_to_grave"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "british_museum"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "pieces_i_never_did"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "acme_gallery"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "pieces_i_never_did"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "lva"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "yet_another_triangle"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "serpentine_gallery"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "joanna_millet"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "what_the_eye_doesn_t_see_post_industrial_studies_number_1"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "river_crossings_with_camerawork"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time_1979"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "retrospective_festivals"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "de_appel"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "video_void"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "the_kitchen"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "sea_of_light"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "chapter_art_centre"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "flying_time"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "tate"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "flying_time"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "sidney_biennale"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "compass"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "luminous_image"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "whats_it_to_you"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "third_eye_centre"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "one_of_these_days"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "london_film_festival"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "deep_looking"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "netherlands_representation_in_south_korea_2005"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "intercom_island"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "edinburgh"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "intercom_island"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "calton_hill"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "intercom_island"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "edinburgh_abbey"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "botanical_garden_in_montreal"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "visual_research_centre_in_dundee_contemporary_arts"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "montreal"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "dundee"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "vondelpark"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "horizontal_flow"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "teesside_college_of_art"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "horizontal_flow"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "lyc_museum_banks"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "horizontal_flow"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "lyc_museum"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "de_appel"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "compass"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "luminous_image"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "video_void"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "the_kitchen"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "deep_looking"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "netherlands_representation_in_south_korea_2005"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "sea_of_light"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "chapter_art_centre"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "botanical_garden_in_montreal"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "visual_research_centre_in_dundee_contemporary_arts"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "montreal"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "dundee"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "vondelpark"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "shouting_match"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "open_eye_gallery_liverpool"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "scratch_video_volume_1"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "edinburgh_television_festival"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "scratch_video_volume_2"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "edinburgh_television_festival"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "automotive_action_painting"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "tate"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_signs_of_la"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "westminster_london_west_gallery"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lva_london_video_arts"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "acme"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lva_london_video_arts"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "air_gallery"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "this_is_a_television_receiver"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "bbc_2"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tv_interruptions"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "ino_seventy"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tv_interruptions"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "hayward_gallery"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "what_the_eye_doesn_t_see_post_industrial_studies_number_1"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "river_crossings_with_camerawork"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "homing"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "british_tv"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "homing"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "tate"
+     }
+    }
+   ],
+   "count": 81,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "range_year_ge_1970": {
+   "variables": [
+    "Artist",
+    "Work",
+    "Y"
+   ],
+   "results": [
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "cultural_quarter"
+     },
+     "Y": {
+      "type": "year",
+      "value": "2003"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_garden_of_earthly_delights"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1991"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1990"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1990"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "celtic_in_mind"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1989"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "scratch_video_volume_1"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1985"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1985"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1985"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "compass"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1984"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "compass"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1984"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "brewing"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1984"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "contortions"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1983"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "from_the_museum_of_memory"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1983"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "from_the_museum_of_memory"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1983"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "magnetic_north"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1982"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "magnetic_north"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1982"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "inside_outside"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1982"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "inside_outside"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1982"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "split_seconds"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "split_seconds"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time_1979"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time_1979"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "instruction_limitation"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1977"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "incidents_in_a_garden"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1977"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "incidents_in_a_garden"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1976"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "move_towards_the_verticality_of_the_horizon"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1976"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lva_london_video_arts"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1976"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "zero_reaches_zeno"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "move_towards_the_verticality_of_the_horizon"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "videokalos"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "whats_it_to_you"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "whats_it_to_you"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tape_tape"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "changing"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1973"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "joan_jonas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vertical_roll"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1973"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "time_check"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1971"
+     }
+    }
+   ],
+   "count": 38,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "range_year_between": {
+   "variables": [
+    "Artist",
+    "Work",
+    "Y"
+   ],
+   "results": [
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "split_seconds"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "split_seconds"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time_1979"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time_1979"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "instruction_limitation"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1977"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "incidents_in_a_garden"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1977"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "incidents_in_a_garden"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1976"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "move_towards_the_verticality_of_the_horizon"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1976"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lva_london_video_arts"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1976"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "zero_reaches_zeno"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "move_towards_the_verticality_of_the_horizon"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "videokalos"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "whats_it_to_you"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "whats_it_to_you"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tape_tape"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1975"
+     }
+    }
+   ],
+   "count": 17,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "range_integer": {
+   "variables": [
+    "Work",
+    "M"
+   ],
+   "results": [
+    {
+     "Work": {
+      "type": "atom",
+      "value": "one_of_these_days"
+     },
+     "M": {
+      "type": "integer",
+      "value": "30"
+     }
+    }
+   ],
+   "count": 1,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "optional_order": {
+   "variables": [
+    "Artist",
+    "Work"
+   ],
+   "results": [
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "anna_ridley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tumble_frame"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "static_acceleration"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "recoil"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "instruction_limitation"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "all_the_pieces_i_never_did"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "cradle_to_grave"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "pieces_i_never_did"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "zero_reaches_zeno"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "move_towards_the_verticality_of_the_horizon"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "yet_another_triangle"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "changing"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lva_london_video_arts"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "motion_parallax"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vertical"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "this_is_a_television_receiver"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "time_check"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tv_interruptions"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "shouting_match"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "taxi_driver_ii"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "scratch_video_volume_1"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "yes_frank_no_smoke"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "refusing_potatoes"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "walking_off_court"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "minutiae"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "upside_down"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "river_sky"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "passing_ship"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "scratch_pieces"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "scratch_video_volume_2"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "automotive_action_painting"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "absence_of_satan"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "monologues"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "venetian_ghost"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_greatest_hits_of_scratch_video"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_signs_of_la"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_garden_of_earthly_delights"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lyrical_doubt"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "monument_value_lost"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "descry"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "reservoir"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "american_landscapes"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "mirror"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "luminous_portrait"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "electron"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "time_spent"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "any_questions"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "another_sphere"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_eleventh_hour"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "brixton_pieces"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "an_audience_s_new_clothes"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "video_times"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tape_tape"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "three_minute_16_millimetre_film_of_kevin_atherton_as_a_boxer"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_tape"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "in_two_minds"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "gallery_guide"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "television_interview"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "shadow_pictures"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "inside_outside"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time_1979"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "video_void"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "from_the_museum_of_memory"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_force_behind_this_movement"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "split_seconds"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "on_boundaries"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "magnetic_north"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "sea_of_light"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "flying_time"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_wind_works"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "compass"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "whats_it_to_you"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "revision"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "museum_of_memory_1"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "one_of_these_days"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "deep_looking"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "intercom_island"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "field_free_space"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "horizontal_flow"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "lighthouse"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "contortions"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "cooking_with_katie"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "naval_death"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "what_the_eye_doesn_t_see_post_industrial_studies_number_1"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "gift"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "waiter_there_is_a_fly_on_my_wall"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "homing"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "zg_presents"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "cultural_quarter"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "brewing"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "mandala"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "videokalos"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "entering"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "pandora_the_bringer_of_gifts"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "incidents_in_a_garden"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "celtic_in_mind"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "between_the_lines"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tumbled_frame"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "tumble_frame"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "universal_man_in_forty_five_tasks"
+     }
+    }
+   ],
+   "count": 102,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "negation": {
+   "variables": [
+    "Artist"
+   ],
+   "results": [
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "rose_garrard"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "george_barber"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "anna_ridley"
+     }
+    }
+   ],
+   "count": 5,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "invalid_unsafe_negation": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "unsafe_negation",
+     "message": "'not' block uses variable(s) not bound outside it: F",
+     "variables": [
+      "F"
+     ]
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "invalid_unknown_predicate": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "unknown_predicate",
+     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, rented_by, edited_by, invited_by?",
+     "line": 3,
+     "column": 3,
+     "predicate": "created_bi",
+     "suggestions": [
+      "created_by",
+      "curated_by",
+      "rented_by",
+      "edited_by",
+      "invited_by"
+     ]
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "invalid_syntax": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "syntax_error",
+     "message": "Expected 'where' after 'find ...'"
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  },
+  "invalid_type_mismatch": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "comparison_type_mismatch",
+     "message": "Cannot compare a year with a date.",
+     "line": 4,
+     "column": 3,
+     "leftType": "year",
+     "rightType": "date",
+     "suggestion": "Use a date literal such as @1970-01-01."
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+  }
+ }
+}
