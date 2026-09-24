@@ -2,6 +2,9 @@
 ; BeingDB runtime), built from the local checkout rather than copied.
 (vendored_dirs vendor)
 
+; native/ is a separate dune root (Irmin-based exporter and parity tests).
+(dirs :standard \ native)
+
 ; `dune build` also assembles the servable page in _build/default/web.
 (rule
  (alias default)

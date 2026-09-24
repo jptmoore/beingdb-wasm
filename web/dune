@@ -4,12 +4,24 @@
 (executable
  (name main)
  (modes wasm)
- (libraries beingdb_wasm digestif.ocaml js_of_ocaml))
+ (libraries beingdb_wasm digestif.ocaml js_of_ocaml yojson))
 
-; Build the page alongside the WASM artefacts so _build/default/web can be served.
+; The exported Rewind pack view (see native/ and README).
+(rule
+ (copy ../data/rewind.browser.json rewind.browser.json))
+
+; Build the pages alongside the WASM artefacts; serve _build/default (parity.html
+; also reads ../fixtures).
 (rule
  (alias page)
- (deps index.html demo.js main.bc.wasm.js)
+ (deps
+  index.html
+  demo.js
+  parity.html
+  main.bc.wasm.js
+  rewind.browser.json
+  ../fixtures/rewind_queries.json
+  ../fixtures/rewind_golden.json)
  (action (progn)))
 
 ; WASM smoke test: load the artefact in Node and call BeingDB.query. It lives
@@ -19,3 +31,15 @@
  (enabled_if %{bin-available:node})
  (deps smoke.cjs main.bc.wasm.js)
  (action (run node smoke.cjs)))
+
+; Real Rewind export in WASM vs goldens recorded from the native server.
+(rule
+ (alias runtest)
+ (enabled_if %{bin-available:node})
+ (deps
+  rewind.cjs
+  main.bc.wasm.js
+  rewind.browser.json
+  ../fixtures/rewind_queries.json
+  ../fixtures/rewind_golden.json)
+ (action (run node rewind.cjs)))

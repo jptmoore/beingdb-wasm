@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BeingDB WASM Rewind parity</title>
+</head>
+<body>
+  <h1>Rewind parity (WASM vs native server goldens)</h1>
+  <pre id="out">running…</pre>
+  <script>
+    // Same checks as rewind.cjs, in a browser. Serve _build/default, open /web/parity.html.
+    const normalize = (r) =>
+      r.results ? { ...r, results: r.results.map((x) => JSON.stringify(x)).sort() } : r;
+    const canon = (v) =>
+      v && typeof v === "object"
+        ? Array.isArray(v) ? v.map(canon) : Object.fromEntries(Object.keys(v).sort().map((k) => [k, canon(v[k])]))
+        : v;
+    const same = (a, b) => JSON.stringify(canon(a)) === JSON.stringify(canon(b));
+    window.onBeingDBReady = async (BeingDB) => {
+      const get = async (url) => (await fetch(url)).text();
+      const [text, queries, golden] = await Promise.all([
+        get("rewind.browser.json"), get("../fixtures/rewind_queries.json"), get("../fixtures/rewind_golden.json"),
+      ]);
+      const g = JSON.parse(golden);
+      const lines = [];
+      let t = performance.now();
+      const summary = JSON.parse(BeingDB.load(text));
+      lines.push(`load ${(performance.now() - t).toFixed(0)} ms ${JSON.stringify(summary)}`);
+      let failures = 0;
+      const check = (name, ok, ms) => { if (!ok) failures++; lines.push(`${ok ? "PASS" : "FAIL"} ${name} ${ms.toFixed(1)} ms`); };
+      t = performance.now();
+      const preds = JSON.parse(BeingDB.predicates());
+      check("predicates", same(preds, g.predicates), performance.now() - t);
+      for (const { name, query } of JSON.parse(queries)) {
+        t = performance.now();
+        const got = JSON.parse(BeingDB.query(query));
+        check(name, same(normalize(got), normalize(g.queries[name])), performance.now() - t);
+      }
+      lines.unshift(failures === 0 ? "ALL PASSED" : `${failures} FAILED`);
+      document.getElementById("out").textContent = lines.join("\n");
+      // Leaves the verdict in the static server's access log (for browsers that can't be scripted).
+      fetch(`report?${encodeURIComponent(`${lines[0]} | ${lines[1]} | ${navigator.userAgent}`)}`).catch(() => {});
+    };
+    window.addEventListener("error", (e) =>
+      fetch(`report?${encodeURIComponent(`ERROR ${e.message} | ${navigator.userAgent}`)}`).catch(() => {}));
+    window.addEventListener("unhandledrejection", (e) =>
+      fetch(`report?${encodeURIComponent(`ERROR ${e.reason} | ${navigator.userAgent}`)}`).catch(() => {}));
+  </script>
+  <script src="main.bc.wasm.js"></script>
+</body>
+</html>

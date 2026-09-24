@@ -1,0 +1,14 @@
+[
+  { "name": "simple_created_by", "query": "find Artist, Work\nwhere\n  created_by(Work, Artist)" },
+  { "name": "constant_binding", "query": "find Work\nwhere\n  created_by(Work, judith_goddard)" },
+  { "name": "join_exhibited", "query": "find Artist, Work, Gallery\nwhere\n  person(Artist)\n  created_by(Work, Artist)\n  exhibited_at(Work, Gallery)" },
+  { "name": "range_year_ge_1970", "query": "find Artist, Work, Y\nwhere\n  created_by(Work, Artist)\n  year_created(Work, Y)\n  Y >= 1970" },
+  { "name": "range_year_between", "query": "find Artist, Work, Y\nwhere\n  created_by(Work, Artist)\n  year_created(Work, Y)\n  Y between 1975 and 1980" },
+  { "name": "range_integer", "query": "find Work, M\nwhere\n  duration_minutes(Work, M)\n  M > 10" },
+  { "name": "optional_order", "query": "find Artist, Work\nwhere\n  person(Artist)\n  interviewed_artist(Artist)\n  optional\n    created_by(Work, Artist)\norder by Artist ascending" },
+  { "name": "negation", "query": "find Artist\nwhere\n  interviewed_artist(Artist)\n  not\n    funded_by(Artist, arts_council)" },
+  { "name": "invalid_unsafe_negation", "query": "find Artist\nwhere\n  interviewed_artist(Artist)\n  not\n    funded_by(Artist, F)" },
+  { "name": "invalid_unknown_predicate", "query": "find W\nwhere\n  created_bi(W, A)" },
+  { "name": "invalid_syntax", "query": "find W where created_by(W, A)" },
+  { "name": "invalid_type_mismatch", "query": "find W\nwhere\n  year_created(W, Y)\n  Y >= @1970-01-01" }
+]

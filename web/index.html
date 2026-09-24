@@ -12,13 +12,16 @@
 <body>
   <h1>BeingDB WASM proof-of-concept</h1>
   <p>The real BeingDB DSL parser, planner and evaluator, compiled with wasm_of_ocaml,
-     querying a tiny in-memory fixture. Status: <span id="status">loading…</span></p>
+     querying an export of the compiled Rewind interview pack.</p>
+  <p>Status: <span id="status">Loading WASM…</span></p>
   <textarea id="query">find Artist, Work, Y
 where
   created_by(Work, Artist)
   year_created(Work, Y)
-  Y >= 1970</textarea>
-  <p><button id="run" disabled>Run query</button></p>
+  Y between 1975 and 1980
+order by Y ascending</textarea>
+  <p><button id="run" disabled>Run query</button> <button id="predicates" disabled>List predicates</button>
+     <span id="timing"></span></p>
   <pre id="result"></pre>
   <script src="demo.js"></script>
   <script src="main.bc.wasm.js"></script>
