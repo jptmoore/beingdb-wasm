@@ -19,8 +19,10 @@ evaluator are `Query_engine`. JavaScript only fetches text and calls the API.
 
 - `session.ml` - `Session.Make (Store : Runtime_store.S)`: query and predicate
   introspection, shaped like the native server's `POST /query` (dsl, execute)
-  and `GET /predicates?detailed=true`. Used for the fixture, the export and (in
-  native tests) Irmin Pack.
+  and `GET /predicates?detailed=true` (predicates use BeingDB's own
+  `Query_environment.to_json`, so declared descriptions, roles and semantic
+  types are included). Used for the fixture, the export and (in native tests)
+  Irmin Pack.
 - `export_reader.ml` - the `Pack_layout.READER` (`find`/`list`) over the export.
 - `beingdb_wasm.ml` - browser state: Phase 1 fixture (`Memory_store`) until
   `load` is called, then the export.

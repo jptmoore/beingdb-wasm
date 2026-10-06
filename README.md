@@ -99,6 +99,14 @@ window.onBeingDBReady = async (BeingDB) => {
 Load once, query many times. Before `load`, queries run against the small
 Phase 1 fixture.
 
+`predicates()` is BeingDB's own `Query_environment.to_json`. Each predicate has
+`name`, `arity`, `count`, `arguments` (`position`, `types`) and `examples`.
+When the pack declares them, it also has `description` and, per argument,
+`role` and `semanticType`. For example, `created_by` has roles `Work`, `Artist`
+and the description "Relates a work to the artist or artist group who made it."
+Declarations are descriptive only: they do not change how queries validate or
+run, but they are part of the `environmentFingerprint`.
+
 ## Example
 
 ```
