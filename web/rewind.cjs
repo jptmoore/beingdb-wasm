@@ -24,7 +24,18 @@ globalThis.onBeingDBReady = (BeingDB) => {
   assert.equal(summary.environmentFingerprint, golden.predicates.environmentFingerprint);
   assert.equal(summary.predicates, golden.predicates.predicates.length);
 
-  assert.deepEqual(JSON.parse(BeingDB.predicates()), golden.predicates);
+  const predicates = JSON.parse(BeingDB.predicates());
+  assert.deepEqual(predicates, golden.predicates);
+
+  // Declared predicate metadata from the pack reaches the runtime introspection.
+  const declared = Object.values(JSON.parse(text).tree.meta).map((m) => JSON.parse(m).declaration).filter(Boolean);
+  const described = predicates.predicates.filter((p) => p.description).length;
+  const withRoles = predicates.predicates.filter((p) => p.arguments.some((a) => a.role)).length;
+  assert.equal(described, declared.filter((d) => d.description).length, "descriptions exposed");
+  assert.equal(withRoles, declared.filter((d) => d.arguments).length, "argument roles exposed");
+  const createdBy = predicates.predicates.find((p) => p.name === "created_by");
+  assert.deepEqual(createdBy.arguments.map((a) => a.role), ["Work", "Artist"]);
+  assert.match(createdBy.description, /artist/);
 
   const times = [];
   for (const { name, query } of queries) {
@@ -33,7 +44,10 @@ globalThis.onBeingDBReady = (BeingDB) => {
     times.push(`${name}=${(performance.now() - t).toFixed(1)}ms`);
     assert.deepEqual(normalize(got), normalize(golden.queries[name]), name);
   }
-  console.log(`wasm rewind parity passed: ${JSON.stringify(summary)} load=${loadMs.toFixed(0)}ms`);
+  console.log(
+    `wasm rewind parity passed: ${JSON.stringify(summary)} load=${loadMs.toFixed(0)}ms ` +
+      `descriptions=${described}/${predicates.predicates.length} roles=${withRoles}/${predicates.predicates.length}`,
+  );
   console.log(times.join(" "));
 };
 

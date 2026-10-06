@@ -73,26 +73,7 @@ module Make (Store : Runtime_store.S) = struct
               | { core_query = Some cq; warnings; _ } -> execute t cq warnings)
         with exn -> failure "internal_error" (Printf.sprintf "Query error: %s" (Printexc.to_string exn)))
 
-  let predicates t : Yojson.Safe.t =
-    let predicate_json (p : Query_environment.predicate_signature) =
-      `Assoc
-        [
-          ("name", `String p.name);
-          ("arity", `Int p.arity);
-          ("count", `Int p.count);
-          ( "arguments",
-            `List
-              (List.map
-                 (fun (a : Query_environment.argument_signature) ->
-                   `Assoc [ ("position", `Int a.position); ("types", strings a.types) ])
-                 p.arguments) );
-          ("examples", `List (List.map (fun args -> `List (List.map Value.to_json args)) p.examples));
-        ]
-    in
-    `Assoc
-      [
-        ("predicates", `List (List.map predicate_json t.env.predicates));
-        ("environmentFingerprint", `String t.env.fingerprint);
-        ("languageVersion", `String t.env.language_version);
-      ]
+  (* BeingDB's own serialisation (as served by GET /predicates?detailed=true),
+     so declared roles, semantic types and descriptions are exposed too. *)
+  let predicates t : Yojson.Safe.t = Query_environment.to_json t.env
 end

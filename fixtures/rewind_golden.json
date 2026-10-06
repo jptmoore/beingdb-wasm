@@ -5,18 +5,21 @@
     "name": "created_by",
     "arity": 2,
     "count": 137,
+    "description": "Relates a work to the artist or artist group who made it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      }
     ],
     "examples": [
@@ -56,18 +59,21 @@
     "name": "rented_by",
     "arity": 2,
     "count": 1,
+    "description": "Relates premises to an organisation involved in renting them; whether it was landlord or tenant is not distinguished.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Premises"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -87,18 +93,21 @@
     "name": "shot_in",
     "arity": 2,
     "count": 2,
+    "description": "Relates a work to a place where it was shot.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Location"
      }
     ],
     "examples": [
@@ -128,18 +137,21 @@
     "name": "sold_at",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to a retailer that sold copies of it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Retailer"
      }
     ],
     "examples": [
@@ -159,18 +171,21 @@
     "name": "sold_work_to",
     "arity": 2,
     "count": 1,
+    "description": "Relates an artist to a buyer, given as text, to whom they sold work.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Buyer"
      }
     ],
     "examples": [
@@ -190,18 +205,21 @@
     "name": "studied_at",
     "arity": 2,
     "count": 5,
+    "description": "Relates a person to an institution where they studied.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      }
     ],
     "examples": [
@@ -246,13 +264,15 @@
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      }
     ],
     "examples": [
@@ -272,18 +292,21 @@
     "name": "year_started",
     "arity": 2,
     "count": 1,
+    "description": "Records the year in which work on a piece started.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -303,18 +326,21 @@
     "name": "year_started_using_technology",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to a technology, given as text, that they started using; despite the name, no year is recorded.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Technology"
      }
     ],
     "examples": [
@@ -344,18 +370,21 @@
     "name": "contributed_text",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a publication, such as a catalogue, for which they wrote text.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Author"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Publication"
      }
     ],
     "examples": [
@@ -375,18 +404,21 @@
     "name": "gave_exhibition_to",
     "arity": 2,
     "count": 1,
+    "description": "Relates a venue to an artist or group to whom it gave an exhibition.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      }
     ],
     "examples": [
@@ -406,18 +438,21 @@
     "name": "held_position",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a job title, given as text, that they held.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Position"
      }
     ],
     "examples": [
@@ -437,18 +472,21 @@
     "name": "interviewee",
     "arity": 2,
     "count": 10,
+    "description": "Relates a source interview transcript to the artist interviewed in it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Interview"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      }
     ],
     "examples": [
@@ -488,18 +526,21 @@
     "name": "participated_in",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a scheme, programme or event they took part in.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Programme"
      }
     ],
     "examples": [
@@ -519,18 +560,21 @@
     "name": "used_lab",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a film laboratory they used.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Lab"
      }
     ],
     "examples": [
@@ -550,12 +594,14 @@
     "name": "work",
     "arity": 1,
     "count": 176,
+    "description": "Marks an entity as a creative work, such as a video, film, installation, performance, broadcast or publication.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      }
     ],
     "examples": [
@@ -583,18 +629,21 @@
     "name": "broadcast_by",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to the broadcaster or station that transmitted it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Broadcaster"
      }
     ],
     "examples": [
@@ -614,18 +663,21 @@
     "name": "first_shown_at",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to the venue where it was first shown.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -645,18 +697,21 @@
     "name": "installed_at",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to the location where it is installed.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Location"
      }
     ],
     "examples": [
@@ -676,18 +731,21 @@
     "name": "interviewed",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to someone they interviewed, as mentioned in an interview; the source interviews themselves are recorded by interviewee.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Interviewer"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Interviewee"
      }
     ],
     "examples": [
@@ -717,12 +775,14 @@
     "name": "event",
     "arity": 1,
     "count": 2,
+    "description": "Marks an entity as an event, such as a festival or tour.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Event"
      }
     ],
     "examples": [
@@ -744,18 +804,21 @@
     "name": "residency_at",
     "arity": 2,
     "count": 1,
+    "description": "Relates an artist to a place or venue where they held a residency.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Location"
      }
     ],
     "examples": [
@@ -775,18 +838,21 @@
     "name": "used_medium",
     "arity": 2,
     "count": 3,
+    "description": "Relates a work to a medium or format, given as text, used in it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Medium"
      }
     ],
     "examples": [
@@ -826,18 +892,21 @@
     "name": "venue_in_area",
     "arity": 2,
     "count": 4,
+    "description": "Relates an area to a venue located in it; despite the name, the area is the first argument.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Area"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -877,18 +946,21 @@
     "name": "year_left",
     "arity": 2,
     "count": 1,
+    "description": "Records the year in which a person left an organisation or post; the organisation is not recorded.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -908,18 +980,21 @@
     "name": "acquired_by",
     "arity": 2,
     "count": 2,
+    "description": "Relates an artist to an organisation that purchased some of their work.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Buyer"
      }
     ],
     "examples": [
@@ -949,18 +1024,21 @@
     "name": "made_proposal_to",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to an organisation to which they submitted a proposal.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -980,18 +1058,21 @@
     "name": "protagonist_in",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to the artist in whose work they appeared as a protagonist.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      }
     ],
     "examples": [
@@ -1021,18 +1102,21 @@
     "name": "renamed_as",
     "arity": 2,
     "count": 1,
+    "description": "Relates an organisation to the name or organisation it was later renamed as.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "FormerOrganisation"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "LaterOrganisation"
      }
     ],
     "examples": [
@@ -1052,18 +1136,21 @@
     "name": "head_of_department",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a department they headed.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Department"
      }
     ],
     "examples": [
@@ -1083,18 +1170,21 @@
     "name": "used_in_work",
     "arity": 2,
     "count": 2,
+    "description": "Relates a work to an object or location used in it; despite the name, the work is the first argument.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Element"
      }
     ],
     "examples": [
@@ -1124,18 +1214,21 @@
     "name": "used_institutional_resource",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to an institution whose equipment or resources they used.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      }
     ],
     "examples": [
@@ -1155,18 +1248,21 @@
     "name": "year_broadcast",
     "arity": 2,
     "count": 1,
+    "description": "Records the year in which a work was broadcast.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -1186,18 +1282,21 @@
     "name": "conserved_by",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to the organisation responsible for conserving it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -1217,18 +1316,21 @@
     "name": "council_member_of",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to an organisation on whose council of management they served.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -1248,18 +1350,21 @@
     "name": "filmed_at",
     "arity": 2,
     "count": 2,
+    "description": "Relates a work to a location where its footage was filmed.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Location"
      }
     ],
     "examples": [
@@ -1289,18 +1394,21 @@
     "name": "first_exhibition_of",
     "arity": 2,
     "count": 1,
+    "description": "Relates an exhibition space or programme to the artist or group who had its first exhibition.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Exhibition"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      }
     ],
     "examples": [
@@ -1320,18 +1428,21 @@
     "name": "published_in",
     "arity": 2,
     "count": 3,
+    "description": "Relates a work, article or special issue to the periodical in which it was published or written about.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Publication"
      }
     ],
     "examples": [
@@ -1371,18 +1482,21 @@
     "name": "used_venue",
     "arity": 2,
     "count": 1,
+    "description": "Relates an organisation to a venue it used, for example for meetings.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -1402,18 +1516,21 @@
     "name": "wrote_about",
     "arity": 2,
     "count": 2,
+    "description": "Relates a writer to a work they wrote about.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Writer"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      }
     ],
     "examples": [
@@ -1443,18 +1560,21 @@
     "name": "active_in",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a campaign or project in which they were actively involved.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Project"
      }
     ],
     "examples": [
@@ -1474,18 +1594,21 @@
     "name": "established",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to a course, research group or other initiative they established.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Initiative"
      }
     ],
     "examples": [
@@ -1515,12 +1638,14 @@
     "name": "organisation",
     "arity": 1,
     "count": 211,
+    "description": "Marks an entity as an organisation, such as an institution, funder, broadcaster, company, publication or artist group.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -1548,18 +1673,21 @@
     "name": "performed_at",
     "arity": 2,
     "count": 12,
+    "description": "Relates an artist or performance group (occasionally a performance work) to a venue or event where they performed.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Performer"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -1599,18 +1727,21 @@
     "name": "used_facilities",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to an institution whose facilities were used to make it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      }
     ],
     "examples": [
@@ -1630,18 +1761,21 @@
     "name": "worked_at",
     "arity": 2,
     "count": 5,
+    "description": "Relates a person to an organisation or institution where they worked.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -1681,18 +1815,21 @@
     "name": "began_in",
     "arity": 2,
     "count": 1,
+    "description": "Records the year in which work on a piece or ongoing project began.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -1712,18 +1849,21 @@
     "name": "contains_photograph_of",
     "arity": 2,
     "count": 2,
+    "description": "Relates a work to a free-text description of a subject photographed in it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Subject"
      }
     ],
     "examples": [
@@ -1753,18 +1893,21 @@
     "name": "educated_at",
     "arity": 2,
     "count": 21,
+    "description": "Relates a person to an institution where they studied.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      }
     ],
     "examples": [
@@ -1804,18 +1947,21 @@
     "name": "involved_with",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to an organisation they were involved with.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -1835,18 +1981,21 @@
     "name": "president_of",
     "arity": 2,
     "count": 3,
+    "description": "Relates a person to an organisation of which they were president.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -1886,18 +2035,21 @@
     "name": "edited_by",
     "arity": 2,
     "count": 5,
+    "description": "Relates a work or publication to the person who edited it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Editor"
      }
     ],
     "examples": [
@@ -1937,18 +2089,21 @@
     "name": "wrote_for",
     "arity": 2,
     "count": 2,
+    "description": "Relates a writer to a publication they wrote for.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Writer"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Publication"
      }
     ],
     "examples": [
@@ -1978,18 +2133,21 @@
     "name": "music_promotion_by",
     "arity": 2,
     "count": 5,
+    "description": "Relates a musician or band to a person who promoted their live performances.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Musician"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Promoter"
      }
     ],
     "examples": [
@@ -2029,12 +2187,14 @@
     "name": "place",
     "arity": 1,
     "count": 1,
+    "description": "Marks an entity as a geographic place.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Place"
      }
     ],
     "examples": [
@@ -2050,18 +2210,21 @@
     "name": "commissioned_by",
     "arity": 2,
     "count": 12,
+    "description": "Relates a work (occasionally an artist) to the organisation, venue or person that commissioned it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Commissioner"
      }
     ],
     "examples": [
@@ -2101,18 +2264,21 @@
     "name": "curated_by",
     "arity": 2,
     "count": 20,
+    "description": "Relates an exhibition, programme, compilation or work to the person who curated or selected it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Project"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Curator"
      }
     ],
     "examples": [
@@ -2152,18 +2318,21 @@
     "name": "inspired_by",
     "arity": 2,
     "count": 2,
+    "description": "Relates an artist to a person, such as a writer or artist, whose work inspired them.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Influence"
      }
     ],
     "examples": [
@@ -2193,18 +2362,21 @@
     "name": "moved_to",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a place they moved to.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Place"
      }
     ],
     "examples": [
@@ -2224,18 +2396,21 @@
     "name": "promoted_medium",
     "arity": 2,
     "count": 1,
+    "description": "Relates an organisation to an artistic medium, given as text, that it actively promoted.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Medium"
      }
     ],
     "examples": [
@@ -2255,18 +2430,21 @@
     "name": "set_up_at",
     "arity": 2,
     "count": 1,
+    "description": "Relates an installation work to the venue where it was set up.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -2286,24 +2464,28 @@
     "name": "year_involved",
     "arity": 3,
     "count": 1,
+    "description": "Records, as free text, the period in which a person was involved with an organisation.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      },
      {
       "position": 2,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Period"
      }
     ],
     "examples": [
@@ -2327,18 +2509,21 @@
     "name": "year_travelled",
     "arity": 2,
     "count": 1,
+    "description": "Records a year in which an artist or group travelled; the destination is not recorded.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -2358,18 +2543,21 @@
     "name": "exhibition_title",
     "arity": 2,
     "count": 1,
+    "description": "Records the title of an exhibition or exhibition series as text.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Exhibition"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Title"
      }
     ],
     "examples": [
@@ -2389,18 +2577,21 @@
     "name": "used_by",
     "arity": 2,
     "count": 1,
+    "description": "Relates premises to an organisation that used them.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Premises"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -2420,12 +2611,14 @@
     "name": "country",
     "arity": 1,
     "count": 1,
+    "description": "Marks an entity as a country.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Country"
      }
     ],
     "examples": [
@@ -2441,18 +2634,21 @@
     "name": "first_used_technique",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to a technique, given as text, that its artists used for the first time in it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Technique"
      }
     ],
     "examples": [
@@ -2472,12 +2668,14 @@
     "name": "interviewed_artist",
     "arity": 1,
     "count": 10,
+    "description": "Marks an artist who is the subject of one of the source interviews in this dataset.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      }
     ],
     "examples": [
@@ -2505,18 +2703,21 @@
     "name": "organised_by",
     "arity": 2,
     "count": 3,
+    "description": "Relates an exhibition, event or programme to the person or organisation that organised it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Event"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organiser"
      }
     ],
     "examples": [
@@ -2556,12 +2757,14 @@
     "name": "venue",
     "arity": 1,
     "count": 153,
+    "description": "Marks an entity as a venue or location where work was made, shown or performed, such as a gallery, college, studio or site.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -2589,18 +2792,21 @@
     "name": "based_in",
     "arity": 2,
     "count": 1,
+    "description": "Relates an organisation to the country or place, given as text, where it is based.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Place"
      }
     ],
     "examples": [
@@ -2620,18 +2826,21 @@
     "name": "department_name",
     "arity": 2,
     "count": 1,
+    "description": "Records the name, given as text, of a department within an institution.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Name"
      }
     ],
     "examples": [
@@ -2651,18 +2860,21 @@
     "name": "exhibited_at",
     "arity": 2,
     "count": 120,
+    "description": "Relates a work, or an artist or group, to a venue, exhibition or place where the work was shown.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "WorkOrArtist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "VenueOrExhibition"
      }
     ],
     "examples": [
@@ -2702,12 +2914,14 @@
     "name": "named_by_competition",
     "arity": 1,
     "count": 1,
+    "description": "Marks a work whose name was chosen through a public competition.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      }
     ],
     "examples": [
@@ -2723,12 +2937,14 @@
     "name": "worked_with_sound",
     "arity": 1,
     "count": 1,
+    "description": "Marks an artist who has worked with sound.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      }
     ],
     "examples": [
@@ -2744,12 +2960,14 @@
     "name": "document",
     "arity": 1,
     "count": 10,
+    "description": "Marks a source interview transcript from which facts in this dataset were extracted.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Interview"
      }
     ],
     "examples": [
@@ -2777,18 +2995,21 @@
     "name": "performed_in",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a work in which they performed or appeared.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Performer"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      }
     ],
     "examples": [
@@ -2808,18 +3029,21 @@
     "name": "project_for",
     "arity": 2,
     "count": 1,
+    "description": "Relates an artist to an organisation for which they made a commissioned project.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Client"
      }
     ],
     "examples": [
@@ -2839,18 +3063,21 @@
     "name": "source_url",
     "arity": 2,
     "count": 10,
+    "description": "Relates a source interview transcript to the URL of the published document it was extracted from.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Interview"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Url"
      }
     ],
     "examples": [
@@ -2890,18 +3117,21 @@
     "name": "used_equipment",
     "arity": 2,
     "count": 5,
+    "description": "Relates a work, or an artist, to equipment, given as text, used in making it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "WorkOrArtist"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Equipment"
      }
     ],
     "examples": [
@@ -2941,18 +3171,21 @@
     "name": "commissioning_editor_for",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to the broadcaster for which they were a commissioning editor.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Broadcaster"
      }
     ],
     "examples": [
@@ -2972,18 +3205,21 @@
     "name": "country_represented",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to the country, given as text, that it represented at an international exhibition.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Country"
      }
     ],
     "examples": [
@@ -3003,12 +3239,14 @@
     "name": "exhibition",
     "arity": 1,
     "count": 45,
+    "description": "Marks an entity as an exhibition, show, festival or broadcast programme.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Exhibition"
      }
     ],
     "examples": [
@@ -3036,18 +3274,21 @@
     "name": "held_at",
     "arity": 2,
     "count": 1,
+    "description": "Relates an exhibition or event to the venue or institution where it was held.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Event"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -3067,18 +3308,21 @@
     "name": "photographed_by",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to the person who took photographs used in it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Photographer"
      }
     ],
     "examples": [
@@ -3098,18 +3342,21 @@
     "name": "used_technology",
     "arity": 2,
     "count": 4,
+    "description": "Relates a person to a technology or device, given as text, that they used.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Technology"
      }
     ],
     "examples": [
@@ -3149,18 +3396,21 @@
     "name": "affiliated_with",
     "arity": 2,
     "count": 26,
+    "description": "Relates a person (occasionally an organisation) to an organisation, institution or group they were associated with.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -3200,12 +3450,14 @@
     "name": "became_cameraman",
     "arity": 1,
     "count": 1,
+    "description": "Marks a person who became a professional cameraman.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      }
     ],
     "examples": [
@@ -3221,24 +3473,28 @@
     "name": "co_edited_by",
     "arity": 3,
     "count": 1,
+    "description": "Relates a publication to two people who co-edited it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Publication"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Editor"
      },
      {
       "position": 2,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "CoEditor"
      }
     ],
     "examples": [
@@ -3262,18 +3518,21 @@
     "name": "featured_person",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to a free-text description of a person or figure who appears in it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Description"
      }
     ],
     "examples": [
@@ -3293,18 +3552,21 @@
     "name": "funded_by",
     "arity": 2,
     "count": 35,
+    "description": "Relates a person, work, organisation or event to an organisation that funded it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Recipient"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Funder"
      }
     ],
     "examples": [
@@ -3344,18 +3606,21 @@
     "name": "involved_in",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to an exhibition, organisation or activity they were involved in.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Activity"
      }
     ],
     "examples": [
@@ -3385,18 +3650,21 @@
     "name": "music_by",
     "arity": 2,
     "count": 2,
+    "description": "Relates a work to the person who made its music.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Composer"
      }
     ],
     "examples": [
@@ -3426,18 +3694,21 @@
     "name": "partner_of",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to their life partner.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Partner"
      }
     ],
     "examples": [
@@ -3457,18 +3728,21 @@
     "name": "selected_for",
     "arity": 2,
     "count": 1,
+    "description": "Relates an artist to an exhibition they were selected for.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Exhibition"
      }
     ],
     "examples": [
@@ -3488,18 +3762,21 @@
     "name": "showed_at",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to a venue where it was shown.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -3519,18 +3796,21 @@
     "name": "year_exhibited",
     "arity": 2,
     "count": 2,
+    "description": "Records a year in which an artist exhibited work.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -3560,18 +3840,21 @@
     "name": "had_machine_made_by",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to the person who built a machine used in it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Maker"
      }
     ],
     "examples": [
@@ -3591,18 +3874,21 @@
     "name": "in_collection",
     "arity": 2,
     "count": 3,
+    "description": "Relates a work to the museum or institution whose collection holds it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Collection"
      }
     ],
     "examples": [
@@ -3642,18 +3928,21 @@
     "name": "met_at",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a venue where they met someone; the other person is not recorded.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -3673,18 +3962,21 @@
     "name": "original_name_of",
     "arity": 2,
     "count": 1,
+    "description": "Relates an organisation's original name or form to the organisation it later became.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "FormerOrganisation"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "LaterOrganisation"
      }
     ],
     "examples": [
@@ -3704,18 +3996,21 @@
     "name": "published_by",
     "arity": 2,
     "count": 2,
+    "description": "Relates a publication or published piece to the organisation or editor responsible for publishing it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Publication"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Publisher"
      }
     ],
     "examples": [
@@ -3745,18 +4040,21 @@
     "name": "reviewed_in",
     "arity": 2,
     "count": 3,
+    "description": "Relates a work, or an artist, to a publication in which it was reviewed.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "WorkOrArtist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Publication"
      }
     ],
     "examples": [
@@ -3796,18 +4094,21 @@
     "name": "travelled_to",
     "arity": 2,
     "count": 1,
+    "description": "Relates an artist or group to a place, given as text, that they travelled to.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Place"
      }
     ],
     "examples": [
@@ -3827,18 +4128,21 @@
     "name": "year_joined",
     "arity": 2,
     "count": 1,
+    "description": "Records the year in which a person joined an organisation or post; the organisation is not recorded.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -3858,24 +4162,28 @@
     "name": "year_started_work",
     "arity": 3,
     "count": 1,
+    "description": "Records the year in which a person started working at an organisation.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      },
      {
       "position": 2,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -3899,18 +4207,21 @@
     "name": "chairman_of",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to an organisation they chaired.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -3930,18 +4241,21 @@
     "name": "distributed_by",
     "arity": 2,
     "count": 3,
+    "description": "Relates a work, or an artist's body of work, to the organisation that distributed it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "WorkOrArtist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Distributor"
      }
     ],
     "examples": [
@@ -3981,18 +4295,21 @@
     "name": "founded_by",
     "arity": 2,
     "count": 4,
+    "description": "Relates an organisation to a person who founded or co-founded it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Founder"
      }
     ],
     "examples": [
@@ -4032,18 +4349,21 @@
     "name": "got_funding_for",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a kind of activity, given as text, for which they received funding.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Activity"
      }
     ],
     "examples": [
@@ -4063,18 +4383,21 @@
     "name": "produced_by",
     "arity": 2,
     "count": 4,
+    "description": "Relates a work to a person who produced it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Producer"
      }
     ],
     "examples": [
@@ -4114,18 +4437,21 @@
     "name": "received_funding_from",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to an organisation from which they received funding.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Recipient"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Funder"
      }
     ],
     "examples": [
@@ -4145,18 +4471,21 @@
     "name": "taught_at",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to an institution where they taught.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      }
     ],
     "examples": [
@@ -4186,18 +4515,21 @@
     "name": "used_in",
     "arity": 2,
     "count": 2,
+    "description": "Relates a work to a technique or quality, given as text, used in it; despite the name, the work is the first argument.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Technique"
      }
     ],
     "examples": [
@@ -4227,18 +4559,21 @@
     "name": "employed_by",
     "arity": 2,
     "count": 34,
+    "description": "Relates a person to an organisation or institution that employed them, including teaching posts.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Employer"
      }
     ],
     "examples": [
@@ -4278,18 +4613,21 @@
     "name": "external_examiner_at",
     "arity": 2,
     "count": 4,
+    "description": "Relates a person to an institution where they served as an external examiner.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      }
     ],
     "examples": [
@@ -4329,18 +4667,21 @@
     "name": "soundtrack_by",
     "arity": 2,
     "count": 7,
+    "description": "Relates a work to a person or group who made a soundtrack for it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Composer"
      }
     ],
     "examples": [
@@ -4380,18 +4721,21 @@
     "name": "taught_by",
     "arity": 2,
     "count": 1,
+    "description": "Relates a student to a person who taught them.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Student"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Teacher"
      }
     ],
     "examples": [
@@ -4411,12 +4755,14 @@
     "name": "uses_actors",
     "arity": 1,
     "count": 2,
+    "description": "Marks a work made with actors.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      }
     ],
     "examples": [
@@ -4438,18 +4784,21 @@
     "name": "founding_member_of",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to an organisation of which they were a founding member.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -4479,18 +4828,21 @@
     "name": "work_discussed_in",
     "arity": 2,
     "count": 3,
+    "description": "Relates an artist to a publication, or an organisation's publications, in which their work was discussed.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Publication"
      }
     ],
     "examples": [
@@ -4530,18 +4882,21 @@
     "name": "year_created",
     "arity": 2,
     "count": 38,
+    "description": "Records the year in which a work was created; also used for the year an exhibition, event or organisation began.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -4581,18 +4936,21 @@
     "name": "awarded_grant",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to an organisation that awarded them a grant.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Recipient"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Funder"
      }
     ],
     "examples": [
@@ -4622,18 +4980,21 @@
     "name": "duration_minutes",
     "arity": 2,
     "count": 2,
+    "description": "Records the running time of a work in minutes.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "integer"
-      ]
+      ],
+      "role": "Minutes"
      }
     ],
     "examples": [
@@ -4663,18 +5024,21 @@
     "name": "established_programme",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to the name, given as text, of an academic programme they set up.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Programme"
      }
     ],
     "examples": [
@@ -4694,18 +5058,21 @@
     "name": "started_by",
     "arity": 2,
     "count": 1,
+    "description": "Records the year in which an organisation was started; despite the name, the second argument is a year, not a founder.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -4725,18 +5092,21 @@
     "name": "used_editing_equipment_at",
     "arity": 2,
     "count": 2,
+    "description": "Relates an artist to a company or person whose editing equipment they used.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Provider"
      }
     ],
     "examples": [
@@ -4766,18 +5136,21 @@
     "name": "used_material",
     "arity": 2,
     "count": 2,
+    "description": "Relates a work to a physical material, given as text, that it is made from.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Material"
      }
     ],
     "examples": [
@@ -4807,18 +5180,21 @@
     "name": "worked_as_assistant_in_city",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to a city, given as text, where they worked as an assistant.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "City"
      }
     ],
     "examples": [
@@ -4838,18 +5214,21 @@
     "name": "year_moved",
     "arity": 2,
     "count": 1,
+    "description": "Records the year in which a person moved to a new place.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -4869,18 +5248,21 @@
     "name": "applied_to",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to an organisation they applied to for funding.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Applicant"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Funder"
      }
     ],
     "examples": [
@@ -4910,18 +5292,21 @@
     "name": "conserved_in_project",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to a conservation project that included it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Project"
      }
     ],
     "examples": [
@@ -4941,18 +5326,21 @@
     "name": "length_minutes",
     "arity": 2,
     "count": 1,
+    "description": "Records the length of a work in minutes.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "integer"
-      ]
+      ],
+      "role": "Minutes"
      }
     ],
     "examples": [
@@ -4972,18 +5360,21 @@
     "name": "performed_work",
     "arity": 2,
     "count": 1,
+    "description": "Relates an artist to a performance work they performed.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Performer"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      }
     ],
     "examples": [
@@ -5003,18 +5394,21 @@
     "name": "provided_soundtrack",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to the person who provided its soundtrack.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Composer"
      }
     ],
     "examples": [
@@ -5034,18 +5428,21 @@
     "name": "supported_by",
     "arity": 2,
     "count": 6,
+    "description": "Relates an artist to a person who supported or championed their career.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Supporter"
      }
     ],
     "examples": [
@@ -5085,12 +5482,14 @@
     "name": "uses_nonactors",
     "arity": 1,
     "count": 1,
+    "description": "Marks a work made with non-professional performers rather than actors.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      }
     ],
     "examples": [
@@ -5106,12 +5505,14 @@
     "name": "year",
     "arity": 1,
     "count": 1,
+    "description": "Marks a year mentioned in an interview, without recording what happened in it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "year"
-      ]
+      ],
+      "role": "Year"
      }
     ],
     "examples": [
@@ -5127,18 +5528,21 @@
     "name": "approached",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to an organisation they approached with a proposal.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -5168,18 +5572,21 @@
     "name": "born_in",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to their place of birth, given as text.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Place"
      }
     ],
     "examples": [
@@ -5199,18 +5606,21 @@
     "name": "published_catalogues_of",
     "arity": 2,
     "count": 1,
+    "description": "Relates a venue or publisher to an artist or group whose work it published catalogues of.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Publisher"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      }
     ],
     "examples": [
@@ -5230,18 +5640,21 @@
     "name": "used_software",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to software they used.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Software"
      }
     ],
     "examples": [
@@ -5271,18 +5684,21 @@
     "name": "collaborated_with",
     "arity": 2,
     "count": 133,
+    "description": "Relates an artist (occasionally an organisation, or a jointly made work) to a person or organisation they collaborated with; most pairs are stored in one direction only.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Collaborator"
      }
     ],
     "examples": [
@@ -5322,18 +5738,21 @@
     "name": "member_of",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to an organisation, union or artistic group they belonged to.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      }
     ],
     "examples": [
@@ -5363,18 +5782,21 @@
     "name": "ran",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to something, given as text, that they ran or managed.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Activity"
      }
     ],
     "examples": [
@@ -5404,18 +5826,21 @@
     "name": "broadcast_on",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to the television channel on which it was broadcast.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Channel"
      }
     ],
     "examples": [
@@ -5435,18 +5860,21 @@
     "name": "director_of",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to an institution they directed.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      }
     ],
     "examples": [
@@ -5476,18 +5904,21 @@
     "name": "made_at",
     "arity": 2,
     "count": 26,
+    "description": "Relates a work to the venue, institution or place where it was made.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Location"
      }
     ],
     "examples": [
@@ -5527,18 +5958,21 @@
     "name": "uses_medium",
     "arity": 2,
     "count": 62,
+    "description": "Relates a work, or an artist's practice, to a medium, material, format or technique it uses.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "WorkOrArtist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Medium"
      }
     ],
     "examples": [
@@ -5578,12 +6012,14 @@
     "name": "artist_in_residence",
     "arity": 1,
     "count": 1,
+    "description": "Marks an artist or artist group that has held an artist residency.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      }
     ],
     "examples": [
@@ -5599,18 +6035,21 @@
     "name": "financed_by",
     "arity": 2,
     "count": 2,
+    "description": "Records, as free text, how an artist financed their practice.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Sources"
      }
     ],
     "examples": [
@@ -5640,18 +6079,21 @@
     "name": "invited_by",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to an exhibition or event they were invited to take part in; despite the name, the second argument is the event, not the inviter.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Event"
      }
     ],
     "examples": [
@@ -5671,18 +6113,21 @@
     "name": "teaching_at",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to an institution where they taught.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Institution"
      }
     ],
     "examples": [
@@ -5712,18 +6157,21 @@
     "name": "assistant_to",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to the person they worked for as an assistant.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Assistant"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      }
     ],
     "examples": [
@@ -5743,18 +6191,21 @@
     "name": "edited_at",
     "arity": 2,
     "count": 8,
+    "description": "Relates an artist, or a work, to the studio, institution or facility where editing was done.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "ArtistOrWork"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Facility"
      }
     ],
     "examples": [
@@ -5794,18 +6245,21 @@
     "name": "influenced_by",
     "arity": 2,
     "count": 3,
+    "description": "Relates an artist to a person who influenced their work.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Influence"
      }
     ],
     "examples": [
@@ -5845,18 +6299,21 @@
     "name": "reviewed_by",
     "arity": 2,
     "count": 3,
+    "description": "Relates an artist to a critic or writer who reviewed or wrote about their work.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Artist"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Critic"
      }
     ],
     "examples": [
@@ -5896,18 +6353,21 @@
     "name": "uses_venue",
     "arity": 2,
     "count": 2,
+    "description": "Relates a work to a venue or place it was commissioned for or shown at.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Venue"
      }
     ],
     "examples": [
@@ -5937,18 +6397,21 @@
     "name": "worked_as",
     "arity": 2,
     "count": 2,
+    "description": "Relates a person to a job, given as text, that they worked as.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Job"
      }
     ],
     "examples": [
@@ -5978,18 +6441,21 @@
     "name": "idea_for",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to a later work for which it provided the idea.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "SourceWork"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "LaterWork"
      }
     ],
     "examples": [
@@ -6009,18 +6475,21 @@
     "name": "invited_to",
     "arity": 2,
     "count": 6,
+    "description": "Relates a person to an institution or event they were invited to visit or take part in.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Host"
      }
     ],
     "examples": [
@@ -6060,12 +6529,14 @@
     "name": "person",
     "arity": 1,
     "count": 280,
+    "description": "Marks an entity as an individual person.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      }
     ],
     "examples": [
@@ -6093,18 +6564,21 @@
     "name": "programmed",
     "arity": 2,
     "count": 1,
+    "description": "Relates a person to the kind of material, given as text, that they selected for a screening programme.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Person"
      },
      {
       "position": 1,
       "types": [
        "string"
-      ]
+      ],
+      "role": "Programme"
      }
     ],
     "examples": [
@@ -6124,12 +6598,14 @@
     "name": "city",
     "arity": 1,
     "count": 3,
+    "description": "Marks an entity as a city.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "City"
      }
     ],
     "examples": [
@@ -6157,18 +6633,21 @@
     "name": "depicts_location",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to a place shown in it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Place"
      }
     ],
     "examples": [
@@ -6188,18 +6667,21 @@
     "name": "documented_by",
     "arity": 2,
     "count": 1,
+    "description": "Relates a work to a person who made a video documentation of it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Work"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Documenter"
      }
     ],
     "examples": [
@@ -6219,18 +6701,21 @@
     "name": "mentor_of",
     "arity": 2,
     "count": 1,
+    "description": "Relates a mentor to the person they mentored.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Mentor"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Mentee"
      }
     ],
     "examples": [
@@ -6250,18 +6735,21 @@
     "name": "mission_statement_created_for",
     "arity": 2,
     "count": 1,
+    "description": "Relates an organisation to a person who took part in writing its mission statement.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Organisation"
      },
      {
       "position": 1,
       "types": [
        "atom"
-      ]
+      ],
+      "role": "Contributor"
      }
     ],
     "examples": [
@@ -6278,7 +6766,7 @@
     ]
    }
   ],
-  "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec",
+  "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
   "languageVersion": "beingdb-dsl/1"
  },
  "queries": {
@@ -7663,7 +8151,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "constant_binding": {
    "variables": [
@@ -7735,7 +8223,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "join_exhibited": {
    "variables": [
@@ -8883,7 +9371,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "range_year_ge_1970": {
    "variables": [
@@ -9429,7 +9917,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "range_year_between": {
    "variables": [
@@ -9681,7 +10169,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "range_integer": {
    "variables": [
@@ -9704,7 +10192,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "optional_order": {
    "variables": [
@@ -10737,7 +11225,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "negation": {
    "variables": [
@@ -10779,7 +11267,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "invalid_unsafe_negation": {
    "valid": false,
@@ -10795,7 +11283,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "invalid_unknown_predicate": {
    "valid": false,
@@ -10818,7 +11306,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "invalid_syntax": {
    "valid": false,
@@ -10831,7 +11319,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
   "invalid_type_mismatch": {
    "valid": false,
@@ -10849,7 +11337,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:c99e9e82d54a50d2eb201a6637d365278f0198a1399036f9104db57104589aec"
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   }
  }
 }
