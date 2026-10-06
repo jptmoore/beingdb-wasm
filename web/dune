@@ -41,5 +41,6 @@
   main.bc.wasm.js
   rewind.browser.json
   ../fixtures/rewind_queries.json
+  ../fixtures/rewind_diagnose_queries.json
   ../fixtures/rewind_golden.json)
  (action (run node rewind.cjs)))

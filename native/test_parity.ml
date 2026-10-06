@@ -72,7 +72,22 @@ let test_query q () =
   Alcotest.check json "native session = server" expected (normalize (Native_session.query (Lazy.force native_session) text));
   Alcotest.check json "export session = server" expected (normalize (W.Export_session.query (Lazy.force export_session) text))
 
+(* Diagnostics are deterministic and fully ordered: compared exactly. *)
+let test_diagnose q () =
+  let open Yojson.Safe.Util in
+  let name = to_string (member "name" q) and text = to_string (member "query" q) in
+  let expected = Lazy.force golden |> member "diagnose" |> member name in
+  Alcotest.check json "native session = server" expected (Native_session.diagnose (Lazy.force native_session) text);
+  Alcotest.check json "export session = server" expected (W.Export_session.diagnose (Lazy.force export_session) text)
+
+let diagnose_queries = lazy (Yojson.Safe.Util.(to_list (Yojson.Safe.from_file "fixtures/rewind_diagnose_queries.json")))
+
 let () =
+  let diagnose_cases =
+    List.map
+      (fun q -> Alcotest.test_case Yojson.Safe.Util.(to_string (member "name" q)) `Quick (test_diagnose q))
+      (Lazy.force diagnose_queries)
+  in
   let query_cases =
     List.map
       (fun q -> Alcotest.test_case Yojson.Safe.Util.(to_string (member "name" q)) `Quick (test_query q))
@@ -84,4 +99,5 @@ let () =
         [ Alcotest.test_case "reproducible" `Quick test_export_reproducible; Alcotest.test_case "storage" `Quick test_storage ] );
       ("introspection", [ Alcotest.test_case "predicates" `Quick test_predicates ]);
       ("queries", query_cases);
+      ("diagnose", diagnose_cases);
     ]

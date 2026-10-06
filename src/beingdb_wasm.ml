@@ -22,17 +22,22 @@ let fixture =
     Fact.make "year_created" [ atom "work_3"; Value.Year 1968 ];
   ]
 
-type dataset = { query : string -> Yojson.Safe.t; predicates : unit -> Yojson.Safe.t }
+type dataset = { query : string -> Yojson.Safe.t; predicates : unit -> Yojson.Safe.t; diagnose : string -> Yojson.Safe.t }
 
 let fixture_dataset =
   lazy
     (let s = Fixture_session.open_store (Memory_store.of_facts fixture) in
-     { query = Fixture_session.query s; predicates = (fun () -> Fixture_session.predicates s) })
+     {
+       query = Fixture_session.query s;
+       predicates = (fun () -> Fixture_session.predicates s);
+       diagnose = Fixture_session.diagnose s;
+     })
 
 let current = ref None
 let dataset () = match !current with Some d -> d | None -> Lazy.force fixture_dataset
 let query text = (dataset ()).query text
 let predicates () = (dataset ()).predicates ()
+let diagnose text = (dataset ()).diagnose text
 
 (* Load an exported logical pack view; returns a summary, or {"error": ...}. *)
 let load text : Yojson.Safe.t =
@@ -40,7 +45,13 @@ let load text : Yojson.Safe.t =
   | Error message -> Session.failure "invalid_export" message
   | Ok tree ->
       let s = Export_session.open_store tree in
-      current := Some { query = Export_session.query s; predicates = (fun () -> Export_session.predicates s) };
+      current :=
+        Some
+          {
+            query = Export_session.query s;
+            predicates = (fun () -> Export_session.predicates s);
+            diagnose = Export_session.diagnose s;
+          };
       let env = Export_session.environment s in
       `Assoc
         [

@@ -11339,5 +11339,542 @@
    "languageVersion": "beingdb-dsl/1",
    "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   }
+ },
+ "diagnose": {
+  "clean_range": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [],
+   "provablyEmpty": false,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "swapped_constant": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "constant_not_at_position",
+     "severity": "error",
+     "message": "No created_by fact has 'david_critchley' as argument 0. 'david_critchley' occurs in created_by only at argument 1.",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 0,
+     "value": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Work",
+      "occursAtPositions": [
+       1
+      ],
+      "occursIn": [
+       {
+        "predicate": "affiliated_with",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "awarded_grant",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "collaborated_with",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "edited_by",
+        "argumentPosition": 1
+       },
+       {
+        "predicate": "educated_at",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "employed_by",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "exhibited_at",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "funded_by",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "interviewed_artist",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "interviewee",
+        "argumentPosition": 1
+       }
+      ],
+      "occursInCount": 16
+     },
+     "repair": {
+      "kind": "swap_arguments",
+      "predicate": "created_by",
+      "line": 3,
+      "positions": [
+       0,
+       1
+      ]
+     }
+    },
+    {
+     "code": "role_name_mismatch",
+     "severity": "warning",
+     "message": "Work is argument 1 of created_by, whose declared role is Artist; Work is the role of argument 0.",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "variable": "Work",
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist",
+      "matchesRoleAt": 0,
+      "matchesRole": "Work"
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "repair": {
+    "query": "find Work\nwhere\n  created_by(Work, david_critchley)",
+    "applied": [
+     {
+      "kind": "swap_arguments",
+      "predicate": "created_by",
+      "line": 3,
+      "positions": [
+       0,
+       1
+      ]
+     }
+    ]
+   },
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "singleton_names_atom": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "singleton_variable",
+     "severity": "warning",
+     "message": "Variable OvalHouse is used only once and is not in 'find', so it matches anything, like _. 'oval_house' occurs at that position.",
+     "line": 3,
+     "predicate": "made_at",
+     "argumentPosition": 1,
+     "variable": "OvalHouse",
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Location"
+     },
+     "repair": {
+      "kind": "replace_variable",
+      "predicate": "made_at",
+      "line": 3,
+      "argumentPosition": 1,
+      "variable": "OvalHouse",
+      "value": {
+       "type": "atom",
+       "value": "oval_house"
+      }
+     }
+    }
+   ],
+   "provablyEmpty": false,
+   "repair": {
+    "query": "find Work\nwhere\n  made_at(Work, oval_house)",
+    "applied": [
+     {
+      "kind": "replace_variable",
+      "predicate": "made_at",
+      "line": 3,
+      "argumentPosition": 1,
+      "variable": "OvalHouse",
+      "value": {
+       "type": "atom",
+       "value": "oval_house"
+      }
+     }
+    ]
+   },
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "singleton_plain": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "singleton_variable",
+     "severity": "warning",
+     "message": "Variable Artist is used only once and is not in 'find', so it matches anything, like _.",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "variable": "Artist",
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist"
+     }
+    }
+   ],
+   "provablyEmpty": false,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "unknown_constant": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "unknown_constant",
+     "severity": "error",
+     "message": "'nobody_at_all' does not occur in any fact, so created_by(...) cannot match it.",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "nobody_at_all"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist"
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "constant_elsewhere": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "constant_not_at_position",
+     "severity": "error",
+     "message": "No made_at fact has 'david_critchley' as argument 1. 'david_critchley' never occurs in made_at.",
+     "line": 3,
+     "predicate": "made_at",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Location",
+      "occursAtPositions": [],
+      "occursIn": [
+       {
+        "predicate": "affiliated_with",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "awarded_grant",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "collaborated_with",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "created_by",
+        "argumentPosition": 1
+       },
+       {
+        "predicate": "edited_by",
+        "argumentPosition": 1
+       },
+       {
+        "predicate": "educated_at",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "employed_by",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "exhibited_at",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "funded_by",
+        "argumentPosition": 0
+       },
+       {
+        "predicate": "interviewed_artist",
+        "argumentPosition": 0
+       }
+      ],
+      "occursInCount": 17
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "disjoint_join": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "singleton_variable",
+     "severity": "warning",
+     "message": "Variable A is used only once and is not in 'find', so it matches anything, like _.",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "variable": "A",
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist"
+     }
+    },
+    {
+     "code": "singleton_variable",
+     "severity": "warning",
+     "message": "Variable B is used only once and is not in 'find', so it matches anything, like _.",
+     "line": 4,
+     "predicate": "interviewee",
+     "argumentPosition": 1,
+     "variable": "B",
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist"
+     }
+    },
+    {
+     "code": "disjoint_join",
+     "severity": "error",
+     "message": "Work joins created_by argument 0 with interviewee argument 0, but those arguments share no value, so the query returns no rows.",
+     "line": 4,
+     "variable": "Work",
+     "scope": "positive",
+     "evidence": {
+      "sites": [
+       {
+        "predicate": "created_by",
+        "argumentPosition": 0,
+        "line": 3,
+        "declaredRole": "Work"
+       },
+       {
+        "predicate": "interviewee",
+        "argumentPosition": 0,
+        "line": 4,
+        "declaredRole": "Interview"
+       }
+      ]
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "contradictory_negation": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "contradictory_negation",
+     "severity": "error",
+     "message": "This 'not' block only repeats clauses that must already hold, so it always fails and the query returns no rows.",
+     "line": 5,
+     "scope": "negated"
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "role_names_reversed": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "role_name_mismatch",
+     "severity": "warning",
+     "message": "Artist is argument 0 of created_by, whose declared role is Work; Artist is the role of argument 1.",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 0,
+     "variable": "Artist",
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Work",
+      "matchesRoleAt": 1,
+      "matchesRole": "Artist"
+     }
+    },
+    {
+     "code": "role_name_mismatch",
+     "severity": "warning",
+     "message": "Work is argument 1 of created_by, whose declared role is Artist; Work is the role of argument 0.",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "variable": "Work",
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist",
+      "matchesRoleAt": 0,
+      "matchesRole": "Work"
+     }
+    }
+   ],
+   "provablyEmpty": false,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "invalid_with_repair": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "literal_type_mismatch",
+     "message": "Predicate 'year_created' argument 0 expects type in {atom}, got year",
+     "line": 3,
+     "column": 3,
+     "predicate": "year_created",
+     "argumentPosition": 0,
+     "expectedTypes": [
+      "atom"
+     ],
+     "receivedType": "year"
+    }
+   ],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "constant_not_at_position",
+     "severity": "error",
+     "message": "No year_created fact has '@1979' as argument 0. '@1979' occurs in year_created only at argument 1.",
+     "line": 3,
+     "predicate": "year_created",
+     "argumentPosition": 0,
+     "value": {
+      "type": "year",
+      "value": "1979"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Work",
+      "occursAtPositions": [
+       1
+      ]
+     },
+     "repair": {
+      "kind": "swap_arguments",
+      "predicate": "year_created",
+      "line": 3,
+      "positions": [
+       0,
+       1
+      ]
+     }
+    },
+    {
+     "code": "role_name_mismatch",
+     "severity": "warning",
+     "message": "Work is argument 1 of year_created, whose declared role is Year; Work is the role of argument 0.",
+     "line": 3,
+     "predicate": "year_created",
+     "argumentPosition": 1,
+     "variable": "Work",
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Year",
+      "matchesRoleAt": 0,
+      "matchesRole": "Work"
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "repair": {
+    "query": "find Work\nwhere\n  year_created(Work, @1979)",
+    "applied": [
+     {
+      "kind": "swap_arguments",
+      "predicate": "year_created",
+      "line": 3,
+      "positions": [
+       0,
+       1
+      ]
+     }
+    ]
+   },
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "unknown_predicate": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "unknown_predicate",
+     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, rented_by, edited_by, invited_by?",
+     "line": 3,
+     "column": 3,
+     "predicate": "created_bi",
+     "suggestions": [
+      "created_by",
+      "curated_by",
+      "rented_by",
+      "edited_by",
+      "invited_by"
+     ]
+    }
+   ],
+   "warnings": [],
+   "diagnostics": [],
+   "provablyEmpty": false,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "syntax_error": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "syntax_error",
+     "message": "Expected 'where' after 'find ...'"
+    }
+   ],
+   "warnings": [],
+   "diagnostics": [],
+   "provablyEmpty": false,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  }
  }
 }

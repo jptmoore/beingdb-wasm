@@ -7,6 +7,7 @@ const path = require("node:path");
 const read = (p) => fs.readFileSync(path.join(__dirname, p), "utf8");
 const queries = JSON.parse(read("../fixtures/rewind_queries.json"));
 const golden = JSON.parse(read("../fixtures/rewind_golden.json"));
+const diagnoseQueries = JSON.parse(read("../fixtures/rewind_diagnose_queries.json"));
 
 // Row order is unspecified; compare results as a sorted multiset.
 const normalize = (r) =>
@@ -43,6 +44,12 @@ globalThis.onBeingDBReady = (BeingDB) => {
     const got = JSON.parse(BeingDB.query(query));
     times.push(`${name}=${(performance.now() - t).toFixed(1)}ms`);
     assert.deepEqual(normalize(got), normalize(golden.queries[name]), name);
+  }
+  // Diagnostics (validation, data-aware diagnostics, proven repairs) equal the native server's exactly.
+  for (const { name, query } of diagnoseQueries) {
+    t = performance.now();
+    assert.deepEqual(JSON.parse(BeingDB.diagnose(query)), golden.diagnose[name], `diagnose ${name}`);
+    times.push(`diagnose:${name}=${(performance.now() - t).toFixed(1)}ms`);
   }
   console.log(
     `wasm rewind parity passed: ${JSON.stringify(summary)} load=${loadMs.toFixed(0)}ms ` +

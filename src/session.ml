@@ -76,4 +76,15 @@ module Make (Store : Runtime_store.S) = struct
   (* BeingDB's own serialisation (as served by GET /predicates?detailed=true),
      so declared roles, semantic types and descriptions are exposed too. *)
   let predicates t : Yojson.Safe.t = Query_environment.to_json t.env
+
+  module Report = Query_diagnostics.Report (Store)
+
+  (* The native server's DSL "diagnose" action: validation, data-aware
+     diagnostics and proven repairs, computed by BeingDB, not executed. *)
+  let diagnose t text : Yojson.Safe.t =
+    match Query_validation.check_query_length text with
+    | Error err -> failure (Query_validation.error_code err) (Query_validation.error_message err)
+    | Ok () -> (
+        try `Assoc (run (Report.fields t.store t.env text) @ environment_fields t.env)
+        with exn -> failure "internal_error" (Printf.sprintf "Diagnose error: %s" (Printexc.to_string exn)))
 end

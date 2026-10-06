@@ -17,5 +17,15 @@ for (const { name, query } of queries) {
   });
   responses[name] = await res.json();
 }
-await writeFile(new URL("rewind_golden.json", dir), JSON.stringify({ predicates, queries: responses }, null, 1) + "\n");
-console.log(`wrote ${Object.keys(responses).length} query goldens`);
+const diagnoseQueries = JSON.parse(await readFile(new URL("rewind_diagnose_queries.json", dir), "utf8"));
+const diagnose = {};
+for (const { name, query } of diagnoseQueries) {
+  const res = await fetch(`${base}/query`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ language: "dsl", action: "diagnose", query }),
+  });
+  diagnose[name] = await res.json();
+}
+await writeFile(new URL("rewind_golden.json", dir), JSON.stringify({ predicates, queries: responses, diagnose }, null, 1) + "\n");
+console.log(`wrote ${Object.keys(responses).length} query and ${Object.keys(diagnose).length} diagnose goldens`);

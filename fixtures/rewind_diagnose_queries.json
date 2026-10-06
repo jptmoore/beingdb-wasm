@@ -1,0 +1,14 @@
+[
+  { "name": "clean_range", "query": "find Work, Year\nwhere\n  year_created(Work, Year)\n  Year between @1968 and @1972" },
+  { "name": "swapped_constant", "query": "find Work\nwhere\n  created_by(david_critchley, Work)" },
+  { "name": "singleton_names_atom", "query": "find Work\nwhere\n  made_at(Work, OvalHouse)" },
+  { "name": "singleton_plain", "query": "find Work\nwhere\n  created_by(Work, Artist)" },
+  { "name": "unknown_constant", "query": "find Work\nwhere\n  created_by(Work, nobody_at_all)" },
+  { "name": "constant_elsewhere", "query": "find X\nwhere\n  made_at(X, david_critchley)" },
+  { "name": "disjoint_join", "query": "find Work\nwhere\n  created_by(Work, A)\n  interviewee(Work, B)" },
+  { "name": "contradictory_negation", "query": "find Work\nwhere\n  made_at(Work, oval_house)\n  not\n    made_at(Work, oval_house)" },
+  { "name": "role_names_reversed", "query": "find Artist, Work\nwhere\n  created_by(Artist, Work)" },
+  { "name": "invalid_with_repair", "query": "find Work\nwhere\n  year_created(@1979, Work)" },
+  { "name": "unknown_predicate", "query": "find W\nwhere\n  created_bi(W, A)" },
+  { "name": "syntax_error", "query": "find W where x" }
+]
