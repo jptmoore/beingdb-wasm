@@ -93,6 +93,7 @@ window.onBeingDBReady = async (BeingDB) => {
   BeingDB.load(text);        // -> '{"predicates":168,"facts":1842,...}'
   BeingDB.query(dsl);        // -> JSON string (same shape as POST /query, dsl)
   BeingDB.predicates();      // -> JSON string (same shape as GET /predicates?detailed=true)
+  BeingDB.diagnose(dsl);     // -> JSON string (same body as POST /query, dsl, action "diagnose")
 };
 ```
 
@@ -106,6 +107,13 @@ When the pack declares them, it also has `description` and, per argument,
 and the description "Relates a work to the artist or artist group who made it."
 Declarations are descriptive only: they do not change how queries validate or
 run, but they are part of the `environmentFingerprint`.
+
+`diagnose(dsl)` runs BeingDB's own `Query_diagnostics` (validation, data-aware
+diagnostics such as `constant_not_at_position` or `disjoint_join`, and any
+repair BeingDB can prove, as `repair.query`) without executing the query. No
+diagnostic logic lives in this layer; the output equals the native server's
+(checked against goldens in `fixtures/rewind_golden.json`, `diagnose` key). See
+BeingDB's [API reference](../beingdb/docs/api.md#diagnose-dsl) for the codes.
 
 ## Example
 

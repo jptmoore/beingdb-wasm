@@ -68,16 +68,19 @@ cannot see Irmin at all.
 
 Shared fixtures: `fixtures/rewind_queries.json` (12 DSL queries: simple, constant
 binding, 3-way join, year `>=`, year `between`, integer `>`, optional + order by,
-negation, and four invalid queries) and `fixtures/rewind_golden.json`, recorded
-from the native server by `fixtures/make_golden.mjs`.
+negation, and four invalid queries), `fixtures/rewind_diagnose_queries.json` (12
+DSL queries covering every `diagnose` diagnostic code and both proven repairs) and
+`fixtures/rewind_golden.json`, recorded from the native server by
+`fixtures/make_golden.mjs`.
 
 - `native/test_parity.ml` (Irmin Pack vs export, both via `Pack_layout`):
   re-export equals `data/rewind.browser.json`; same predicate list and order;
   identical manifests and facts per predicate; every fact body decodes;
   `Session` over Irmin Pack and over the export both equal the server goldens
-  for predicates and every query.
+  for predicates, every query and every diagnose response (compared exactly).
 - `web/rewind.cjs` (WASM in Node) and `web/parity.html` (WASM in a browser):
-  load the export, compare `predicates()` and every query with the goldens.
+  load the export, compare `predicates()`, every query and (`rewind.cjs`) every
+  `diagnose()` response with the goldens.
 
 Rows are compared as a sorted multiset (row order is unspecified); everything
 else (variables, count, typed values, warnings, errors, fingerprint) is exact.
