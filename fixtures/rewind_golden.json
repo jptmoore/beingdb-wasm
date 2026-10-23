@@ -8148,6 +8148,8 @@
     }
    ],
    "count": 137,
+   "hasMore": false,
+   "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
@@ -8220,6 +8222,8 @@
     }
    ],
    "count": 10,
+   "hasMore": false,
+   "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
@@ -9368,6 +9372,8 @@
     }
    ],
    "count": 81,
+   "hasMore": false,
+   "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
@@ -9914,6 +9920,8 @@
     }
    ],
    "count": 38,
+   "hasMore": false,
+   "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
@@ -10166,6 +10174,8 @@
     }
    ],
    "count": 17,
+   "hasMore": false,
+   "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
@@ -10189,6 +10199,8 @@
     }
    ],
    "count": 1,
+   "hasMore": false,
+   "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
@@ -11222,6 +11234,8 @@
     }
    ],
    "count": 102,
+   "hasMore": false,
+   "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
@@ -11264,6 +11278,8 @@
     }
    ],
    "count": 5,
+   "hasMore": false,
+   "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
@@ -11316,6 +11332,50 @@
      "message": "Expected 'where' after 'find ...'"
     }
    ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "paged_has_more": {
+   "variables": [
+    "Work"
+   ],
+   "results": [
+    {
+     "Work": {
+      "type": "atom",
+      "value": "american_landscapes"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "an_audience_s_new_clothes"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "another_sphere"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "anthem"
+     }
+    },
+    {
+     "Work": {
+      "type": "atom",
+      "value": "any_questions"
+     }
+    }
+   ],
+   "count": 5,
+   "hasMore": true,
+   "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
@@ -11556,6 +11616,37 @@
      "scope": "positive",
      "evidence": {
       "declaredRole": "Artist"
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "misspelled_constant": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "unknown_constant",
+     "severity": "error",
+     "message": "'david_critchly' does not occur in any fact, so created_by(...) cannot match it. Did you mean david_critchley?",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "david_critchly"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist",
+      "suggestions": [
+       "david_critchley",
+       "david_hall"
+      ]
      }
     }
    ],

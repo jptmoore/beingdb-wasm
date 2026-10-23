@@ -43,22 +43,46 @@ module Make (Store : Runtime_store.S) = struct
   let open_store store = { store; env = run (Environment.load_or_build store) }
   let environment t = t.env
 
-  let execute t (cq : Core_query.t) warnings =
+  (* Mirrors the native server's DSL execute: one row beyond the limit is
+     fetched only to report [hasMore], and [truncated] when the max_results
+     cap, not the query's own limit, cut the result. *)
+  let execute ~max_results t (cq : Core_query.t) warnings =
     match run (Engine.execute t.store cq.query) with
     | Error message -> failure "execution_error" message
     | Ok result ->
         let limit = match cq.limit with Some n -> min n max_results | None -> max_results in
-        let vars, rows = Core_query.apply { cq with limit = Some limit } result in
+        let vars, probed = Core_query.apply { cq with limit = Some (limit + 1) } result in
+        let has_more = List.length probed > limit in
+        let rows = List.filteri (fun i _ -> i < limit) probed in
+        let truncated = has_more && match cq.limit with Some n -> n > max_results | None -> true in
+        let truncation_warning =
+          if truncated then
+            [
+              `Assoc
+                [
+                  ("code", `String "results_truncated");
+                  ( "message",
+                    `String
+                      (Printf.sprintf
+                         "Only the first %d rows are returned (the server's max_results limit); more rows match. Page through \
+                          them with 'offset', or add constraints to narrow the query."
+                         max_results) );
+                ];
+            ]
+          else []
+        in
         `Assoc
           ([
              ("variables", strings vars);
              ("results", `List (List.map (row_to_json vars) rows));
              ("count", `Int (List.length rows));
-             ("warnings", `List (List.map Validation_error.warning_to_json warnings));
+             ("hasMore", `Bool has_more);
+             ("truncated", `Bool truncated);
+             ("warnings", `List (List.map Validation_error.warning_to_json warnings @ truncation_warning));
            ]
           @ environment_fields t.env)
 
-  let query t text : Yojson.Safe.t =
+  let query ?(max_results = max_results) t text : Yojson.Safe.t =
     match Query_validation.check_query_length text with
     | Error err -> failure (Query_validation.error_code err) (Query_validation.error_message err)
     | Ok () -> (
@@ -70,7 +94,7 @@ module Make (Store : Runtime_store.S) = struct
               | { errors = _ :: _ as errors; warnings; _ } ->
                   invalid t.env (List.map Validation_error.to_json errors) (List.map Validation_error.warning_to_json warnings)
               | { core_query = None; _ } -> failure "internal_error" "lowering produced neither a query nor errors"
-              | { core_query = Some cq; warnings; _ } -> execute t cq warnings)
+              | { core_query = Some cq; warnings; _ } -> execute ~max_results t cq warnings)
         with exn -> failure "internal_error" (Printf.sprintf "Query error: %s" (Printexc.to_string exn)))
 
   (* BeingDB's own serialisation (as served by GET /predicates?detailed=true),

@@ -21,6 +21,26 @@ let test_three_way_join () =
   let r = Beingdb_wasm.query "find Artist, Work\nwhere\n  person(Artist)\n  created_by(Work, Artist)\n  year_created(Work, Y)\n  Y < 1970\n" in
   Alcotest.(check (list string)) "rows" [ "artist_1,work_3" ] (rows r)
 
+(* Same semantics as the native server's DSL execute. *)
+let test_has_more_and_truncated () =
+  let s = Beingdb_wasm.Fixture_session.open_store (Beingdb_runtime.Memory_store.of_facts Beingdb_wasm.fixture) in
+  let works = "find Work\nwhere\n  created_by(Work, A)\n" in
+  let check name ?max_results text ~count ~has_more ~truncated =
+    let r = Beingdb_wasm.Fixture_session.query ?max_results s text in
+    Alcotest.(check int) (name ^ ": count") count (r |> member "count" |> to_int);
+    Alcotest.(check int) (name ^ ": rows") count (r |> member "results" |> to_list |> List.length);
+    Alcotest.(check bool) (name ^ ": hasMore") has_more (r |> member "hasMore" |> to_bool);
+    Alcotest.(check bool) (name ^ ": truncated") truncated (r |> member "truncated" |> to_bool);
+    let codes = r |> member "warnings" |> to_list |> List.map (fun w -> w |> member "code" |> to_string) in
+    Alcotest.(check bool) (name ^ ": warning") truncated (List.mem "results_truncated" codes)
+  in
+  check "complete" works ~count:3 ~has_more:false ~truncated:false;
+  check "exactly at cap" ~max_results:3 works ~count:3 ~has_more:false ~truncated:false;
+  check "cap" ~max_results:2 works ~count:2 ~has_more:true ~truncated:true;
+  check "own limit" (works ^ "limit 1\n") ~count:1 ~has_more:true ~truncated:false;
+  check "own limit above cap" ~max_results:1 (works ^ "limit 5\n") ~count:1 ~has_more:true ~truncated:true;
+  check "last page" (works ^ "limit 2\noffset 2\n") ~count:1 ~has_more:false ~truncated:false
+
 let first_error r = r |> member "errors" |> index 0 |> member "code" |> to_string
 
 let test_invalid () =
@@ -87,6 +107,7 @@ let () =
           Alcotest.test_case "join + range" `Quick test_join_and_range;
           Alcotest.test_case "three-way join" `Quick test_three_way_join;
           Alcotest.test_case "invalid queries" `Quick test_invalid;
+          Alcotest.test_case "hasMore / truncated" `Quick test_has_more_and_truncated;
         ] );
       ("predicates", [ Alcotest.test_case "declared metadata" `Quick test_declared_metadata ]);
     ]
