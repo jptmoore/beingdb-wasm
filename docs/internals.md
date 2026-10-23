@@ -71,12 +71,13 @@ cannot see Irmin at all.
 
 ## Parity tests
 
-Shared fixtures: `fixtures/rewind_queries.json` (15 DSL queries: simple, constant
+Shared fixtures: `fixtures/rewind_queries.json` (19 DSL queries: simple, constant
 binding, 3-way join, year `>=`, year `between`, integer `>`, optional + order by,
 negation, an ordered page with more rows after it (`hasMore`), two empty results
-explained by diagnostics, and four invalid queries),
-`fixtures/rewind_diagnose_queries.json` (14 DSL queries covering every `diagnose`
-diagnostic code, including a comparison that falls in a gap in the data, a
+explained by diagnostics, three `count(Var)` queries (per group, overall, a zero
+explained by diagnostics), and five invalid queries),
+`fixtures/rewind_diagnose_queries.json` (15 DSL queries covering every `diagnose`
+diagnostic code, including a comparison that falls in a gap in the data and a count query, a
 misspelled constant with suggestions, and both proven repairs) and
 `fixtures/rewind_golden.json`, recorded from the native server by
 `fixtures/make_golden.mjs`.

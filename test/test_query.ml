@@ -42,6 +42,16 @@ let test_has_more_and_truncated () =
   check "own limit above cap" ~max_results:1 (works ^ "limit 5\n") ~count:1 ~has_more:true ~truncated:true;
   check "last page" (works ^ "limit 2\noffset 2\n") ~count:1 ~has_more:false ~truncated:false
 
+(* Like the native server: past the row cap is an error with its own code. *)
+let test_result_too_large () =
+  let saved = !Beingdb_runtime.Query_validation.Config.max_intermediate_results in
+  Beingdb_runtime.Query_validation.Config.max_intermediate_results := 1;
+  Fun.protect
+    ~finally:(fun () -> Beingdb_runtime.Query_validation.Config.max_intermediate_results := saved)
+    (fun () ->
+      let r = Beingdb_wasm.query "find Work\nwhere\n  created_by(Work, A)\n" in
+      Alcotest.(check string) "code" "result_too_large" (r |> member "error" |> member "code" |> to_string))
+
 let first_error r = r |> member "errors" |> index 0 |> member "code" |> to_string
 
 let test_invalid () =
@@ -109,6 +119,7 @@ let () =
           Alcotest.test_case "three-way join" `Quick test_three_way_join;
           Alcotest.test_case "invalid queries" `Quick test_invalid;
           Alcotest.test_case "total / hasMore / truncated" `Quick test_has_more_and_truncated;
+          Alcotest.test_case "result too large" `Quick test_result_too_large;
         ] );
       ("predicates", [ Alcotest.test_case "declared metadata" `Quick test_declared_metadata ]);
     ]
