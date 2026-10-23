@@ -52,6 +52,15 @@ let test_result_too_large () =
       let r = Beingdb_wasm.query "find Work\nwhere\n  created_by(Work, A)\n" in
       Alcotest.(check string) "code" "result_too_large" (r |> member "error" |> member "code" |> to_string))
 
+let test_scan_limit () =
+  let saved = !Beingdb_runtime.Query_validation.Config.max_scanned_facts in
+  Beingdb_runtime.Query_validation.Config.max_scanned_facts := 1;
+  Fun.protect
+    ~finally:(fun () -> Beingdb_runtime.Query_validation.Config.max_scanned_facts := saved)
+    (fun () ->
+      let r = Beingdb_wasm.query "find Work\nwhere\n  created_by(Work, A)\n  Work contains \"zz\"\n" in
+      Alcotest.(check string) "code" "scan_limit_exceeded" (r |> member "error" |> member "code" |> to_string))
+
 let first_error r = r |> member "errors" |> index 0 |> member "code" |> to_string
 
 let test_invalid () =
@@ -120,6 +129,7 @@ let () =
           Alcotest.test_case "invalid queries" `Quick test_invalid;
           Alcotest.test_case "total / hasMore / truncated" `Quick test_has_more_and_truncated;
           Alcotest.test_case "result too large" `Quick test_result_too_large;
+          Alcotest.test_case "scan limit" `Quick test_scan_limit;
         ] );
       ("predicates", [ Alcotest.test_case "declared metadata" `Quick test_declared_metadata ]);
     ]

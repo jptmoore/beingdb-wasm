@@ -17,5 +17,9 @@
   { "name": "count_overall", "query": "find count(Work), count(Artist)\nwhere\n  created_by(Work, Artist)" },
   { "name": "count_zero_explained", "query": "find count(Work)\nwhere\n  created_by(Work, david_critchly)" },
   { "name": "invalid_count", "query": "find Artist, count(Artist)\nwhere\n  created_by(Work, Artist)" },
+  { "name": "contains_string", "query": "find Exhibition, Title\nwhere\n  exhibition_title(Exhibition, Title)\n  Title contains \"VIDEO\"" },
+  { "name": "contains_atom_count", "query": "find Artist, count(Work)\nwhere\n  created_by(Work, Artist)\n  Work contains \"tape\"\norder by count(Work) descending, Artist ascending" },
+  { "name": "contains_empty_explained", "query": "find Work\nwhere\n  created_by(Work, Artist)\n  Work contains \"zzqx\"" },
+  { "name": "invalid_contains", "query": "find Work\nwhere\n  year_created(Work, Y)\n  Y contains \"19\"" },
   { "name": "invalid_type_mismatch", "query": "find W\nwhere\n  year_created(W, Y)\n  Y >= @1970-01-01" }
 ]
