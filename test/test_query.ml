@@ -29,6 +29,7 @@ let test_has_more_and_truncated () =
     let r = Beingdb_wasm.Fixture_session.query ?max_results s text in
     Alcotest.(check int) (name ^ ": count") count (r |> member "count" |> to_int);
     Alcotest.(check int) (name ^ ": rows") count (r |> member "results" |> to_list |> List.length);
+    Alcotest.(check int) (name ^ ": total") 3 (r |> member "total" |> to_int);
     Alcotest.(check bool) (name ^ ": hasMore") has_more (r |> member "hasMore" |> to_bool);
     Alcotest.(check bool) (name ^ ": truncated") truncated (r |> member "truncated" |> to_bool);
     let codes = r |> member "warnings" |> to_list |> List.map (fun w -> w |> member "code" |> to_string) in
@@ -107,7 +108,7 @@ let () =
           Alcotest.test_case "join + range" `Quick test_join_and_range;
           Alcotest.test_case "three-way join" `Quick test_three_way_join;
           Alcotest.test_case "invalid queries" `Quick test_invalid;
-          Alcotest.test_case "hasMore / truncated" `Quick test_has_more_and_truncated;
+          Alcotest.test_case "total / hasMore / truncated" `Quick test_has_more_and_truncated;
         ] );
       ("predicates", [ Alcotest.test_case "declared metadata" `Quick test_declared_metadata ]);
     ]

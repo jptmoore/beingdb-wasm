@@ -22,9 +22,10 @@ evaluator are `Query_engine`. JavaScript only fetches text and calls the API.
   and `GET /predicates?detailed=true` (predicates use BeingDB's own
   `Query_environment.to_json`, so declared descriptions, roles and semantic
   types are included). Execution mirrors the server's `max_results` handling
-  (default 1000, overridable with `?max_results` for tests): it fetches one row
-  past the limit to report `hasMore`, and `truncated` plus a
-  `results_truncated` warning when the cap cut the result. An empty first page
+  (default 1000, overridable with `?max_results` for tests): the full projected
+  result gives `total`, offset/limit and the cap select the page and `hasMore`,
+  and `truncated` plus a `results_truncated` warning mark a page the cap cut.
+  An empty first page
   also carries BeingDB's `Query_diagnostics.Report.empty_result_fields`. Used for the
   fixture, the export and (in native tests) Irmin Pack.
 - `export_reader.ml` - the `Pack_layout.READER` (`find`/`list`) over the export.
@@ -90,7 +91,7 @@ misspelled constant with suggestions, and both proven repairs) and
   `diagnose()` response with the goldens.
 
 Rows are compared as a sorted multiset (row order is unspecified); everything
-else (variables, count, hasMore, truncated, typed values, warnings, errors,
+else (variables, count, total, hasMore, truncated, typed values, warnings, errors,
 fingerprint) is exact.
 
 ## Measurements (Rewind pack, 2026-09-24, Apple Silicon)

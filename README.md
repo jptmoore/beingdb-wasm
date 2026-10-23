@@ -101,9 +101,11 @@ Load once, query many times. Before `load`, queries run against the small
 Phase 1 fixture.
 
 `query(dsl)` caps results at 1000 rows, like the native server's default
-`max_results`, and reports it the same way: `hasMore` is `true` when more rows
-match than were returned (the query's own `limit` or the cap stopped it), and
-`truncated` is `true`, with a `results_truncated` warning, only when the cap did.
+`max_results`, and reports it the same way: `count` is the number of rows
+returned, `total` the number the query matches (regardless of `limit`, `offset`
+or the cap), `hasMore` is `true` when more rows match than were returned (the
+query's own `limit` or the cap stopped it), and `truncated` is `true`, with a
+`results_truncated` warning, only when the cap did.
 When the first page is empty, the response also carries the `diagnose` fields
 (`diagnostics`, `provablyEmpty`, any proven `repair`) explaining why, exactly as
 the native server does.

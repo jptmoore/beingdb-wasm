@@ -8148,6 +8148,7 @@
     }
    ],
    "count": 137,
+   "total": 137,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
@@ -8222,6 +8223,7 @@
     }
    ],
    "count": 10,
+   "total": 10,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
@@ -9372,6 +9374,7 @@
     }
    ],
    "count": 81,
+   "total": 81,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
@@ -9920,6 +9923,7 @@
     }
    ],
    "count": 38,
+   "total": 38,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
@@ -10174,6 +10178,7 @@
     }
    ],
    "count": 17,
+   "total": 17,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
@@ -10199,6 +10204,7 @@
     }
    ],
    "count": 1,
+   "total": 1,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
@@ -11234,6 +11240,7 @@
     }
    ],
    "count": 102,
+   "total": 102,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
@@ -11278,6 +11285,7 @@
     }
    ],
    "count": 5,
+   "total": 5,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
@@ -11374,6 +11382,7 @@
     }
    ],
    "count": 5,
+   "total": 137,
    "hasMore": true,
    "truncated": false,
    "warnings": [],
@@ -11387,6 +11396,7 @@
    ],
    "results": [],
    "count": 0,
+   "total": 0,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
@@ -11422,6 +11432,7 @@
    ],
    "results": [],
    "count": 0,
+   "total": 0,
    "hasMore": false,
    "truncated": false,
    "warnings": [],

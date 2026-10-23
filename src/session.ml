@@ -44,18 +44,21 @@ module Make (Store : Runtime_store.S) = struct
   let open_store store = { store; env = run (Environment.load_or_build store) }
   let environment t = t.env
 
-  (* Mirrors the native server's DSL execute: one row beyond the limit is
-     fetched only to report [hasMore], and [truncated] when the max_results
-     cap, not the query's own limit, cut the result. An empty first page
-     carries the "diagnose" action's explanation. *)
+  (* Mirrors the native server's DSL execute: the full projected result
+     gives [total]; offset/limit and the max_results cap select the page,
+     with [hasMore], and [truncated] when the cap, not the query's own
+     limit, cut it. An empty first page carries the "diagnose" action's
+     explanation. *)
   let execute ~max_results t text (cq : Core_query.t) warnings =
     match run (Engine.execute t.store cq.query) with
     | Error message -> failure "execution_error" message
     | Ok result ->
         let limit = match cq.limit with Some n -> min n max_results | None -> max_results in
-        let vars, probed = Core_query.apply { cq with limit = Some (limit + 1) } result in
-        let has_more = List.length probed > limit in
-        let rows = List.filteri (fun i _ -> i < limit) probed in
+        let offset = max 0 (Option.value cq.offset ~default:0) in
+        let vars, all_rows = Core_query.apply { cq with offset = None; limit = None } result in
+        let total = List.length all_rows in
+        let rows = List.filteri (fun i _ -> i >= offset && i < offset + limit) all_rows in
+        let has_more = offset + List.length rows < total in
         let truncated = has_more && match cq.limit with Some n -> n > max_results | None -> true in
         let truncation_warning =
           if truncated then
@@ -73,7 +76,7 @@ module Make (Store : Runtime_store.S) = struct
             ]
           else []
         in
-        let first_page = match cq.offset with None | Some 0 -> true | Some _ -> false in
+        let first_page = offset = 0 in
         let diagnosis =
           if rows = [] && (not has_more) && first_page then run (Report.empty_result_fields t.store t.env text) else []
         in
@@ -82,6 +85,7 @@ module Make (Store : Runtime_store.S) = struct
              ("variables", strings vars);
              ("results", `List (List.map (row_to_json vars) rows));
              ("count", `Int (List.length rows));
+             ("total", `Int total);
              ("hasMore", `Bool has_more);
              ("truncated", `Bool truncated);
              ("warnings", `List (List.map Validation_error.warning_to_json warnings @ truncation_warning));
