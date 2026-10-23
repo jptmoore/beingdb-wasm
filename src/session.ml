@@ -51,7 +51,7 @@ module Make (Store : Runtime_store.S) = struct
      explanation. *)
   let execute ~max_results t text (cq : Core_query.t) warnings =
     match run (Engine.execute t.store cq.query) with
-    | Error message -> failure (if Query_validation.is_result_too_large message then "result_too_large" else "execution_error") message
+    | Error message -> failure (Query_validation.engine_error_code message) message
     | Ok result ->
         let limit = match cq.limit with Some n -> min n max_results | None -> max_results in
         let offset = max 0 (Option.value cq.offset ~default:0) in

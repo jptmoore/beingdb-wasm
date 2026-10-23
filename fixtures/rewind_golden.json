@@ -11618,6 +11618,119 @@
    "languageVersion": "beingdb-dsl/1",
    "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
+  "contains_string": {
+   "variables": [
+    "Exhibition",
+    "Title"
+   ],
+   "results": [
+    {
+     "Exhibition": {
+      "type": "atom",
+      "value": "the_video_stairs"
+     },
+     "Title": {
+      "type": "string",
+      "value": "The Video Stairs"
+     }
+    }
+   ],
+   "count": 1,
+   "total": 1,
+   "hasMore": false,
+   "truncated": false,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "contains_atom_count": {
+   "variables": [
+    "Artist",
+    "count(Work)"
+   ],
+   "results": [
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     },
+     "count(Work)": {
+      "type": "integer",
+      "value": "2"
+     }
+    }
+   ],
+   "count": 1,
+   "total": 1,
+   "hasMore": false,
+   "truncated": false,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "contains_empty_explained": {
+   "variables": [
+    "Work"
+   ],
+   "results": [],
+   "count": 0,
+   "total": 0,
+   "hasMore": false,
+   "truncated": false,
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "singleton_variable",
+     "severity": "warning",
+     "message": "Variable Artist is used only once and is not in 'find', so it matches anything, like _.",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "variable": "Artist",
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist"
+     }
+    },
+    {
+     "code": "unsatisfiable_comparison",
+     "severity": "error",
+     "message": "No created_by fact has a value at argument 0 satisfying Work contains \"zzqx\", so the query returns no rows.",
+     "line": 4,
+     "predicate": "created_by",
+     "argumentPosition": 0,
+     "variable": "Work",
+     "value": {
+      "type": "string",
+      "value": "zzqx"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Work"
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "invalid_contains": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "invalid_contains",
+     "message": "Y holds year values; 'contains' only matches text (strings and atoms)",
+     "line": 4
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
   "invalid_type_mismatch": {
    "valid": false,
    "errors": [
@@ -12231,6 +12344,34 @@
         "value": "2004"
        }
       }
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "contains_unsatisfiable": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "unsatisfiable_comparison",
+     "severity": "error",
+     "message": "No exhibition_title fact has a value at argument 1 satisfying T contains \"vidoe\", so the query returns no rows.",
+     "line": 4,
+     "predicate": "exhibition_title",
+     "argumentPosition": 1,
+     "variable": "T",
+     "value": {
+      "type": "string",
+      "value": "vidoe"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Title"
      }
     }
    ],
