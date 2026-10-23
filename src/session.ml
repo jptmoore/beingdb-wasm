@@ -37,6 +37,7 @@ let row_to_json vars row =
 module Make (Store : Runtime_store.S) = struct
   module Engine = Query_engine.Make (Store)
   module Environment = Query_environment.Make (Store)
+  module Report = Query_diagnostics.Report (Store)
 
   type t = { store : Store.t; env : Query_environment.t }
 
@@ -45,8 +46,9 @@ module Make (Store : Runtime_store.S) = struct
 
   (* Mirrors the native server's DSL execute: one row beyond the limit is
      fetched only to report [hasMore], and [truncated] when the max_results
-     cap, not the query's own limit, cut the result. *)
-  let execute ~max_results t (cq : Core_query.t) warnings =
+     cap, not the query's own limit, cut the result. An empty first page
+     carries the "diagnose" action's explanation. *)
+  let execute ~max_results t text (cq : Core_query.t) warnings =
     match run (Engine.execute t.store cq.query) with
     | Error message -> failure "execution_error" message
     | Ok result ->
@@ -71,6 +73,10 @@ module Make (Store : Runtime_store.S) = struct
             ]
           else []
         in
+        let first_page = match cq.offset with None | Some 0 -> true | Some _ -> false in
+        let diagnosis =
+          if rows = [] && (not has_more) && first_page then run (Report.empty_result_fields t.store t.env text) else []
+        in
         `Assoc
           ([
              ("variables", strings vars);
@@ -80,6 +86,7 @@ module Make (Store : Runtime_store.S) = struct
              ("truncated", `Bool truncated);
              ("warnings", `List (List.map Validation_error.warning_to_json warnings @ truncation_warning));
            ]
+          @ diagnosis
           @ environment_fields t.env)
 
   let query ?(max_results = max_results) t text : Yojson.Safe.t =
@@ -94,14 +101,12 @@ module Make (Store : Runtime_store.S) = struct
               | { errors = _ :: _ as errors; warnings; _ } ->
                   invalid t.env (List.map Validation_error.to_json errors) (List.map Validation_error.warning_to_json warnings)
               | { core_query = None; _ } -> failure "internal_error" "lowering produced neither a query nor errors"
-              | { core_query = Some cq; warnings; _ } -> execute ~max_results t cq warnings)
+              | { core_query = Some cq; warnings; _ } -> execute ~max_results t text cq warnings)
         with exn -> failure "internal_error" (Printf.sprintf "Query error: %s" (Printexc.to_string exn)))
 
   (* BeingDB's own serialisation (as served by GET /predicates?detailed=true),
      so declared roles, semantic types and descriptions are exposed too. *)
   let predicates t : Yojson.Safe.t = Query_environment.to_json t.env
-
-  module Report = Query_diagnostics.Report (Store)
 
   (* The native server's DSL "diagnose" action: validation, data-aware
      diagnostics and proven repairs, computed by BeingDB, not executed. *)

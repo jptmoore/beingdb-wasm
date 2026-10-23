@@ -24,7 +24,8 @@ evaluator are `Query_engine`. JavaScript only fetches text and calls the API.
   types are included). Execution mirrors the server's `max_results` handling
   (default 1000, overridable with `?max_results` for tests): it fetches one row
   past the limit to report `hasMore`, and `truncated` plus a
-  `results_truncated` warning when the cap cut the result. Used for the
+  `results_truncated` warning when the cap cut the result. An empty first page
+  also carries BeingDB's `Query_diagnostics.Report.empty_result_fields`. Used for the
   fixture, the export and (in native tests) Irmin Pack.
 - `export_reader.ml` - the `Pack_layout.READER` (`find`/`list`) over the export.
 - `beingdb_wasm.ml` - browser state: Phase 1 fixture (`Memory_store`) until
@@ -69,12 +70,13 @@ cannot see Irmin at all.
 
 ## Parity tests
 
-Shared fixtures: `fixtures/rewind_queries.json` (13 DSL queries: simple, constant
+Shared fixtures: `fixtures/rewind_queries.json` (15 DSL queries: simple, constant
 binding, 3-way join, year `>=`, year `between`, integer `>`, optional + order by,
-negation, an ordered page with more rows after it (`hasMore`), and four invalid
-queries), `fixtures/rewind_diagnose_queries.json` (13 DSL queries covering every
-`diagnose` diagnostic code, a misspelled constant with suggestions, and both
-proven repairs) and
+negation, an ordered page with more rows after it (`hasMore`), two empty results
+explained by diagnostics, and four invalid queries),
+`fixtures/rewind_diagnose_queries.json` (14 DSL queries covering every `diagnose`
+diagnostic code, including a comparison that falls in a gap in the data, a
+misspelled constant with suggestions, and both proven repairs) and
 `fixtures/rewind_golden.json`, recorded from the native server by
 `fixtures/make_golden.mjs`.
 

@@ -7,6 +7,7 @@
   { "name": "misspelled_constant", "query": "find Work\nwhere\n  created_by(Work, david_critchly)" },
   { "name": "constant_elsewhere", "query": "find X\nwhere\n  made_at(X, david_critchley)" },
   { "name": "disjoint_join", "query": "find Work\nwhere\n  created_by(Work, A)\n  interviewee(Work, B)" },
+  { "name": "unsatisfiable_comparison", "query": "find Work\nwhere\n  year_created(Work, Y)\n  Y between @1992 and @1997" },
   { "name": "contradictory_negation", "query": "find Work\nwhere\n  made_at(Work, oval_house)\n  not\n    made_at(Work, oval_house)" },
   { "name": "role_names_reversed", "query": "find Artist, Work\nwhere\n  created_by(Artist, Work)" },
   { "name": "invalid_with_repair", "query": "find Work\nwhere\n  year_created(@1979, Work)" },
