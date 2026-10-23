@@ -100,6 +100,11 @@ window.onBeingDBReady = async (BeingDB) => {
 Load once, query many times. Before `load`, queries run against the small
 Phase 1 fixture.
 
+`query(dsl)` caps results at 1000 rows, like the native server's default
+`max_results`, and reports it the same way: `hasMore` is `true` when more rows
+match than were returned (the query's own `limit` or the cap stopped it), and
+`truncated` is `true`, with a `results_truncated` warning, only when the cap did.
+
 `predicates()` is BeingDB's own `Query_environment.to_json`. Each predicate has
 `name`, `arity`, `count`, `arguments` (`position`, `types`) and `examples`.
 When the pack declares them, it also has `description` and, per argument,
@@ -109,7 +114,8 @@ Declarations are descriptive only: they do not change how queries validate or
 run, but they are part of the `environmentFingerprint`.
 
 `diagnose(dsl)` runs BeingDB's own `Query_diagnostics` (validation, data-aware
-diagnostics such as `constant_not_at_position` or `disjoint_join`, and any
+diagnostics such as `constant_not_at_position` or `disjoint_join`, likely
+corrections for a misspelled constant in `evidence.suggestions`, and any
 repair BeingDB can prove, as `repair.query`) without executing the query. No
 diagnostic logic lives in this layer; the output equals the native server's
 (checked against goldens in `fixtures/rewind_golden.json`, `diagnose` key). See

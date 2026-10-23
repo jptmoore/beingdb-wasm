@@ -21,8 +21,11 @@ evaluator are `Query_engine`. JavaScript only fetches text and calls the API.
   introspection, shaped like the native server's `POST /query` (dsl, execute)
   and `GET /predicates?detailed=true` (predicates use BeingDB's own
   `Query_environment.to_json`, so declared descriptions, roles and semantic
-  types are included). Used for the fixture, the export and (in native tests)
-  Irmin Pack.
+  types are included). Execution mirrors the server's `max_results` handling
+  (default 1000, overridable with `?max_results` for tests): it fetches one row
+  past the limit to report `hasMore`, and `truncated` plus a
+  `results_truncated` warning when the cap cut the result. Used for the
+  fixture, the export and (in native tests) Irmin Pack.
 - `export_reader.ml` - the `Pack_layout.READER` (`find`/`list`) over the export.
 - `beingdb_wasm.ml` - browser state: Phase 1 fixture (`Memory_store`) until
   `load` is called, then the export.
@@ -66,10 +69,12 @@ cannot see Irmin at all.
 
 ## Parity tests
 
-Shared fixtures: `fixtures/rewind_queries.json` (12 DSL queries: simple, constant
+Shared fixtures: `fixtures/rewind_queries.json` (13 DSL queries: simple, constant
 binding, 3-way join, year `>=`, year `between`, integer `>`, optional + order by,
-negation, and four invalid queries), `fixtures/rewind_diagnose_queries.json` (12
-DSL queries covering every `diagnose` diagnostic code and both proven repairs) and
+negation, an ordered page with more rows after it (`hasMore`), and four invalid
+queries), `fixtures/rewind_diagnose_queries.json` (13 DSL queries covering every
+`diagnose` diagnostic code, a misspelled constant with suggestions, and both
+proven repairs) and
 `fixtures/rewind_golden.json`, recorded from the native server by
 `fixtures/make_golden.mjs`.
 
@@ -83,7 +88,8 @@ DSL queries covering every `diagnose` diagnostic code and both proven repairs) a
   `diagnose()` response with the goldens.
 
 Rows are compared as a sorted multiset (row order is unspecified); everything
-else (variables, count, typed values, warnings, errors, fingerprint) is exact.
+else (variables, count, hasMore, truncated, typed values, warnings, errors,
+fingerprint) is exact.
 
 ## Measurements (Rewind pack, 2026-09-24, Apple Silicon)
 
