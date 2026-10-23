@@ -11,6 +11,7 @@
   { "name": "contradictory_negation", "query": "find Work\nwhere\n  made_at(Work, oval_house)\n  not\n    made_at(Work, oval_house)" },
   { "name": "role_names_reversed", "query": "find Artist, Work\nwhere\n  created_by(Artist, Work)" },
   { "name": "invalid_with_repair", "query": "find Work\nwhere\n  year_created(@1979, Work)" },
+  { "name": "count_query", "query": "find Artist, count(Work)\nwhere\n  created_by(Work, Artist)\n  year_created(Work, Y)\n  Y > @2090" },
   { "name": "unknown_predicate", "query": "find W\nwhere\n  created_bi(W, A)" },
   { "name": "syntax_error", "query": "find W where x" }
 ]
