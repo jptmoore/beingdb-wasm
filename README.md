@@ -104,6 +104,9 @@ Phase 1 fixture.
 `max_results`, and reports it the same way: `hasMore` is `true` when more rows
 match than were returned (the query's own `limit` or the cap stopped it), and
 `truncated` is `true`, with a `results_truncated` warning, only when the cap did.
+When the first page is empty, the response also carries the `diagnose` fields
+(`diagnostics`, `provablyEmpty`, any proven `repair`) explaining why, exactly as
+the native server does.
 
 `predicates()` is BeingDB's own `Query_environment.to_json`. Each predicate has
 `name`, `arity`, `count`, `arguments` (`position`, `types`) and `examples`.

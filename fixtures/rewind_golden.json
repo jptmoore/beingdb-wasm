@@ -11381,6 +11381,84 @@
    "languageVersion": "beingdb-dsl/1",
    "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   },
+  "empty_misspelled": {
+   "variables": [
+    "Work"
+   ],
+   "results": [],
+   "count": 0,
+   "hasMore": false,
+   "truncated": false,
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "unknown_constant",
+     "severity": "error",
+     "message": "'david_critchly' does not occur in any fact, so created_by(...) cannot match it. Did you mean david_critchley?",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "david_critchly"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist",
+      "suggestions": [
+       "david_critchley"
+      ]
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "empty_comparison": {
+   "variables": [
+    "Work"
+   ],
+   "results": [],
+   "count": 0,
+   "hasMore": false,
+   "truncated": false,
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "unsatisfiable_comparison",
+     "severity": "error",
+     "message": "No year_created fact has a value at argument 1 satisfying Y > @2090, so the query returns no rows. Values there range from @1968 to @2004.",
+     "line": 4,
+     "predicate": "year_created",
+     "argumentPosition": 1,
+     "variable": "Y",
+     "value": {
+      "type": "year",
+      "value": "2090"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Year",
+      "observedRange": {
+       "min": {
+        "type": "year",
+        "value": "1968"
+       },
+       "max": {
+        "type": "year",
+        "value": "2004"
+       }
+      }
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
   "invalid_type_mismatch": {
    "valid": false,
    "errors": [
@@ -11778,6 +11856,44 @@
         "declaredRole": "Interview"
        }
       ]
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "unsatisfiable_comparison": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "unsatisfiable_comparison",
+     "severity": "error",
+     "message": "No year_created fact has a value at argument 1 satisfying Y between @1992 and @1997, so the query returns no rows. Values there range from @1968 to @2004.",
+     "line": 4,
+     "predicate": "year_created",
+     "argumentPosition": 1,
+     "variable": "Y",
+     "value": {
+      "type": "year",
+      "value": "1992"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Year",
+      "observedRange": {
+       "min": {
+        "type": "year",
+        "value": "1968"
+       },
+       "max": {
+        "type": "year",
+        "value": "2004"
+       }
+      }
      }
     }
    ],
