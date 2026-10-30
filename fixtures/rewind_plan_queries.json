@@ -1,0 +1,8 @@
+[
+  { "name": "indexed_range", "query": "find Work, Year\nwhere\n  created_by(Work, kevin_atherton)\n  year_created(Work, Year)\n  Year >= @1975" },
+  { "name": "optional_block", "query": "find Work, Medium\nwhere\n  created_by(Work, kevin_atherton)\n  optional\n    uses_medium(Work, Medium)\norder by Work, Medium" },
+  { "name": "either_or", "query": "find distinct Artist, Work\nwhere\n  created_by(Work, Artist)\n  either\n    uses_medium(Work, video)\n  or\n    uses_medium(Work, videotape)\norder by Artist, Work" },
+  { "name": "negation", "query": "find Artist\nwhere\n  interviewed_artist(Artist)\n  not\n    educated_at(Artist, _)\norder by Artist" },
+  { "name": "count_paged", "query": "find Artist, count(Work)\nwhere\n  created_by(Work, Artist)\norder by count(Work) descending, Artist\nlimit 5\noffset 5" },
+  { "name": "contains_filter", "query": "find Artist, Place\nwhere\n  educated_at(Artist, Place)\n  Place contains \"royal college\"" }
+]

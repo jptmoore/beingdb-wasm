@@ -1,0 +1,42 @@
+{
+  "title": "not",
+  "intro": [
+    "`not` keeps a row only when the block has **no** match."
+  ],
+  "steps": [
+    {
+      "question": "Which interviewed artists have no recorded education?",
+      "query": "find Artist\nwhere\n  interviewed_artist(Artist)\n  not\n    educated_at(Artist, _)\norder by Artist",
+      "expect": {
+        "total": 2,
+        "rows": [
+          [
+            "anna_ridley"
+          ],
+          [
+            "madelon_hooykaas"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "Which of Kevin Atherton's works have no recorded year?",
+      "query": "find Work\nwhere\n  created_by(Work, kevin_atherton)\n  not\n    year_created(Work, _)\norder by Work",
+      "notes": [
+        "11 of his 12 works: only `tape_tape` has a year.",
+        {
+          "list": [
+            "Every **named** variable inside `not` must also be bound outside it. Use `_` for anything else, or BeingDB rejects the query as `unsafe_negation`.",
+            "**Absence in the data is not absence in the world.** \"No recorded year\" means the interview did not mention one."
+          ]
+        }
+      ],
+      "try": [
+        "Replace `_` with a new variable `Y` and run it. What error do you get?"
+      ],
+      "expect": {
+        "total": 11
+      }
+    }
+  ]
+}

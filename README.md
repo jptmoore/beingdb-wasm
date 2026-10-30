@@ -4,6 +4,9 @@ A **proof-of-concept**: the real [BeingDB](../beingdb) query runtime compiled to
 WebAssembly with `wasm_of_ocaml`, querying real compiled BeingDB data (the
 Rewind interview pack) in a web browser.
 
+**New to BeingDB?** Try the [browser tutorial](tutorial/README.md): an
+interactive, zero-install walkthrough of the query language on the REWIND data.
+
 The BeingDB parser, validator, planner, evaluator and pack/index interpretation
 (`Pack_layout`) all run unchanged in the browser. The only new pieces are a
 native exporter and a tiny reader for its output. See
@@ -31,6 +34,7 @@ browser:  export     -> Export_reader       -> Pack_layout -> Query_engine
 ```
 src/                 portable OCaml: Session (query/introspection), Export_reader
 web/                 WASM entry point, demo page, parity page, Node tests
+tutorial/            interactive browser tutorial (lessons + thin UI over the WASM API)
 native/              exporter + parity test (needs Irmin Pack; separate dune root)
 fixtures/            shared Rewind queries + goldens from the native server
 data/                rewind.browser.json (generated)
@@ -65,7 +69,7 @@ opam exec --switch=5.4.0 -- dune exec --root native ./export_browser.exe -- \
 
 ```sh
 dune build                                      # WASM + pages in _build/default/web
-dune test                                       # Phase 1 tests + Rewind WASM parity (Node)
+dune test                                       # Phase 1 tests, Rewind WASM parity, tutorial (Node)
 opam exec --switch=5.4.0 -- dune test --root native   # Irmin Pack vs export parity
 ```
 
@@ -84,6 +88,8 @@ python3 -m http.server 8000 -d _build/default
   then a query editor.
 - <http://localhost:8000/web/parity.html>: runs every fixture query against the
   native goldens and prints PASS/FAIL.
+- <http://localhost:8000/tutorial/>: the interactive tutorial (see
+  [tutorial/README.md](tutorial/README.md)).
 
 ## JavaScript API
 
@@ -94,6 +100,8 @@ window.onBeingDBReady = async (BeingDB) => {
   BeingDB.query(dsl);        // -> JSON string (same shape as POST /query, dsl)
   BeingDB.predicates();      // -> JSON string (same shape as GET /predicates?detailed=true)
   BeingDB.diagnose(dsl);     // -> JSON string (same body as POST /query, dsl, action "diagnose")
+  BeingDB.validate(dsl);     // -> JSON string (same body as POST /query, dsl, action "validate")
+  BeingDB.explain(dsl);      // -> JSON string (same body as POST /query, dsl, action "explain")
 };
 ```
 
@@ -125,6 +133,14 @@ repair BeingDB can prove, as `repair.query`) without executing the query. No
 diagnostic logic lives in this layer; the output equals the native server's
 (checked against goldens in `fixtures/rewind_golden.json`, `diagnose` key). See
 BeingDB's [API reference](../beingdb/docs/api.md#diagnose-dsl) for the codes.
+
+`validate(dsl)` and `explain(dsl)` are the native server's `validate` and
+`explain` actions: the query is parsed and checked against the data but not
+executed. A valid query returns `valid: true` with its `projection` and
+`distinct` flag (`validate`), or with BeingDB's `normalizedCoreQuery`,
+structured `plan` and human-readable `planText` (`explain`). An invalid query
+returns the same `valid: false` error envelope as `query`. Both equal the
+native server's responses (`validate` and `explain` keys in the goldens).
 
 ## Example
 

@@ -1,0 +1,42 @@
+{
+  "title": "Describe a predicate",
+  "intro": [
+    "Before writing a query, check what a predicate's arguments mean and what type of value each one holds. This is the browser version of the REPL's `:describe` command."
+  ],
+  "steps": [
+    {
+      "kind": "describe",
+      "predicate": "created_by",
+      "notes": [
+        "This tells you:",
+        {
+          "list": [
+            "the **argument order**: the work comes first, the artist second;",
+            "each argument's **role** (`Work`, `Artist`) and observed **type** (`atom`);",
+            "how many facts exist, and a few **examples**;",
+            "a **description**, written by the dataset's authors."
+          ]
+        },
+        "Always check argument order before writing a query: it is the most common cause of empty results."
+      ],
+      "try": [
+        "Describe `uses_medium`, `year_created`, `exhibited_at` and `born_in`. What types do their second arguments hold?"
+      ],
+      "expect": {
+        "predicate": "created_by",
+        "roles": [
+          "Work",
+          "Artist"
+        ],
+        "types": [
+          [
+            "atom"
+          ],
+          [
+            "atom"
+          ]
+        ]
+      }
+    }
+  ]
+}

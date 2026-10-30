@@ -1,0 +1,124 @@
+{
+  "title": "When things go wrong",
+  "intro": [
+    "BeingDB validates every query against the loaded data and explains its answers. Everything shown in this lesson comes from BeingDB itself, not from this page."
+  ],
+  "steps": [
+    {
+      "question": "What if a predicate name is misspelled?",
+      "query": "find Work\nwhere\n  creatd_by(Work, kevin_atherton)",
+      "notes": [
+        "The query is rejected before it runs, with suggestions."
+      ],
+      "expect": {
+        "invalid": "unknown_predicate"
+      }
+    },
+    {
+      "heading": "Empty results are explained",
+      "question": "What if a constant is misspelled?",
+      "query": "find Work\nwhere\n  created_by(Work, kevin_athertn)",
+      "notes": [
+        "This is valid syntax, so the query runs and returns nothing, but the response explains why with an `unknown_constant` diagnostic and a likely correction.",
+        "**Provably empty** means BeingDB has proved that the query can never match the current data. Read the diagnostics before concluding that \"the answer is none\"."
+      ],
+      "expect": {
+        "total": 0,
+        "diagnostic": "unknown_constant",
+        "provablyEmpty": true
+      }
+    },
+    {
+      "question": "What if the arguments are the wrong way round?",
+      "query": "find Work\nwhere\n  created_by(kevin_atherton, Work)",
+      "notes": [
+        "BeingDB notices that `kevin_atherton` only ever appears as the **second** argument of `created_by`, and proves a repair: swap the arguments. Press **Apply repair** to load it into the editor, then run it."
+      ],
+      "expect": {
+        "total": 0,
+        "diagnostic": "constant_not_at_position",
+        "repair": true
+      }
+    },
+    {
+      "question": "What if a comparison can never be true?",
+      "query": "find Work\nwhere\n  year_created(Work, Y)\n  Y > @2090",
+      "expect": {
+        "total": 0,
+        "diagnostic": "unsatisfiable_comparison"
+      }
+    },
+    {
+      "heading": "Diagnose without running",
+      "question": "Can I check a query before running it?",
+      "action": "diagnose",
+      "query": "find Work\nwhere\n  created_by(Work, david_critchly)",
+      "notes": [
+        "This step uses **Diagnose** instead of Run: validation plus data-aware checks, without executing the query. Every editor also has **Explain**, which shows the execution plan."
+      ],
+      "expect": {
+        "diagnostic": "unknown_constant"
+      }
+    },
+    {
+      "heading": "Explain the plan",
+      "question": "How will BeingDB run this query?",
+      "action": "explain",
+      "query": "find Work, Year\nwhere\n  created_by(Work, kevin_atherton)\n  year_created(Work, Year)\n  Year >= @1975",
+      "notes": [
+        "The planner looks up Kevin's works through an index, then checks the year through a range index, rather than scanning every fact."
+      ],
+      "expect": {
+        "plan": "equality_index(position=1, value=kevin_atherton)"
+      }
+    },
+    {
+      "heading": "Troubleshooting checklist",
+      "kind": "text",
+      "notes": [
+        {
+          "table": {
+            "head": [
+              "Symptom",
+              "Likely cause"
+            ],
+            "rows": [
+              [
+                "`syntax_error`",
+                "Missing `where`, two clauses on one line, or a trailing `.`"
+              ],
+              [
+                "`unknown_predicate` / arity error",
+                "Check the predicate list and Describe"
+              ],
+              [
+                "`literal_type_mismatch`",
+                "`\"video\"` vs `video`, `1975` vs `@1975`"
+              ],
+              [
+                "`comparison_type_mismatch`",
+                "Comparing a year with a date, or ordering atoms"
+              ],
+              [
+                "`disconnected_query`",
+                "A line shares no variable with the rest; often a typo"
+              ],
+              [
+                "`unsafe_negation`",
+                "A named variable appears only inside `not`"
+              ],
+              [
+                "Empty result",
+                "Wrong argument order, spelling or type: read the diagnostics"
+              ],
+              [
+                "Too many repeated rows",
+                "Several matches per join: use `distinct` or fewer columns"
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "title": "either / or",
+  "intro": [
+    "Rows are kept if **any** branch matches."
+  ],
+  "steps": [
+    {
+      "question": "Which works are recorded with either `video` or `videotape`, and who made them?",
+      "query": "find distinct Artist, Work\nwhere\n  created_by(Work, Artist)\n  either\n    uses_medium(Work, video)\n  or\n    uses_medium(Work, videotape)\norder by Artist, Work",
+      "notes": [
+        "`tape_tape` is recorded with `videotape` rather than `video`, so the second branch is what finds it."
+      ],
+      "expect": {
+        "total": 3,
+        "rows": [
+          [
+            "kevin_atherton",
+            "gallery_guide"
+          ],
+          [
+            "kevin_atherton",
+            "tape_tape"
+          ],
+          [
+            "rose_garrard",
+            "incidents_in_a_garden"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "What was commissioned by the BBC, or funded by Channel 4?",
+      "query": "find distinct Thing, Organisation\nwhere\n  either\n    commissioned_by(Thing, Organisation)\n    Organisation contains \"bbc\"\n  or\n    funded_by(Thing, Organisation)\n    Organisation contains \"channel\"\norder by Thing",
+      "notes": [
+        "Branches can contain several lines, including comparisons. A variable that only one branch binds is `null` in rows from the other branch; the capstone uses this."
+      ],
+      "expect": {
+        "total": 7,
+        "firstRows": [
+          [
+            "homing",
+            "bbc"
+          ]
+        ]
+      }
+    }
+  ]
+}

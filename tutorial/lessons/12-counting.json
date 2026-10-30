@@ -1,0 +1,107 @@
+{
+  "title": "Counting",
+  "intro": [
+    "`count(Var)` counts the **distinct** values of `Var`. Other variables in `find` act as groups."
+  ],
+  "steps": [
+    {
+      "question": "How many works did Kevin Atherton make?",
+      "query": "find count(Work)\nwhere\n  created_by(Work, kevin_atherton)",
+      "expect": {
+        "rows": [
+          [
+            "12"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "Who has the most recorded works?",
+      "query": "find Artist, count(Work)\nwhere\n  created_by(Work, Artist)\norder by count(Work) descending, Artist\nlimit 5",
+      "notes": [
+        "The second sort key, `Artist`, puts ties in a stable order.",
+        "`elsa` and `elsa_stansfield` are almost certainly the same person under two identifiers. Counts are only as clean as the data."
+      ],
+      "try": [
+        "Add `offset 5` on a new line after `limit 5` to see the next page."
+      ],
+      "expect": {
+        "rows": [
+          [
+            "madelon_hooykaas",
+            "24"
+          ],
+          [
+            "george_barber",
+            "18"
+          ],
+          [
+            "elsa",
+            "13"
+          ],
+          [
+            "elsa_stansfield",
+            "13"
+          ],
+          [
+            "kevin_atherton",
+            "12"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "How many works are recorded per year?",
+      "query": "find Year, count(Work)\nwhere\n  created_by(Work, _)\n  year_created(Work, Year)\norder by Year",
+      "expect": {
+        "total": 15,
+        "firstRows": [
+          [
+            "1968",
+            "1"
+          ],
+          [
+            "1971",
+            "1"
+          ],
+          [
+            "1973",
+            "2"
+          ],
+          [
+            "1975",
+            "5"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Counting zero",
+      "question": "How many organisations employed each interviewed artist, including none?",
+      "query": "find Artist, count(Org)\nwhere\n  interviewed_artist(Artist)\n  optional\n    employed_by(Artist, Org)\norder by count(Org) descending, Artist",
+      "notes": [
+        "A plain join drops groups with nothing to count. With `optional`, they appear with `0`.",
+        {
+          "list": [
+            "Counts are of distinct values, so a join that repeats a value does not inflate them.",
+            "Don't also put the counted variable in `find` as a plain column.",
+            "In a counting query, `order by` can only use `find` columns, including `count(...)`."
+          ]
+        }
+      ],
+      "expect": {
+        "total": 10,
+        "firstRows": [
+          [
+            "kevin_atherton",
+            "9"
+          ],
+          [
+            "rose_garrard",
+            "5"
+          ]
+        ]
+      }
+    }
+  ]
+}

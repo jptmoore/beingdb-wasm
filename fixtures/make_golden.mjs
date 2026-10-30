@@ -27,5 +27,25 @@ for (const { name, query } of diagnoseQueries) {
   });
   diagnose[name] = await res.json();
 }
-await writeFile(new URL("rewind_golden.json", dir), JSON.stringify({ predicates, queries: responses, diagnose }, null, 1) + "\n");
-console.log(`wrote ${Object.keys(responses).length} query and ${Object.keys(diagnose).length} diagnose goldens`);
+// validate/explain: the diagnose queries (valid and invalid) plus plan-shaped ones.
+const planQueries = JSON.parse(await readFile(new URL("rewind_plan_queries.json", dir), "utf8"));
+const validate = {};
+const explain = {};
+for (const { name, query } of [...diagnoseQueries, ...planQueries]) {
+  for (const [action, out] of [["validate", validate], ["explain", explain]]) {
+    const res = await fetch(`${base}/query`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ language: "dsl", action, query }),
+    });
+    out[name] = await res.json();
+  }
+}
+await writeFile(
+  new URL("rewind_golden.json", dir),
+  JSON.stringify({ predicates, queries: responses, diagnose, validate, explain }, null, 1) + "\n",
+);
+console.log(
+  `wrote ${Object.keys(responses).length} query, ${Object.keys(diagnose).length} diagnose and ` +
+    `${Object.keys(validate).length} validate/explain goldens`,
+);

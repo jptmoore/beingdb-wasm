@@ -1,0 +1,91 @@
+{
+  "title": "Explore the vocabulary",
+  "intro": [
+    "You can't query a dataset without knowing its vocabulary, so start by asking BeingDB what it contains.",
+    "Facts are written as **predicates**: a name applied to some arguments. For example, the dataset contains the fact:",
+    {
+      "code": "created_by(gallery_guide, kevin_atherton)."
+    },
+    "The predicate is `created_by`, and it has two arguments. We write this as `created_by/2`; the number after the slash is the **arity**, the number of arguments.",
+    "The list below comes straight from the loaded data. Filter it, and click a predicate to see more about it."
+  ],
+  "steps": [
+    {
+      "kind": "predicates",
+      "notes": [
+        "These predicates appear throughout the tutorial:",
+        {
+          "table": {
+            "head": [
+              "Predicate",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "`interviewed_artist(Artist)`",
+                "An artist who is the subject of an interview"
+              ],
+              [
+                "`person(Person)`, `work(Work)`",
+                "Entity-type markers"
+              ],
+              [
+                "`created_by(Work, Artist)`",
+                "A work and who made it"
+              ],
+              [
+                "`uses_medium(WorkOrArtist, Medium)`",
+                "A work or an artist's practice uses a medium"
+              ],
+              [
+                "`year_created(Work, Year)`",
+                "A recorded year of creation"
+              ],
+              [
+                "`exhibited_at(WorkOrArtist, VenueOrExhibition)`",
+                "Something shown somewhere"
+              ],
+              [
+                "`collaborated_with(Person, Collaborator)`",
+                "A recorded collaboration"
+              ],
+              [
+                "`educated_at(Person, Institution)`",
+                "Where someone studied"
+              ],
+              [
+                "`employed_by(Person, Organisation)`",
+                "Where someone worked or taught"
+              ],
+              [
+                "`funded_by(WorkOrArtist, Funder)`",
+                "A funding relationship"
+              ],
+              [
+                "`interviewee(Interview, Artist)`",
+                "An interview and its subject"
+              ],
+              [
+                "`source_url(Interview, Url)`",
+                "The interview transcript's URL"
+              ]
+            ]
+          }
+        },
+        "Notice roles like `WorkOrArtist`: some predicates mix kinds of entity in one position. A later lesson shows how to deal with that."
+      ],
+      "try": [
+        "Filter for `year` to see every predicate that records a year.",
+        "Filter for `by` and compare `created_by`, `funded_by` and `commissioned_by`."
+      ],
+      "expect": {
+        "predicates": 168,
+        "has": [
+          "created_by",
+          "uses_medium",
+          "interviewed_artist"
+        ]
+      }
+    }
+  ]
+}

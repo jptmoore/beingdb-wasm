@@ -1,0 +1,41 @@
+{
+  "title": "optional",
+  "intro": [
+    "Plain `where` lines all have to match. Three block keywords relax that: `optional`, `either`/`or` and `not`.",
+    {
+      "note": "**Layout rule for all blocks:** a block runs until the next block keyword (`optional`, `either`, `or`, `not`) or the end of the clauses (`order by`, `limit`, `offset`). Indentation is only for readability. Put required lines first, then blocks. Blocks cannot be nested."
+    }
+  ],
+  "steps": [
+    {
+      "question": "What media did each of Kevin Atherton's works use, including works with none recorded?",
+      "query": "find Work, Medium\nwhere\n  created_by(Work, kevin_atherton)\n  optional\n    uses_medium(Work, Medium)\norder by Work, Medium",
+      "notes": [
+        "In the joins lesson, works without a recorded medium disappeared. `optional` keeps them: when the block does not match, its variables come back empty (`null`). All 12 works now appear."
+      ],
+      "expect": {
+        "total": 16,
+        "firstRows": [
+          [
+            "an_audience_s_new_clothes",
+            null
+          ],
+          [
+            "another_sphere",
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "question": "For works by interviewed artists from 1975 and 1976, what media and venues are recorded?",
+      "query": "find Year, Work, Medium, Venue\nwhere\n  created_by(Work, Artist)\n  interviewed_artist(Artist)\n  year_created(Work, Year)\n  Year between @1975 and @1976\n  optional\n    uses_medium(Work, Medium)\n  optional\n    exhibited_at(Work, Venue)\norder by Year, Work, Medium, Venue",
+      "notes": [
+        "You can use several `optional` blocks. Each is matched independently, so a work can have a medium but no venue, or the other way round."
+      ],
+      "expect": {
+        "total": 14
+      }
+    }
+  ]
+}

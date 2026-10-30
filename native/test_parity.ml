@@ -82,6 +82,19 @@ let test_diagnose q () =
 
 let diagnose_queries = lazy (Yojson.Safe.Util.(to_list (Yojson.Safe.from_file "fixtures/rewind_diagnose_queries.json")))
 
+(* validate/explain envelopes (including the plan) are deterministic: compared exactly. *)
+let test_check ~action native export q () =
+  let open Yojson.Safe.Util in
+  let name = to_string (member "name" q) and text = to_string (member "query" q) in
+  let expected = Lazy.force golden |> member action |> member name in
+  Alcotest.check json "native session = server" expected (native (Lazy.force native_session) text);
+  Alcotest.check json "export session = server" expected (export (Lazy.force export_session) text)
+
+let check_queries =
+  lazy
+    (Lazy.force diagnose_queries
+    @ Yojson.Safe.Util.(to_list (Yojson.Safe.from_file "fixtures/rewind_plan_queries.json")))
+
 let () =
   let diagnose_cases =
     List.map
@@ -93,6 +106,11 @@ let () =
       (fun q -> Alcotest.test_case Yojson.Safe.Util.(to_string (member "name" q)) `Quick (test_query q))
       (Lazy.force queries)
   in
+  let check_cases ~action native export =
+    List.map
+      (fun q -> Alcotest.test_case Yojson.Safe.Util.(to_string (member "name" q)) `Quick (test_check ~action native export q))
+      (Lazy.force check_queries)
+  in
   Alcotest.run "Rewind pack parity"
     [
       ( "export",
@@ -100,4 +118,6 @@ let () =
       ("introspection", [ Alcotest.test_case "predicates" `Quick test_predicates ]);
       ("queries", query_cases);
       ("diagnose", diagnose_cases);
+      ("validate", check_cases ~action:"validate" Native_session.validate W.Export_session.validate);
+      ("explain", check_cases ~action:"explain" Native_session.explain W.Export_session.explain);
     ]

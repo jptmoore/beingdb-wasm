@@ -1,0 +1,137 @@
+{
+  "title": "Constants and variables",
+  "intro": [
+    "Write a lowercase value instead of a variable to fix that argument. Lowercase values like `kevin_atherton` are **atoms**: identifiers, not display names. Spelling must be exact."
+  ],
+  "steps": [
+    {
+      "question": "Which works did Kevin Atherton make?",
+      "query": "find Work\nwhere\n  created_by(Work, kevin_atherton)\norder by Work",
+      "try": [
+        "Replace `kevin_atherton` with `george_barber`."
+      ],
+      "expect": {
+        "total": 12,
+        "firstRows": [
+          [
+            "an_audience_s_new_clothes"
+          ],
+          [
+            "another_sphere"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "Who made `compass`?",
+      "query": "find Artist\nwhere\n  created_by(compass, Artist)",
+      "notes": [
+        "The same predicate answers the reverse question. There is no \"direction\" in a query: any argument can be a variable or a constant."
+      ],
+      "expect": {
+        "total": 2,
+        "sortedRows": [
+          [
+            "elsa"
+          ],
+          [
+            "madelon_hooykaas"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Wildcards and distinct",
+      "question": "Who has made anything?",
+      "query": "find distinct Artist\nwhere\n  created_by(_, Artist)\norder by Artist",
+      "notes": [
+        "Use `_` for an argument you don't care about. Each `_` is independent and never appears in results.",
+        "Without `distinct`, an artist appears once per work. `distinct` keeps one row per distinct combination of the `find` columns."
+      ],
+      "try": [
+        "Remove `distinct` and compare the number of rows."
+      ],
+      "expect": {
+        "total": 20
+      }
+    },
+    {
+      "heading": "Literal types matter",
+      "question": "Who was born in the West Indies?",
+      "query": "find Artist\nwhere\n  born_in(Artist, \"West Indies\")",
+      "notes": [
+        "Every stored value has a type, determined by how it was written. Different types **never** match each other, so write constants in the stored type:",
+        {
+          "table": {
+            "head": [
+              "Written as",
+              "Type",
+              "Example in this dataset"
+            ],
+            "rows": [
+              [
+                "`kevin_atherton`",
+                "atom",
+                "names, works, media"
+              ],
+              [
+                "`\"West Indies\"`",
+                "string",
+                "`born_in(george_barber, \"West Indies\")`"
+              ],
+              [
+                "`30`",
+                "integer",
+                "`duration_minutes(one_of_these_days, 30)`"
+              ],
+              [
+                "`@1975`",
+                "year",
+                "`year_created(tape_tape, @1975)`"
+              ]
+            ]
+          }
+        }
+      ],
+      "expect": {
+        "total": 1,
+        "rows": [
+          [
+            "george_barber"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "Which works were created in 1975?",
+      "query": "find Work\nwhere\n  year_created(Work, @1975)\norder by Work",
+      "notes": [
+        "`@1975` is a year. `1975` (integer), `\"1975\"` (string) and `@1975-01-01` (a full date) are all different values."
+      ],
+      "expect": {
+        "total": 6,
+        "firstRows": [
+          [
+            "move_towards_the_verticality_of_the_horizon"
+          ],
+          [
+            "tape_tape"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "What happens if you use the wrong type?",
+      "query": "find Work\nwhere\n  uses_medium(Work, \"video\")",
+      "notes": [
+        "BeingDB checks the query against the data before running it. Media are stored as atoms, so the string `\"video\"` is rejected with `literal_type_mismatch`. Describe a predicate whenever you are unsure of a type."
+      ],
+      "try": [
+        "Remove the quotes so the constant is the atom `video`, and run it again."
+      ],
+      "expect": {
+        "invalid": "literal_type_mismatch"
+      }
+    }
+  ]
+}
