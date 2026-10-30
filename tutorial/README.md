@@ -47,9 +47,11 @@ During development, `dune build` followed by
 The site is built and published by GitHub Actions
 ([`.github/workflows/pages.yml`](../.github/workflows/pages.yml)):
 
-- **Every push to `main`** (and `npm run deploy`, or "Run workflow" on `main`
-  in the Actions tab) runs the tests, builds `dist/site/`, verifies it,
-  deploys it to GitHub Pages, then checks the live site in a fresh browser.
+- **Deployment is manual.** `npm run deploy` (or "Run workflow" on `main` in
+  the Actions tab) runs the tests, builds `dist/site/`, verifies it, deploys
+  it to GitHub Pages, then checks the live site in a fresh browser. Pushes to
+  `main` do not deploy, so unrelated work never republishes the tutorial;
+  deploy when a tutorial change is ready.
 - **Pull requests**, and manual runs on other branches, build and verify
   only.
 
