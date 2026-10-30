@@ -1,0 +1,103 @@
+{
+  "title": "Filtering",
+  "intro": [
+    "A `where` line can also be a comparison: `=`, `!=`, `<`, `<=`, `>`, `>=`, `between ... and ...` or `contains`."
+  ],
+  "steps": [
+    {
+      "question": "Which works were created in the 1970s?",
+      "query": "find Year, Work, Artist\nwhere\n  created_by(Work, Artist)\n  year_created(Work, Year)\n  Year between @1970 and @1979\norder by Year, Work",
+      "notes": [
+        "`between` is inclusive at both ends. `Year >= @1970` and `Year < @1980` on two lines gives the same result."
+      ],
+      "try": [
+        "Narrow it to 1975 to 1977."
+      ],
+      "expect": {
+        "total": 20,
+        "firstRows": [
+          [
+            "1971",
+            "time_check",
+            "david_hall"
+          ],
+          [
+            "1973",
+            "changing",
+            "david_critchley"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "Which works last more than 10 minutes?",
+      "query": "find Work, Minutes\nwhere\n  duration_minutes(Work, Minutes)\n  Minutes > 10",
+      "notes": [
+        "Comparisons work on integers too."
+      ],
+      "expect": {
+        "total": 1,
+        "rows": [
+          [
+            "one_of_these_days",
+            "30"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Comparisons respect types",
+      "question": "Can a year be compared with a full date?",
+      "query": "find Work\nwhere\n  year_created(Work, Y)\n  Y > @1975-01-01",
+      "notes": [
+        {
+          "list": [
+            "Numbers compare with numbers, years with years, dates with dates. A year is never compared with a full date.",
+            "As a convenience, an integer may be compared with a year, so `Y >= 1975` also works. Writing `@1975` makes the intent clearer.",
+            "Atoms and strings support `=`, `!=` and `contains`, but not `<` or `>`.",
+            "`=` and `!=` only **filter** rows; they never bind a variable."
+          ]
+        }
+      ],
+      "try": [
+        "Change `@1975-01-01` to `@1975`."
+      ],
+      "expect": {
+        "invalid": "comparison_type_mismatch"
+      }
+    },
+    {
+      "heading": "Text search with contains",
+      "question": "Which recorded media mention video?",
+      "query": "find distinct Medium\nwhere\n  uses_medium(_, Medium)\n  Medium contains \"video\"\norder by Medium",
+      "notes": [
+        "An exact constant only matches one value: `uses_medium(Work, video)` misses `colour_video`, `videotape` and `video_projection`. `contains` matches part of a value.",
+        "It is a plain substring test: no wildcards or regular expressions. The left side must be a variable, and the text must be in double quotes."
+      ],
+      "expect": {
+        "total": 8,
+        "firstRows": [
+          [
+            "black_and_white_video"
+          ],
+          [
+            "colour_video"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "Who studied at a Royal College?",
+      "query": "find Artist, Place\nwhere\n  educated_at(Artist, Place)\n  Place contains \"royal college\"\norder by Artist",
+      "notes": [
+        "`contains` ignores case and treats `_` and spaces as the same, so `\"royal college\"` matches both `royal_college` and `royal_college_of_art`. That helps with naming variants."
+      ],
+      "try": [
+        "Find people whose identifier contains `critchley` using `person(Name)`. How many variants are there?"
+      ],
+      "expect": {
+        "total": 5
+      }
+    }
+  ]
+}

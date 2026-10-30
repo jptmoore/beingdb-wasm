@@ -12420,5 +12420,1331 @@
    "languageVersion": "beingdb-dsl/1",
    "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   }
+ },
+ "validate": {
+  "clean_range": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Work",
+    "Year"
+   ],
+   "projection": [
+    "Work",
+    "Year"
+   ],
+   "distinct": false
+  },
+  "swapped_constant": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Work"
+   ],
+   "projection": [
+    "Work"
+   ],
+   "distinct": false
+  },
+  "singleton_names_atom": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "OvalHouse",
+    "Work"
+   ],
+   "projection": [
+    "Work"
+   ],
+   "distinct": false
+  },
+  "singleton_plain": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Artist",
+    "Work"
+   ],
+   "projection": [
+    "Work"
+   ],
+   "distinct": false
+  },
+  "unknown_constant": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Work"
+   ],
+   "projection": [
+    "Work"
+   ],
+   "distinct": false
+  },
+  "misspelled_constant": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Work"
+   ],
+   "projection": [
+    "Work"
+   ],
+   "distinct": false
+  },
+  "constant_elsewhere": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "X"
+   ],
+   "projection": [
+    "X"
+   ],
+   "distinct": false
+  },
+  "disjoint_join": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "A",
+    "B",
+    "Work"
+   ],
+   "projection": [
+    "Work"
+   ],
+   "distinct": false
+  },
+  "unsatisfiable_comparison": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Work",
+    "Y"
+   ],
+   "projection": [
+    "Work"
+   ],
+   "distinct": false
+  },
+  "contradictory_negation": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Work"
+   ],
+   "projection": [
+    "Work"
+   ],
+   "distinct": false
+  },
+  "role_names_reversed": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Artist",
+    "Work"
+   ],
+   "projection": [
+    "Artist",
+    "Work"
+   ],
+   "distinct": false
+  },
+  "invalid_with_repair": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "literal_type_mismatch",
+     "message": "Predicate 'year_created' argument 0 expects type in {atom}, got year",
+     "line": 3,
+     "column": 3,
+     "predicate": "year_created",
+     "argumentPosition": 0,
+     "expectedTypes": [
+      "atom"
+     ],
+     "receivedType": "year"
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "count_query": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Artist",
+    "Work",
+    "Y"
+   ],
+   "projection": [
+    "Artist",
+    "count(Work)"
+   ],
+   "distinct": false
+  },
+  "contains_unsatisfiable": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "E",
+    "T"
+   ],
+   "projection": [
+    "E"
+   ],
+   "distinct": false
+  },
+  "unknown_predicate": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "unknown_predicate",
+     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, rented_by, edited_by, invited_by?",
+     "line": 3,
+     "column": 3,
+     "predicate": "created_bi",
+     "suggestions": [
+      "created_by",
+      "curated_by",
+      "rented_by",
+      "edited_by",
+      "invited_by"
+     ]
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "syntax_error": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "syntax_error",
+     "message": "Expected 'where' after 'find ...'"
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "indexed_range": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Work",
+    "Year"
+   ],
+   "projection": [
+    "Work",
+    "Year"
+   ],
+   "distinct": false
+  },
+  "optional_block": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Medium",
+    "Work"
+   ],
+   "projection": [
+    "Work",
+    "Medium"
+   ],
+   "distinct": false
+  },
+  "either_or": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Artist",
+    "Work"
+   ],
+   "projection": [
+    "Artist",
+    "Work"
+   ],
+   "distinct": true
+  },
+  "negation": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Artist"
+   ],
+   "projection": [
+    "Artist"
+   ],
+   "distinct": false
+  },
+  "count_paged": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Artist",
+    "Work"
+   ],
+   "projection": [
+    "Artist",
+    "count(Work)"
+   ],
+   "distinct": false
+  },
+  "contains_filter": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "variables": [
+    "Artist",
+    "Place"
+   ],
+   "projection": [
+    "Artist",
+    "Place"
+   ],
+   "distinct": false
+  }
+ },
+ "explain": {
+  "clean_range": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work",
+    "Year"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "year_created(Work, Year)"
+    ],
+    "comparisons": [
+     "Year between 1968 and 1972"
+    ]
+   },
+   "plan": [
+    {
+     "operation": "range_index_lookup",
+     "predicate": "year_created",
+     "argumentPosition": 1,
+     "constraints": [
+      {
+       "operator": ">=",
+       "value": {
+        "type": "year",
+        "value": "1968"
+       }
+      },
+      {
+       "operator": "<=",
+       "value": {
+        "type": "year",
+        "value": "1972"
+       }
+      }
+     ]
+    },
+    {
+     "operation": "filter",
+     "expression": "Year between 1968 and 1972"
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work",
+      "Year"
+     ]
+    }
+   ],
+   "planText": "year_created: range_index(position=1, lower=1968, upper=1972)"
+  },
+  "swapped_constant": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(david_critchley, Work)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "exact_index_lookup",
+     "predicate": "created_by",
+     "argumentPosition": 0,
+     "value": {
+      "type": "atom",
+      "value": "david_critchley"
+     }
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work"
+     ]
+    }
+   ],
+   "planText": "created_by: equality_index(position=0, value=david_critchley)"
+  },
+  "singleton_names_atom": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "made_at(Work, OvalHouse)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "predicate_scan",
+     "predicate": "made_at"
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work"
+     ]
+    }
+   ],
+   "planText": "made_at: full_scan"
+  },
+  "singleton_plain": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Work, Artist)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "predicate_scan",
+     "predicate": "created_by"
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work"
+     ]
+    }
+   ],
+   "planText": "created_by: full_scan"
+  },
+  "unknown_constant": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Work, nobody_at_all)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "exact_index_lookup",
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "nobody_at_all"
+     }
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work"
+     ]
+    }
+   ],
+   "planText": "created_by: equality_index(position=1, value=nobody_at_all)"
+  },
+  "misspelled_constant": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Work, david_critchly)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "exact_index_lookup",
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "david_critchly"
+     }
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work"
+     ]
+    }
+   ],
+   "planText": "created_by: equality_index(position=1, value=david_critchly)"
+  },
+  "constant_elsewhere": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "X"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "made_at(X, david_critchley)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "exact_index_lookup",
+     "predicate": "made_at",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "david_critchley"
+     }
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "X"
+     ]
+    }
+   ],
+   "planText": "made_at: equality_index(position=1, value=david_critchley)"
+  },
+  "disjoint_join": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Work, A)",
+     "interviewee(Work, B)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "predicate_scan",
+     "predicate": "created_by"
+    },
+    {
+     "operation": "join",
+     "predicate": "interviewee",
+     "argumentPosition": 0,
+     "joinVariables": [
+      "Work"
+     ]
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work"
+     ]
+    }
+   ],
+   "planText": "created_by: full_scan\ninterviewee: equality_index(position=0, bound_variable=Work)"
+  },
+  "unsatisfiable_comparison": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "year_created(Work, Y)"
+    ],
+    "comparisons": [
+     "Y between 1992 and 1997"
+    ]
+   },
+   "plan": [
+    {
+     "operation": "range_index_lookup",
+     "predicate": "year_created",
+     "argumentPosition": 1,
+     "constraints": [
+      {
+       "operator": ">=",
+       "value": {
+        "type": "year",
+        "value": "1992"
+       }
+      },
+      {
+       "operator": "<=",
+       "value": {
+        "type": "year",
+        "value": "1997"
+       }
+      }
+     ]
+    },
+    {
+     "operation": "filter",
+     "expression": "Y between 1992 and 1997"
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work"
+     ]
+    }
+   ],
+   "planText": "year_created: range_index(position=1, lower=1992, upper=1997)"
+  },
+  "contradictory_negation": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "made_at(Work, oval_house)",
+     "made_at(Work, oval_house)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "exact_index_lookup",
+     "predicate": "made_at",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "oval_house"
+     }
+    },
+    {
+     "operation": "not_exists",
+     "steps": [
+      {
+       "operation": "exact_index_lookup",
+       "predicate": "made_at",
+       "argumentPosition": 1,
+       "value": {
+        "type": "atom",
+        "value": "oval_house"
+       }
+      }
+     ]
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work"
+     ]
+    }
+   ],
+   "planText": "made_at: equality_index(position=1, value=oval_house)\nnot_exists:\n  made_at: equality_index(position=1, value=oval_house)"
+  },
+  "role_names_reversed": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Artist",
+    "Work"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Artist, Work)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "predicate_scan",
+     "predicate": "created_by"
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Artist",
+      "Work"
+     ]
+    }
+   ],
+   "planText": "created_by: full_scan"
+  },
+  "invalid_with_repair": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "literal_type_mismatch",
+     "message": "Predicate 'year_created' argument 0 expects type in {atom}, got year",
+     "line": 3,
+     "column": 3,
+     "predicate": "year_created",
+     "argumentPosition": 0,
+     "expectedTypes": [
+      "atom"
+     ],
+     "receivedType": "year"
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "count_query": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Artist",
+    "count(Work)"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Work, Artist)",
+     "year_created(Work, Y)"
+    ],
+    "comparisons": [
+     "Y > 2090"
+    ]
+   },
+   "plan": [
+    {
+     "operation": "range_index_lookup",
+     "predicate": "year_created",
+     "argumentPosition": 1,
+     "constraints": [
+      {
+       "operator": ">",
+       "value": {
+        "type": "year",
+        "value": "2090"
+       }
+      }
+     ]
+    },
+    {
+     "operation": "join",
+     "predicate": "created_by",
+     "argumentPosition": 0,
+     "joinVariables": [
+      "Work"
+     ]
+    },
+    {
+     "operation": "filter",
+     "expression": "Y > 2090"
+    },
+    {
+     "operation": "count",
+     "groupBy": [
+      "Artist"
+     ],
+     "counts": [
+      {
+       "column": "count(Work)",
+       "variable": "Work",
+       "distinct": true
+      }
+     ]
+    }
+   ],
+   "planText": "year_created: range_index(position=1, lower=exclusive:2090, upper=unbounded)\ncreated_by: equality_index(position=0, bound_variable=Work)"
+  },
+  "contains_unsatisfiable": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "E"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "exhibition_title(E, T)"
+    ],
+    "comparisons": [
+     "T contains vidoe"
+    ]
+   },
+   "plan": [
+    {
+     "operation": "predicate_scan",
+     "predicate": "exhibition_title"
+    },
+    {
+     "operation": "filter",
+     "expression": "T contains vidoe"
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "E"
+     ]
+    }
+   ],
+   "planText": "exhibition_title: full_scan"
+  },
+  "unknown_predicate": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "unknown_predicate",
+     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, rented_by, edited_by, invited_by?",
+     "line": 3,
+     "column": 3,
+     "predicate": "created_bi",
+     "suggestions": [
+      "created_by",
+      "curated_by",
+      "rented_by",
+      "edited_by",
+      "invited_by"
+     ]
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "syntax_error": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "syntax_error",
+     "message": "Expected 'where' after 'find ...'"
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "indexed_range": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work",
+    "Year"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Work, kevin_atherton)",
+     "year_created(Work, Year)"
+    ],
+    "comparisons": [
+     "Year >= 1975"
+    ]
+   },
+   "plan": [
+    {
+     "operation": "exact_index_lookup",
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     }
+    },
+    {
+     "operation": "range_index_lookup",
+     "predicate": "year_created",
+     "argumentPosition": 1,
+     "constraints": [
+      {
+       "operator": ">=",
+       "value": {
+        "type": "year",
+        "value": "1975"
+       }
+      }
+     ]
+    },
+    {
+     "operation": "filter",
+     "expression": "Year >= 1975"
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work",
+      "Year"
+     ]
+    }
+   ],
+   "planText": "created_by: equality_index(position=1, value=kevin_atherton)\nyear_created: range_index(position=1, lower=1975, upper=unbounded)"
+  },
+  "optional_block": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Work",
+    "Medium"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Work, kevin_atherton)",
+     "uses_medium(Work, Medium)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "exact_index_lookup",
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "kevin_atherton"
+     }
+    },
+    {
+     "operation": "optional_join",
+     "steps": [
+      {
+       "operation": "join",
+       "predicate": "uses_medium",
+       "argumentPosition": 0,
+       "joinVariables": [
+        "Work"
+       ]
+      }
+     ]
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Work",
+      "Medium"
+     ]
+    },
+    {
+     "operation": "sort",
+     "keys": [
+      {
+       "variable": "Work",
+       "direction": "ascending"
+      },
+      {
+       "variable": "Medium",
+       "direction": "ascending"
+      }
+     ]
+    }
+   ],
+   "planText": "created_by: equality_index(position=1, value=kevin_atherton)\noptional:\n  uses_medium: equality_index(position=0, bound_variable=Work)"
+  },
+  "either_or": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Artist",
+    "Work"
+   ],
+   "distinct": true,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Work, Artist)",
+     "uses_medium(Work, video)",
+     "uses_medium(Work, videotape)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "predicate_scan",
+     "predicate": "created_by"
+    },
+    {
+     "operation": "union",
+     "branches": [
+      [
+       {
+        "operation": "exact_index_lookup",
+        "predicate": "uses_medium",
+        "argumentPosition": 1,
+        "value": {
+         "type": "atom",
+         "value": "video"
+        }
+       }
+      ],
+      [
+       {
+        "operation": "exact_index_lookup",
+        "predicate": "uses_medium",
+        "argumentPosition": 1,
+        "value": {
+         "type": "atom",
+         "value": "videotape"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Artist",
+      "Work"
+     ]
+    },
+    {
+     "operation": "distinct",
+     "variables": [
+      "Artist",
+      "Work"
+     ]
+    },
+    {
+     "operation": "sort",
+     "keys": [
+      {
+       "variable": "Artist",
+       "direction": "ascending"
+      },
+      {
+       "variable": "Work",
+       "direction": "ascending"
+      }
+     ]
+    }
+   ],
+   "planText": "created_by: full_scan\neither:\n  or:\n    uses_medium: equality_index(position=1, value=video)\n  or:\n    uses_medium: equality_index(position=1, value=videotape)"
+  },
+  "negation": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Artist"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "interviewed_artist(Artist)",
+     "educated_at(Artist, _)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "predicate_scan",
+     "predicate": "interviewed_artist"
+    },
+    {
+     "operation": "not_exists",
+     "steps": [
+      {
+       "operation": "join",
+       "predicate": "educated_at",
+       "argumentPosition": 0,
+       "joinVariables": [
+        "Artist"
+       ]
+      }
+     ]
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Artist"
+     ]
+    },
+    {
+     "operation": "sort",
+     "keys": [
+      {
+       "variable": "Artist",
+       "direction": "ascending"
+      }
+     ]
+    }
+   ],
+   "planText": "interviewed_artist: full_scan\nnot_exists:\n  educated_at: equality_index(position=0, bound_variable=Artist)"
+  },
+  "count_paged": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Artist",
+    "count(Work)"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "created_by(Work, Artist)"
+    ],
+    "comparisons": []
+   },
+   "plan": [
+    {
+     "operation": "predicate_scan",
+     "predicate": "created_by"
+    },
+    {
+     "operation": "count",
+     "groupBy": [
+      "Artist"
+     ],
+     "counts": [
+      {
+       "column": "count(Work)",
+       "variable": "Work",
+       "distinct": true
+      }
+     ]
+    },
+    {
+     "operation": "sort",
+     "keys": [
+      {
+       "variable": "count(Work)",
+       "direction": "descending"
+      },
+      {
+       "variable": "Artist",
+       "direction": "ascending"
+      }
+     ]
+    },
+    {
+     "operation": "offset",
+     "count": 5
+    },
+    {
+     "operation": "limit",
+     "count": 5
+    }
+   ],
+   "planText": "created_by: full_scan"
+  },
+  "contains_filter": {
+   "valid": true,
+   "errors": [],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "projection": [
+    "Artist",
+    "Place"
+   ],
+   "distinct": false,
+   "normalizedCoreQuery": {
+    "patterns": [
+     "educated_at(Artist, Place)"
+    ],
+    "comparisons": [
+     "Place contains royal college"
+    ]
+   },
+   "plan": [
+    {
+     "operation": "predicate_scan",
+     "predicate": "educated_at"
+    },
+    {
+     "operation": "filter",
+     "expression": "Place contains royal college"
+    },
+    {
+     "operation": "project",
+     "variables": [
+      "Artist",
+      "Place"
+     ]
+    }
+   ],
+   "planText": "educated_at: full_scan"
+  }
  }
 }

@@ -4,6 +4,8 @@ let query text = Js.string (Beingdb_wasm.query_string (Js.to_string text))
 let load text = Js.string (Yojson.Safe.to_string (Beingdb_wasm.load (Js.to_string text)))
 let predicates () = Js.string (Yojson.Safe.to_string (Beingdb_wasm.predicates ()))
 let diagnose text = Js.string (Yojson.Safe.to_string (Beingdb_wasm.diagnose (Js.to_string text)))
+let validate text = Js.string (Yojson.Safe.to_string (Beingdb_wasm.validate (Js.to_string text)))
+let explain text = Js.string (Yojson.Safe.to_string (Beingdb_wasm.explain (Js.to_string text)))
 
 let () =
   let api =
@@ -13,6 +15,8 @@ let () =
         ("load", Js.Unsafe.inject (Js.wrap_callback load));
         ("predicates", Js.Unsafe.inject (Js.wrap_callback predicates));
         ("diagnose", Js.Unsafe.inject (Js.wrap_callback diagnose));
+        ("validate", Js.Unsafe.inject (Js.wrap_callback validate));
+        ("explain", Js.Unsafe.inject (Js.wrap_callback explain));
       |]
   in
   Js.Unsafe.set Js.Unsafe.global "BeingDB" api;

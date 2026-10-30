@@ -1,0 +1,15 @@
+; The browser tutorial: static pages served from _build/default/tutorial.
+; They load the WASM runtime and the Rewind export from ../web, so nothing
+; is copied (see README.md). `dune build` (or `dune build @tutorial/page`)
+; assembles them; the Node test lives in web/tutorial.cjs.
+(rule
+ (alias page)
+ (deps
+  index.html
+  app.js
+  format.js
+  style.css
+  (glob_files lessons/*.json)
+  ../web/main.bc.wasm.js
+  ../web/rewind.browser.json)
+ (action (progn)))

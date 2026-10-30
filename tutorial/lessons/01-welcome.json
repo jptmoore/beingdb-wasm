@@ -1,0 +1,41 @@
+{
+  "title": "Welcome",
+  "intro": [
+    "The REWIND dataset is already loaded in your browser. Let's explore it.",
+    "[REWIND](https://rewind.ac.uk/) is an archive of interviews with British and international video artists. The [beingdb-rewind-interviews](https://github.com/jptmoore/beingdb-rewind-interviews) project extracted structured **facts** from those interviews: who made which work, which media they used, where works were shown, who collaborated with whom.",
+    "Everything on this page runs locally. The real BeingDB query engine has been compiled to WebAssembly, so there is nothing to install, no server and no account. Your queries never leave your browser.",
+    {
+      "note": "**About the data.** The facts were extracted from interview transcripts by a language model. They are a research artifact, not verified catalogue metadata. A result means \"this relationship is recorded in the dataset\", not \"this is historically complete or correct\"."
+    },
+    "**How to use this tutorial**",
+    {
+      "list": [
+        "Each lesson asks a question and gives you a query that answers it.",
+        "Press **Run** (or Ctrl/Cmd + Enter in the editor) to run it.",
+        "Every query is editable. Change it, break it, run it again. **Reset** restores the original.",
+        "Work through the lessons in order: each builds on the previous one. It takes 30 to 60 minutes."
+      ]
+    },
+    "Try it now: run this query, which lists the people who were interviewed."
+  ],
+  "steps": [
+    {
+      "question": "Who was interviewed?",
+      "query": "find Artist\nwhere\n  interviewed_artist(Artist)\norder by Artist",
+      "notes": [
+        "You should see 10 artists. The next two lessons show how to discover what you can ask about them."
+      ],
+      "expect": {
+        "total": 10,
+        "firstRows": [
+          [
+            "anna_ridley"
+          ],
+          [
+            "david_critchley"
+          ]
+        ]
+      }
+    }
+  ]
+}

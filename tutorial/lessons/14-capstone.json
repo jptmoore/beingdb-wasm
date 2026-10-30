@@ -1,0 +1,140 @@
+{
+  "title": "Putting it together",
+  "intro": [
+    "Two capstone queries combine most of the language, followed by exercises and a free playground."
+  ],
+  "steps": [
+    {
+      "question": "Who funded each interviewed artist, or their works?",
+      "query": "find distinct Artist, Funder, Work\nwhere\n  interviewed_artist(Artist)\n  either\n    funded_by(Artist, Funder)\n  or\n    created_by(Work, Artist)\n    funded_by(Work, Funder)\norder by Artist, Funder, Work",
+      "notes": [
+        "Funding is sometimes recorded against the artist and sometimes against a specific work. `either`/`or` collects both, and `Work` stays `null` for artist-level funding."
+      ],
+      "expect": {
+        "total": 25,
+        "firstRows": [
+          [
+            "david_critchley",
+            "arts_council",
+            null
+          ],
+          [
+            "david_hall",
+            "arts_council",
+            "lva_london_video_arts"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "For every work by an interviewed artist dated 1970 to 1989, what media and venues are recorded, and which transcript should I check?",
+      "query": "find Year, Artist, Work, Medium, Venue, Url\nwhere\n  interviewed_artist(Artist)\n  created_by(Work, Artist)\n  year_created(Work, Year)\n  Year between @1970 and @1989\n  interviewee(Interview, Artist)\n  source_url(Interview, Url)\n  optional\n    uses_medium(Work, Medium)\n  optional\n    exhibited_at(Work, Venue)\norder by Year, Artist, Work, Medium, Venue",
+      "notes": [
+        "One query: an entity-type filter, a four-step chain, a range comparison, two independent optional blocks and ordering. A work appears once per combination of medium and venue.",
+        "Remember what the result is: claims extracted from interviews, with the transcript each artist's claims came from."
+      ],
+      "expect": {
+        "total": 39,
+        "firstRows": [
+          [
+            "1971",
+            "david_hall",
+            "time_check",
+            null,
+            null,
+            "https://rewind.ac.uk/rewind/wp-content/uploads/sites/146/2021/03/DH510.pdf"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Exercises",
+      "kind": "exercise",
+      "question": "Which institutions did George Barber study at?",
+      "query": "find Place\nwhere",
+      "solution": "find Place\nwhere\n  educated_at(george_barber, Place)\norder by Place",
+      "expect": {
+        "rows": [
+          [
+            "slade"
+          ],
+          [
+            "st_martins"
+          ]
+        ]
+      }
+    },
+    {
+      "kind": "exercise",
+      "question": "Which interviewed artists are recorded as collaborating with `david_hall`?",
+      "query": "find Artist\nwhere",
+      "solution": "find Artist\nwhere\n  interviewed_artist(Artist)\n  collaborated_with(Artist, david_hall)\norder by Artist",
+      "expect": {
+        "rows": [
+          [
+            "anna_ridley"
+          ],
+          [
+            "david_critchley"
+          ],
+          [
+            "kevin_atherton"
+          ],
+          [
+            "madelon_hooykaas"
+          ]
+        ]
+      }
+    },
+    {
+      "kind": "exercise",
+      "question": "Which three interviewed artists have the most recorded collaborators?",
+      "query": "find Artist, count(Person)\nwhere",
+      "solution": "find Artist, count(Person)\nwhere\n  interviewed_artist(Artist)\n  collaborated_with(Artist, Person)\norder by count(Person) descending, Artist\nlimit 3",
+      "expect": {
+        "rows": [
+          [
+            "david_critchley",
+            "23"
+          ],
+          [
+            "mike_stubbs",
+            "22"
+          ],
+          [
+            "kevin_atherton",
+            "13"
+          ]
+        ]
+      }
+    },
+    {
+      "kind": "exercise",
+      "question": "Which works were commissioned, by whom, and who made them?",
+      "query": "find Artist, Work, Commissioner\nwhere",
+      "solution": "find Artist, Work, Commissioner\nwhere\n  created_by(Work, Artist)\n  commissioned_by(Work, Commissioner)\norder by Artist, Work, Commissioner",
+      "expect": {
+        "total": 6,
+        "firstRows": [
+          [
+            "david_hall",
+            "this_is_a_television_receiver",
+            "bbc_2"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Playground",
+      "question": "Ask your own question.",
+      "query": "find Artist, Institution\nwhere\n  interviewed_artist(Artist)\n  employed_by(Artist, Institution)\norder by Artist",
+      "notes": [
+        "Use the predicate list and Describe from the first lessons to find what you need.",
+        "For the complete language, see the [query language reference](https://github.com/jptmoore/beingdb/blob/main/docs/query-language.md). To install BeingDB and work with the full archive, see the [native tutorial](https://github.com/jptmoore/beingdb/blob/main/docs/tutorial.md)."
+      ],
+      "expect": {
+        "total": 26
+      }
+    }
+  ]
+}

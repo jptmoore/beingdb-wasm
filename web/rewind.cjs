@@ -51,9 +51,16 @@ globalThis.onBeingDBReady = (BeingDB) => {
     assert.deepEqual(JSON.parse(BeingDB.diagnose(query)), golden.diagnose[name], `diagnose ${name}`);
     times.push(`diagnose:${name}=${(performance.now() - t).toFixed(1)}ms`);
   }
+  // validate/explain envelopes (projection, normalized core query, plan, planText) equal the native server's.
+  const planQueries = JSON.parse(read("../fixtures/rewind_plan_queries.json"));
+  for (const { name, query } of [...diagnoseQueries, ...planQueries]) {
+    assert.deepEqual(JSON.parse(BeingDB.validate(query)), golden.validate[name], `validate ${name}`);
+    assert.deepEqual(JSON.parse(BeingDB.explain(query)), golden.explain[name], `explain ${name}`);
+  }
   console.log(
     `wasm rewind parity passed: ${JSON.stringify(summary)} load=${loadMs.toFixed(0)}ms ` +
-      `descriptions=${described}/${predicates.predicates.length} roles=${withRoles}/${predicates.predicates.length}`,
+      `descriptions=${described}/${predicates.predicates.length} roles=${withRoles}/${predicates.predicates.length} ` +
+      `validate/explain=${diagnoseQueries.length + planQueries.length}`,
   );
   console.log(times.join(" "));
 };

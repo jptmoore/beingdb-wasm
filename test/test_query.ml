@@ -119,6 +119,27 @@ let test_declared_metadata () =
   let r = Beingdb_wasm.Fixture_session.query s "find Work, Artist\nwhere\n  created_by(Work, Artist)\n  person(Artist)\n" in
   Alcotest.(check (list string)) "query rows" [ "work_1,artist_1" ] (rows r)
 
+(* validate/explain check without executing, in the native server's envelope. *)
+let test_validate_and_explain () =
+  let q = "find distinct Artist\nwhere\n  created_by(W, Artist)\n  year_created(W, Y)\n  Y >= @1970\n" in
+  let v = Beingdb_wasm.validate q in
+  Alcotest.(check bool) "valid" true (v |> member "valid" |> to_bool);
+  Alcotest.(check (list string)) "projection" [ "Artist" ] (v |> member "projection" |> to_list |> List.map to_string);
+  Alcotest.(check bool) "distinct" true (v |> member "distinct" |> to_bool);
+  Alcotest.(check bool) "not executed" true (v |> member "results" = `Null);
+  let e = Beingdb_wasm.explain q in
+  Alcotest.(check bool) "plan" true (e |> member "plan" |> to_list <> []);
+  Alcotest.(check bool) "plan text" true (String.length (e |> member "planText" |> to_string) > 0);
+  Alcotest.(check (list string)) "core patterns" [ "created_by(W, Artist)"; "year_created(W, Y)" ]
+    (e |> member "normalizedCoreQuery" |> member "patterns" |> to_list |> List.map to_string |> List.sort compare);
+  List.iter
+    (fun (f, name) ->
+      Alcotest.(check string) (name ^ ": syntax") "syntax_error" (first_error (f "find W where x"));
+      Alcotest.(check string) (name ^ ": unknown") "unknown_predicate" (first_error (f "find W\nwhere\n  created_bi(W, A)\n"));
+      Alcotest.(check string) (name ^ ": too long") "query_too_long"
+        (f (String.make 30_000 'x') |> member "error" |> member "code" |> to_string))
+    [ (Beingdb_wasm.validate, "validate"); (Beingdb_wasm.explain, "explain") ]
+
 let () =
   Alcotest.run "beingdb-wasm (native)"
     [
@@ -130,6 +151,7 @@ let () =
           Alcotest.test_case "total / hasMore / truncated" `Quick test_has_more_and_truncated;
           Alcotest.test_case "result too large" `Quick test_result_too_large;
           Alcotest.test_case "scan limit" `Quick test_scan_limit;
+          Alcotest.test_case "validate and explain" `Quick test_validate_and_explain;
         ] );
       ("predicates", [ Alcotest.test_case "declared metadata" `Quick test_declared_metadata ]);
     ]

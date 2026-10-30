@@ -5,8 +5,9 @@
 ; native/ is a separate dune root (Irmin-based exporter and parity tests).
 (dirs :standard \ native)
 
-; `dune build` also assembles the servable page in _build/default/web.
+; `dune build` also assembles the servable pages in _build/default/web and
+; _build/default/tutorial.
 (rule
  (alias default)
- (deps (alias_rec all) (alias web/page))
+ (deps (alias_rec all) (alias web/page) (alias tutorial/page))
  (action (progn)))

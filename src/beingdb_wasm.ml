@@ -22,7 +22,13 @@ let fixture =
     Fact.make "year_created" [ atom "work_3"; Value.Year 1968 ];
   ]
 
-type dataset = { query : string -> Yojson.Safe.t; predicates : unit -> Yojson.Safe.t; diagnose : string -> Yojson.Safe.t }
+type dataset = {
+  query : string -> Yojson.Safe.t;
+  predicates : unit -> Yojson.Safe.t;
+  diagnose : string -> Yojson.Safe.t;
+  validate : string -> Yojson.Safe.t;
+  explain : string -> Yojson.Safe.t;
+}
 
 let fixture_dataset =
   lazy
@@ -31,6 +37,8 @@ let fixture_dataset =
        query = Fixture_session.query s;
        predicates = (fun () -> Fixture_session.predicates s);
        diagnose = Fixture_session.diagnose s;
+       validate = Fixture_session.validate s;
+       explain = Fixture_session.explain s;
      })
 
 let current = ref None
@@ -38,6 +46,8 @@ let dataset () = match !current with Some d -> d | None -> Lazy.force fixture_da
 let query text = (dataset ()).query text
 let predicates () = (dataset ()).predicates ()
 let diagnose text = (dataset ()).diagnose text
+let validate text = (dataset ()).validate text
+let explain text = (dataset ()).explain text
 
 (* Load an exported logical pack view; returns a summary, or {"error": ...}. *)
 let load text : Yojson.Safe.t =
@@ -51,6 +61,8 @@ let load text : Yojson.Safe.t =
             query = Export_session.query s;
             predicates = (fun () -> Export_session.predicates s);
             diagnose = Export_session.diagnose s;
+            validate = Export_session.validate s;
+            explain = Export_session.explain s;
           };
       let env = Export_session.environment s in
       `Assoc

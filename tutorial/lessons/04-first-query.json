@@ -1,0 +1,59 @@
+{
+  "title": "Your first query",
+  "intro": [
+    "Every query has the same shape:",
+    {
+      "list": [
+        "**`find`** lists the columns you want back.",
+        "**`where`** introduces the conditions, **one per line**.",
+        "A name starting with an **uppercase** letter, like `Artist`, is a **variable**. BeingDB finds every matching fact and binds the variable to its value."
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "question": "Who was interviewed?",
+      "query": "find Artist\nwhere\n  interviewed_artist(Artist)",
+      "notes": [
+        "There are 10 interviewed artists. They come back in no particular order.",
+        "Under the table, the summary reports how many rows matched. Open **Raw JSON** to see the full response: each value carries its **type** as well as its value."
+      ],
+      "expect": {
+        "total": 10
+      }
+    },
+    {
+      "heading": "Sorting and limiting",
+      "question": "What are the first five works, alphabetically?",
+      "query": "find Work\nwhere\n  work(Work)\norder by Work\nlimit 5",
+      "notes": [
+        "`order by` sorts ascending by default; add `descending` (or `desc`) to reverse. `limit` caps the number of rows returned.",
+        "The query matched 176 works but returned 5: the summary shows both numbers."
+      ],
+      "try": [
+        "Change `limit 5` to `limit 20`.",
+        "Sort with `order by Work descending`."
+      ],
+      "expect": {
+        "total": 176,
+        "rows": [
+          [
+            "about_time_at_the_ica_1980"
+          ],
+          [
+            "absence_of_satan"
+          ],
+          [
+            "all_the_pieces_i_never_did"
+          ],
+          [
+            "american_landscapes"
+          ],
+          [
+            "an_audience_s_new_clothes"
+          ]
+        ]
+      }
+    }
+  ]
+}

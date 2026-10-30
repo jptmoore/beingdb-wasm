@@ -1,0 +1,106 @@
+{
+  "title": "Joins",
+  "intro": [
+    "Real questions need more than one fact. In BeingDB, you combine facts by **reusing a variable**."
+  ],
+  "steps": [
+    {
+      "question": "What media did Kevin Atherton's works use?",
+      "query": "find Work, Medium\nwhere\n  created_by(Work, kevin_atherton)\n  uses_medium(Work, Medium)\norder by Work, Medium",
+      "notes": [
+        "Read the two lines as **and**: find a `Work` created by Kevin Atherton **and** that same `Work` uses some `Medium`. The shared variable `Work` is the join.",
+        "A work with several media produces several rows. And Kevin made 12 works, but only 2 appear here: works with no recorded medium are excluded, because every line must match. The `optional` lesson shows how to keep them."
+      ],
+      "expect": {
+        "total": 6,
+        "rows": [
+          [
+            "gallery_guide",
+            "performance"
+          ],
+          [
+            "gallery_guide",
+            "video"
+          ],
+          [
+            "gallery_guide",
+            "video_projection"
+          ],
+          [
+            "gallery_guide",
+            "virtual_reality"
+          ],
+          [
+            "tape_tape",
+            "masking_tape"
+          ],
+          [
+            "tape_tape",
+            "videotape"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Following a chain",
+      "question": "Which interview transcript should you read for each creator of a video work?",
+      "query": "find Artist, Work, Url\nwhere\n  uses_medium(Work, video)\n  created_by(Work, Artist)\n  interviewee(Interview, Artist)\n  source_url(Interview, Url)\norder by Artist, Work",
+      "notes": [
+        "This follows `Work → Artist → Interview → Url`. `Interview` only connects two lines, so it does not need to appear in `find`.",
+        "The order of lines in `where` does not matter: BeingDB's planner chooses an efficient order itself."
+      ],
+      "expect": {
+        "total": 2,
+        "firstRows": [
+          [
+            "kevin_atherton",
+            "gallery_guide",
+            "https://rewind.ac.uk/rewind/wp-content/uploads/sites/146/2021/03/KAT510.pdf"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Using joins to filter by kind",
+      "question": "What has been exhibited at the Tate?",
+      "query": "find Thing\nwhere\n  exhibited_at(Thing, tate)\norder by Thing",
+      "notes": [
+        "`exhibited_at` mixes works and artists in its first argument: `david_critchley` and `rose_garrard` are people, the rest are works."
+      ],
+      "expect": {
+        "total": 6
+      }
+    },
+    {
+      "question": "Which works were shown at the Tate, and who made them?",
+      "query": "find Work, Artist\nwhere\n  exhibited_at(Work, tate)\n  created_by(Work, Artist)\norder by Work, Artist",
+      "notes": [
+        "Joining with `created_by` keeps only things that are works. A join with a \"type\" predicate such as `interviewed_artist`, `person` or `work` is the standard way to narrow a mixed position."
+      ],
+      "try": [
+        "Change the query to find **interviewed artists** recorded as exhibited at the Tate. (Hint: replace `created_by(Work, Artist)` with `interviewed_artist(...)`.)"
+      ],
+      "expect": {
+        "total": 4,
+        "rows": [
+          [
+            "automotive_action_painting",
+            "george_barber"
+          ],
+          [
+            "flying_time",
+            "elsa_stansfield"
+          ],
+          [
+            "flying_time",
+            "madelon_hooykaas"
+          ],
+          [
+            "homing",
+            "mike_stubbs"
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -18,8 +18,8 @@ evaluator are `Query_engine`. JavaScript only fetches text and calls the API.
 `src/`:
 
 - `session.ml` - `Session.Make (Store : Runtime_store.S)`: query and predicate
-  introspection, shaped like the native server's `POST /query` (dsl, execute)
-  and `GET /predicates?detailed=true` (predicates use BeingDB's own
+  introspection, shaped like the native server's `POST /query` (dsl, actions
+  execute, diagnose, validate and explain) and `GET /predicates?detailed=true` (predicates use BeingDB's own
   `Query_environment.to_json`, so declared descriptions, roles and semantic
   types are included). Execution mirrors the server's `max_results` handling
   (default 1000, overridable with `?max_results` for tests): the full projected
@@ -79,18 +79,25 @@ explained by diagnostics), three `contains` queries (string, atom with a count,
 an empty result explained by diagnostics), and six invalid queries),
 `fixtures/rewind_diagnose_queries.json` (16 DSL queries covering every `diagnose`
 diagnostic code, including a comparison that falls in a gap in the data a count query and an unmatched `contains`, a
-misspelled constant with suggestions, and both proven repairs) and
-`fixtures/rewind_golden.json`, recorded from the native server by
-`fixtures/make_golden.mjs`.
+misspelled constant with suggestions, and both proven repairs),
+`fixtures/rewind_plan_queries.json` (6 valid queries whose plans cover
+indexed ranges, `optional`, `either`/`or`, `not`, counting with paging and
+`contains`) and `fixtures/rewind_golden.json`, recorded from the native server
+by `fixtures/make_golden.mjs`. The `validate` and `explain` goldens cover the
+diagnose and plan queries together (22 each).
 
 - `native/test_parity.ml` (Irmin Pack vs export, both via `Pack_layout`):
   re-export equals `data/rewind.browser.json`; same predicate list and order;
   identical manifests and facts per predicate; every fact body decodes;
   `Session` over Irmin Pack and over the export both equal the server goldens
-  for predicates, every query and every diagnose response (compared exactly).
+  for predicates, every query and every diagnose, validate and explain
+  response (compared exactly).
 - `web/rewind.cjs` (WASM in Node) and `web/parity.html` (WASM in a browser):
   load the export, compare `predicates()`, every query and (`rewind.cjs`) every
-  `diagnose()` response with the goldens.
+  `diagnose()`, `validate()` and `explain()` response with the goldens.
+- `web/tutorial.cjs` (WASM in Node): runs every step of the browser tutorial
+  against its `expect` block, plus malformed-input checks (see
+  [tutorial/README.md](../tutorial/README.md)).
 
 Rows are compared as a sorted multiset (row order is unspecified); everything
 else (variables, count, total, hasMore, truncated, typed values, warnings, errors,

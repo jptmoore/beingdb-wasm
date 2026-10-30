@@ -109,6 +109,49 @@ module Make (Store : Runtime_store.S) = struct
               | { core_query = Some cq; warnings; _ } -> execute ~max_results t text cq warnings)
         with exn -> failure "internal_error" (Printf.sprintf "Query error: %s" (Printexc.to_string exn)))
 
+  (* The native server's DSL "validate" and "explain" actions (Controller's
+     validation_envelope): parse and lower against the environment, then
+     report the projection or BeingDB's own plan, without executing. *)
+  let envelope t ~valid errors warnings extra =
+    `Assoc
+      ([ ("valid", `Bool valid); ("errors", `List errors); ("warnings", `List warnings) ] @ environment_fields t.env @ extra)
+
+  let lowered t text extra =
+    match Query_validation.check_query_length text with
+    | Error err -> failure (Query_validation.error_code err) (Query_validation.error_message err)
+    | Ok () -> (
+        try
+          match Dsl_parser.parse text with
+          | Error message -> envelope t ~valid:false [ `Assoc [ ("code", `String "syntax_error"); ("message", `String message) ] ] [] []
+          | Ok surface -> (
+              match Dsl_lower.lower t.env surface with
+              | { errors = _ :: _ as errors; warnings; _ } ->
+                  envelope t ~valid:false (List.map Validation_error.to_json errors)
+                    (List.map Validation_error.warning_to_json warnings)
+                    []
+              | { core_query = None; _ } -> failure "internal_error" "lowering produced neither a query nor errors"
+              | { core_query = Some cq; warnings; _ } ->
+                  envelope t ~valid:true [] (List.map Validation_error.warning_to_json warnings) (extra cq))
+        with exn -> failure "internal_error" (Printf.sprintf "Query error: %s" (Printexc.to_string exn)))
+
+  let validate t text : Yojson.Safe.t =
+    lowered t text (fun cq ->
+        [
+          ("variables", strings cq.Core_query.query.Query_ast.variables);
+          ("projection", strings (Core_query.projected_variables cq));
+          ("distinct", `Bool cq.Core_query.distinct);
+        ])
+
+  let explain t text : Yojson.Safe.t =
+    lowered t text (fun cq ->
+        [
+          ("projection", strings (Core_query.projected_variables cq));
+          ("distinct", `Bool cq.Core_query.distinct);
+          ("normalizedCoreQuery", Explain_plan.normalized_core_query_json cq.Core_query.query);
+          ("plan", `List (Explain_plan.build cq));
+          ("planText", `String (Query_engine.explain cq.Core_query.query));
+        ])
+
   (* BeingDB's own serialisation (as served by GET /predicates?detailed=true),
      so declared roles, semantic types and descriptions are exposed too. *)
   let predicates t : Yojson.Safe.t = Query_environment.to_json t.env

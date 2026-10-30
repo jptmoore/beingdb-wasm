@@ -1,0 +1,94 @@
+{
+  "title": "Self-joins and paths",
+  "intro": [
+    "Using a predicate twice, with different variables, lets you compare facts with each other."
+  ],
+  "steps": [
+    {
+      "question": "Who studied at the same institution?",
+      "query": "find Place, Artist, Classmate\nwhere\n  educated_at(Artist, Place)\n  educated_at(Classmate, Place)\n  Artist != Classmate\norder by Place, Artist, Classmate",
+      "notes": [
+        "`Artist != Classmate` removes rows where both variables matched the same fact. Each pair appears twice, once in each order.",
+        "Notice `royal_college` and `royal_college_of_art`: very likely the same institution, stored as different atoms. BeingDB matches values exactly; it does not reconcile names. The filtering lesson shows a workaround."
+      ],
+      "expect": {
+        "total": 10,
+        "firstRows": [
+          [
+            "royal_college",
+            "david_critchley",
+            "david_hall"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Reciprocal relationships",
+      "question": "Which collaborations are recorded in both directions?",
+      "query": "find A, B\nwhere\n  collaborated_with(A, B)\n  collaborated_with(B, A)\norder by A, B",
+      "notes": [
+        "`collaborated_with` is recorded from the point of view of whichever interview mentioned it, so it is not automatically symmetric."
+      ],
+      "expect": {
+        "total": 6,
+        "firstRows": [
+          [
+            "anna_ridley",
+            "david_hall"
+          ],
+          [
+            "david_hall",
+            "anna_ridley"
+          ]
+        ]
+      }
+    },
+    {
+      "question": "Which interviewed artists are recorded as collaborating with another interviewed artist?",
+      "query": "find A, B\nwhere\n  interviewed_artist(A)\n  interviewed_artist(B)\n  collaborated_with(A, B)\norder by A, B",
+      "notes": [
+        "`david_hall` is a hub in this network."
+      ],
+      "expect": {
+        "total": 7
+      }
+    },
+    {
+      "heading": "Multi-hop paths",
+      "question": "Who are the collaborators of Kevin Atherton's collaborators?",
+      "query": "find distinct Other\nwhere\n  collaborated_with(kevin_atherton, Middle)\n  collaborated_with(Middle, Other)\n  Other != kevin_atherton\norder by Other",
+      "notes": [
+        "Each extra hop is another line with a new variable. There is no recursive \"any number of hops\" operator; you write out the hops you want.",
+        "`channel_4` is an organisation: extracted data is not always tidy."
+      ],
+      "try": [
+        "Add `person(Other)` to remove organisations."
+      ],
+      "expect": {
+        "total": 9,
+        "firstRows": [
+          [
+            "anna_ridley"
+          ],
+          [
+            "barry_flanagan"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Every line must be connected",
+      "question": "What happens if two lines share nothing?",
+      "query": "find Artist, Work\nwhere\n  interviewed_artist(Artist)\n  work(Work)",
+      "notes": [
+        "Each line must share a variable (or constant) with the rest of the query. Unconnected lines would pair every artist with every work, which is almost never what you want. If you see `disconnected_query`, check for a typo in a variable name."
+      ],
+      "try": [
+        "Connect the lines by adding `created_by(Work, Artist)`."
+      ],
+      "expect": {
+        "invalid": "disconnected_query"
+      }
+    }
+  ]
+}
