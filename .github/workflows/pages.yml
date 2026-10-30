@@ -1,14 +1,14 @@
-# Build, test and verify the browser tutorial as a static site, and deploy it
-# to GitHub Pages from main. Pull requests, and manual runs on other branches,
-# build and verify only.
+# Build, test and verify the browser tutorial as a static site. Deployment to
+# GitHub Pages is manual only, so unrelated pushes to main never republish the
+# tutorial: run this workflow on main (`npm run deploy`, or "Run workflow" in
+# the Actions tab). Pull requests, and manual runs on other branches, build and
+# verify only.
 #
 # One-time repository setting: Settings > Pages > Build and deployment >
 # Source: "GitHub Actions".
 name: Tutorial site (GitHub Pages)
 
 on:
-  push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -69,16 +69,16 @@ jobs:
       - name: Verify the static site under the Pages base path
         run: npm run verify:tutorial
 
-      - if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      - if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v6
 
-      - if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      - if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v5
         with:
           path: dist/site
 
   deploy:
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-24.04
     permissions:

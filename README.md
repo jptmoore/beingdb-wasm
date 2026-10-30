@@ -94,8 +94,9 @@ npm run deploy            # run the Pages workflow on main (needs gh)
 
 The npm scripts wrap dune and `scripts/site.mjs` and have no npm dependencies.
 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) tests, builds and
-verifies the site on pull requests and pushes to `main`, and deploys it to GitHub
-Pages from `main`. See [tutorial/README.md](tutorial/README.md#deploy).
+verifies the site on pull requests. Deployment to GitHub Pages is manual, from
+`main` (`npm run deploy`), so other work on `main` never republishes the
+tutorial. See [tutorial/README.md](tutorial/README.md#deploy).
 
 ## Run in the browser
 
