@@ -10,27 +10,68 @@ It is derived from the native tutorial,
 [`beingdb/docs/tutorial.md`](https://github.com/jptmoore/beingdb/blob/main/docs/tutorial.md),
 and uses the same dataset, examples and expected results.
 
+**Live:** <https://jptmoore.github.io/beingdb-wasm/tutorial/>
+
+Everything runs in the browser: queries execute locally in WebAssembly and
+are never sent anywhere. The site is static HTML, CSS, JavaScript, one `.wasm`
+module and the REWIND data, with no backend, analytics or third-party scripts.
+
 ## Run it
 
-From the repository root (see the main [README](../README.md#install) for the
-one-time opam setup):
+From the repository root (Node >= 22, plus the one-time opam setup in the
+main [README](../README.md#install)):
 
 ```sh
-dune build --profile release
-python3 -m http.server 8000 -d _build/default
+npm run tutorial           # build the static site and serve it locally
 ```
 
-Then open <http://localhost:8000/tutorial/>.
+Then open <http://localhost:8000/beingdb-wasm/tutorial/>. The local server
+uses the same base path as GitHub Pages, so path problems show up locally.
+Opening `index.html` straight from disk does not work, because the page fetches
+its lessons and data.
 
-Use the release profile when serving to other people: it links a single WASM
-module, which Safari requires. A plain `dune build` works in Chrome and
-Firefox. Any static file server works in place of `python3 -m http.server`;
-opening `index.html` directly from disk does not, because the page fetches its
-lessons and data.
+| Command | What it does |
+|---|---|
+| `npm run tutorial` | Build, then serve `dist/site/` at `http://localhost:8000/beingdb-wasm/` |
+| `npm test` | `dune test`: WASM parity, lesson checks, native unit tests |
+| `npm run build:tutorial` | Release build (one WASM module, which Safari requires), then assemble `dist/site/` |
+| `npm run verify:tutorial` | Check `dist/site/` in headless Chrome under `/beingdb-wasm/` (see below) |
+| `npm run deploy` | Run the GitHub Pages workflow on `main` (needs `gh`) |
 
-To publish the tutorial, copy `_build/default/tutorial/` and
-`_build/default/web/` (the page loads the runtime and data from `../web/`) to
-any static host, keeping them side by side.
+During development, `dune build` followed by
+`python3 -m http.server 8000 -d _build/default` and
+<http://localhost:8000/tutorial/> also works.
+
+## Deploy
+
+The site is built and published by GitHub Actions
+([`.github/workflows/pages.yml`](../.github/workflows/pages.yml)):
+
+- **Every push to `main`** (and `npm run deploy`, or "Run workflow" on `main`
+  in the Actions tab) runs the tests, builds `dist/site/`, verifies it,
+  deploys it to GitHub Pages, then checks the live site in a fresh browser.
+- **Pull requests**, and manual runs on other branches, build and verify
+  only.
+
+`dist/site/` keeps the build layout, so every URL in the tutorial stays
+relative and works under any base path:
+
+```
+index.html                       redirects to tutorial/
+tutorial/                        page, scripts, styles, lessons/*.json
+web/main.bc.wasm.js              WASM loader (loads its .wasm relative to itself)
+web/main.bc.wasm.assets/*.wasm   BeingDB runtime
+web/rewind.browser.json          REWIND data
+```
+
+`npm run verify:tutorial` (also run in CI) serves `dist/site/` under
+`/beingdb-wasm/` with nothing outside that path, like GitHub Pages, and checks
+that the required files exist, the page code has no localhost or
+root-relative URLs, the runtime and data load, a lesson query and a join
+return the expected rows, every request stays under the base path, and the
+`.wasm` is served as `application/wasm`. `node scripts/site.mjs verify --url
+https://jptmoore.github.io/beingdb-wasm/` runs the same browser checks against
+the live site.
 
 ## How it works
 
@@ -149,7 +190,7 @@ A lesson file looks like this:
 ## Tests
 
 ```sh
-dune test
+npm test        # or: dune test
 ```
 
 `web/tutorial.cjs` loads the same WASM build and data in Node and checks that:
@@ -180,7 +221,8 @@ and [query language reference](https://github.com/jptmoore/beingdb/blob/main/doc
 
 ## Limitations
 
-- The whole export is fetched (about 680 KB, roughly 215 KB gzipped) and held
+- The whole export is fetched (about 680 KB, roughly 215 KB gzipped; the
+  whole site is about 1.1 MB) and held
   in memory. Fine for this dataset; not designed for large packs.
 - There is no query timeout in the browser. The engine's row and scan limits
   still apply, so runaway queries fail with `result_too_large` or

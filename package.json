@@ -1,0 +1,15 @@
+{
+  "name": "beingdb-wasm",
+  "private": true,
+  "description": "BeingDB compiled to WebAssembly, with a zero-install browser tutorial",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build:tutorial": "node scripts/site.mjs build",
+    "tutorial": "node scripts/site.mjs build && node scripts/site.mjs serve",
+    "verify:tutorial": "node scripts/site.mjs verify",
+    "test": "node scripts/site.mjs test",
+    "deploy": "node scripts/site.mjs deploy"
+  }
+}

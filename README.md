@@ -4,8 +4,11 @@ A **proof-of-concept**: the real [BeingDB](../beingdb) query runtime compiled to
 WebAssembly with `wasm_of_ocaml`, querying real compiled BeingDB data (the
 Rewind interview pack) in a web browser.
 
-**New to BeingDB?** Try the [browser tutorial](tutorial/README.md): an
-interactive, zero-install walkthrough of the query language on the REWIND data.
+**New to BeingDB?** Try the browser tutorial at
+<https://jptmoore.github.io/beingdb-wasm/tutorial/>: an interactive,
+zero-install walkthrough of the query language on the REWIND data. It is a
+static GitHub Pages site and runs entirely in your browser; see
+[tutorial/README.md](tutorial/README.md).
 
 The BeingDB parser, validator, planner, evaluator and pack/index interpretation
 (`Pack_layout`) all run unchanged in the browser. The only new pieces are a
@@ -35,6 +38,8 @@ browser:  export     -> Export_reader       -> Pack_layout -> Query_engine
 src/                 portable OCaml: Session (query/introspection), Export_reader
 web/                 WASM entry point, demo page, parity page, Node tests
 tutorial/            interactive browser tutorial (lessons + thin UI over the WASM API)
+scripts/site.mjs     static site: build dist/site/, serve, verify, deploy
+.github/workflows/   GitHub Pages build, verification and deployment
 native/              exporter + parity test (needs Irmin Pack; separate dune root)
 fixtures/            shared Rewind queries + goldens from the native server
 data/                rewind.browser.json (generated)
@@ -76,6 +81,21 @@ opam exec --switch=5.4.0 -- dune test --root native   # Irmin Pack vs export par
 To re-record goldens from native BeingDB, run
 `beingdb serve --pack ../beingdb/pack_store --port 8091` and then
 `node fixtures/make_golden.mjs http://localhost:8091`.
+
+## Browser tutorial and GitHub Pages
+
+```sh
+npm run tutorial          # build dist/site/ and serve it at http://localhost:8000/beingdb-wasm/tutorial/
+npm test                  # dune test
+npm run build:tutorial    # static site in dist/site/ (release WASM, lessons, REWIND data)
+npm run verify:tutorial   # headless-Chrome check of dist/site/ under the Pages base path
+npm run deploy            # run the Pages workflow on main (needs gh)
+```
+
+The npm scripts wrap dune and `scripts/site.mjs` and have no npm dependencies.
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) tests, builds and
+verifies the site on pull requests and pushes to `main`, and deploys it to GitHub
+Pages from `main`. See [tutorial/README.md](tutorial/README.md#deploy).
 
 ## Run in the browser
 
