@@ -6,10 +6,13 @@
     "node": ">=22"
   },
   "scripts": {
-    "build:tutorial": "node scripts/site.mjs build",
+    "dev": "node scripts/site.mjs dev",
     "tutorial": "node scripts/site.mjs build && node scripts/site.mjs serve",
+    "build:tutorial": "node scripts/site.mjs build",
     "verify:tutorial": "node scripts/site.mjs verify",
     "test": "node scripts/site.mjs test",
-    "deploy": "node scripts/site.mjs deploy"
+    "deploy": "node scripts/site.mjs deploy",
+    "update-demo-data": "node scripts/maintain.mjs update-demo-data",
+    "update-runtime": "node scripts/maintain.mjs update-runtime"
   }
 }

@@ -1,10 +1,13 @@
 // Record native BeingDB server responses (Controller + Irmin Pack) as goldens.
-// Usage: beingdb serve --pack ../beingdb/pack_store --port 8091
-//        node fixtures/make_golden.mjs http://localhost:8091
+// `npm run update-demo-data` runs this against a server it starts. By hand:
+//   beingdb serve --pack PACK_DIR --port 8091
+//   node fixtures/make_golden.mjs http://localhost:8091 [OUT_FILE]
+// OUT_FILE defaults to fixtures/rewind_golden.json.
 import { readFile, writeFile } from "node:fs/promises";
 
 const base = process.argv[2] ?? "http://localhost:8091";
 const dir = new URL(".", import.meta.url);
+const out = process.argv[3] ?? new URL("rewind_golden.json", dir);
 const queries = JSON.parse(await readFile(new URL("rewind_queries.json", dir), "utf8"));
 
 const predicates = await (await fetch(`${base}/predicates?detailed=true`)).json();
@@ -42,7 +45,7 @@ for (const { name, query } of [...diagnoseQueries, ...planQueries]) {
   }
 }
 await writeFile(
-  new URL("rewind_golden.json", dir),
+  out,
   JSON.stringify({ predicates, queries: responses, diagnose, validate, explain }, null, 1) + "\n",
 );
 console.log(
