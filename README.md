@@ -63,7 +63,27 @@ opam install dune lwt yojson digestif js_of_ocaml wasm_of_ocaml-compiler conf-bi
 This switch has no Irmin. The exporter uses whichever switch builds `beingdb`
 (the example below calls it `5.4.0`).
 
+No `npm install` or `npm link` is needed: the npm scripts have no dependencies,
+and BeingDB's sources are reached through symlinks committed in this repo
+(`vendor/`, `native/vendor/`), which resolve once `../beingdb` is checked out.
+
 ## Export the Rewind pack
+
+Optional: `data/rewind.browser.json` is committed, so this is only needed to
+refresh it. It needs a compiled REWIND pack at `../beingdb/pack_store`, built
+with BeingDB in its own switch:
+
+```sh
+cd ../beingdb
+opam install --switch=5.4.0 . --deps-only
+opam exec --switch=5.4.0 -- dune exec beingdb -- clone \
+  https://github.com/jptmoore/beingdb-rewind-interviews.git --git ./git_store
+opam exec --switch=5.4.0 -- dune exec beingdb -- compile \
+  --git ./git_store --pack ./pack_store
+cd ../beingdb-wasm
+```
+
+Then export it:
 
 ```sh
 opam exec --switch=5.4.0 -- dune exec --root native ./export_browser.exe -- \
