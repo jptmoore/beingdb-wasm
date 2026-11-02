@@ -18,11 +18,10 @@ module and the REWIND data, with no backend, analytics or third-party scripts.
 
 ## Run it
 
-From the repository root (Node >= 22, plus the one-time opam setup in the
-main [README](../README.md#install)):
+From the repository root, with Node >= 22 and nothing else installed:
 
 ```sh
-npm run tutorial           # build the static site and serve it locally
+npm run dev                # serve the tutorial with the prebuilt runtime and bundled data
 ```
 
 Then open <http://localhost:8000/beingdb-wasm/tutorial/>. The local server
@@ -32,8 +31,9 @@ its lessons and data.
 
 | Command | What it does |
 |---|---|
-| `npm run tutorial` | Build, then serve `dist/site/` at `http://localhost:8000/beingdb-wasm/` |
-| `npm test` | `dune test`: WASM parity, lesson checks, native unit tests |
+| `npm run dev` | Assemble `dist/site/` from `tutorial/`, the committed prebuilt runtime (`prebuilt/`) and the bundled dataset, and serve it at `http://localhost:8000/beingdb-wasm/` |
+| `npm run tutorial` | Build the runtime from source (needs the OCaml setup in the main [README](../README.md#development-and-testing)), then serve `dist/site/` |
+| `npm test` | `dune test`: WASM parity, lesson checks (built and prebuilt runtime), native unit tests; then the bundle check |
 | `npm run build:tutorial` | Release build (one WASM module, which Safari requires), then assemble `dist/site/` |
 | `npm run verify:tutorial` | Check `dist/site/` in headless Chrome under `/beingdb-wasm/` (see below) |
 | `npm run deploy` | Run the GitHub Pages workflow on `main` (needs `gh`) |
@@ -100,20 +100,19 @@ index.html -> format.js, app.js -> ../web/main.bc.wasm.js (BeingDB runtime)
 
 ## The data
 
-The tutorial loads `data/rewind.browser.json`, the same export the rest of
-this repository uses and tests. Nothing is duplicated: dune copies it into
-`_build/default/web/`, and the tutorial fetches it from there.
+The tutorial loads the bundled REWIND dataset, `data/rewind.browser.json`, the
+same data the rest of this repository uses and tests. Nothing is duplicated:
+dune (or `npm run dev`) copies it next to the runtime, and the tutorial
+fetches it from `../web/rewind.browser.json`.
 
 | | |
 |---|---|
 | Source | [jptmoore/beingdb-rewind-interviews](https://github.com/jptmoore/beingdb-rewind-interviews), `predicates/` |
-| Revision | commit [`419336f`](https://github.com/jptmoore/beingdb-rewind-interviews/commit/419336fde76716895f007e843ed58f57bc818bd4) |
-| Size | 168 predicates, 1,842 facts |
-| Fingerprint | `sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d` |
+| Revision, size, fingerprint | recorded in [`data/rewind.browser.meta.json`](../data/rewind.browser.meta.json) |
 
-The fingerprint is BeingDB's `environmentFingerprint` for the compiled data.
-It is shown in every response, and the tests check that it matches before
-running any lesson.
+The fingerprint is BeingDB's `environmentFingerprint`, computed from the loaded
+data. It is shown in every response, and the tests check that it matches the
+goldens and the metadata before running any lesson.
 
 > **About the data.** The facts were extracted from interview transcripts by a
 > language model. They are a research artifact, not verified catalogue
@@ -123,20 +122,15 @@ running any lesson.
 
 ### Updating the data
 
-With a native BeingDB install (any switch that builds `beingdb`; the main
-README calls it `5.4.0`):
-
 ```sh
-beingdb clone https://github.com/jptmoore/beingdb-rewind-interviews.git --git /tmp/rewind_git
-beingdb compile --git /tmp/rewind_git --pack /tmp/rewind_pack
-opam exec --switch=5.4.0 -- dune exec --root native ./export_browser.exe -- \
-  --pack /tmp/rewind_pack -o data/rewind.browser.json
+npm run update-demo-data
 ```
 
-Then re-record the goldens (`fixtures/make_golden.mjs`, see the main README),
-update the revision and fingerprint above, and run `dune test`. The tutorial
-test fails on any lesson whose `expect` block no longer matches the data; fix
-those lessons (and keep `beingdb/docs/tutorial.md` in step).
+regenerates the dataset, its metadata and the goldens together from the
+REWIND facts and runs every test (see the main README,
+[Maintainer: rebuilding the bundled dataset](../README.md#maintainer-rebuilding-the-bundled-dataset)).
+The tutorial test fails on any lesson whose `expect` block no longer matches
+the data; fix those lessons (and keep `beingdb/docs/tutorial.md` in step).
 
 ## Lessons
 
@@ -195,7 +189,8 @@ A lesson file looks like this:
 npm test        # or: dune test
 ```
 
-`web/tutorial.cjs` loads the same WASM build and data in Node and checks that:
+`web/tutorial.cjs` loads the same WASM build and data in Node (once with the
+fresh build and once with the prebuilt runtime in `prebuilt/`) and checks that:
 
 - the runtime initialises and exposes the tutorial's API;
 - the dataset loads, with the expected fingerprint, predicates and facts;
@@ -209,7 +204,8 @@ npm test        # or: dune test
 - the presentation helpers escape HTML and reject non-HTTP links.
 
 It lives in `web/` next to the other Node tests because the WASM loader
-resolves its assets relative to the main script.
+resolves its assets relative to the main script (`web/runtime.cjs` points
+that at whichever runtime is under test).
 
 ## Relationship to the native tutorial
 

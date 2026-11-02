@@ -95,9 +95,22 @@ diagnose and plan queries together (22 each).
 - `web/rewind.cjs` (WASM in Node) and `web/parity.html` (WASM in a browser):
   load the export, compare `predicates()`, every query and (`rewind.cjs`) every
   `diagnose()`, `validate()` and `explain()` response with the goldens.
+  `rewind.cjs` also checks the export's sha256, the loaded fingerprint and the
+  predicate and fact counts against `data/rewind.browser.meta.json`.
 - `web/tutorial.cjs` (WASM in Node): runs every step of the browser tutorial
   against its `expect` block, plus malformed-input checks (see
   [tutorial/README.md](../tutorial/README.md)).
+- `rewind.cjs` and `tutorial.cjs` run twice: against the fresh build and
+  against the committed prebuilt runtime in `prebuilt/` (`npm run dev`).
+  `scripts/maintain.mjs check` (in `npm test`) checks `prebuilt/` against
+  `prebuilt/runtime.json`, including a hash of the runtime sources.
+
+## Generated artefacts
+
+| artefact | written by | checked by |
+|---|---|---|
+| `data/rewind.browser.json`, `data/rewind.browser.meta.json`, `fixtures/rewind_golden.json` | `npm run update-demo-data` (together) | `web/rewind.cjs`, `native/test_parity.ml`, `scripts/maintain.mjs check` |
+| `prebuilt/` (release runtime + `runtime.json`) | `npm run update-runtime` | `web/rewind.cjs`, `web/tutorial.cjs` (prebuilt runs), `scripts/maintain.mjs check` |
 
 Rows are compared as a sorted multiset (row order is unspecified); everything
 else (variables, count, total, hasMore, truncated, typed values, warnings, errors,
