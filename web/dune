@@ -6,9 +6,13 @@
  (modes wasm)
  (libraries beingdb_wasm digestif.ocaml js_of_ocaml yojson))
 
-; The exported Rewind pack view (see native/ and README).
+; The bundled REWIND dataset and its metadata (see README, "Maintainer:
+; rebuilding the bundled dataset").
 (rule
  (copy ../data/rewind.browser.json rewind.browser.json))
+
+(rule
+ (copy ../data/rewind.browser.meta.json rewind.browser.meta.json))
 
 ; Build the pages alongside the WASM artefacts; serve _build/default (parity.html
 ; also reads ../fixtures).
@@ -20,6 +24,7 @@
   parity.html
   main.bc.wasm.js
   rewind.browser.json
+  rewind.browser.meta.json
   ../fixtures/rewind_queries.json
   ../fixtures/rewind_golden.json)
  (action (progn)))
@@ -32,19 +37,38 @@
  (deps smoke.cjs main.bc.wasm.js)
  (action (run node smoke.cjs)))
 
-; Real Rewind export in WASM vs goldens recorded from the native server.
+; Real Rewind export in WASM vs goldens recorded from the native server, and
+; the bundled dataset vs its metadata. Run against this build and against the
+; committed prebuilt runtime (prebuilt/, used by `npm run dev`).
 (rule
  (alias runtest)
  (enabled_if %{bin-available:node})
  (deps
   rewind.cjs
+  runtime.cjs
   main.bc.wasm.js
   rewind.browser.json
+  ../data/rewind.browser.meta.json
   ../fixtures/rewind_queries.json
   ../fixtures/rewind_diagnose_queries.json
   ../fixtures/rewind_plan_queries.json
   ../fixtures/rewind_golden.json)
  (action (run node rewind.cjs)))
+
+(rule
+ (alias runtest)
+ (enabled_if %{bin-available:node})
+ (deps
+  rewind.cjs
+  runtime.cjs
+  (glob_files ../prebuilt/main.bc.wasm.assets/*.wasm)
+  rewind.browser.json
+  ../data/rewind.browser.meta.json
+  ../fixtures/rewind_queries.json
+  ../fixtures/rewind_diagnose_queries.json
+  ../fixtures/rewind_plan_queries.json
+  ../fixtures/rewind_golden.json)
+ (action (run node rewind.cjs %{dep:../prebuilt/main.bc.wasm.js})))
 
 ; Browser tutorial: every lesson step against the WASM runtime and Rewind export,
 ; plus malformed-input robustness (see tutorial/README.md).
@@ -53,9 +77,23 @@
  (enabled_if %{bin-available:node})
  (deps
   tutorial.cjs
+  runtime.cjs
   main.bc.wasm.js
   rewind.browser.json
   ../fixtures/rewind_golden.json
   ../tutorial/format.js
   (glob_files ../tutorial/lessons/*.json))
  (action (run node tutorial.cjs)))
+
+(rule
+ (alias runtest)
+ (enabled_if %{bin-available:node})
+ (deps
+  tutorial.cjs
+  runtime.cjs
+  (glob_files ../prebuilt/main.bc.wasm.assets/*.wasm)
+  rewind.browser.json
+  ../fixtures/rewind_golden.json
+  ../tutorial/format.js
+  (glob_files ../tutorial/lessons/*.json))
+ (action (run node tutorial.cjs %{dep:../prebuilt/main.bc.wasm.js})))

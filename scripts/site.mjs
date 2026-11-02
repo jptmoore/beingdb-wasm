@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 // Static site for the browser tutorial (GitHub Pages). No dependencies.
 //
+//   node scripts/site.mjs dev [--port N]   assemble dist/site/ from the committed prebuilt runtime and
+//                                          bundled dataset (no OCaml toolchain needed), then serve it
 //   node scripts/site.mjs build            dune release build -> dist/site/
 //   node scripts/site.mjs serve [--port N] serve dist/site/ under the Pages base path
 //   node scripts/site.mjs verify           check dist/site/ in headless Chrome under the base path
 //   node scripts/site.mjs verify --url U   check a deployed site, e.g. https://jptmoore.github.io/beingdb-wasm/
 //   node scripts/site.mjs deploy           trigger the GitHub Pages workflow on main (needs gh)
-//   node scripts/site.mjs test             dune test
+//   node scripts/site.mjs test             dune test, then check prebuilt/ and the bundled dataset
 //
 // dist/site/ mirrors the dune build layout, so every URL in the tutorial stays
 // relative and works under any base path:
@@ -15,7 +17,7 @@
 //   tutorial/                       the tutorial page and lessons
 //   web/main.bc.wasm.js             BeingDB WASM loader (finds its .wasm relative to itself)
 //   web/main.bc.wasm.assets/*.wasm  BeingDB runtime (release build: one module)
-//   web/rewind.browser.json         REWIND data
+//   web/rewind.browser.json         bundled REWIND dataset
 
 import { spawn, spawnSync } from "node:child_process";
 import { createServer } from "node:http";
@@ -27,6 +29,7 @@ import { setTimeout as sleep } from "node:timers/promises";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const BUILD = join(ROOT, "_build", "default");
+const PREBUILT = join(ROOT, "prebuilt");
 const DIST = join(ROOT, "dist", "site");
 // GitHub Pages project site: https://jptmoore.github.io/beingdb-wasm/
 const PAGES_BASE = "/beingdb-wasm/";
@@ -78,24 +81,42 @@ const REDIRECT = `<!doctype html>
 </html>
 `;
 
-function build() {
-  // Release profile: one linked WASM module (Safari needs it).
-  dune("build", "--profile", "release", "@tutorial/page");
+// dist/site/ from a tutorial directory, a directory holding the WASM runtime
+// (main.bc.wasm.js and main.bc.wasm.assets/) and the REWIND dataset.
+function assemble({ tutorial, runtime, data }) {
   rmSync(DIST, { recursive: true, force: true });
   const copy = (from, to) => {
     mkdirSync(dirname(to), { recursive: true });
     cpSync(from, to);
     chmodSync(to, 0o644);
   };
-  const pick = (dir, keep) =>
-    walk(join(BUILD, dir))
-      .filter((f) => keep(posix(relative(join(BUILD, dir), f))))
-      .forEach((f) => copy(f, join(DIST, relative(BUILD, f))));
+  const pick = (dir, to, keep) =>
+    walk(dir)
+      .filter((f) => keep(posix(relative(dir, f))))
+      .forEach((f) => copy(f, join(DIST, to, relative(dir, f))));
 
-  pick("tutorial", (p) => /^(index\.html|[^/]+\.js|[^/]+\.css|lessons\/[^/]+\.json)$/.test(p));
-  pick("web", (p) => p === "main.bc.wasm.js" || p === "rewind.browser.json" || /^main\.bc\.wasm\.assets\/[^/]+\.wasm$/.test(p));
+  pick(tutorial, "tutorial", (p) => /^(index\.html|[^/]+\.js|[^/]+\.css|lessons\/[^/]+\.json)$/.test(p));
+  pick(runtime, "web", (p) => p === "main.bc.wasm.js" || /^main\.bc\.wasm\.assets\/[^/]+\.wasm$/.test(p));
+  copy(data, join(DIST, "web", "rewind.browser.json"));
   writeFileSync(join(DIST, "index.html"), REDIRECT);
+  report();
+}
 
+function build() {
+  // Release profile: one linked WASM module (Safari needs it).
+  dune("build", "--profile", "release", "@tutorial/page");
+  assemble({ tutorial: join(BUILD, "tutorial"), runtime: join(BUILD, "web"), data: join(BUILD, "web", "rewind.browser.json") });
+}
+
+// The committed prebuilt runtime, bundled dataset and tutorial sources: no
+// OCaml, Binaryen or BeingDB checkout needed.
+function dev() {
+  if (!existsSync(join(PREBUILT, "main.bc.wasm.js"))) fail("prebuilt/main.bc.wasm.js is missing");
+  assemble({ tutorial: join(ROOT, "tutorial"), runtime: PREBUILT, data: join(ROOT, "data", "rewind.browser.json") });
+  serve();
+}
+
+function report() {
   const files = walk(DIST).sort();
   let total = 0;
   for (const f of files) {
@@ -228,7 +249,8 @@ async function launchChrome() {
   return { send, on: (f) => listeners.push(f), close };
 }
 
-async function browserChecks(siteUrl) {
+// expectedFingerprint: the bundled dataset's, when verifying a local build.
+async function browserChecks(siteUrl, expectedFingerprint) {
   const base = new URL(siteUrl);
   if (!base.pathname.endsWith("/")) base.pathname += "/";
   const chrome = await launchChrome();
@@ -267,6 +289,9 @@ async function browserChecks(siteUrl) {
     if (!/^10 rows/.test(summary)) throw new Error(`first query returned "${summary}"`);
     const join = await evaluate(`JSON.parse(BeingDB.query("find Work, Medium\\nwhere\\n  created_by(Work, kevin_atherton)\\n  uses_medium(Work, Medium)")).total`);
     if (join !== 6) throw new Error(`join query returned ${join} rows, expected 6`);
+    const fingerprint = await evaluate("JSON.parse(BeingDB.predicates()).environmentFingerprint");
+    if (expectedFingerprint && fingerprint !== expectedFingerprint)
+      throw new Error(`the browser loaded data with fingerprint ${fingerprint}, but data/rewind.browser.meta.json has ${expectedFingerprint}`);
     await sleep(300);
 
     // Every request stays on the site, under the base path, and succeeds.
@@ -284,6 +309,7 @@ async function browserChecks(siteUrl) {
     console.log(`browser checks passed at ${base.href}`);
     console.log(`  ${status}`);
     console.log(`  ${lessons} lessons; first query: ${summary}; join: ${join} rows`);
+    console.log(`  fingerprint ${fingerprint}${expectedFingerprint ? " (matches data/rewind.browser.meta.json)" : ""}`);
     console.log(`  ${requests.length} requests, all under ${base.pathname}; wasm served as ${[...new Set(wasm.map((r) => r.mimeType))].join(", ")}`);
   } finally {
     await chrome.close();
@@ -309,7 +335,8 @@ async function verify() {
   const { server, requests } = staticServer(DIST, PAGES_BASE);
   await new Promise((ok) => server.listen(0, "127.0.0.1", ok));
   try {
-    await browserChecks(`http://127.0.0.1:${server.address().port}${PAGES_BASE}`);
+    const meta = JSON.parse(readFileSync(join(ROOT, "data", "rewind.browser.meta.json"), "utf8"));
+    await browserChecks(`http://127.0.0.1:${server.address().port}${PAGES_BASE}`, meta.environmentFingerprint);
   } catch (e) {
     fail(e.message);
   } finally {
@@ -340,7 +367,12 @@ function deploy() {
 
 // ---- main -------------------------------------------------------------------
 
-const commands = { build, serve, verify, deploy, test: () => dune("test") };
+function test() {
+  dune("test");
+  run(process.execPath, [join(ROOT, "scripts", "maintain.mjs"), "check"]);
+}
+
+const commands = { dev, build, serve, verify, deploy, test };
 const command = commands[process.argv[2]];
 if (!command) fail(`usage: node scripts/site.mjs <${Object.keys(commands).join("|")}> [--port N] [--url URL]`);
 await command();

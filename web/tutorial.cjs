@@ -2,10 +2,12 @@
 // Rewind export the tutorial page loads. Every runnable lesson step is
 // executed and compared with the `expect` block in its lesson file, so the
 // lesson text cannot drift from what BeingDB actually returns.
+// Usage: node tutorial.cjs [path/to/main.bc.wasm.js]   (default: this directory's build)
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const Format = require("../tutorial/format.js");
+const runtime = require("./runtime.cjs");
 
 const read = (p) => fs.readFileSync(path.join(__dirname, p), "utf8");
 const golden = JSON.parse(read("../fixtures/rewind_golden.json"));
@@ -137,7 +139,7 @@ globalThis.onBeingDBReady = (BeingDB) => {
   assert.equal(Format.literal({ type: "year", value: "1975" }), "@1975");
   assert.equal(Format.literal({ type: "string", value: "West Indies" }), '"West Indies"');
 
-  console.log(`tutorial checks passed: ${lessons.length} lessons, ${checks} checks`);
+  console.log(`tutorial checks passed (${runtime.label}): ${lessons.length} lessons, ${checks} checks`);
 };
 
-require("./main.bc.wasm.js");
+runtime.load();
