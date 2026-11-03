@@ -3,16 +3,16 @@
   "sources": "sha256:4632a8e98f506c17ba479e93d772c198b33f2fc784a95500ab81ce79823de1c7",
   "beingdb": {
     "repository": "https://github.com/jptmoore/beingdb.git",
-    "commit": "749bb7a404fc7a82ae5f8c3eb7756c6a63ceea6a",
+    "commit": "acb0937eb875f83e8ed3218528e3141461c23da5",
     "dirty": false
   },
   "toolchain": {
     "ocaml": "5.4.0",
-    "wasm_of_ocaml": "6.4.1",
-    "binaryen": "133"
+    "wasm_of_ocaml": "6.2.0",
+    "binaryen": "119"
   },
   "files": {
-    "main.bc.wasm.js": "sha256:ae8b09857a8a5755b68990614fd1bd1b58b3596c95ac7ba846353d43ddd0da39",
-    "main.bc.wasm.assets/code-952bfe1a1e85e369e4c3.wasm": "sha256:520476ee7dc97fa87e465947e6e37fadc9da8cad6ad44421c8608a5883bc34e0"
+    "main.bc.wasm.js": "sha256:9ec08c28fc16a52227281f4887a59ce55ca3fae641795e606d811350d7a4848f",
+    "main.bc.wasm.assets/code-74d6254ee1b2309d236b.wasm": "sha256:3b54bd64740449490358646da381b1ff131f00fb622f3ec86e4b5e1d7a53274e"
   }
 }
