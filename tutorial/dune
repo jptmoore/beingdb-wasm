@@ -7,6 +7,7 @@
  (deps
   index.html
   app.js
+  ui.js
   format.js
   style.css
   (glob_files lessons/*.json)

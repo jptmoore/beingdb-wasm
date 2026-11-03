@@ -1,80 +1,132 @@
-# beingdb-wasm
+# BeingDB WASM
 
-**BeingDB WASM** is the real [BeingDB](https://github.com/jptmoore/beingdb)
-query runtime compiled to WebAssembly with `wasm_of_ocaml`, running entirely in
-a web browser against a bundled copy of the REWIND interviews dataset. It is a
-proof-of-concept.
+**Query [BeingDB](https://github.com/jptmoore/beingdb) facts in the web
+browser. No server, nothing to install.**
 
-The BeingDB parser, validator, planner, evaluator and pack/index interpretation
-all run unchanged in the browser; queries never leave the page. See
-[docs/internals.md](docs/internals.md) for details and measurements.
+BeingDB WASM is BeingDB's own query engine compiled to WebAssembly. It turns a
+compiled BeingDB fact store into a static website: put the files on GitHub
+Pages (or any static host) and anyone can browse the predicates and run
+queries in their browser.
 
-## Try it in the browser
+- **The real engine.** BeingDB's parser, validator, planner, evaluator,
+  diagnostics and proven repairs run unchanged in the browser, and responses
+  are tested to match the native `beingdb serve` exactly.
+- **Static hosting.** No database server to run, secure or pay for. A site is
+  a few small files plus your data.
+- **Nothing to install for your users**, and nothing beyond Node for you: no
+  OCaml, no Docker.
+- **Private.** Queries run locally and never leave the page.
+- **Small.** The runtime is 370 KB (120 KB gzipped). The REWIND example, with
+  1,842 facts, is a 660 KB data file (210 KB gzipped).
 
-Open the tutorial: **<https://jptmoore.github.io/beingdb-wasm/tutorial/>**
+## Try it
 
-- It runs entirely in your browser: no server, no account.
-- No OCaml and no native BeingDB installation are needed.
-- It ships with a prebuilt REWIND demo dataset, so there is no data to create
-  or download separately.
+- **[REWIND interviews](https://jptmoore.github.io/beingdb-rewind-interviews/)**:
+  facts from artists' interviews, published with BeingDB WASM by a GitHub
+  Actions workflow. It is the example to copy (see
+  [Publish from GitHub Actions](#publish-from-github-actions)).
+- **[Interactive tutorial](https://jptmoore.github.io/beingdb-wasm/tutorial/)**:
+  learn the BeingDB query language step by step, on the same data.
 
-It is an interactive walkthrough of the BeingDB query language; see
-[tutorial/README.md](tutorial/README.md).
+## Publish your own facts
 
-## Run locally
+You need a BeingDB export of your facts and Node >= 22.
 
-Requires Node >= 22 and nothing else (there are no npm dependencies, so no
-`npm install` step):
+**1. Export your facts with BeingDB.** BeingDB compiles a Git repository of
+facts into a pack store, and `beingdb export` writes that pack as a single
+file for the browser. See the BeingDB
+[README](https://github.com/jptmoore/beingdb#run-in-the-browser) for
+installing BeingDB and compiling facts.
+
+```sh
+beingdb export --pack ./pack_store -o facts.browser.json
+```
+
+**2. Bundle it into a site.**
 
 ```sh
 git clone https://github.com/jptmoore/beingdb-wasm.git
 cd beingdb-wasm
-npm run dev
+npm run bundle -- --data ../facts.browser.json --title "My facts" --out ../my-site
+npm run preview -- ../my-site        # http://localhost:8000/
 ```
 
-Then open <http://localhost:8000/beingdb-wasm/tutorial/> (`npm run dev -- --port N`
-for another port). The local server uses the same base path as GitHub Pages.
+There are no npm dependencies, so there is no `npm install` step. The bundle
+uses the prebuilt runtime in [prebuilt/](prebuilt/), and checks that your data
+loads in it before writing anything.
 
-The repository includes a prebuilt REWIND dataset
-([data/rewind.browser.json](data/rewind.browser.json)) and a prebuilt BeingDB
-WASM runtime ([prebuilt/](prebuilt/)). You do not need native BeingDB, OCaml,
-or a locally compiled pack store to use BeingDB WASM. The OCaml toolchain is
-only needed to rebuild the runtime from source
-([Development and testing](#development-and-testing)), and native BeingDB only
-to regenerate the bundled dataset
-([Maintainer: rebuilding the bundled dataset](#maintainer-rebuilding-the-bundled-dataset)).
-
-`npm run dev` copies the tutorial from `tutorial/` when it starts, so re-run it
-to pick up tutorial edits. It does not rebuild the WASM runtime: after changing
-OCaml code, build from source with `npm run tutorial`
-([Development and testing](#development-and-testing)).
-
-## How it works
+**3. Publish the folder** on any static host: GitHub Pages, Netlify,
+Cloudflare Pages, S3, or a plain web server. It is self-contained:
 
 ```
-native BeingDB:  compiled pack -> Irmin Pack reader -> Pack_layout -> query engine
-BeingDB WASM:    bundled data  -> Export_reader     -> Pack_layout -> query engine
+my-site/
+  index.html, explorer.js, ui.js, format.js, style.css   the page
+  beingdb.json                                           title, description, examples, data URL
+  runtime/                                               BeingDB WASM runtime
+  data/facts.browser.json                                your facts
 ```
 
-The bundled dataset, [data/rewind.browser.json](data/rewind.browser.json)
-("BeingDB browser data"), is a **logical view** of a compiled BeingDB pack:
-the same `facts/`, `index/` and `meta/` paths and values the native runtime
-reads, written out as JSON by a native exporter.
+To update the site, export again and re-run `npm run bundle` (it only
+overwrites a directory it created).
 
-- It **is** a mechanical, deterministic dump of what the native runtime sees.
-  The compiled pack stays the source of truth.
-- It **is not** a new BeingDB pack format. Nothing native reads it, and it is
-  not recompiled from source facts.
+### Configure the page: `beingdb.json`
 
-The only new code is that exporter ([native/](native/)), a small reader for its
-output ([src/export_reader.ml](src/export_reader.ml)) and the JavaScript
-bindings ([web/main.ml](web/main.ml)). All query behaviour is BeingDB's own.
+```json
+{
+  "title": "My facts",
+  "description": "Facts about ... Compiled from [my-facts](https://github.com/me/my-facts).",
+  "data": "data/facts.browser.json",
+  "examples": [
+    { "title": "Works after 1970", "query": "find Work, Y\nwhere\n  year_created(Work, Y)\n  Y > 1970" }
+  ]
+}
+```
 
-## Using the JavaScript/WASM API
+| Field | |
+|---|---|
+| `title` | Page heading |
+| `description` | Introductory text; supports `` `code` ``, `**bold**` and `[links](https://...)` |
+| `data` | URL of the export, relative to the page or absolute |
+| `examples` | Example queries, shown as buttons; the first is loaded into the editor |
+
+Pass your own file with `npm run bundle -- --config beingdb.json ...`; the
+bundle sets `data`. Without examples, the editor starts with a query over
+the largest predicate.
+
+### Data hosted elsewhere: `?data=`
+
+The page also loads any export given in its URL, for example
+`https://example.org/my-site/?data=https://example.org/other.browser.json`.
+The configured title, description and examples are then not shown. Data on
+another site must be served with CORS (GitHub Pages and
+`raw.githubusercontent.com` are).
+
+### Publish from GitHub Actions
+
+If your facts live in a GitHub repository, a workflow can compile, export,
+bundle and deploy them on every push, so no one needs BeingDB, OCaml or
+Docker locally. The REWIND workflow,
+[beingdb-rewind-interviews/.github/workflows/pages.yml](https://github.com/jptmoore/beingdb-rewind-interviews/blob/main/.github/workflows/pages.yml),
+is a template: copy it and its
+[site/beingdb.json](https://github.com/jptmoore/beingdb-rewind-interviews/blob/main/site/beingdb.json),
+then enable Pages (Settings > Pages > Source: "GitHub Actions").
+
+### Versions
+
+Export your facts with the BeingDB version the runtime was built from. It is
+recorded in [prebuilt/runtime.json](prebuilt/runtime.json) (`beingdb.commit`),
+and the template workflow uses it automatically. The export is versioned
+(`format`, `formatVersion`), and the runtime rejects a file it cannot read.
+
+## The JavaScript API
+
+The page is a thin layer over a small API, which you can also use directly in
+your own pages. Load the runtime (`runtime/main.bc.wasm.js`, which finds its
+`.wasm` next to itself) and it calls `window.onBeingDBReady`:
 
 ```js
 window.onBeingDBReady = async (BeingDB) => {
-  const text = await (await fetch("rewind.browser.json")).text();
+  const text = await (await fetch("data/facts.browser.json")).text();
   BeingDB.load(text);        // -> '{"predicates":168,"facts":1842,...}'
   BeingDB.query(dsl);        // -> JSON string (same shape as POST /query, dsl)
   BeingDB.predicates();      // -> JSON string (same shape as GET /predicates?detailed=true)
@@ -84,66 +136,83 @@ window.onBeingDBReady = async (BeingDB) => {
 };
 ```
 
-Load once, query many times. Before `load`, queries run against the small
-Phase 1 fixture.
+Load once, query many times. `load` returns `{"error": ...}` for a file it
+cannot read. Before `load`, queries run against a tiny built-in sample.
 
-`query(dsl)` caps results at 1000 rows, like the native server's default
-`max_results`, and reports it the same way: `count` is the number of rows
-returned, `total` the number the query matches (regardless of `limit`, `offset`
-or the cap), `hasMore` is `true` when more rows match than were returned (the
-query's own `limit` or the cap stopped it), and `truncated` is `true`, with a
-`results_truncated` warning, only when the cap did.
-When the first page is empty, the response also carries the `diagnose` fields
-(`diagnostics`, `provablyEmpty`, any proven `repair`) explaining why, exactly as
-the native server does.
+Every response has the shape of the native server's; see BeingDB's
+[API reference](https://github.com/jptmoore/beingdb/blob/main/docs/api.md).
 
-`predicates()` is BeingDB's own `Query_environment.to_json`. Each predicate has
-`name`, `arity`, `count`, `arguments` (`position`, `types`) and `examples`.
-When the pack declares them, it also has `description` and, per argument,
-`role` and `semanticType`. For example, `created_by` has roles `Work`, `Artist`
-and the description "Relates a work to the artist or artist group who made it."
-Declarations are descriptive only: they do not change how queries validate or
-run, but they are part of the `environmentFingerprint`.
+- `query(dsl)` caps results at 1000 rows, like the server's default
+  `max_results`: `count` is the number of rows returned, `total` the number
+  the query matches, `hasMore` is `true` when more rows match than were
+  returned, and `truncated` (with a `results_truncated` warning) is `true`
+  only when the cap stopped it. An empty first page also carries the
+  `diagnose` fields explaining why.
+- `predicates()` lists each predicate's `name`, `arity`, `count`, argument
+  `types` and `examples`, plus any declared `description`, `role` and
+  `semanticType`, and the `environmentFingerprint` of the loaded data.
+- `diagnose(dsl)` reports problems without running the query: validation,
+  data-aware [diagnostics](https://github.com/jptmoore/beingdb/blob/main/docs/api.md#diagnose-dsl)
+  such as `constant_not_at_position`, suggestions for a misspelled constant,
+  and any repair BeingDB can prove (`repair.query`).
+- `validate(dsl)` and `explain(dsl)` check a query against the data without
+  running it, returning its projection, or BeingDB's normalized query and
+  plan (`plan`, `planText`).
 
-`diagnose(dsl)` runs BeingDB's own `Query_diagnostics` (validation, data-aware
-diagnostics such as `constant_not_at_position` or `disjoint_join`, likely
-corrections for a misspelled constant in `evidence.suggestions`, and any
-repair BeingDB can prove, as `repair.query`) without executing the query. No
-diagnostic logic lives in this layer; the output equals the native server's
-(checked against goldens in `fixtures/rewind_golden.json`, `diagnose` key). See
-BeingDB's [API reference](https://github.com/jptmoore/beingdb/blob/main/docs/api.md#diagnose-dsl) for the codes.
-
-`validate(dsl)` and `explain(dsl)` are the native server's `validate` and
-`explain` actions: the query is parsed and checked against the data but not
-executed. A valid query returns `valid: true` with its `projection` and
-`distinct` flag (`validate`), or with BeingDB's `normalizedCoreQuery`,
-structured `plan` and human-readable `planText` (`explain`). An invalid query
-returns the same `valid: false` error envelope as `query`. Both equal the
-native server's responses (`validate` and `explain` keys in the goldens).
-
-### Example
+## How it works
 
 ```
-find Artist, Work, Y
-where
-  created_by(Work, Artist)
-  year_created(Work, Y)
-  Y between 1975 and 1980
+native BeingDB:  pack store         -> Irmin Pack reader -> Pack_layout -> query engine
+BeingDB WASM:    beingdb export file -> Export_reader    -> Pack_layout -> query engine
 ```
 
-returns 17 rows, e.g.
-`{"Artist": {"type": "atom", "value": "madelon_hooykaas"}, "Work": {"type": "atom", "value": "running_time"}, "Y": {"type": "year", "value": "1979"}}`,
-with the same results, count and `environmentFingerprint` as the native server
-(the fingerprint of the bundled dataset is recorded in
-[data/rewind.browser.meta.json](data/rewind.browser.meta.json)).
+`beingdb export` writes the pack's logical tree, the same `facts/`, `index/`
+and `meta/` paths and values the native engine reads, as JSON. It is a
+mechanical, deterministic copy: nothing is recompiled, and the pack stays the
+source of truth. In the browser, a small reader
+([src/export_reader.ml](src/export_reader.ml)) serves that tree to BeingDB's
+unchanged runtime. The only other code here is the JavaScript bindings
+([web/main.ml](web/main.ml)) and the pages. See
+[docs/internals.md](docs/internals.md) for details and measurements.
 
-## Development and testing
+## Browser support
 
-Building the runtime from source needs opam, Binaryen
-(`brew install binaryen`), Node >= 22, and BeingDB checked out next to this
-repository. Only BeingDB's portable runtime sources are used
-(`vendor/beingdb_runtime` is a committed symlink to `../beingdb/lib/runtime`);
-nothing native is compiled and no pack store is needed.
+Current Chrome and other Chromium browsers, Firefox and Safari. The release build used by
+`npm run bundle` is a single WebAssembly module, which Safari requires; see
+[docs/internals.md](docs/internals.md#browser-support-findings).
+
+## Limitations
+
+- The whole export is downloaded and held in memory. This suits small and
+  medium datasets; very large packs would need chunked loading.
+- There is no query timeout in the browser; the engine's limit on
+  intermediate results still applies.
+- The site is read-only, like `beingdb serve`: to change the facts, edit them
+  in Git, compile, export and publish again.
+
+## Developing BeingDB WASM
+
+Everything below is for working on BeingDB WASM itself.
+
+### Run the tutorial locally
+
+```sh
+npm run dev
+```
+
+serves the tutorial and the explorer with the prebuilt runtime at
+<http://localhost:8000/beingdb-wasm/tutorial/> and
+<http://localhost:8000/beingdb-wasm/explorer/> (`npm run dev -- --port N` for
+another port), under the same base path as GitHub Pages. It copies the pages
+when it starts, so re-run it after editing them. See
+[tutorial/README.md](tutorial/README.md).
+
+### Build from source
+
+Building the runtime needs opam, Binaryen (`brew install binaryen`), Node >=
+22, and BeingDB checked out next to this repository. Only BeingDB's portable
+runtime sources are used (`vendor/beingdb_runtime` is a committed symlink to
+`../beingdb/lib/runtime`); nothing native is compiled.
 
 ```sh
 git clone https://github.com/jptmoore/beingdb.git      # next to beingdb-wasm
@@ -158,28 +227,27 @@ opam install dune lwt yojson digestif js_of_ocaml wasm_of_ocaml-compiler conf-bi
 | `npm test` | `dune test` (unit tests; WASM parity with native goldens and every tutorial lesson, for both the fresh build and `prebuilt/`), then `node scripts/maintain.mjs check` |
 | `npm run tutorial` | Release build from source, assemble `dist/site/`, serve it at <http://localhost:8000/beingdb-wasm/tutorial/> |
 | `npm run build:tutorial` | Release build (one WASM module, which Safari requires), then assemble `dist/site/` |
-| `npm run verify:tutorial` | Check `dist/site/` in headless Chrome under `/beingdb-wasm/` |
+| `npm run verify:tutorial` | Check `dist/site/` (tutorial and explorer) in headless Chrome under `/beingdb-wasm/` |
 | `npm run deploy` | Run the GitHub Pages workflow on `main` (needs `gh`) |
-| `npm run update-runtime` | Maintainer: rebuild the release runtime into `prebuilt/` |
+| `npm run update-runtime` | Rebuild the release runtime into `prebuilt/` |
+| `npm run update-demo-data` | Regenerate the bundled REWIND dataset (see below) |
 
 `dune build` alone builds the runtime and the pages in `_build/default/web`
-(demo and parity pages) and `_build/default/tutorial`; serve them with
+(API demo and parity pages) and `_build/default/tutorial`; serve them with
 `python3 -m http.server 8000 -d _build/default` (use `dune build --profile
 release` for Safari).
 
 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) tests, builds and
 verifies the site on pull requests. Deployment to GitHub Pages is manual, from
-`main` (`npm run deploy`), so other work on `main` never republishes the
-tutorial. See [tutorial/README.md](tutorial/README.md#deploy).
+`main` (`npm run deploy`). See [tutorial/README.md](tutorial/README.md#deploy).
 
 ### The prebuilt runtime
 
-[prebuilt/](prebuilt/) holds the release build of the runtime
-(`main.bc.wasm.js` and one `.wasm` module) used by `npm run dev`, and
+[prebuilt/](prebuilt/) holds the release build of the runtime used by
+`npm run bundle` and `npm run dev`, and
 [prebuilt/runtime.json](prebuilt/runtime.json) records the BeingDB commit, the
-toolchain, file checksums and a hash of the runtime sources (this
-repository's OCaml and `../beingdb/lib/runtime`). `npm test` runs the parity
-and lesson tests against it, and fails if its files do not match
+toolchain, file checksums and a hash of the runtime sources. `npm test` runs
+the parity and lesson tests against it, and fails if its files do not match
 `runtime.json`, if the runtime sources have changed since it was built, or if
 CI's `BEINGDB_REF` pins a different BeingDB commit. Refresh it with:
 
@@ -189,71 +257,52 @@ npm test
 ```
 
 then commit `prebuilt/` (and update `BEINGDB_REF` in `pages.yml` when moving
-to a new BeingDB commit).
+to a new BeingDB commit). Sites published from GitHub Actions with the
+template workflow pick up the new runtime, and export with the matching
+BeingDB, on their next run.
 
 ### Layout
 
 ```
 src/                 portable OCaml: Session (query/introspection), Export_reader
-web/                 WASM entry point, demo page, parity page, Node tests
-tutorial/            interactive browser tutorial (lessons + thin UI over the WASM API)
-prebuilt/            prebuilt release runtime for `npm run dev` (generated)
+web/                 WASM entry point, API demo page, parity page, Node tests
+explorer/            the deployable query page (bundled by `npm run bundle`)
+tutorial/            interactive tutorial; ui.js and format.js are shared with the explorer
+prebuilt/            prebuilt release runtime (generated)
 data/                bundled REWIND dataset and its metadata (generated)
 fixtures/            shared REWIND queries + goldens from the native server
-scripts/site.mjs     static site: dev, build, serve, verify, deploy
+scripts/site.mjs     static sites: bundle, dev, build, serve, verify, deploy
 scripts/maintain.mjs maintainer: update-demo-data, update-runtime, check
-native/              exporter + parity test (needs Irmin Pack; separate dune root)
+native/              Irmin Pack vs export parity test (needs Irmin Pack; separate dune root)
 vendor/              symlink to ../beingdb/lib/runtime
 ```
 
-## Maintainer: rebuilding the bundled dataset
+### The bundled REWIND dataset
 
-Only needed when the REWIND facts or BeingDB's pack format change. Using or
-developing BeingDB WASM does not need any of this.
-
-### Pipeline
-
-```
-REWIND facts (github.com/jptmoore/beingdb-rewind-interviews)
-        |  beingdb clone (or beingdb import)
-        v
-Irmin Git store
-        |  beingdb compile                          native BeingDB (../beingdb)
-        v
-compiled pack (pack store)
-        |  native/export_browser.exe                this repository
-        v
-data/rewind.browser.json                            bundled dataset
-  + fixtures/rewind_golden.json                     native `beingdb serve` responses,
-                                                    including the environmentFingerprint
-  + data/rewind.browser.meta.json                   checksum, fingerprint, counts, provenance
-        |  WASM tests, native parity test, tutorial lessons
-        v
-tutorial / app (npm run dev, GitHub Pages)
-```
-
-### One command
+The tutorial and the tests use a bundled export of the
+[REWIND interviews](https://github.com/jptmoore/beingdb-rewind-interviews)
+([data/rewind.browser.json](data/rewind.browser.json)), with goldens recorded
+from the native server ([fixtures/rewind_golden.json](fixtures/rewind_golden.json))
+and metadata ([data/rewind.browser.meta.json](data/rewind.browser.meta.json):
+checksum, `environmentFingerprint`, counts, provenance). Regenerate all three
+when the REWIND facts or BeingDB's pack format change:
 
 ```sh
 npm run update-demo-data
 ```
 
-This runs the whole pipeline in a temporary directory. It does not modify
-the facts or any existing pack store:
+This works in a temporary directory and does not modify the facts or any
+existing pack store:
 
 1. builds native BeingDB in `../beingdb`;
-2. clones the REWIND facts (default
-   `https://github.com/jptmoore/beingdb-rewind-interviews.git`) and compiles
-   them into a fresh pack;
-3. exports the pack as browser data;
+2. clones the REWIND facts and compiles them into a fresh pack;
+3. exports it with `beingdb export`;
 4. starts native `beingdb serve` on the pack and records the goldens
    (`fixtures/make_golden.mjs`), which include its `environmentFingerprint`;
-5. installs `data/rewind.browser.json`, `data/rewind.browser.meta.json` and
-   `fixtures/rewind_golden.json` together;
-6. validates: `dune build`; `dune test` (the WASM runtime, built and prebuilt,
-   loads the data and reproduces every golden, including the fingerprint,
-   and every tutorial lesson); the native Irmin Pack vs export parity test;
-   `node scripts/maintain.mjs check`.
+5. installs the dataset, its metadata and the goldens together;
+6. validates: `dune build`; `dune test` (the built and prebuilt runtimes load
+   the data and reproduce every golden and every tutorial lesson); the native
+   Irmin Pack vs export parity test; `node scripts/maintain.mjs check`.
 
 If anything fails before step 5, nothing in the repository changes. If
 validation fails after it, the three files are still consistent with each
@@ -262,41 +311,27 @@ changed), or revert with `git checkout -- data fixtures`.
 
 | Option | Environment variable | |
 |---|---|---|
-| `--source URL` or `--source DIR` | `REWIND_SOURCE` | Facts to compile: a Git URL, or a local checkout (imported with `beingdb import`, including uncommitted changes, which are recorded as `dirty`) |
+| `--source URL` or `--source DIR` | `REWIND_SOURCE` | Facts to compile: a Git URL (default `https://github.com/jptmoore/beingdb-rewind-interviews.git`), or a local checkout (imported with `beingdb import`, including uncommitted changes, which are recorded as `dirty`) |
 | `--pack DIR` | `BEINGDB_PACK` | Export an already compiled pack instead (its source is then not recorded) |
 | | `BEINGDB_OPAM_SWITCH` | opam switch with native BeingDB's dependencies (default: the switch opam selects in `../beingdb`) |
 
 Requirements: BeingDB checked out at `../beingdb` (the `native/vendor`
 symlinks point there), opam, and native BeingDB's dependencies (Irmin) in an
 opam switch, for example `(cd ../beingdb && opam install . --deps-only)`.
-This repository's own switch does not need Irmin. If something is missing,
-the command says what and how to fix it.
+This repository's own switch does not need Irmin.
 
-### Fingerprints
-
-BeingDB computes the `environmentFingerprint` from the data it loads
-(predicate names, arities, observed types and any declared roles and
-descriptions), so the browser always reports the fingerprint of the data it
-actually loaded. Copies of it are pinned in `fixtures/rewind_golden.json` and
-`data/rewind.browser.meta.json`. `npm test` (and `dune test`) fails, naming
-`npm run update-demo-data`, if the data file, its metadata and the goldens do
-not agree, so a new pack with an old bundle or old fingerprint metadata cannot
-pass unnoticed.
-
-Artefacts in other repositories that pin the fingerprint are not updated by
-this command. When it reports a changed fingerprint, regenerate them
-separately, for example the
+`npm test` fails, naming `npm run update-demo-data`, if the data file, its
+metadata and the goldens do not agree. Artefacts in other repositories that
+pin the fingerprint are not updated by this command; when it reports a
+changed fingerprint, regenerate them separately, for example the
 [beingdb-webllm](https://github.com/jptmoore/beingdb-webllm) evaluation
 question sets (`eval/questions*.json`).
 
-### Manual steps
-
-The command wraps these, which can help with debugging. With a compiled pack
-at `PACK` and native BeingDB's opam switch `SWITCH`:
+The command wraps these steps, which can help with debugging. With a compiled
+pack at `PACK` and native BeingDB's opam switch `SWITCH`:
 
 ```sh
-opam exec --switch=SWITCH -- dune exec --root native ./export_browser.exe -- \
-  --pack PACK -o data/rewind.browser.json
+beingdb export --pack PACK -o data/rewind.browser.json
 beingdb serve --pack PACK --port 8091 &
 node fixtures/make_golden.mjs http://localhost:8091
 BEINGDB_PACK=PACK opam exec --switch=SWITCH -- dune test --root native   # Irmin Pack vs export parity
@@ -305,15 +340,3 @@ BEINGDB_PACK=PACK opam exec --switch=SWITCH -- dune test --root native   # Irmin
 Only `npm run update-demo-data` writes `data/rewind.browser.meta.json`, so
 after manual steps, run it (with `--pack PACK`) to bring all three files back
 in line.
-
-## Browser support
-
-Chrome/Chromium, Firefox and Safari pass the parity page with the release build.
-Safari cannot load the default dev build (it lacks WebAssembly multi-memory);
-see [docs/internals.md](docs/internals.md).
-
-## Limitations
-
-- Proof-of-concept. The whole export is fetched and held in memory, with no
-  persistence, chunking or workers.
-- No query timeout in the browser; the engine's intermediate-result limit applies.

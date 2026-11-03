@@ -1,11 +1,13 @@
 {
   "name": "beingdb-wasm",
   "private": true,
-  "description": "BeingDB compiled to WebAssembly, with a zero-install browser tutorial",
+  "description": "Query BeingDB facts in the web browser: the BeingDB query engine compiled to WebAssembly, for static deployments",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
+    "bundle": "node scripts/site.mjs bundle",
+    "preview": "node scripts/site.mjs serve --dir",
     "dev": "node scripts/site.mjs dev",
     "tutorial": "node scripts/site.mjs build && node scripts/site.mjs serve",
     "build:tutorial": "node scripts/site.mjs build",
