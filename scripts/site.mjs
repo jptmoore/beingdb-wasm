@@ -164,6 +164,8 @@ function bundle() {
   mkdirSync(join(out, "data"), { recursive: true });
   cpSync(data, join(out, "data", name));
   chmodSync(join(out, "data", name), 0o644);
+  // GitHub Pages: serve the files as they are, without Jekyll.
+  writeFileSync(join(out, ".nojekyll"), "");
   report(out);
   console.log(`\n${config.title}: ${summary.predicates} predicates, ${summary.facts} facts (fingerprint ${summary.environmentFingerprint})`);
   console.log(`Publish ${out}/ on any static web host (GitHub Pages, Netlify, S3, ...).`);

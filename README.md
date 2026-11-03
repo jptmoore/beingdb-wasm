@@ -22,9 +22,9 @@ queries in their browser.
 ## Try it
 
 - **[REWIND interviews](https://jptmoore.github.io/beingdb-rewind-interviews/)**:
-  facts from artists' interviews, published with BeingDB WASM by a GitHub
-  Actions workflow. It is the example to copy (see
-  [Publish from GitHub Actions](#publish-from-github-actions)).
+  facts from artists' interviews, published with BeingDB WASM on GitHub
+  Pages. It is the example to copy (see
+  [Publish on GitHub Pages](#publish-on-github-pages)).
 - **[Interactive tutorial](https://jptmoore.github.io/beingdb-wasm/tutorial/)**:
   learn the BeingDB query language step by step, on the same data.
 
@@ -101,22 +101,30 @@ The configured title, description and examples are then not shown. Data on
 another site must be served with CORS (GitHub Pages and
 `raw.githubusercontent.com` are).
 
-### Publish from GitHub Actions
+### Publish on GitHub Pages
 
-If your facts live in a GitHub repository, a workflow can compile, export,
-bundle and deploy them on every push, so no one needs BeingDB, OCaml or
-Docker locally. The REWIND workflow,
-[beingdb-rewind-interviews/.github/workflows/pages.yml](https://github.com/jptmoore/beingdb-rewind-interviews/blob/main/.github/workflows/pages.yml),
-is a template: copy it and its
-[site/beingdb.json](https://github.com/jptmoore/beingdb-rewind-interviews/blob/main/site/beingdb.json),
-then enable Pages (Settings > Pages > Source: "GitHub Actions").
+If your facts live in a GitHub repository, bundle into its `docs/` folder
+and commit it:
+
+```sh
+npm run bundle -- --data ../facts.browser.json --config ../my-facts/site/beingdb.json --out ../my-facts/docs
+```
+
+Then set Settings > Pages > Source: "Deploy from a branch", `main`, `/docs`.
+Every push then publishes, with no workflow to maintain. Re-export and
+re-bundle whenever the facts change. The
+[REWIND interviews](https://github.com/jptmoore/beingdb-rewind-interviews)
+repository works this way; its `npm run build-site`
+([scripts/build-site.mjs](https://github.com/jptmoore/beingdb-rewind-interviews/blob/main/scripts/build-site.mjs))
+compiles, exports and bundles in one step.
 
 ### Versions
 
 Export your facts with the BeingDB version the runtime was built from. It is
-recorded in [prebuilt/runtime.json](prebuilt/runtime.json) (`beingdb.commit`),
-and the template workflow uses it automatically. The export is versioned
-(`format`, `formatVersion`), and the runtime rejects a file it cannot read.
+recorded in [prebuilt/runtime.json](prebuilt/runtime.json) (`beingdb.commit`).
+The export is versioned (`format`, `formatVersion`); the runtime rejects a
+file it cannot read, and `npm run bundle` checks that your file loads before
+writing the site.
 
 ## The JavaScript API
 
@@ -257,9 +265,8 @@ npm test
 ```
 
 then commit `prebuilt/` (and update `BEINGDB_REF` in `pages.yml` when moving
-to a new BeingDB commit). Sites published from GitHub Actions with the
-template workflow pick up the new runtime, and export with the matching
-BeingDB, on their next run.
+to a new BeingDB commit). Published sites keep the runtime they were bundled
+with until they are re-bundled.
 
 ### Layout
 
