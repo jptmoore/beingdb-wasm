@@ -1,6 +1,7 @@
 {
   "name": "beingdb-wasm",
   "private": true,
+  "license": "MIT",
   "description": "Query BeingDB facts in the web browser: the BeingDB query engine compiled to WebAssembly, for static deployments",
   "engines": {
     "node": ">=22"

@@ -4,7 +4,7 @@
 browser. No server, nothing to install.**
 
 BeingDB WASM is BeingDB's own query engine compiled to WebAssembly. It turns a
-compiled BeingDB fact store into a static website: put the files on GitHub
+compiled BeingDB pack store into a static website: put the files on GitHub
 Pages (or any static host) and anyone can browse the predicates and run
 queries in their browser.
 
