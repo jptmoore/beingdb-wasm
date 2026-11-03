@@ -1,5 +1,7 @@
-; Native-only tooling (needs Irmin Pack). A separate dune root so the browser
-; build cannot see Irmin at all. Symlinks:
+; Native-only parity test (needs Irmin Pack). A separate dune root so the
+; browser build cannot see Irmin at all. pack_export re-exports a pack
+; independently of `beingdb export`, so the test also checks that command's
+; output (data/rewind.browser.json) byte for byte. Symlinks:
 ;   vendor/beingdb_runtime   -> beingdb/lib/runtime
 ;   vendor/beingdb_pack_unix -> beingdb/lib/pack_unix
 ;   vendor/beingdb_wasm      -> ../src (the same portable glue the browser uses)
@@ -10,11 +12,6 @@
  (name pack_export)
  (modules pack_export)
  (libraries beingdb_pack_unix beingdb_wasm lwt yojson))
-
-(executable
- (name export_browser)
- (modules export_browser)
- (libraries pack_export lwt lwt.unix))
 
 (test
  (name test_parity)

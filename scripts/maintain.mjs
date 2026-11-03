@@ -40,7 +40,7 @@ const DEFAULT_SOURCE = "https://github.com/jptmoore/beingdb-rewind-interviews.gi
 
 const NATIVE_ONLY =
   "Native BeingDB is only needed to regenerate the bundled REWIND dataset. You do not need it to use or run\n" +
-  "BeingDB WASM: the repository ships a prebuilt dataset and runtime (see README, \"Run locally\": npm run dev).";
+  "BeingDB WASM: the repository ships a prebuilt dataset and runtime (see README, \"Run the tutorial locally\": npm run dev).";
 
 const fail = (msg) => {
   console.error(`\nerror: ${msg}`);
@@ -195,7 +195,7 @@ function updateRuntime() {
   try {
     wasm(["dune", "build", "--profile", "release", "./web/main.bc.wasm.js"], { what: "dune build --profile release" });
   } catch (e) {
-    fail(`${e.message}. Set up the OCaml/WASM toolchain first (README, "Development and testing").`);
+    fail(`${e.message}. Set up the OCaml/WASM toolchain first (README, "Build from source").`);
   }
   const web = join(ROOT, "_build", "default", "web");
   const assets = readdirSync(join(web, "main.bc.wasm.assets")).filter((f) => f.endsWith(".wasm"));
@@ -333,9 +333,9 @@ async function updateDemoData() {
       run(beingdb, ["compile", "--git", gitStore, "--pack", pack], { what: "beingdb compile" });
     }
 
-    step("Exporting the pack as BeingDB browser data");
+    step("Exporting the pack as BeingDB browser data (beingdb export)");
     const data = join(work, "rewind.browser.json");
-    native(["dune", "exec", "--root", "native", "./export_browser.exe", "--", "--pack", pack, "-o", data], { what: "native/export_browser" });
+    run(beingdb, ["export", "--pack", pack, "-o", data], { what: "beingdb export" });
 
     step("Recording goldens (and the environment fingerprint) from native beingdb serve");
     const golden = join(work, "rewind_golden.json");

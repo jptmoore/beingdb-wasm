@@ -32,7 +32,7 @@ its lessons and data.
 | Command | What it does |
 |---|---|
 | `npm run dev` | Assemble `dist/site/` from `tutorial/`, the committed prebuilt runtime (`prebuilt/`) and the bundled dataset, and serve it at `http://localhost:8000/beingdb-wasm/` |
-| `npm run tutorial` | Build the runtime from source (needs the OCaml setup in the main [README](../README.md#development-and-testing)), then serve `dist/site/` |
+| `npm run tutorial` | Build the runtime from source (needs the OCaml setup in the main [README](../README.md#build-from-source)), then serve `dist/site/` |
 | `npm test` | `dune test`: WASM parity, lesson checks (built and prebuilt runtime), native unit tests; then the bundle check |
 | `npm run build:tutorial` | Release build (one WASM module, which Safari requires), then assemble `dist/site/` |
 | `npm run verify:tutorial` | Check `dist/site/` in headless Chrome under `/beingdb-wasm/` (see below) |
@@ -78,7 +78,7 @@ the live site.
 ## How it works
 
 ```
-index.html -> format.js, app.js -> ../web/main.bc.wasm.js (BeingDB runtime)
+index.html -> format.js, ui.js, app.js -> ../web/main.bc.wasm.js (BeingDB runtime)
            -> ../web/rewind.browser.json   BeingDB.load(...)
            -> lessons/index.json, lessons/*.json
 ```
@@ -89,10 +89,12 @@ index.html -> format.js, app.js -> ../web/main.bc.wasm.js (BeingDB runtime)
   diagnostics, proven repairs and query plans all come from BeingDB's own
   code; responses have the same shape as the native server's `POST /query`
   and `GET /predicates?detailed=true`.
-- **`app.js`** renders lessons, editors, result tables, schema browsing and
-  BeingDB's messages. It does not interpret queries. "Apply repair" loads
-  BeingDB's `repair.query` into the editor; the predicate filter is a plain
-  substring filter over `predicates()`.
+- **`ui.js`** renders editors, result tables, schema browsing and BeingDB's
+  messages; it is shared with the [explorer](../explorer/). It does not
+  interpret queries. "Apply repair" loads BeingDB's `repair.query` into the
+  editor; the predicate filter is a plain substring filter over
+  `predicates()`.
+- **`app.js`** renders lessons and navigation.
 - **`format.js`** contains presentation helpers (response classification,
   escaping, literal formatting) shared by the page and the Node test.
 - **Lessons** are data, not code: one JSON file per lesson in `lessons/`,
@@ -128,7 +130,7 @@ npm run update-demo-data
 
 regenerates the dataset, its metadata and the goldens together from the
 REWIND facts and runs every test (see the main README,
-[Maintainer: rebuilding the bundled dataset](../README.md#maintainer-rebuilding-the-bundled-dataset)).
+[The bundled REWIND dataset](../README.md#the-bundled-rewind-dataset)).
 The tutorial test fails on any lesson whose `expect` block no longer matches
 the data; fix those lessons (and keep `beingdb/docs/tutorial.md` in step).
 

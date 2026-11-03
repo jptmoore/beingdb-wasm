@@ -1,6 +1,7 @@
 # beingdb-wasm internals
 
-Technical notes for the proof-of-concept. See the [README](../README.md) for usage.
+Technical notes on how BeingDB WASM works and is tested. See the
+[README](../README.md) for usage.
 
 ## Execution path
 
@@ -29,8 +30,8 @@ evaluator are `Query_engine`. JavaScript only fetches text and calls the API.
   also carries BeingDB's `Query_diagnostics.Report.empty_result_fields`. Used for the
   fixture, the export and (in native tests) Irmin Pack.
 - `export_reader.ml` - the `Pack_layout.READER` (`find`/`list`) over the export.
-- `beingdb_wasm.ml` - browser state: Phase 1 fixture (`Memory_store`) until
-  `load` is called, then the export.
+- `beingdb_wasm.ml` - browser state: a tiny built-in sample (`Memory_store`)
+  until `load` is called, then the export.
 
 ## Export format (`beingdb-logical-pack-view`, version 0)
 
@@ -46,21 +47,23 @@ in the order the native `Pack_backend.Reader.list` returns them, so `list` over
 the export returns exactly what the native reader returns (this keeps
 `sample_facts`, and therefore predicate `examples`, identical).
 
-The exporter (`native/pack_export.ml`) walks the pack from the root with
-`Pack_backend.Reader.find`/`list` (the same reader `Pack_backend` feeds into
-`Pack_layout.Make`) and writes that tree. It does not recompile facts, rebuild
-indexes, or interpret anything. Output is deterministic (same bytes on re-export;
-checked by the parity test).
+The exporter, `beingdb export` (BeingDB's `lib/cli_export.ml`), walks the
+pack from the root with `Pack_backend.Reader.find`/`list` (the same reader
+`Pack_backend` feeds into `Pack_layout.Make`) and writes that tree. It does
+not recompile facts, rebuild indexes, or interpret anything. Output is
+deterministic (same bytes on re-export). The parity test re-exports the pack
+independently (`native/pack_export.ml`) and checks the bytes.
 
-This is an experiment transport format only: a mechanical dump of the logical
-tree. It is not a BeingDB pack format and nothing native reads it.
+The format is a transport for the browser, not a second pack format: nothing
+native reads it. `format` and `formatVersion` are checked on load, and a
+change to the layout bumps `formatVersion`.
 
 ## Build roots and switches
 
 | root | switch | contents |
 |---|---|---|
-| `.` | local `_opam` (no Irmin) | portable glue, WASM entry point, Phase 1 test, Node tests |
-| `native/` | any switch that builds `beingdb` (Irmin Pack 3.11) | exporter, parity test |
+| `.` | local `_opam` (no Irmin) | portable glue, WASM entry point, unit test, Node tests |
+| `native/` | any switch that builds `beingdb` (Irmin Pack 3.11) | parity test |
 
 `native/` is excluded from the root (`(dirs :standard \ native)`) and reaches
 BeingDB through symlinks: `vendor/beingdb_runtime`, `vendor/beingdb_pack_unix`,

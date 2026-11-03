@@ -1,29 +1,41 @@
 #!/usr/bin/env node
-// Static site for the browser tutorial (GitHub Pages). No dependencies.
+// Static sites for BeingDB WASM. No dependencies.
 //
+//   node scripts/site.mjs bundle --data FILE [--config FILE] [--title T] [--out DIR]
+//                                          a deployable explorer for a `beingdb export` file, using the
+//                                          committed prebuilt runtime (default --out dist/explorer)
 //   node scripts/site.mjs dev [--port N]   assemble dist/site/ from the committed prebuilt runtime and
 //                                          bundled dataset (no OCaml toolchain needed), then serve it
 //   node scripts/site.mjs build            dune release build -> dist/site/
 //   node scripts/site.mjs serve [--port N] serve dist/site/ under the Pages base path
+//   node scripts/site.mjs serve --dir DIR  serve DIR (e.g. a bundle) at /
 //   node scripts/site.mjs verify           check dist/site/ in headless Chrome under the base path
 //   node scripts/site.mjs verify --url U   check a deployed site, e.g. https://jptmoore.github.io/beingdb-wasm/
 //   node scripts/site.mjs deploy           trigger the GitHub Pages workflow on main (needs gh)
 //   node scripts/site.mjs test             dune test, then check prebuilt/ and the bundled dataset
 //
-// dist/site/ mirrors the dune build layout, so every URL in the tutorial stays
-// relative and works under any base path:
+// dist/site/ (this repository's GitHub Pages site) mirrors the dune build
+// layout, so every URL stays relative and works under any base path:
 //
 //   index.html                      redirect to tutorial/
 //   tutorial/                       the tutorial page and lessons
+//   explorer/                       the explorer (see bundle) over the REWIND dataset
 //   web/main.bc.wasm.js             BeingDB WASM loader (finds its .wasm relative to itself)
 //   web/main.bc.wasm.assets/*.wasm  BeingDB runtime (release build: one module)
 //   web/rewind.browser.json         bundled REWIND dataset
+//
+// A bundle (and dist/site/explorer/) is self-contained:
+//
+//   index.html, explorer.js, ui.js, format.js, style.css
+//   beingdb.json                    title, description, example queries and the data URL
+//   runtime/                        BeingDB WASM runtime
+//   data/<file>                     the export (bundle only)
 
 import { spawn, spawnSync } from "node:child_process";
 import { createServer } from "node:http";
 import { chmodSync, cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { dirname, extname, join, normalize, relative, resolve, sep } from "node:path";
+import { basename, dirname, extname, join, normalize, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { setTimeout as sleep } from "node:timers/promises";
 
@@ -98,8 +110,64 @@ function assemble({ tutorial, runtime, data }) {
   pick(tutorial, "tutorial", (p) => /^(index\.html|[^/]+\.js|[^/]+\.css|lessons\/[^/]+\.json)$/.test(p));
   pick(runtime, "web", (p) => p === "main.bc.wasm.js" || /^main\.bc\.wasm\.assets\/[^/]+\.wasm$/.test(p));
   copy(data, join(DIST, "web", "rewind.browser.json"));
+  writeExplorer(join(DIST, "explorer"), runtime, JSON.parse(readFileSync(join(ROOT, "explorer", "beingdb.json"), "utf8")));
   writeFileSync(join(DIST, "index.html"), REDIRECT);
-  report();
+  report(DIST);
+}
+
+// The explorer page, its shared UI (from tutorial/), a runtime and beingdb.json.
+function writeExplorer(out, runtime, config) {
+  const copy = (from, to) => {
+    mkdirSync(dirname(to), { recursive: true });
+    cpSync(from, to);
+    chmodSync(to, 0o644);
+  };
+  for (const f of ["index.html", "explorer.js"]) copy(join(ROOT, "explorer", f), join(out, f));
+  for (const f of ["ui.js", "format.js", "style.css"]) copy(join(ROOT, "tutorial", f), join(out, f));
+  for (const f of walk(runtime)) {
+    const p = posix(relative(runtime, f));
+    if (p === "main.bc.wasm.js" || /^main\.bc\.wasm\.assets\/[^/]+\.wasm$/.test(p)) copy(f, join(out, "runtime", p));
+  }
+  writeFileSync(join(out, "beingdb.json"), JSON.stringify(config, null, 2) + "\n");
+}
+
+// Load an export with a runtime in Node; returns its load summary.
+function checkData(runtime, data) {
+  const r = spawnSync(process.execPath, [join(ROOT, "scripts", "check-data.cjs"), join(runtime, "main.bc.wasm.js"), data], { encoding: "utf8" });
+  if (r.status !== 0) fail(`${data} does not load in the BeingDB WASM runtime: ${(r.stderr || r.stdout).trim()}`);
+  return JSON.parse(r.stdout);
+}
+
+// A deployable explorer for one `beingdb export` file, from the committed prebuilt runtime.
+function bundle() {
+  // `npm run` changes into the repository; resolve paths against where it was invoked.
+  const here = (p) => p && resolve(process.env.INIT_CWD || process.cwd(), p);
+  const data = here(option("--data"));
+  if (!data) fail("usage: npm run bundle -- --data FILE [--config beingdb.json] [--title TITLE] [--out DIR]\n  FILE is written by `beingdb export --pack ./pack_store -o FILE`");
+  if (!existsSync(data) || !statSync(data).isFile()) fail(`--data ${data} is not a file`);
+  const configFile = here(option("--config"));
+  if (configFile && !existsSync(configFile)) fail(`--config ${configFile} does not exist`);
+  const out = here(option("--out")) || join(ROOT, "dist", "explorer");
+  // Never delete a directory this command did not write.
+  if (existsSync(out) && readdirSync(out).length && !(existsSync(join(out, "beingdb.json")) && existsSync(join(out, "runtime"))))
+    fail(`--out ${out} exists and is not a previous bundle; choose an empty or new directory`);
+  if (!existsSync(join(PREBUILT, "main.bc.wasm.js"))) fail("prebuilt/main.bc.wasm.js is missing");
+
+  const summary = checkData(PREBUILT, data);
+  const config = configFile ? JSON.parse(readFileSync(configFile, "utf8")) : {};
+  const name = basename(data);
+  config.title = option("--title", config.title || name.replace(/(\.browser)?\.json$/, ""));
+  config.data = `data/${name}`;
+
+  rmSync(out, { recursive: true, force: true });
+  writeExplorer(out, PREBUILT, config);
+  mkdirSync(join(out, "data"), { recursive: true });
+  cpSync(data, join(out, "data", name));
+  chmodSync(join(out, "data", name), 0o644);
+  report(out);
+  console.log(`\n${config.title}: ${summary.predicates} predicates, ${summary.facts} facts (fingerprint ${summary.environmentFingerprint})`);
+  console.log(`Publish ${out}/ on any static web host (GitHub Pages, Netlify, S3, ...).`);
+  console.log(`Preview: npm run preview -- ${out}`);
 }
 
 function build() {
@@ -116,15 +184,15 @@ function dev() {
   serve();
 }
 
-function report() {
-  const files = walk(DIST).sort();
+function report(dir) {
+  const files = walk(dir).sort();
   let total = 0;
   for (const f of files) {
     const size = statSync(f).size;
     total += size;
-    console.log(`  ${posix(relative(DIST, f)).padEnd(48)} ${(size / 1024).toFixed(1).padStart(8)} KB`);
+    console.log(`  ${posix(relative(dir, f)).padEnd(48)} ${(size / 1024).toFixed(1).padStart(8)} KB`);
   }
-  console.log(`dist/site: ${files.length} files, ${(total / 1024).toFixed(0)} KB`);
+  console.log(`${dir.startsWith(ROOT + sep) ? posix(relative(ROOT, dir)) : dir}: ${files.length} files, ${(total / 1024).toFixed(0)} KB`);
 }
 
 // ---- serve ------------------------------------------------------------------
@@ -151,12 +219,20 @@ function staticServer(dir, base) {
 }
 
 function serve() {
-  if (!existsSync(join(DIST, "index.html"))) fail("dist/site is missing; run `npm run build:tutorial` first");
   const port = Number(option("--port", process.env.PORT || 8000));
+  const dir = option("--dir");
+  if (dir) {
+    const root = resolve(process.env.INIT_CWD || process.cwd(), dir);
+    if (!existsSync(join(root, "index.html"))) fail(`${dir}/index.html is missing`);
+    staticServer(root, "/").server.listen(port, "127.0.0.1", () => console.log(`Serving ${dir} at http://localhost:${port}/   (Ctrl-C to stop)`));
+    return;
+  }
+  if (!existsSync(join(DIST, "index.html"))) fail("dist/site is missing; run `npm run build:tutorial` first");
   const { server } = staticServer(DIST, PAGES_BASE);
   server.listen(port, "127.0.0.1", () => {
     console.log(`Serving dist/site under ${PAGES_BASE}, as on GitHub Pages.`);
     console.log(`Tutorial: http://localhost:${port}${PAGES_BASE}tutorial/   (Ctrl-C to stop)`);
+    console.log(`Explorer: http://localhost:${port}${PAGES_BASE}explorer/`);
   });
 }
 
@@ -168,10 +244,18 @@ function staticChecks() {
     "tutorial/index.html",
     "tutorial/app.js",
     "tutorial/format.js",
+    "tutorial/ui.js",
     "tutorial/style.css",
     "tutorial/lessons/index.json",
     "web/main.bc.wasm.js",
     "web/rewind.browser.json",
+    "explorer/index.html",
+    "explorer/explorer.js",
+    "explorer/ui.js",
+    "explorer/format.js",
+    "explorer/style.css",
+    "explorer/beingdb.json",
+    "explorer/runtime/main.bc.wasm.js",
   ];
   for (const f of required) if (!existsSync(join(DIST, f))) fail(`dist/site/${f} is missing`);
   const assets = join(DIST, "web", "main.bc.wasm.assets");
@@ -292,6 +376,13 @@ async function browserChecks(siteUrl, expectedFingerprint) {
     const fingerprint = await evaluate("JSON.parse(BeingDB.predicates()).environmentFingerprint");
     if (expectedFingerprint && fingerprint !== expectedFingerprint)
       throw new Error(`the browser loaded data with fingerprint ${fingerprint}, but data/rewind.browser.meta.json has ${expectedFingerprint}`);
+
+    // The explorer: configured data, first example query through the UI.
+    await chrome.send("Page.navigate", { url: `${base.href}explorer/` });
+    await waitFor(`(() => { const s = document.querySelector('#status')?.textContent || ''; return /predicates/.test(s) && document.querySelector('section.step button.primary') && s; })()`, "the explorer");
+    await evaluate("document.querySelector('section.step button.primary').click()");
+    const explorer = await waitFor("document.querySelector('.output .summary')?.textContent", "the explorer query result");
+    if (!/^17 rows/.test(explorer)) throw new Error(`explorer query returned "${explorer}"`);
     await sleep(300);
 
     // Every request stays on the site, under the base path, and succeeds.
@@ -308,7 +399,7 @@ async function browserChecks(siteUrl, expectedFingerprint) {
     if (problems.length) throw new Error(`\n  ${problems.join("\n  ")}`);
     console.log(`browser checks passed at ${base.href}`);
     console.log(`  ${status}`);
-    console.log(`  ${lessons} lessons; first query: ${summary}; join: ${join} rows`);
+    console.log(`  ${lessons} lessons; first query: ${summary}; join: ${join} rows; explorer: ${explorer}`);
     console.log(`  fingerprint ${fingerprint}${expectedFingerprint ? " (matches data/rewind.browser.meta.json)" : ""}`);
     console.log(`  ${requests.length} requests, all under ${base.pathname}; wasm served as ${[...new Set(wasm.map((r) => r.mimeType))].join(", ")}`);
   } finally {
@@ -372,7 +463,7 @@ function test() {
   run(process.execPath, [join(ROOT, "scripts", "maintain.mjs"), "check"]);
 }
 
-const commands = { dev, build, serve, verify, deploy, test };
+const commands = { bundle, dev, build, serve, verify, deploy, test };
 const command = commands[process.argv[2]];
-if (!command) fail(`usage: node scripts/site.mjs <${Object.keys(commands).join("|")}> [--port N] [--url URL]`);
+if (!command) fail(`usage: node scripts/site.mjs <${Object.keys(commands).join("|")}> [options]`);
 await command();
