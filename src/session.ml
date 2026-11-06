@@ -38,10 +38,15 @@ module Make (Store : Runtime_store.S) = struct
   module Engine = Query_engine.Make (Store)
   module Environment = Query_environment.Make (Store)
   module Report = Query_diagnostics.Report (Store)
+  module Lookup = Value_lookup.Make (Store)
 
-  type t = { store : Store.t; env : Query_environment.t }
+  (* The name index for [resolve] reads every fact, so it is built on first
+     use and kept for the session (a session's data never changes). *)
+  type t = { store : Store.t; env : Query_environment.t; index : Lookup.index Lazy.t }
 
-  let open_store store = { store; env = run (Environment.load_or_build store) }
+  let open_store store =
+    let env = run (Environment.load_or_build store) in
+    { store; env; index = lazy (run (Lookup.build_index store env)) }
   let environment t = t.env
 
   (* Mirrors the native server's DSL execute: the full projected result
@@ -107,7 +112,9 @@ module Make (Store : Runtime_store.S) = struct
                   invalid t.env (List.map Validation_error.to_json errors) (List.map Validation_error.warning_to_json warnings)
               | { core_query = None; _ } -> failure "internal_error" "lowering produced neither a query nor errors"
               | { core_query = Some cq; warnings; _ } -> execute ~max_results t text cq warnings)
-        with exn -> failure "internal_error" (Printf.sprintf "Query error: %s" (Printexc.to_string exn)))
+        with
+        | Core_query.Aggregate_overflow message -> failure "aggregate_overflow" message
+        | exn -> failure "internal_error" (Printf.sprintf "Query error: %s" (Printexc.to_string exn)))
 
   (* The native server's DSL "validate" and "explain" actions (Controller's
      validation_envelope): parse and lower against the environment, then
@@ -164,4 +171,37 @@ module Make (Store : Runtime_store.S) = struct
     | Ok () -> (
         try `Assoc (run (Report.fields t.store t.env text) @ environment_fields t.env)
         with exn -> failure "internal_error" (Printf.sprintf "Diagnose error: %s" (Printexc.to_string exn)))
+
+  (* The native server's GET /resolve and GET /about (Controller.resolve and
+     Controller.about, with Api's parameter checks): the same bodies, the
+     same error codes and messages. *)
+  let lookup_fields (env : Query_environment.t) =
+    [ ("languageVersion", `String env.language_version); ("environmentFingerprint", `String env.fingerprint) ]
+
+  let with_lookup_fields env = function `Assoc fields -> `Assoc (fields @ lookup_fields env) | json -> json
+
+  let bounded name ~default ~max = function
+    | None -> Ok default
+    | Some n when n >= 1 && n <= max -> Ok n
+    | Some _ -> Error (failure "invalid_parameter" (Printf.sprintf "'%s' must be an integer from 1 to %d." name max))
+
+  let resolve ?candidates t text : Yojson.Safe.t =
+    match bounded "candidates" ~default:10 ~max:50 candidates with
+    | Error e -> e
+    | Ok max_candidates -> (
+        try
+          match Lookup.resolve ~max_candidates t.env (Lazy.force t.index) text with
+          | Ok json -> with_lookup_fields t.env json
+          | Error (code, message) -> failure code message
+        with exn -> failure "internal_error" (Printf.sprintf "Lookup error: %s" (Printexc.to_string exn)))
+
+  let about ?limit t literal : Yojson.Safe.t =
+    match bounded "limit" ~default:20 ~max:100 limit with
+    | Error e -> e
+    | Ok limit -> (
+        match Value_lookup.parse_value literal with
+        | Error message -> failure "invalid_value" (Printf.sprintf "Invalid value %S: %s" literal message)
+        | Ok value -> (
+            try with_lookup_fields t.env (run (Lookup.about ~limit t.store t.env value))
+            with exn -> failure "internal_error" (Printf.sprintf "Lookup error: %s" (Printexc.to_string exn))))
 end

@@ -11748,6 +11748,202 @@
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
    "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "aggregate_years_per_artist": {
+   "variables": [
+    "Artist",
+    "count(Work)",
+    "min(Year)",
+    "max(Year)"
+   ],
+   "results": [
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "count(Work)": {
+      "type": "integer",
+      "value": "10"
+     },
+     "min(Year)": {
+      "type": "year",
+      "value": "1975"
+     },
+     "max(Year)": {
+      "type": "year",
+      "value": "1990"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa"
+     },
+     "count(Work)": {
+      "type": "integer",
+      "value": "6"
+     },
+     "min(Year)": {
+      "type": "year",
+      "value": "1979"
+     },
+     "max(Year)": {
+      "type": "year",
+      "value": "1990"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "count(Work)": {
+      "type": "integer",
+      "value": "4"
+     },
+     "min(Year)": {
+      "type": "year",
+      "value": "1973"
+     },
+     "max(Year)": {
+      "type": "year",
+      "value": "1977"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "count(Work)": {
+      "type": "integer",
+      "value": "4"
+     },
+     "min(Year)": {
+      "type": "year",
+      "value": "1975"
+     },
+     "max(Year)": {
+      "type": "year",
+      "value": "1983"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_hall"
+     },
+     "count(Work)": {
+      "type": "integer",
+      "value": "3"
+     },
+     "min(Year)": {
+      "type": "year",
+      "value": "1968"
+     },
+     "max(Year)": {
+      "type": "year",
+      "value": "1976"
+     }
+    }
+   ],
+   "count": 5,
+   "total": 12,
+   "hasMore": true,
+   "truncated": false,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "aggregate_minutes": {
+   "variables": [
+    "sum(Minutes)",
+    "avg(Minutes)",
+    "min(Minutes)",
+    "max(Minutes)"
+   ],
+   "results": [
+    {
+     "sum(Minutes)": {
+      "type": "integer",
+      "value": "36"
+     },
+     "avg(Minutes)": {
+      "type": "decimal",
+      "value": "18"
+     },
+     "min(Minutes)": {
+      "type": "integer",
+      "value": "6"
+     },
+     "max(Minutes)": {
+      "type": "integer",
+      "value": "30"
+     }
+    }
+   ],
+   "count": 1,
+   "total": 1,
+   "hasMore": false,
+   "truncated": false,
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "aggregate_no_matches": {
+   "variables": [
+    "sum(Minutes)",
+    "avg(Minutes)"
+   ],
+   "results": [
+    {
+     "sum(Minutes)": null,
+     "avg(Minutes)": null
+    }
+   ],
+   "count": 1,
+   "total": 1,
+   "hasMore": false,
+   "truncated": false,
+   "warnings": [],
+   "diagnostics": [
+    {
+     "code": "unknown_constant",
+     "severity": "error",
+     "message": "'nobody' does not occur in any fact, so created_by(...) cannot match it.",
+     "line": 3,
+     "predicate": "created_by",
+     "argumentPosition": 1,
+     "value": {
+      "type": "atom",
+      "value": "nobody"
+     },
+     "scope": "positive",
+     "evidence": {
+      "declaredRole": "Artist"
+     }
+    }
+   ],
+   "provablyEmpty": true,
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "invalid_aggregate": {
+   "valid": false,
+   "errors": [
+    {
+     "code": "invalid_aggregate",
+     "message": "sum(Artist) needs integer or decimal values, but Artist only holds atom values"
+    }
+   ],
+   "warnings": [],
+   "language": "dsl",
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
   }
  },
  "diagnose": {
@@ -13745,6 +13941,1043 @@
     }
    ],
    "planText": "educated_at: full_scan"
+  }
+ },
+ "resolve": {
+  "exact_names": {
+   "text": "Which works did Judith Goddard and David Hall make at Oval House?",
+   "mentions": [
+    {
+     "text": "Judith Goddard",
+     "start": 16,
+     "end": 30,
+     "match": "exact",
+     "candidateCount": 1,
+     "candidates": [
+      {
+       "value": {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       "literal": "judith_goddard",
+       "matchedName": "judith_goddard",
+       "match": "exact",
+       "facts": 45,
+       "occurs": [
+        {
+         "predicate": "collaborated_with",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "collaborated_with",
+         "position": 1,
+         "role": "Collaborator"
+        },
+        {
+         "predicate": "council_member_of",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "created_by",
+         "position": 1,
+         "role": "Artist"
+        },
+        {
+         "predicate": "distributed_by",
+         "position": 0,
+         "role": "WorkOrArtist"
+        },
+        {
+         "predicate": "edited_at",
+         "position": 0,
+         "role": "ArtistOrWork"
+        },
+        {
+         "predicate": "educated_at",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "funded_by",
+         "position": 0,
+         "role": "Recipient"
+        },
+        {
+         "predicate": "inspired_by",
+         "position": 0,
+         "role": "Artist"
+        },
+        {
+         "predicate": "interviewed_artist",
+         "position": 0,
+         "role": "Artist"
+        },
+        {
+         "predicate": "interviewee",
+         "position": 1,
+         "role": "Artist"
+        },
+        {
+         "predicate": "person",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "photographed_by",
+         "position": 1,
+         "role": "Photographer"
+        },
+        {
+         "predicate": "used_software",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "uses_medium",
+         "position": 0,
+         "role": "WorkOrArtist"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "text": "David Hall",
+     "start": 35,
+     "end": 45,
+     "match": "exact",
+     "candidateCount": 1,
+     "candidates": [
+      {
+       "value": {
+        "type": "atom",
+        "value": "david_hall"
+       },
+       "literal": "david_hall",
+       "matchedName": "david_hall",
+       "match": "exact",
+       "facts": 46,
+       "occurs": [
+        {
+         "predicate": "acquired_by",
+         "position": 0,
+         "role": "Artist"
+        },
+        {
+         "predicate": "approached",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "co_edited_by",
+         "position": 1,
+         "role": "Editor"
+        },
+        {
+         "predicate": "collaborated_with",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "collaborated_with",
+         "position": 1,
+         "role": "Collaborator"
+        },
+        {
+         "predicate": "created_by",
+         "position": 1,
+         "role": "Artist"
+        },
+        {
+         "predicate": "edited_at",
+         "position": 0,
+         "role": "ArtistOrWork"
+        },
+        {
+         "predicate": "educated_at",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "employed_by",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "established_programme",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "exhibited_at",
+         "position": 0,
+         "role": "WorkOrArtist"
+        },
+        {
+         "predicate": "founded_by",
+         "position": 1,
+         "role": "Founder"
+        },
+        {
+         "predicate": "funded_by",
+         "position": 0,
+         "role": "Recipient"
+        },
+        {
+         "predicate": "interviewed_artist",
+         "position": 0,
+         "role": "Artist"
+        },
+        {
+         "predicate": "interviewee",
+         "position": 1,
+         "role": "Artist"
+        },
+        {
+         "predicate": "invited_to",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "person",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "taught_at",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "used_lab",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "uses_medium",
+         "position": 0,
+         "role": "WorkOrArtist"
+        },
+        {
+         "predicate": "wrote_for",
+         "position": 0,
+         "role": "Writer"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "text": "Oval House",
+     "start": 54,
+     "end": 64,
+     "match": "exact",
+     "candidateCount": 1,
+     "candidates": [
+      {
+       "value": {
+        "type": "atom",
+        "value": "oval_house"
+       },
+       "literal": "oval_house",
+       "matchedName": "oval_house",
+       "match": "exact",
+       "facts": 2,
+       "occurs": [
+        {
+         "predicate": "made_at",
+         "position": 1,
+         "role": "Location"
+        },
+        {
+         "predicate": "venue",
+         "position": 0,
+         "role": "Venue"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "fuzzy_name": {
+   "text": "what did david critchly make",
+   "mentions": [
+    {
+     "text": "david critchly",
+     "start": 9,
+     "end": 23,
+     "match": "fuzzy",
+     "candidateCount": 1,
+     "candidates": [
+      {
+       "value": {
+        "type": "atom",
+        "value": "david_critchley"
+       },
+       "literal": "david_critchley",
+       "matchedName": "david_critchley",
+       "match": "fuzzy",
+       "facts": 64,
+       "occurs": [
+        {
+         "predicate": "affiliated_with",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "awarded_grant",
+         "position": 0,
+         "role": "Recipient"
+        },
+        {
+         "predicate": "collaborated_with",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "created_by",
+         "position": 1,
+         "role": "Artist"
+        },
+        {
+         "predicate": "edited_by",
+         "position": 1,
+         "role": "Editor"
+        },
+        {
+         "predicate": "educated_at",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "employed_by",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "exhibited_at",
+         "position": 0,
+         "role": "WorkOrArtist"
+        },
+        {
+         "predicate": "funded_by",
+         "position": 0,
+         "role": "Recipient"
+        },
+        {
+         "predicate": "interviewed_artist",
+         "position": 0,
+         "role": "Artist"
+        },
+        {
+         "predicate": "interviewee",
+         "position": 1,
+         "role": "Artist"
+        },
+        {
+         "predicate": "met_at",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "mission_statement_created_for",
+         "position": 1,
+         "role": "Contributor"
+        },
+        {
+         "predicate": "person",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "reviewed_in",
+         "position": 0,
+         "role": "WorkOrArtist"
+        },
+        {
+         "predicate": "taught_by",
+         "position": 0,
+         "role": "Student"
+        },
+        {
+         "predicate": "work_discussed_in",
+         "position": 0,
+         "role": "Artist"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "partial_ambiguous": {
+   "text": "What did Hall make?",
+   "mentions": [
+    {
+     "text": "Hall",
+     "start": 9,
+     "end": 13,
+     "match": "partial",
+     "candidateCount": 2,
+     "candidates": [
+      {
+       "value": {
+        "type": "atom",
+        "value": "david_hall"
+       },
+       "literal": "david_hall",
+       "matchedName": "david_hall",
+       "match": "partial",
+       "facts": 46,
+       "occurs": [
+        {
+         "predicate": "acquired_by",
+         "position": 0,
+         "role": "Artist"
+        },
+        {
+         "predicate": "approached",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "co_edited_by",
+         "position": 1,
+         "role": "Editor"
+        },
+        {
+         "predicate": "collaborated_with",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "collaborated_with",
+         "position": 1,
+         "role": "Collaborator"
+        },
+        {
+         "predicate": "created_by",
+         "position": 1,
+         "role": "Artist"
+        },
+        {
+         "predicate": "edited_at",
+         "position": 0,
+         "role": "ArtistOrWork"
+        },
+        {
+         "predicate": "educated_at",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "employed_by",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "established_programme",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "exhibited_at",
+         "position": 0,
+         "role": "WorkOrArtist"
+        },
+        {
+         "predicate": "founded_by",
+         "position": 1,
+         "role": "Founder"
+        },
+        {
+         "predicate": "funded_by",
+         "position": 0,
+         "role": "Recipient"
+        },
+        {
+         "predicate": "interviewed_artist",
+         "position": 0,
+         "role": "Artist"
+        },
+        {
+         "predicate": "interviewee",
+         "position": 1,
+         "role": "Artist"
+        },
+        {
+         "predicate": "invited_to",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "person",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "taught_at",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "used_lab",
+         "position": 0,
+         "role": "Person"
+        },
+        {
+         "predicate": "uses_medium",
+         "position": 0,
+         "role": "WorkOrArtist"
+        },
+        {
+         "predicate": "wrote_for",
+         "position": 0,
+         "role": "Writer"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "ordinary_words": {
+   "text": "Who did the works with the BBC?",
+   "mentions": [
+    {
+     "text": "BBC",
+     "start": 27,
+     "end": 30,
+     "match": "exact",
+     "candidateCount": 1,
+     "candidates": [
+      {
+       "value": {
+        "type": "atom",
+        "value": "bbc"
+       },
+       "literal": "bbc",
+       "matchedName": "bbc",
+       "match": "exact",
+       "facts": 8,
+       "occurs": [
+        {
+         "predicate": "collaborated_with",
+         "position": 1,
+         "role": "Collaborator"
+        },
+        {
+         "predicate": "commissioned_by",
+         "position": 1,
+         "role": "Commissioner"
+        },
+        {
+         "predicate": "employed_by",
+         "position": 1,
+         "role": "Employer"
+        },
+        {
+         "predicate": "funded_by",
+         "position": 1,
+         "role": "Funder"
+        },
+        {
+         "predicate": "organisation",
+         "position": 0,
+         "role": "Organisation"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "bad_candidates": {
+   "error": {
+    "code": "invalid_parameter",
+    "message": "'candidates' must be an integer from 1 to 50."
+   }
+  }
+ },
+ "about": {
+  "artist": {
+   "value": {
+    "type": "atom",
+    "value": "judith_goddard"
+   },
+   "literal": "judith_goddard",
+   "aliases": [],
+   "facts": 45,
+   "predicates": [
+    {
+     "predicate": "created_by",
+     "position": 1,
+     "description": "Relates a work to the artist or artist group who made it.",
+     "roles": [
+      "Work",
+      "Artist"
+     ],
+     "count": 10,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "american_landscapes"
+       },
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       }
+      ],
+      [
+       {
+        "type": "atom",
+        "value": "descry"
+       },
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       }
+      ]
+     ],
+     "hasMore": true
+    },
+    {
+     "predicate": "interviewee",
+     "position": 1,
+     "description": "Relates a source interview transcript to the artist interviewed in it.",
+     "roles": [
+      "Interview",
+      "Artist"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "rewind_judith_goddard_interview"
+       },
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "council_member_of",
+     "position": 0,
+     "description": "Relates a person to an organisation on whose council of management they served.",
+     "roles": [
+      "Person",
+      "Organisation"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "london_video_arts"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "educated_at",
+     "position": 0,
+     "description": "Relates a person to an institution where they studied.",
+     "roles": [
+      "Person",
+      "Institution"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "royal_college"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "inspired_by",
+     "position": 0,
+     "description": "Relates an artist to a person, such as a writer or artist, whose work inspired them.",
+     "roles": [
+      "Artist",
+      "Influence"
+     ],
+     "count": 2,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "t_s_eliot"
+       }
+      ],
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "william_blake"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "interviewed_artist",
+     "position": 0,
+     "description": "Marks an artist who is the subject of one of the source interviews in this dataset.",
+     "roles": [
+      "Artist"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "photographed_by",
+     "position": 1,
+     "description": "Relates a work to the person who took photographs used in it.",
+     "roles": [
+      "Work",
+      "Photographer"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "electron"
+       },
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "funded_by",
+     "position": 0,
+     "description": "Relates a person, work, organisation or event to an organisation that funded it.",
+     "roles": [
+      "Recipient",
+      "Funder"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "arts_council"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "distributed_by",
+     "position": 0,
+     "description": "Relates a work, or an artist's body of work, to the organisation that distributed it.",
+     "roles": [
+      "WorkOrArtist",
+      "Distributor"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "london_video_arts_lva"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "used_software",
+     "position": 0,
+     "description": "Relates a person to software they used.",
+     "roles": [
+      "Person",
+      "Software"
+     ],
+     "count": 2,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "avid"
+       }
+      ],
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "avid_express_dv"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "collaborated_with",
+     "position": 0,
+     "description": "Relates an artist (occasionally an organisation, or a jointly made work) to a person or organisation they collaborated with; most pairs are stored in one direction only.",
+     "roles": [
+      "Person",
+      "Collaborator"
+     ],
+     "count": 9,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "brice_nauman"
+       }
+      ],
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "dan_graham"
+       }
+      ]
+     ],
+     "hasMore": true
+    },
+    {
+     "predicate": "collaborated_with",
+     "position": 1,
+     "description": "Relates an artist (occasionally an organisation, or a jointly made work) to a person or organisation they collaborated with; most pairs are stored in one direction only.",
+     "roles": [
+      "Person",
+      "Collaborator"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "kev_fraser"
+       },
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "uses_medium",
+     "position": 0,
+     "description": "Relates a work, or an artist's practice, to a medium, material, format or technique it uses.",
+     "roles": [
+      "WorkOrArtist",
+      "Medium"
+     ],
+     "count": 8,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "digital_print"
+       }
+      ],
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "electricity"
+       }
+      ]
+     ],
+     "hasMore": true
+    },
+    {
+     "predicate": "edited_at",
+     "position": 0,
+     "description": "Relates an artist, or a work, to the studio, institution or facility where editing was done.",
+     "roles": [
+      "ArtistOrWork",
+      "Facility"
+     ],
+     "count": 5,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "duncan_of_jordanstone_college_of_art_and_design"
+       }
+      ],
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "edit_suites_in_glasgow"
+       }
+      ]
+     ],
+     "hasMore": true
+    },
+    {
+     "predicate": "person",
+     "position": 0,
+     "description": "Marks an entity as an individual person.",
+     "roles": [
+      "Person"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       }
+      ]
+     ],
+     "hasMore": false
+    }
+   ],
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "string_value": {
+   "value": {
+    "type": "string",
+    "value": "Paris"
+   },
+   "literal": "\"Paris\"",
+   "aliases": [],
+   "facts": 1,
+   "predicates": [
+    {
+     "predicate": "worked_as_assistant_in_city",
+     "position": 1,
+     "description": "Relates a person to a city, given as text, where they worked as an assistant.",
+     "roles": [
+      "Person",
+      "City"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "madelon_hooykaas"
+       },
+       {
+        "type": "string",
+        "value": "Paris"
+       }
+      ]
+     ],
+     "hasMore": false
+    }
+   ],
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "unknown_value": {
+   "value": {
+    "type": "atom",
+    "value": "nobody_at_all"
+   },
+   "literal": "nobody_at_all",
+   "aliases": [],
+   "facts": 0,
+   "predicates": [],
+   "languageVersion": "beingdb-dsl/1",
+   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+  },
+  "invalid_value": {
+   "error": {
+    "code": "invalid_value",
+    "message": "Invalid value \"two values\": Expected a single literal, e.g. judith_goddard, \"Hey Bud\" or @1979."
+   }
+  },
+  "bad_limit": {
+   "error": {
+    "code": "invalid_parameter",
+    "message": "'limit' must be an integer from 1 to 100."
+   }
   }
  }
 }

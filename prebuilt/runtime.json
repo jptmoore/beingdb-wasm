@@ -1,18 +1,18 @@
 {
   "description": "Prebuilt release BeingDB WASM runtime used by `npm run dev`. Written by `npm run update-runtime`; checked by `npm test`.",
-  "sources": "sha256:4632a8e98f506c17ba479e93d772c198b33f2fc784a95500ab81ce79823de1c7",
+  "sources": "sha256:7705e330b326fa60c284aaf6261fc83b3eacb94a09a1faa60d5d59c372f2bb82",
   "beingdb": {
     "repository": "https://github.com/jptmoore/beingdb.git",
-    "commit": "acb0937eb875f83e8ed3218528e3141461c23da5",
+    "commit": "124ac7c0d6f90cef1b2ffd634fc184286349800c",
     "dirty": false
   },
   "toolchain": {
     "ocaml": "5.4.0",
-    "wasm_of_ocaml": "6.2.0",
-    "binaryen": "119"
+    "wasm_of_ocaml": "6.4.1",
+    "binaryen": "133"
   },
   "files": {
-    "main.bc.wasm.js": "sha256:9ec08c28fc16a52227281f4887a59ce55ca3fae641795e606d811350d7a4848f",
-    "main.bc.wasm.assets/code-74d6254ee1b2309d236b.wasm": "sha256:3b54bd64740449490358646da381b1ff131f00fb622f3ec86e4b5e1d7a53274e"
+    "main.bc.wasm.js": "sha256:7cfb62e17679e55bd482e7d56002b616b2878985fb698c4fe1b9eb122fc38e38",
+    "main.bc.wasm.assets/code-cf28a5a0ac689e52e2d4.wasm": "sha256:61f6dbff0db0666bad526721a84198962cd251ec190612ded8f7a6b6cdb9c61f"
   }
 }

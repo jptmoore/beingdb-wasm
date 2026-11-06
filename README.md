@@ -141,6 +141,8 @@ window.onBeingDBReady = async (BeingDB) => {
   BeingDB.diagnose(dsl);     // -> JSON string (same body as POST /query, dsl, action "diagnose")
   BeingDB.validate(dsl);     // -> JSON string (same body as POST /query, dsl, action "validate")
   BeingDB.explain(dsl);      // -> JSON string (same body as POST /query, dsl, action "explain")
+  BeingDB.resolve(text, candidates);  // -> JSON string (same body as GET /resolve)
+  BeingDB.about(value, limit);        // -> JSON string (same body as GET /about)
 };
 ```
 
@@ -166,6 +168,17 @@ Every response has the shape of the native server's; see BeingDB's
 - `validate(dsl)` and `explain(dsl)` check a query against the data without
   running it, returning its projection, or BeingDB's normalized query and
   plan (`plan`, `planText`).
+- `resolve(text, candidates)` finds the stored values a text mentions (for
+  example the names in a question), matching exactly, by
+  [`label`/`alias`](https://github.com/jptmoore/beingdb/blob/main/docs/query-language.md#naming-values-label-and-alias),
+  with small misspellings, or as part of a longer name; see
+  [`GET /resolve`](https://github.com/jptmoore/beingdb/blob/main/docs/api.md#resolve-values-mentioned-in-text).
+  `candidates` (1-50, default 10) is optional. The name index is built on
+  the first call after `load`.
+- `about(value, limit)` lists every fact a value (one literal, e.g.
+  `judith_goddard` or `"Hey Bud"`) occurs in, grouped by predicate and
+  position, at most `limit` (1-100, default 20) per group; see
+  [`GET /about`](https://github.com/jptmoore/beingdb/blob/main/docs/api.md#everything-about-a-value).
 
 ## How it works
 
