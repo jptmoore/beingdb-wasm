@@ -79,7 +79,7 @@
         "Filter for `by` and compare `created_by`, `funded_by` and `commissioned_by`."
       ],
       "expect": {
-        "predicates": 168,
+        "predicates": 114,
         "has": [
           "created_by",
           "uses_medium",

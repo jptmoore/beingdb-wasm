@@ -17,7 +17,7 @@ queries in their browser.
   OCaml, no Docker.
 - **Private.** Queries run locally and never leave the page.
 - **Small.** The runtime is 370 KB (120 KB gzipped). The REWIND example, with
-  1,842 facts, is a 660 KB data file (210 KB gzipped).
+  1,778 facts, is a 615 KB data file (200 KB gzipped).
 
 ## Try it
 
@@ -135,7 +135,7 @@ your own pages. Load the runtime (`runtime/main.bc.wasm.js`, which finds its
 ```js
 window.onBeingDBReady = async (BeingDB) => {
   const text = await (await fetch("data/facts.browser.json")).text();
-  BeingDB.load(text);        // -> '{"predicates":168,"facts":1842,...}'
+  BeingDB.load(text);        // -> '{"predicates":114,"facts":1778,...}'
   BeingDB.query(dsl);        // -> JSON string (same shape as POST /query, dsl)
   BeingDB.predicates();      // -> JSON string (same shape as GET /predicates?detailed=true)
   BeingDB.diagnose(dsl);     // -> JSON string (same body as POST /query, dsl, action "diagnose")

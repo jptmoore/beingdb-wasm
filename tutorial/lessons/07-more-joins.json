@@ -9,15 +9,15 @@
       "query": "find Place, Artist, Classmate\nwhere\n  educated_at(Artist, Place)\n  educated_at(Classmate, Place)\n  Artist != Classmate\norder by Place, Artist, Classmate",
       "notes": [
         "`Artist != Classmate` removes rows where both variables matched the same fact. Each pair appears twice, once in each order.",
-        "Notice `royal_college` and `royal_college_of_art`: very likely the same institution, stored as different atoms. BeingDB matches values exactly; it does not reconcile names. The filtering lesson shows a workaround."
+        "BeingDB matches values exactly: two people only count as classmates if both facts use the same atom for the institution. It does not reconcile names, so a dataset should use one atom per institution. The filtering lesson shows how to match name variants with `contains`."
       ],
       "expect": {
-        "total": 10,
+        "total": 26,
         "firstRows": [
           [
-            "royal_college",
-            "david_critchley",
-            "david_hall"
+            "ealing_school_of_art",
+            "elsa_stansfield",
+            "madelon_hooykaas"
           ]
         ]
       }

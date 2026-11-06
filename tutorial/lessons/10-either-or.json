@@ -11,8 +11,12 @@
         "`tape_tape` is recorded with `videotape` rather than `video`, so the second branch is what finds it."
       ],
       "expect": {
-        "total": 3,
+        "total": 5,
         "rows": [
+          [
+            "elsa_stansfield",
+            "sea_of_light"
+          ],
           [
             "kevin_atherton",
             "gallery_guide"
@@ -20,6 +24,10 @@
           [
             "kevin_atherton",
             "tape_tape"
+          ],
+          [
+            "madelon_hooykaas",
+            "sea_of_light"
           ],
           [
             "rose_garrard",

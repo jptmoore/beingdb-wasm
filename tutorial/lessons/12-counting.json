@@ -20,7 +20,7 @@
       "query": "find Artist, count(Work)\nwhere\n  created_by(Work, Artist)\norder by count(Work) descending, Artist\nlimit 5",
       "notes": [
         "The second sort key, `Artist`, puts ties in a stable order.",
-        "`elsa` and `elsa_stansfield` are almost certainly the same person under two identifiers. Counts are only as clean as the data."
+        "Counts are only as clean as the data: if one artist were stored under two identifiers, their works would be split across two rows."
       ],
       "try": [
         "Add `offset 5` on a new line after `limit 5` to see the next page."
@@ -28,24 +28,24 @@
       "expect": {
         "rows": [
           [
-            "madelon_hooykaas",
+            "elsa_stansfield",
             "24"
+          ],
+          [
+            "madelon_hooykaas",
+            "23"
           ],
           [
             "george_barber",
             "18"
           ],
           [
-            "elsa",
-            "13"
-          ],
-          [
-            "elsa_stansfield",
-            "13"
-          ],
-          [
             "kevin_atherton",
             "12"
+          ],
+          [
+            "david_critchley",
+            "10"
           ]
         ]
       }

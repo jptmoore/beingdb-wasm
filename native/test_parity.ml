@@ -43,7 +43,7 @@ let test_storage () =
   let run = Lwt_main.run in
   let preds = run (Pack_backend.list_predicates n) in
   Alcotest.(check (list string)) "predicates (same order)" preds (run (W.Export_store.list_predicates e));
-  Alcotest.(check int) "168 predicates" 168 (List.length preds);
+  Alcotest.(check int) "114 predicates" 114 (List.length preds);
   let total =
     List.fold_left
       (fun acc p ->

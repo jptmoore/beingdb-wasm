@@ -82,8 +82,8 @@ globalThis.onBeingDBReady = (BeingDB) => {
   // The tutorial dataset loads, and is the archive revision the lessons were written against.
   const summary = JSON.parse(BeingDB.load(read("rewind.browser.json")));
   assert.equal(summary.environmentFingerprint, golden.predicates.environmentFingerprint);
-  assert.equal(summary.predicates, 168);
-  assert.equal(summary.facts, 1842);
+  assert.equal(summary.predicates, 114);
+  assert.equal(summary.facts, 1778);
 
   // Predicate introspection (the tutorial's :predicates / :describe).
   const predicates = JSON.parse(BeingDB.predicates()).predicates;

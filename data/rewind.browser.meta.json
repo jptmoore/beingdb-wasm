@@ -4,15 +4,15 @@
   "file": "rewind.browser.json",
   "format": "beingdb-logical-pack-view",
   "formatVersion": 0,
-  "sha256": "1fb44e69f3fbd08ffb0bfb4f438b45f02a1ee733a524b07e24c1ed28edf3686d",
-  "bytes": 677657,
-  "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+  "sha256": "ef2ad438ff9897b7e1ab3c30d90fd347037077bcbb09f5587827a321fc851ee2",
+  "bytes": 630210,
+  "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
   "languageVersion": "beingdb-dsl/1",
-  "predicates": 168,
-  "facts": 1842,
+  "predicates": 114,
+  "facts": 1778,
   "source": {
     "repository": "https://github.com/jptmoore/beingdb-rewind-interviews.git",
-    "commit": "9faf73f2d086f7da6e539404b6dfdfb687365415"
+    "commit": "a561d791c3500778d9d1d210ca4fcfc353218eeb"
   },
   "beingdb": {
     "repository": "https://github.com/jptmoore/beingdb.git",
