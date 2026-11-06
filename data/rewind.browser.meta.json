@@ -16,7 +16,7 @@
   },
   "beingdb": {
     "repository": "https://github.com/jptmoore/beingdb.git",
-    "commit": "124ac7c0d6f90cef1b2ffd634fc184286349800c",
+    "commit": "f7cdc89371c1cc90ce882535e5babf075d20a65c",
     "dirty": false
   }
 }
