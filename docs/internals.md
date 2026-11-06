@@ -133,6 +133,11 @@ fingerprint) is exact.
 | `load` (parse + build env) | 30-80 ms (Chromium, Chrome, Safari, Node); Firefox 83-377 ms |
 | Queries | 0.1-12 ms each; native server 3-9 ms for the same queries |
 
+These were measured on the archive as of 2026-09-24. The current export
+(beingdb-rewind-interviews a561d79, after duplicate atoms and predicates were
+merged) is 615 KB (200 KB gzip -9): 6,360 logical entries (1,778 facts,
+4,468 index, 114 meta), 114 predicates.
+
 ## Browser support findings
 
 | Browser | dev build | release build |
