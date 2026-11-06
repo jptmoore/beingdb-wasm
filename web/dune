@@ -52,6 +52,7 @@
   ../fixtures/rewind_queries.json
   ../fixtures/rewind_diagnose_queries.json
   ../fixtures/rewind_plan_queries.json
+  ../fixtures/rewind_lookup_queries.json
   ../fixtures/rewind_golden.json)
  (action (run node rewind.cjs)))
 
@@ -67,6 +68,7 @@
   ../fixtures/rewind_queries.json
   ../fixtures/rewind_diagnose_queries.json
   ../fixtures/rewind_plan_queries.json
+  ../fixtures/rewind_lookup_queries.json
   ../fixtures/rewind_golden.json)
  (action (run node rewind.cjs %{dep:../prebuilt/main.bc.wasm.js})))
 

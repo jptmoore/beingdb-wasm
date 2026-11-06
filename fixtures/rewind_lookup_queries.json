@@ -1,0 +1,17 @@
+{
+  "description": "GET /resolve and GET /about requests recorded as goldens by make_golden.mjs; web/rewind.cjs checks BeingDB.resolve/about against them.",
+  "resolve": [
+    { "name": "exact_names", "text": "Which works did Judith Goddard and David Hall make at Oval House?" },
+    { "name": "fuzzy_name", "text": "what did david critchly make" },
+    { "name": "partial_ambiguous", "text": "What did Hall make?", "candidates": 1 },
+    { "name": "ordinary_words", "text": "Who did the works with the BBC?" },
+    { "name": "bad_candidates", "text": "Hall", "candidates": 0 }
+  ],
+  "about": [
+    { "name": "artist", "value": "judith_goddard", "limit": 2 },
+    { "name": "string_value", "value": "\"Paris\"" },
+    { "name": "unknown_value", "value": "nobody_at_all" },
+    { "name": "invalid_value", "value": "two values" },
+    { "name": "bad_limit", "value": "judith_goddard", "limit": 101 }
+  ]
+}

@@ -12,11 +12,11 @@
   "facts": 1842,
   "source": {
     "repository": "https://github.com/jptmoore/beingdb-rewind-interviews.git",
-    "commit": "419336fde76716895f007e843ed58f57bc818bd4"
+    "commit": "9faf73f2d086f7da6e539404b6dfdfb687365415"
   },
   "beingdb": {
     "repository": "https://github.com/jptmoore/beingdb.git",
-    "commit": "749bb7a404fc7a82ae5f8c3eb7756c6a63ceea6a",
+    "commit": "124ac7c0d6f90cef1b2ffd634fc184286349800c",
     "dirty": false
   }
 }

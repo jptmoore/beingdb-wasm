@@ -140,6 +140,31 @@ let test_validate_and_explain () =
         (f (String.make 30_000 'x') |> member "error" |> member "code" |> to_string))
     [ (Beingdb_wasm.validate, "validate"); (Beingdb_wasm.explain, "explain") ]
 
+let error_code json = json |> member "error" |> member "code" |> to_string
+
+let test_aggregates () =
+  Alcotest.(check (list string)) "min and max years" [ "1968,1985" ] (rows (Beingdb_wasm.query "find min(Y), max(Y)\nwhere\n  year_created(W, Y)\n"));
+  Alcotest.(check string) "invalid_aggregate" "invalid_aggregate"
+    (first_error (Beingdb_wasm.query "find sum(A)\nwhere\n  created_by(W, A)\n"))
+
+let test_resolve () =
+  let r = Beingdb_wasm.resolve "Which works did artist 1 make?" in
+  let mention = r |> member "mentions" |> index 0 in
+  Alcotest.(check string) "mention" "artist 1" (mention |> member "text" |> to_string);
+  Alcotest.(check string) "literal" "artist_1" (mention |> member "candidates" |> index 0 |> member "literal" |> to_string);
+  Alcotest.(check bool) "fingerprint" true (r |> member "environmentFingerprint" <> `Null);
+  Alcotest.(check string) "candidates out of range" "invalid_parameter" (error_code (Beingdb_wasm.resolve ~candidates:0 "artist 1"));
+  Alcotest.(check string) "text too long" "text_too_long" (error_code (Beingdb_wasm.resolve (String.make 2001 'a')))
+
+let test_about () =
+  let r = Beingdb_wasm.about ~limit:1 "artist_1" in
+  Alcotest.(check int) "facts" 3 (r |> member "facts" |> to_int);
+  let created = r |> member "predicates" |> to_list |> List.find (fun g -> g |> member "predicate" |> to_string = "created_by") in
+  Alcotest.(check int) "count" 2 (created |> member "count" |> to_int);
+  Alcotest.(check bool) "limited" true (created |> member "hasMore" |> to_bool);
+  Alcotest.(check string) "invalid value" "invalid_value" (error_code (Beingdb_wasm.about "two values"));
+  Alcotest.(check string) "limit out of range" "invalid_parameter" (error_code (Beingdb_wasm.about ~limit:101 "artist_1"))
+
 let () =
   Alcotest.run "beingdb-wasm (native)"
     [
@@ -152,6 +177,8 @@ let () =
           Alcotest.test_case "result too large" `Quick test_result_too_large;
           Alcotest.test_case "scan limit" `Quick test_scan_limit;
           Alcotest.test_case "validate and explain" `Quick test_validate_and_explain;
+          Alcotest.test_case "aggregates" `Quick test_aggregates;
         ] );
+      ("lookup", [ Alcotest.test_case "resolve" `Quick test_resolve; Alcotest.test_case "about" `Quick test_about ]);
       ("predicates", [ Alcotest.test_case "declared metadata" `Quick test_declared_metadata ]);
     ]

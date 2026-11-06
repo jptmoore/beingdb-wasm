@@ -28,6 +28,8 @@ type dataset = {
   diagnose : string -> Yojson.Safe.t;
   validate : string -> Yojson.Safe.t;
   explain : string -> Yojson.Safe.t;
+  resolve : int option -> string -> Yojson.Safe.t;
+  about : int option -> string -> Yojson.Safe.t;
 }
 
 let fixture_dataset =
@@ -39,6 +41,8 @@ let fixture_dataset =
        diagnose = Fixture_session.diagnose s;
        validate = Fixture_session.validate s;
        explain = Fixture_session.explain s;
+       resolve = (fun candidates text -> Fixture_session.resolve ?candidates s text);
+       about = (fun limit value -> Fixture_session.about ?limit s value);
      })
 
 let current = ref None
@@ -48,6 +52,11 @@ let predicates () = (dataset ()).predicates ()
 let diagnose text = (dataset ()).diagnose text
 let validate text = (dataset ()).validate text
 let explain text = (dataset ()).explain text
+
+(* [candidates]/[limit]: [None] for the default; out of range gives
+   [invalid_parameter], as on the native server. *)
+let resolve ?candidates text = (dataset ()).resolve candidates text
+let about ?limit value = (dataset ()).about limit value
 
 (* Load an exported logical pack view; returns a summary, or {"error": ...}. *)
 let load text : Yojson.Safe.t =
@@ -63,6 +72,8 @@ let load text : Yojson.Safe.t =
             diagnose = Export_session.diagnose s;
             validate = Export_session.validate s;
             explain = Export_session.explain s;
+            resolve = (fun candidates text -> Export_session.resolve ?candidates s text);
+            about = (fun limit value -> Export_session.about ?limit s value);
           };
       let env = Export_session.environment s in
       `Assoc

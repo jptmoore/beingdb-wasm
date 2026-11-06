@@ -44,11 +44,21 @@ for (const { name, query } of [...diagnoseQueries, ...planQueries]) {
     out[name] = await res.json();
   }
 }
+// GET /resolve and GET /about, including their error responses.
+const lookupQueries = JSON.parse(await readFile(new URL("rewind_lookup_queries.json", dir), "utf8"));
+const get = async (path, params) => {
+  const search = new URLSearchParams(Object.entries(params).filter(([, v]) => v !== undefined).map(([k, v]) => [k, String(v)]));
+  return (await fetch(`${base}${path}?${search}`)).json();
+};
+const resolve = {};
+for (const { name, text, candidates } of lookupQueries.resolve) resolve[name] = await get("/resolve", { text, candidates });
+const about = {};
+for (const { name, value, limit } of lookupQueries.about) about[name] = await get("/about", { value, limit });
 await writeFile(
   out,
-  JSON.stringify({ predicates, queries: responses, diagnose, validate, explain }, null, 1) + "\n",
+  JSON.stringify({ predicates, queries: responses, diagnose, validate, explain, resolve, about }, null, 1) + "\n",
 );
 console.log(
-  `wrote ${Object.keys(responses).length} query, ${Object.keys(diagnose).length} diagnose and ` +
-    `${Object.keys(validate).length} validate/explain goldens`,
+  `wrote ${Object.keys(responses).length} query, ${Object.keys(diagnose).length} diagnose, ` +
+    `${Object.keys(validate).length} validate/explain and ${Object.keys(resolve).length + Object.keys(about).length} lookup goldens`,
 );
