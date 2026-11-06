@@ -14,7 +14,7 @@
         "Narrow it to 1975 to 1977."
       ],
       "expect": {
-        "total": 20,
+        "total": 17,
         "firstRows": [
           [
             "1971",
@@ -90,7 +90,7 @@
       "question": "Who studied at a Royal College?",
       "query": "find Artist, Place\nwhere\n  educated_at(Artist, Place)\n  Place contains \"royal college\"\norder by Artist",
       "notes": [
-        "`contains` ignores case and treats `_` and spaces as the same, so `\"royal college\"` matches both `royal_college` and `royal_college_of_art`. That helps with naming variants."
+        "`contains` ignores case and treats `_` and spaces as the same, so `\"royal college\"` matches `royal_college_of_art` and any other identifier with those words. That helps with naming variants."
       ],
       "try": [
         "Find people whose identifier contains `critchley` using `person(Name)`. How many variants are there?"

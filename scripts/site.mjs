@@ -384,7 +384,7 @@ async function browserChecks(siteUrl, expectedFingerprint) {
     await waitFor(`(() => { const s = document.querySelector('#status')?.textContent || ''; return /predicates/.test(s) && document.querySelector('section.step button.primary') && s; })()`, "the explorer");
     await evaluate("document.querySelector('section.step button.primary').click()");
     const explorer = await waitFor("document.querySelector('.output .summary')?.textContent", "the explorer query result");
-    if (!/^17 rows/.test(explorer)) throw new Error(`explorer query returned "${explorer}"`);
+    if (!/^14 rows/.test(explorer)) throw new Error(`explorer query returned "${explorer}"`);
     await sleep(300);
 
     // Every request stays on the site, under the base path, and succeeds.

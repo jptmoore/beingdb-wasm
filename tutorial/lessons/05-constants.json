@@ -32,7 +32,7 @@
         "total": 2,
         "sortedRows": [
           [
-            "elsa"
+            "elsa_stansfield"
           ],
           [
             "madelon_hooykaas"
@@ -52,7 +52,7 @@
         "Remove `distinct` and compare the number of rows."
       ],
       "expect": {
-        "total": 20
+        "total": 19
       }
     },
     {
@@ -109,7 +109,7 @@
         "`@1975` is a year. `1975` (integer), `\"1975\"` (string) and `@1975-01-01` (a full date) are all different values."
       ],
       "expect": {
-        "total": 6,
+        "total": 5,
         "firstRows": [
           [
             "move_towards_the_verticality_of_the_horizon"

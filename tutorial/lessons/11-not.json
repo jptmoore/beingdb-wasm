@@ -8,13 +8,10 @@
       "question": "Which interviewed artists have no recorded education?",
       "query": "find Artist\nwhere\n  interviewed_artist(Artist)\n  not\n    educated_at(Artist, _)\norder by Artist",
       "expect": {
-        "total": 2,
+        "total": 1,
         "rows": [
           [
             "anna_ridley"
-          ],
-          [
-            "madelon_hooykaas"
           ]
         ]
       }

@@ -15,13 +15,13 @@
         "firstRows": [
           [
             "david_critchley",
-            "arts_council",
+            "arts_council_of_great_britain",
             null
           ],
           [
-            "david_hall",
-            "arts_council",
-            "lva_london_video_arts"
+            "david_critchley",
+            "northern_arts",
+            null
           ]
         ]
       }
@@ -34,7 +34,7 @@
         "Remember what the result is: claims extracted from interviews, with the transcript each artist's claims came from."
       ],
       "expect": {
-        "total": 39,
+        "total": 34,
         "firstRows": [
           [
             "1971",
@@ -56,7 +56,7 @@
       "expect": {
         "rows": [
           [
-            "slade"
+            "slade_school_of_fine_art"
           ],
           [
             "st_martins"
@@ -133,7 +133,7 @@
         "For the complete language, see the [query language reference](https://github.com/jptmoore/beingdb/blob/main/docs/query-language.md). To install BeingDB and work with the full archive, see the [native tutorial](https://github.com/jptmoore/beingdb/blob/main/docs/tutorial.md)."
       ],
       "expect": {
-        "total": 26
+        "total": 27
       }
     }
   ]

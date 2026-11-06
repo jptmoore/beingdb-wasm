@@ -28,17 +28,17 @@
       "query": "find Work\nwhere\n  work(Work)\norder by Work\nlimit 5",
       "notes": [
         "`order by` sorts ascending by default; add `descending` (or `desc`) to reverse. `limit` caps the number of rows returned.",
-        "The query matched 176 works but returned 5: the summary shows both numbers."
+        "The query matched 175 works but returned 5: the summary shows both numbers."
       ],
       "try": [
         "Change `limit 5` to `limit 20`.",
         "Sort with `order by Work descending`."
       ],
       "expect": {
-        "total": 176,
+        "total": 175,
         "rows": [
           [
-            "about_time_at_the_ica_1980"
+            "about_time"
           ],
           [
             "absence_of_satan"

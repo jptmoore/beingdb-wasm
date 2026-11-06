@@ -34,7 +34,7 @@
         "You can use several `optional` blocks. Each is matched independently, so a work can have a medium but no venue, or the other way round."
       ],
       "expect": {
-        "total": 14
+        "total": 12
       }
     }
   ]

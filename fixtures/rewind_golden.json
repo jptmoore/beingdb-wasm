@@ -4,7 +4,7 @@
    {
     "name": "created_by",
     "arity": 2,
-    "count": 137,
+    "count": 133,
     "description": "Relates a work to the artist or artist group who made it.",
     "arguments": [
      {
@@ -36,99 +36,21 @@
      [
       {
        "type": "atom",
-       "value": "the_force_behind_this_movement"
-      },
-      {
-       "type": "atom",
-       "value": "elsa"
-      }
-     ],
-     [
-      {
-       "type": "atom",
        "value": "running_time"
       },
       {
        "type": "atom",
        "value": "madelon_hooykaas"
       }
-     ]
-    ]
-   },
-   {
-    "name": "rented_by",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates premises to an organisation involved in renting them; whether it was landlord or tenant is not distinguished.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Premises"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "little_newport_street_soho"
-      },
-      {
-       "type": "atom",
-       "value": "the_other_cinema"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "shot_in",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a work to a place where it was shot.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Location"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "running_time_1979"
-      },
-      {
-       "type": "atom",
-       "value": "north_of_england"
-      }
      ],
      [
       {
        "type": "atom",
-       "value": "behind_the_veil"
+       "value": "museum_of_memory_1"
       },
       {
        "type": "atom",
-       "value": "saudi_arabia"
+       "value": "madelon_hooykaas"
       }
      ]
     ]
@@ -202,273 +124,6 @@
     ]
    },
    {
-    "name": "studied_at",
-    "arity": 2,
-    "count": 5,
-    "description": "Relates a person to an institution where they studied.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Institution"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "elsa_stansfield"
-      },
-      {
-       "type": "atom",
-       "value": "slade_school_of_art"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "kevin_atherton"
-      },
-      {
-       "type": "atom",
-       "value": "leeds_college_of_art"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "elsa_stansfield"
-      },
-      {
-       "type": "atom",
-       "value": "ealing_school"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "work_shown_in",
-    "arity": 2,
-    "count": 1,
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Artist"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Institution"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "clive_richardson"
-      },
-      {
-       "type": "atom",
-       "value": "royal_college"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "year_started",
-    "arity": 2,
-    "count": 1,
-    "description": "Records the year in which work on a piece started.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "year"
-      ],
-      "role": "Year"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "public_face_private_eye"
-      },
-      {
-       "type": "year",
-       "value": "1988"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "year_started_using_technology",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a person to a technology, given as text, that they started using; despite the name, no year is recorded.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "string"
-      ],
-      "role": "Technology"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "peter_donebauer"
-      },
-      {
-       "type": "string",
-       "value": "colour studio"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "peter_donebauer"
-      },
-      {
-       "type": "string",
-       "value": "portapaks"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "contributed_text",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to a publication, such as a catalogue, for which they wrote text.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Author"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Publication"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "josine_van_droffelaar"
-      },
-      {
-       "type": "atom",
-       "value": "audio_video_installations_catalogue"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "gave_exhibition_to",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a venue to an artist or group to whom it gave an exhibition.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Venue"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Artist"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "gallery_in_bremen"
-      },
-      {
-       "type": "atom",
-       "value": "hooykaas_stansfield"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "held_position",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to a job title, given as text, that they held.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "string"
-      ],
-      "role": "Position"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "kevin_atherton"
-      },
-      {
-       "type": "string",
-       "value": "Head of Department"
-      }
-     ]
-    ]
-   },
-   {
     "name": "interviewee",
     "arity": 2,
     "count": 10,
@@ -523,77 +178,9 @@
     ]
    },
    {
-    "name": "participated_in",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to a scheme, programme or event they took part in.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Programme"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "kevin_atherton"
-      },
-      {
-       "type": "atom",
-       "value": "video_artists_on_tour"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "used_lab",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to a film laboratory they used.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Lab"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "david_hall"
-      },
-      {
-       "type": "atom",
-       "value": "kays_laboratory_soho"
-      }
-     ]
-    ]
-   },
-   {
     "name": "work",
     "arity": 1,
-    "count": 176,
+    "count": 175,
     "description": "Marks an entity as a creative work, such as a video, film, installation, performance, broadcast or publication.",
     "arguments": [
      {
@@ -628,8 +215,8 @@
    {
     "name": "broadcast_by",
     "arity": 2,
-    "count": 1,
-    "description": "Relates a work to the broadcaster or station that transmitted it.",
+    "count": 2,
+    "description": "Relates a work to the broadcaster, station or channel that transmitted it.",
     "arguments": [
      {
       "position": 0,
@@ -655,6 +242,16 @@
       {
        "type": "atom",
        "value": "community_radio"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "upside_down_minutiae"
+      },
+      {
+       "type": "atom",
+       "value": "channel_4"
       }
      ]
     ]
@@ -696,8 +293,8 @@
    {
     "name": "installed_at",
     "arity": 2,
-    "count": 1,
-    "description": "Relates a work to the location where it is installed.",
+    "count": 2,
+    "description": "Relates an installation work to the place or venue where it was installed or set up.",
     "arguments": [
      {
       "position": 0,
@@ -715,6 +312,16 @@
      }
     ],
     "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "the_other_side"
+      },
+      {
+       "type": "atom",
+       "value": "de_la_warr_pavilion"
+      }
+     ],
      [
       {
        "type": "atom",
@@ -835,114 +442,6 @@
     ]
    },
    {
-    "name": "used_medium",
-    "arity": 2,
-    "count": 3,
-    "description": "Relates a work to a medium or format, given as text, used in it.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "string"
-      ],
-      "role": "Medium"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "sea_of_light"
-      },
-      {
-       "type": "string",
-       "value": "videotape"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "two_sides_of_a_story"
-      },
-      {
-       "type": "string",
-       "value": "monitors"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "two_sides_of_a_story"
-      },
-      {
-       "type": "string",
-       "value": "live video"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "venue_in_area",
-    "arity": 2,
-    "count": 4,
-    "description": "Relates an area to a venue located in it; despite the name, the area is the first argument.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Area"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Venue"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "covent_garden"
-      },
-      {
-       "type": "atom",
-       "value": "air_gallery"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "covent_garden"
-      },
-      {
-       "type": "atom",
-       "value": "pmj_self"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "covent_garden"
-      },
-      {
-       "type": "atom",
-       "value": "acme_gallery"
-      }
-     ]
-    ]
-   },
-   {
     "name": "year_left",
     "arity": 2,
     "count": 1,
@@ -967,7 +466,7 @@
      [
       {
        "type": "atom",
-       "value": "elsa"
+       "value": "elsa_stansfield"
       },
       {
        "type": "year",
@@ -1005,7 +504,7 @@
       },
       {
        "type": "atom",
-       "value": "arts_council"
+       "value": "arts_council_of_great_britain"
       }
      ],
      [
@@ -1016,40 +515,6 @@
       {
        "type": "atom",
        "value": "british_council"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "made_proposal_to",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to an organisation to which they submitted a proposal.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "rose_garrard"
-      },
-      {
-       "type": "atom",
-       "value": "malvern_town_council"
       }
      ]
     ]
@@ -1127,119 +592,61 @@
       },
       {
        "type": "atom",
-       "value": "time_based_arts"
+       "value": "time_based_arts_in_amsterdam"
       }
      ]
     ]
    },
    {
-    "name": "head_of_department",
+    "name": "year_began",
     "arity": 2,
-    "count": 1,
-    "description": "Relates a person to a department they headed.",
+    "count": 8,
+    "description": "Records the year in which an organisation, project or work began.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
       ],
-      "role": "Person"
+      "role": "Thing"
      },
      {
       "position": 1,
       "types": [
-       "atom"
+       "year"
       ],
-      "role": "Department"
+      "role": "Year"
      }
     ],
     "examples": [
      [
       {
        "type": "atom",
-       "value": "kevin_atherton"
+       "value": "visual_research_centre_in_dundee_contemporary_arts"
       },
       {
-       "type": "atom",
-       "value": "fine_art_media_department"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "used_in_work",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a work to an object or location used in it; despite the name, the work is the first argument.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Element"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "field_free_space"
-      },
-      {
-       "type": "atom",
-       "value": "faraday_cage"
+       "type": "year",
+       "value": "2004"
       }
      ],
      [
       {
        "type": "atom",
-       "value": "video_void"
+       "value": "london_video_arts"
       },
       {
-       "type": "atom",
-       "value": "wapping_rotherhithe_tunnel"
+       "type": "year",
+       "value": "1976"
       }
-     ]
-    ]
-   },
-   {
-    "name": "used_institutional_resource",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to an institution whose equipment or resources they used.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Institution"
-     }
-    ],
-    "examples": [
+     ],
      [
       {
        "type": "atom",
-       "value": "peter_donebauer"
+       "value": "de_appel"
       },
       {
-       "type": "atom",
-       "value": "royal_college_of_art"
+       "type": "year",
+       "value": "1975"
       }
      ]
     ]
@@ -1313,43 +720,9 @@
     ]
    },
    {
-    "name": "council_member_of",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to an organisation on whose council of management they served.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "judith_goddard"
-      },
-      {
-       "type": "atom",
-       "value": "london_video_arts"
-      }
-     ]
-    ]
-   },
-   {
     "name": "filmed_at",
     "arity": 2,
-    "count": 2,
+    "count": 4,
     "description": "Relates a work to a location where its footage was filmed.",
     "arguments": [
      {
@@ -1381,45 +754,21 @@
      [
       {
        "type": "atom",
+       "value": "running_time"
+      },
+      {
+       "type": "atom",
+       "value": "north_of_england"
+      }
+     ],
+     [
+      {
+       "type": "atom",
        "value": "motion_parallax"
       },
       {
        "type": "atom",
        "value": "richmond_park"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "first_exhibition_of",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates an exhibition space or programme to the artist or group who had its first exhibition.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Exhibition"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Artist"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "the_video_stairs"
-      },
-      {
-       "type": "atom",
-       "value": "hooykaas_stansfield"
       }
      ]
     ]
@@ -1479,165 +828,9 @@
     ]
    },
    {
-    "name": "used_venue",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates an organisation to a venue it used, for example for meetings.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Venue"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "hull_time_based_arts"
-      },
-      {
-       "type": "atom",
-       "value": "ye_olde_black_boy"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "wrote_about",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a writer to a work they wrote about.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Writer"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "michael_o_pray"
-      },
-      {
-       "type": "atom",
-       "value": "scratch_video_volume_1"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "sean_cubitt"
-      },
-      {
-       "type": "atom",
-       "value": "reservoir"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "active_in",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to a campaign or project in which they were actively involved.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Project"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "mike_stubbs"
-      },
-      {
-       "type": "atom",
-       "value": "miners_campaign_tapes"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "established",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a person to a course, research group or other initiative they established.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Initiative"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "kevin_atherton"
-      },
-      {
-       "type": "atom",
-       "value": "ma_virtual_realities"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "kevin_atherton"
-      },
-      {
-       "type": "atom",
-       "value": "virtual_realities_as_fine_art_medium"
-      }
-     ]
-    ]
-   },
-   {
     "name": "organisation",
     "arity": 1,
-    "count": 211,
+    "count": 192,
     "description": "Marks an entity as an organisation, such as an institution, funder, broadcaster, company, publication or artist group.",
     "arguments": [
      {
@@ -1658,13 +851,13 @@
      [
       {
        "type": "atom",
-       "value": "slade_school_of_art"
+       "value": "brighton"
       }
      ],
      [
       {
        "type": "atom",
-       "value": "brighton"
+       "value": "national_union_of_mineworkers"
       }
      ]
     ]
@@ -1718,129 +911,7 @@
       },
       {
        "type": "atom",
-       "value": "royal_college"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "used_facilities",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a work to an institution whose facilities were used to make it.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Institution"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "running_time"
-      },
-      {
-       "type": "atom",
-       "value": "maidstone_college_of_art"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "worked_at",
-    "arity": 2,
-    "count": 5,
-    "description": "Relates a person to an organisation or institution where they worked.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "madelon_hooykaas"
-      },
-      {
-       "type": "atom",
-       "value": "fantasy_factory"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "madelon_hooykaas"
-      },
-      {
-       "type": "atom",
-       "value": "maidstone_college_of_art"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "josine_van_droffelaar"
-      },
-      {
-       "type": "atom",
-       "value": "de_appel_foundation"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "began_in",
-    "arity": 2,
-    "count": 1,
-    "description": "Records the year in which work on a piece or ongoing project began.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "year"
-      ],
-      "role": "Year"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "in_two_minds"
-      },
-      {
-       "type": "year",
-       "value": "1970"
+       "value": "royal_college_of_art"
       }
      ]
     ]
@@ -1924,109 +995,21 @@
      [
       {
        "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "royal_college_of_art"
+      }
+     ],
+     [
+      {
+       "type": "atom",
        "value": "george_barber"
       },
       {
        "type": "atom",
        "value": "st_martins"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "judith_goddard"
-      },
-      {
-       "type": "atom",
-       "value": "royal_college"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "involved_with",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to an organisation they were involved with.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "elsa_stansfield"
-      },
-      {
-       "type": "atom",
-       "value": "arts_lab"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "president_of",
-    "arity": 2,
-    "count": 3,
-    "description": "Relates a person to an organisation of which they were president.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "madelon_hooykaas"
-      },
-      {
-       "type": "atom",
-       "value": "time_based_arts_in_amsterdam"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "madelon_hooykaas"
-      },
-      {
-       "type": "atom",
-       "value": "association_of_video_artists_in_the_netherlands"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "madelon_hooykaas"
-      },
-      {
-       "type": "atom",
-       "value": "time_based_arts"
       }
      ]
     ]
@@ -2088,8 +1071,8 @@
    {
     "name": "wrote_for",
     "arity": 2,
-    "count": 2,
-    "description": "Relates a writer to a publication they wrote for.",
+    "count": 3,
+    "description": "Relates a writer to a publication, such as a periodical or catalogue, they wrote for.",
     "arguments": [
      {
       "position": 0,
@@ -2107,6 +1090,16 @@
      }
     ],
     "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "josine_van_droffelaar"
+      },
+      {
+       "type": "atom",
+       "value": "audio_video_installations_catalogue"
+      }
+     ],
      [
       {
        "type": "atom",
@@ -2186,8 +1179,8 @@
    {
     "name": "place",
     "arity": 1,
-    "count": 1,
-    "description": "Marks an entity as a geographic place.",
+    "count": 5,
+    "description": "Marks an entity as a geographic place, such as a city, area or country.",
     "arguments": [
      {
       "position": 0,
@@ -2198,6 +1191,18 @@
      }
     ],
     "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "canada"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "montreal"
+      }
+     ],
      [
       {
        "type": "atom",
@@ -2285,16 +1290,6 @@
      [
       {
        "type": "atom",
-       "value": "whitechapel_art_gallery"
-      },
-      {
-       "type": "atom",
-       "value": "jasia_reichardt"
-      }
-     ],
-     [
-      {
-       "type": "atom",
        "value": "great_malvern"
       },
       {
@@ -2305,55 +1300,21 @@
      [
       {
        "type": "atom",
-       "value": "about_time_at_the_ica_1980"
+       "value": "this_is_a_television_receiver"
       },
       {
        "type": "atom",
-       "value": "rose_garrard"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "inspired_by",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates an artist to a person, such as a writer or artist, whose work inspired them.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Artist"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Influence"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "judith_goddard"
-      },
-      {
-       "type": "atom",
-       "value": "william_blake"
+       "value": "mark_kidel"
       }
      ],
      [
       {
        "type": "atom",
-       "value": "judith_goddard"
+       "value": "reservoir"
       },
       {
        "type": "atom",
-       "value": "t_s_eliot"
+       "value": "michael_opray"
       }
      ]
     ]
@@ -2417,7 +1378,7 @@
      [
       {
        "type": "atom",
-       "value": "de_appel_foundation"
+       "value": "de_appel"
       },
       {
        "type": "string",
@@ -2427,35 +1388,55 @@
     ]
    },
    {
-    "name": "set_up_at",
+    "name": "used_premises",
     "arity": 2,
-    "count": 1,
-    "description": "Relates an installation work to the venue where it was set up.",
+    "count": 3,
+    "description": "Relates an organisation to premises or a venue it used or rented, for example for meetings.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
       ],
-      "role": "Work"
+      "role": "Organisation"
      },
      {
       "position": 1,
       "types": [
        "atom"
       ],
-      "role": "Venue"
+      "role": "Premises"
      }
     ],
     "examples": [
      [
       {
        "type": "atom",
-       "value": "the_other_side"
+       "value": "hull_time_based_arts"
       },
       {
        "type": "atom",
-       "value": "de_la_warr_pavilion"
+       "value": "ye_olde_black_boy"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "the_other_cinema"
+      },
+      {
+       "type": "atom",
+       "value": "little_newport_street_soho"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "london_video_arts"
+      },
+      {
+       "type": "atom",
+       "value": "little_newport_street_soho"
       }
      ]
     ]
@@ -2574,97 +1555,6 @@
     ]
    },
    {
-    "name": "used_by",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates premises to an organisation that used them.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Premises"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "little_newport_street_soho"
-      },
-      {
-       "type": "atom",
-       "value": "london_video_arts_lva"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "country",
-    "arity": 1,
-    "count": 1,
-    "description": "Marks an entity as a country.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Country"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "canada"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "first_used_technique",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a work to a technique, given as text, that its artists used for the first time in it.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "string"
-      ],
-      "role": "Technique"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "flying_time"
-      },
-      {
-       "type": "string",
-       "value": "editing"
-      }
-     ]
-    ]
-   },
-   {
     "name": "interviewed_artist",
     "arity": 1,
     "count": 10,
@@ -2756,7 +1646,7 @@
    {
     "name": "venue",
     "arity": 1,
-    "count": 153,
+    "count": 146,
     "description": "Marks an entity as a venue or location where work was made, shown or performed, such as a gallery, college, studio or site.",
     "arguments": [
      {
@@ -2784,40 +1674,6 @@
       {
        "type": "atom",
        "value": "supermarket_in_central_cardiff"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "based_in",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates an organisation to the country or place, given as text, where it is based.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     },
-     {
-      "position": 1,
-      "types": [
-       "string"
-      ],
-      "role": "Place"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "de_appel_foundation"
-      },
-      {
-       "type": "string",
-       "value": "Netherlands"
       }
      ]
     ]
@@ -2859,7 +1715,7 @@
    {
     "name": "exhibited_at",
     "arity": 2,
-    "count": 120,
+    "count": 122,
     "description": "Relates a work, or an artist or group, to a venue, exhibition or place where the work was shown.",
     "arguments": [
      {
@@ -2994,7 +1850,7 @@
    {
     "name": "performed_in",
     "arity": 2,
-    "count": 1,
+    "count": 2,
     "description": "Relates a person to a work in which they performed or appeared.",
     "arguments": [
      {
@@ -3021,6 +1877,16 @@
       {
        "type": "atom",
        "value": "this_is_a_television_receiver"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "an_audience_s_new_clothes"
       }
      ]
     ]
@@ -3116,8 +1982,8 @@
    {
     "name": "used_equipment",
     "arity": 2,
-    "count": 5,
-    "description": "Relates a work, or an artist, to equipment, given as text, used in making it.",
+    "count": 12,
+    "description": "Relates a work, or a person, to equipment, technology or software used in making it.",
     "arguments": [
      {
       "position": 0,
@@ -3129,7 +1995,7 @@
      {
       "position": 1,
       "types": [
-       "string"
+       "atom"
       ],
       "role": "Equipment"
      }
@@ -3138,31 +2004,31 @@
      [
       {
        "type": "atom",
-       "value": "flying_time"
+       "value": "peter_donebauer"
       },
       {
-       "type": "string",
-       "value": "first colour camera"
+       "type": "atom",
+       "value": "portapak"
       }
      ],
      [
       {
        "type": "atom",
-       "value": "video_void"
+       "value": "judith_goddard"
       },
       {
-       "type": "string",
-       "value": "two huge, industrial ventilators"
+       "type": "atom",
+       "value": "avid_express_dv"
       }
      ],
      [
       {
        "type": "atom",
-       "value": "video_void"
+       "value": "peter_donebauer"
       },
       {
-       "type": "string",
-       "value": "live camera on a stick"
+       "type": "atom",
+       "value": "black_and_white_portapak"
       }
      ]
     ]
@@ -3238,7 +2104,7 @@
    {
     "name": "exhibition",
     "arity": 1,
-    "count": 45,
+    "count": 44,
     "description": "Marks an entity as an exhibition, show, festival or broadcast programme.",
     "arguments": [
      {
@@ -3339,60 +2205,6 @@
     ]
    },
    {
-    "name": "used_technology",
-    "arity": 2,
-    "count": 4,
-    "description": "Relates a person to a technology or device, given as text, that they used.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "string"
-      ],
-      "role": "Technology"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "peter_donebauer"
-      },
-      {
-       "type": "string",
-       "value": "mechanical transducer device"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "peter_donebauer"
-      },
-      {
-       "type": "string",
-       "value": "colour studio"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "peter_donebauer"
-      },
-      {
-       "type": "string",
-       "value": "black and white portapak"
-      }
-     ]
-    ]
-   },
-   {
     "name": "affiliated_with",
     "arity": 2,
     "count": 26,
@@ -3427,21 +2239,21 @@
      [
       {
        "type": "atom",
-       "value": "elsa"
-      },
-      {
-       "type": "atom",
-       "value": "jan_van_eyck_academy"
-      }
-     ],
-     [
-      {
-       "type": "atom",
        "value": "david_critchley"
       },
       {
        "type": "atom",
        "value": "birmingham_film_coop"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "mike_stubbs"
+      },
+      {
+       "type": "atom",
+       "value": "werkleitz_gesellschaft"
       }
      ]
     ]
@@ -3539,7 +2351,7 @@
      [
       {
        "type": "atom",
-       "value": "running_time_1979"
+       "value": "running_time"
       },
       {
        "type": "string",
@@ -3551,7 +2363,7 @@
    {
     "name": "funded_by",
     "arity": 2,
-    "count": 35,
+    "count": 34,
     "description": "Relates a person, work, organisation or event to an organisation that funded it.",
     "arguments": [
      {
@@ -3577,27 +2389,27 @@
       },
       {
        "type": "atom",
-       "value": "arts_council"
+       "value": "gulbenkian_foundation"
       }
      ],
      [
       {
        "type": "atom",
-       "value": "david_hall"
+       "value": "mike_stubbs"
       },
       {
        "type": "atom",
-       "value": "arts_council"
+       "value": "bbc"
       }
      ],
      [
       {
        "type": "atom",
-       "value": "malvern_well_dressing_festival"
+       "value": "george_barber"
       },
       {
        "type": "atom",
-       "value": "arts_council"
+       "value": "arts_council_of_great_britain"
       }
      ]
     ]
@@ -3605,8 +2417,8 @@
    {
     "name": "involved_in",
     "arity": 2,
-    "count": 2,
-    "description": "Relates a person to an exhibition, organisation or activity they were involved in.",
+    "count": 4,
+    "description": "Relates a person to an organisation, project, programme, exhibition or activity they took part in.",
     "arguments": [
      {
       "position": 0,
@@ -3627,6 +2439,16 @@
      [
       {
        "type": "atom",
+       "value": "mike_stubbs"
+      },
+      {
+       "type": "atom",
+       "value": "miners_campaign_tapes"
+      }
+     ],
+     [
+      {
+       "type": "atom",
        "value": "elsa_stansfield"
       },
       {
@@ -3642,50 +2464,6 @@
       {
        "type": "atom",
        "value": "video_show_at_the_serpentine_gallery_1975"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "music_by",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a work to the person who made its music.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Composer"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "one_of_these_days"
-      },
-      {
-       "type": "atom",
-       "value": "delia_derbyshire"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "mandala"
-      },
-      {
-       "type": "atom",
-       "value": "mike_ray"
       }
      ]
     ]
@@ -3720,74 +2498,6 @@
       {
        "type": "atom",
        "value": "richard_hamilton"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "selected_for",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates an artist to an exhibition they were selected for.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Artist"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Exhibition"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "kevin_atherton"
-      },
-      {
-       "type": "atom",
-       "value": "british_art_show"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "showed_at",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a work to a venue where it was shown.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Venue"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "day_for_night"
-      },
-      {
-       "type": "atom",
-       "value": "visual_research_centre_in_dundee_contemporary_arts"
       }
      ]
     ]
@@ -3832,6 +2542,60 @@
       {
        "type": "year",
        "value": "1971"
+      }
+     ]
+    ]
+   },
+   {
+    "name": "depicts",
+    "arity": 2,
+    "count": 3,
+    "description": "Relates a work to a place or object shown or used in it.",
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ],
+      "role": "Work"
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ],
+      "role": "Subject"
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "silver_lining"
+      },
+      {
+       "type": "atom",
+       "value": "thames"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "video_void"
+      },
+      {
+       "type": "atom",
+       "value": "wapping_rotherhithe_tunnel"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "field_free_space"
+      },
+      {
+       "type": "atom",
+       "value": "faraday_cage"
       }
      ]
     ]
@@ -3925,6 +2689,60 @@
     ]
    },
    {
+    "name": "job_title",
+    "arity": 2,
+    "count": 3,
+    "description": "Relates a person to a job or position, given as text, that they held.",
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ],
+      "role": "Person"
+     },
+     {
+      "position": 1,
+      "types": [
+       "string"
+      ],
+      "role": "Title"
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "string",
+       "value": "Head of Department"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "string",
+       "value": "technician invigilator"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "string",
+       "value": "attendant"
+      }
+     ]
+    ]
+   },
+   {
     "name": "met_at",
     "arity": 2,
     "count": 1,
@@ -3954,40 +2772,6 @@
       {
        "type": "atom",
        "value": "serpentine_gallery"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "original_name_of",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates an organisation's original name or form to the organisation it later became.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "FormerOrganisation"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "LaterOrganisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "association_of_video_artists_in_the_netherlands"
-      },
-      {
-       "type": "atom",
-       "value": "foundation_time_based_arts"
       }
      ]
     ]
@@ -4039,8 +2823,8 @@
    {
     "name": "reviewed_in",
     "arity": 2,
-    "count": 3,
-    "description": "Relates a work, or an artist, to a publication in which it was reviewed.",
+    "count": 6,
+    "description": "Relates a work, or an artist, to a publication in which it was reviewed or discussed.",
     "arguments": [
      {
       "position": 0,
@@ -4061,6 +2845,16 @@
      [
       {
        "type": "atom",
+       "value": "david_critchley"
+      },
+      {
+       "type": "atom",
+       "value": "independent_media"
+      }
+     ],
+     [
+      {
+       "type": "atom",
        "value": "between_the_lines"
       },
       {
@@ -4076,16 +2870,6 @@
       {
        "type": "atom",
        "value": "art_and_artists"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "david_critchley"
-      },
-      {
-       "type": "atom",
-       "value": "studio_international"
       }
      ]
     ]
@@ -4149,7 +2933,7 @@
      [
       {
        "type": "atom",
-       "value": "elsa"
+       "value": "elsa_stansfield"
       },
       {
        "type": "year",
@@ -4204,40 +2988,6 @@
     ]
    },
    {
-    "name": "chairman_of",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to an organisation they chaired.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "rose_garrard"
-      },
-      {
-       "type": "atom",
-       "value": "malvern_spa_association"
-      }
-     ]
-    ]
-   },
-   {
     "name": "distributed_by",
     "arity": 2,
     "count": 3,
@@ -4266,7 +3016,7 @@
       },
       {
        "type": "atom",
-       "value": "london_video_arts_lva"
+       "value": "london_video_arts"
       }
      ],
      [
@@ -4294,8 +3044,8 @@
    {
     "name": "founded_by",
     "arity": 2,
-    "count": 4,
-    "description": "Relates an organisation to a person who founded or co-founded it.",
+    "count": 6,
+    "description": "Relates an organisation, course or other initiative to a person who founded, co-founded or established it.",
     "arguments": [
      {
       "position": 0,
@@ -4316,6 +3066,16 @@
      [
       {
        "type": "atom",
+       "value": "ma_virtual_realities"
+      },
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      }
+     ],
+     [
+      {
+       "type": "atom",
        "value": "association_of_video_artists_in_the_netherlands"
       },
       {
@@ -4326,21 +3086,11 @@
      [
       {
        "type": "atom",
-       "value": "london_video_arts_lva"
+       "value": "london_video_arts"
       },
       {
        "type": "atom",
        "value": "david_hall"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "malvern_spa_association"
-      },
-      {
-       "type": "atom",
-       "value": "rose_garrard"
       }
      ]
     ]
@@ -4434,43 +3184,9 @@
     ]
    },
    {
-    "name": "received_funding_from",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to an organisation from which they received funding.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Recipient"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Funder"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "george_barber"
-      },
-      {
-       "type": "atom",
-       "value": "arts_council"
-      }
-     ]
-    ]
-   },
-   {
     "name": "taught_at",
     "arity": 2,
-    "count": 2,
+    "count": 4,
     "description": "Relates a person to an institution where they taught.",
     "arguments": [
      {
@@ -4508,49 +3224,15 @@
        "type": "atom",
        "value": "dundee"
       }
-     ]
-    ]
-   },
-   {
-    "name": "used_in",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a work to a technique or quality, given as text, used in it; despite the name, the work is the first argument.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "string"
-      ],
-      "role": "Technique"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "day_for_night"
-      },
-      {
-       "type": "string",
-       "value": "non-linear DVD works using the shuffle method"
-      }
      ],
      [
       {
        "type": "atom",
-       "value": "flying_time"
+       "value": "rose_garrard"
       },
       {
-       "type": "string",
-       "value": "colour"
+       "type": "atom",
+       "value": "corydon"
       }
      ]
     ]
@@ -4558,8 +3240,8 @@
    {
     "name": "employed_by",
     "arity": 2,
-    "count": 34,
-    "description": "Relates a person to an organisation or institution that employed them, including teaching posts.",
+    "count": 38,
+    "description": "Relates a person to an organisation or institution they worked for, including teaching posts.",
     "arguments": [
      {
       "position": 0,
@@ -4600,11 +3282,11 @@
      [
       {
        "type": "atom",
-       "value": "malcolm_le_grice"
+       "value": "kevin_atherton"
       },
       {
        "type": "atom",
-       "value": "saint_martins"
+       "value": "slade_school_of_fine_art"
       }
      ]
     ]
@@ -4666,8 +3348,8 @@
    {
     "name": "soundtrack_by",
     "arity": 2,
-    "count": 7,
-    "description": "Relates a work to a person or group who made a soundtrack for it.",
+    "count": 9,
+    "description": "Relates a work to a person or group who made its music or soundtrack.",
     "arguments": [
      {
       "position": 0,
@@ -4781,108 +3463,10 @@
     ]
    },
    {
-    "name": "founding_member_of",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a person to an organisation of which they were a founding member.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "madelon_hooykaas"
-      },
-      {
-       "type": "atom",
-       "value": "association_of_video_artists_in_the_netherlands"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "elsa_stansfield"
-      },
-      {
-       "type": "atom",
-       "value": "association_of_video_artists_in_the_netherlands"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "work_discussed_in",
-    "arity": 2,
-    "count": 3,
-    "description": "Relates an artist to a publication, or an organisation's publications, in which their work was discussed.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Artist"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Publication"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "david_critchley"
-      },
-      {
-       "type": "atom",
-       "value": "readings_magazine"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "david_critchley"
-      },
-      {
-       "type": "atom",
-       "value": "the_kitchen"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "david_critchley"
-      },
-      {
-       "type": "atom",
-       "value": "independent_media"
-      }
-     ]
-    ]
-   },
-   {
     "name": "year_created",
     "arity": 2,
-    "count": 38,
-    "description": "Records the year in which a work was created; also used for the year an exhibition, event or organisation began.",
+    "count": 31,
+    "description": "Records the year in which a work was created. For the year an organisation, exhibition or event began, see year_began.",
     "arguments": [
      {
       "position": 0,
@@ -4903,75 +3487,31 @@
      [
       {
        "type": "atom",
-       "value": "incidents_in_a_garden"
+       "value": "compass"
       },
       {
        "type": "year",
-       "value": "1977"
+       "value": "1984"
       }
      ],
      [
       {
        "type": "atom",
-       "value": "scratch_video_volume_1"
+       "value": "zero_reaches_zeno"
       },
       {
        "type": "year",
-       "value": "1985"
+       "value": "1975"
       }
      ],
      [
       {
        "type": "atom",
-       "value": "motion_parallax"
+       "value": "running_time"
       },
       {
        "type": "year",
-       "value": "1968"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "awarded_grant",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a person to an organisation that awarded them a grant.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Recipient"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Funder"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "david_critchley"
-      },
-      {
-       "type": "atom",
-       "value": "northern_arts"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "david_critchley"
-      },
-      {
-       "type": "atom",
-       "value": "arts_council"
+       "value": "1979"
       }
      ]
     ]
@@ -5001,21 +3541,21 @@
      [
       {
        "type": "atom",
-       "value": "running_time_1979"
-      },
-      {
-       "type": "integer",
-       "value": "6"
-      }
-     ],
-     [
-      {
-       "type": "atom",
        "value": "one_of_these_days"
       },
       {
        "type": "integer",
        "value": "30"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "running_time"
+      },
+      {
+       "type": "integer",
+       "value": "6"
       }
      ]
     ]
@@ -5050,128 +3590,6 @@
       {
        "type": "string",
        "value": "Film, Video and Sound"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "started_by",
-    "arity": 2,
-    "count": 1,
-    "description": "Records the year in which an organisation was started; despite the name, the second argument is a year, not a founder.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Organisation"
-     },
-     {
-      "position": 1,
-      "types": [
-       "year"
-      ],
-      "role": "Year"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "de_appel_foundation"
-      },
-      {
-       "type": "year",
-       "value": "1975"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "used_editing_equipment_at",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates an artist to a company or person whose editing equipment they used.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Artist"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Provider"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "george_barber"
-      },
-      {
-       "type": "atom",
-       "value": "terry_flaxton"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "george_barber"
-      },
-      {
-       "type": "atom",
-       "value": "flextech"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "used_material",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a work to a physical material, given as text, that it is made from.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "string"
-      ],
-      "role": "Material"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "spout_sculpture"
-      },
-      {
-       "type": "string",
-       "value": "stone"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "spout_sculpture"
-      },
-      {
-       "type": "string",
-       "value": "bronze"
       }
      ]
     ]
@@ -5273,7 +3691,7 @@
       },
       {
        "type": "atom",
-       "value": "bfi"
+       "value": "british_film_institute"
       }
      ],
      [
@@ -5283,7 +3701,7 @@
       },
       {
        "type": "atom",
-       "value": "arts_council"
+       "value": "arts_council_of_great_britain"
       }
      ]
     ]
@@ -5318,108 +3736,6 @@
       {
        "type": "atom",
        "value": "european_conservation_project"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "length_minutes",
-    "arity": 2,
-    "count": 1,
-    "description": "Records the length of a work in minutes.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "integer"
-      ],
-      "role": "Minutes"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "running_time"
-      },
-      {
-       "type": "integer",
-       "value": "6"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "performed_work",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates an artist to a performance work they performed.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Performer"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "kevin_atherton"
-      },
-      {
-       "type": "atom",
-       "value": "an_audience_s_new_clothes"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "provided_soundtrack",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a work to the person who provided its soundtrack.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Composer"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "one_of_these_days"
-      },
-      {
-       "type": "atom",
-       "value": "delia_derbyshire"
       }
      ]
     ]
@@ -5502,32 +3818,9 @@
     ]
    },
    {
-    "name": "year",
-    "arity": 1,
-    "count": 1,
-    "description": "Marks a year mentioned in an interview, without recording what happened in it.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "year"
-      ],
-      "role": "Year"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "year",
-       "value": "1988"
-      }
-     ]
-    ]
-   },
-   {
     "name": "approached",
     "arity": 2,
-    "count": 2,
+    "count": 3,
     "description": "Relates a person to an organisation they approached with a proposal.",
     "arguments": [
      {
@@ -5554,6 +3847,16 @@
       {
        "type": "atom",
        "value": "scottish_television"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "rose_garrard"
+      },
+      {
+       "type": "atom",
+       "value": "malvern_town_council"
       }
      ],
      [
@@ -5603,6 +3906,60 @@
     ]
    },
    {
+    "name": "located_in",
+    "arity": 2,
+    "count": 5,
+    "description": "Relates a venue or organisation to the area, city or country where it is.",
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ],
+      "role": "VenueOrOrganisation"
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ],
+      "role": "Place"
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "acme_gallery"
+      },
+      {
+       "type": "atom",
+       "value": "covent_garden"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "garage_gallery"
+      },
+      {
+       "type": "atom",
+       "value": "covent_garden"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "air_gallery"
+      },
+      {
+       "type": "atom",
+       "value": "covent_garden"
+      }
+     ]
+    ]
+   },
+   {
     "name": "published_catalogues_of",
     "arity": 2,
     "count": 1,
@@ -5637,53 +3994,9 @@
     ]
    },
    {
-    "name": "used_software",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a person to software they used.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Software"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "judith_goddard"
-      },
-      {
-       "type": "atom",
-       "value": "avid_express_dv"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "judith_goddard"
-      },
-      {
-       "type": "atom",
-       "value": "avid"
-      }
-     ]
-    ]
-   },
-   {
     "name": "collaborated_with",
     "arity": 2,
-    "count": 133,
+    "count": 132,
     "description": "Relates an artist (occasionally an organisation, or a jointly made work) to a person or organisation they collaborated with; most pairs are stored in one direction only.",
     "arguments": [
      {
@@ -5737,8 +4050,8 @@
    {
     "name": "member_of",
     "arity": 2,
-    "count": 2,
-    "description": "Relates a person to an organisation, union or artistic group they belonged to.",
+    "count": 5,
+    "description": "Relates a person to an organisation, union or artistic group they belonged to, including as a founding or council member.",
     "arguments": [
      {
       "position": 0,
@@ -5764,6 +4077,16 @@
       {
        "type": "atom",
        "value": "association_of_cinematographic_and_television_technicians"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "atom",
+       "value": "association_of_video_artists_in_the_netherlands"
       }
      ],
      [
@@ -5823,88 +4146,10 @@
     ]
    },
    {
-    "name": "broadcast_on",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a work to the television channel on which it was broadcast.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Channel"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "upside_down_minutiae"
-      },
-      {
-       "type": "atom",
-       "value": "channel_4"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "director_of",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a person to an institution they directed.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Institution"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "nick_serota"
-      },
-      {
-       "type": "atom",
-       "value": "museum_of_modern_art_oxford"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "nick_serota"
-      },
-      {
-       "type": "atom",
-       "value": "whitechapel"
-      }
-     ]
-    ]
-   },
-   {
     "name": "made_at",
     "arity": 2,
-    "count": 26,
-    "description": "Relates a work to the venue, institution or place where it was made.",
+    "count": 25,
+    "description": "Relates a work to the venue, institution or place where it was made, including one whose facilities were used.",
     "arguments": [
      {
       "position": 0,
@@ -5925,6 +4170,16 @@
      [
       {
        "type": "atom",
+       "value": "sea_of_light"
+      },
+      {
+       "type": "atom",
+       "value": "chapter_arts_centre"
+      }
+     ],
+     [
+      {
+       "type": "atom",
        "value": "zero_reaches_zeno"
       },
       {
@@ -5941,15 +4196,59 @@
        "type": "atom",
        "value": "cardiff"
       }
+     ]
+    ]
+   },
+   {
+    "name": "used_facilities_of",
+    "arity": 2,
+    "count": 4,
+    "description": "Relates a person to an institution, lab or company whose facilities or equipment they used.",
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ],
+      "role": "Person"
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ],
+      "role": "Institution"
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "peter_donebauer"
+      },
+      {
+       "type": "atom",
+       "value": "royal_college_of_art"
+      }
      ],
      [
       {
        "type": "atom",
-       "value": "mirror"
+       "value": "george_barber"
       },
       {
        "type": "atom",
-       "value": "rome"
+       "value": "flextech"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "david_hall"
+      },
+      {
+       "type": "atom",
+       "value": "kays_laboratory_soho"
       }
      ]
     ]
@@ -5957,7 +4256,7 @@
    {
     "name": "uses_medium",
     "arity": 2,
-    "count": 62,
+    "count": 67,
     "description": "Relates a work, or an artist's practice, to a medium, material, format or technique it uses.",
     "arguments": [
      {
@@ -5999,11 +4298,11 @@
      [
       {
        "type": "atom",
-       "value": "kevin_atherton"
+       "value": "flying_time"
       },
       {
        "type": "atom",
-       "value": "television_commercial"
+       "value": "editing"
       }
      ]
     ]
@@ -6071,84 +4370,6 @@
       {
        "type": "string",
        "value": "project by project funding, galleries, sound work in Industry, commercials"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "invited_by",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a person to an exhibition or event they were invited to take part in; despite the name, the second argument is the event, not the inviter.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Event"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "mick_hartney"
-      },
-      {
-       "type": "atom",
-       "value": "video_manifestation"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "teaching_at",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a person to an institution where they taught.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Institution"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "rose_garrard"
-      },
-      {
-       "type": "atom",
-       "value": "dartington"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "rose_garrard"
-      },
-      {
-       "type": "atom",
-       "value": "corydon"
       }
      ]
     ]
@@ -6232,11 +4453,11 @@
      [
       {
        "type": "atom",
-       "value": "all_the_pieces_i_never_did"
+       "value": "judith_goddard"
       },
       {
        "type": "atom",
-       "value": "fantasy_factory"
+       "value": "slade_school_of_fine_art"
       }
      ]
     ]
@@ -6244,8 +4465,8 @@
    {
     "name": "influenced_by",
     "arity": 2,
-    "count": 3,
-    "description": "Relates an artist to a person who influenced their work.",
+    "count": 5,
+    "description": "Relates an artist to a person, such as an artist or writer, who influenced or inspired their work.",
     "arguments": [
      {
       "position": 0,
@@ -6266,6 +4487,16 @@
      [
       {
        "type": "atom",
+       "value": "judith_goddard"
+      },
+      {
+       "type": "atom",
+       "value": "william_blake"
+      }
+     ],
+     [
+      {
+       "type": "atom",
        "value": "peter_donebauer"
       },
       {
@@ -6282,15 +4513,59 @@
        "type": "atom",
        "value": "hans_jenning"
       }
+     ]
+    ]
+   },
+   {
+    "name": "led",
+    "arity": 2,
+    "count": 6,
+    "description": "Relates a person to an organisation, institution or department they led as director, head, chair or president.",
+    "arguments": [
+     {
+      "position": 0,
+      "types": [
+       "atom"
+      ],
+      "role": "Person"
+     },
+     {
+      "position": 1,
+      "types": [
+       "atom"
+      ],
+      "role": "Organisation"
+     }
+    ],
+    "examples": [
+     [
+      {
+       "type": "atom",
+       "value": "madelon_hooykaas"
+      },
+      {
+       "type": "atom",
+       "value": "time_based_arts_in_amsterdam"
+      }
      ],
      [
       {
        "type": "atom",
-       "value": "peter_donebauer"
+       "value": "rose_garrard"
       },
       {
        "type": "atom",
-       "value": "turner"
+       "value": "malvern_spa_association"
+      }
+     ],
+     [
+      {
+       "type": "atom",
+       "value": "kevin_atherton"
+      },
+      {
+       "type": "atom",
+       "value": "fine_art_media_department"
       }
      ]
     ]
@@ -6298,15 +4573,15 @@
    {
     "name": "reviewed_by",
     "arity": 2,
-    "count": 3,
-    "description": "Relates an artist to a critic or writer who reviewed or wrote about their work.",
+    "count": 5,
+    "description": "Relates a work, or an artist, to a critic or writer who reviewed or wrote about it.",
     "arguments": [
      {
       "position": 0,
       "types": [
        "atom"
       ],
-      "role": "Artist"
+      "role": "WorkOrArtist"
      },
      {
       "position": 1,
@@ -6320,6 +4595,16 @@
      [
       {
        "type": "atom",
+       "value": "reservoir"
+      },
+      {
+       "type": "atom",
+       "value": "sean_cubitt"
+      }
+     ],
+     [
+      {
+       "type": "atom",
        "value": "rose_garrard"
       },
       {
@@ -6330,109 +4615,11 @@
      [
       {
        "type": "atom",
-       "value": "rose_garrard"
+       "value": "scratch_video_volume_1"
       },
       {
        "type": "atom",
-       "value": "john_roberts"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "rose_garrard"
-      },
-      {
-       "type": "atom",
-       "value": "waldemar_januszczak"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "uses_venue",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a work to a venue or place it was commissioned for or shown at.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Venue"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "reservoir"
-      },
-      {
-       "type": "atom",
-       "value": "southampton"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "silver_lining"
-      },
-      {
-       "type": "atom",
-       "value": "tate_liverpool"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "worked_as",
-    "arity": 2,
-    "count": 2,
-    "description": "Relates a person to a job, given as text, that they worked as.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Person"
-     },
-     {
-      "position": 1,
-      "types": [
-       "string"
-      ],
-      "role": "Job"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "kevin_atherton"
-      },
-      {
-       "type": "string",
-       "value": "technician invigilator"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "kevin_atherton"
-      },
-      {
-       "type": "string",
-       "value": "attendant"
+       "value": "michael_o_pray"
       }
      ]
     ]
@@ -6474,8 +4661,8 @@
    {
     "name": "invited_to",
     "arity": 2,
-    "count": 6,
-    "description": "Relates a person to an institution or event they were invited to visit or take part in.",
+    "count": 7,
+    "description": "Relates a person to an institution, exhibition or event they were invited to visit or take part in.",
     "arguments": [
      {
       "position": 0,
@@ -6516,11 +4703,11 @@
      [
       {
        "type": "atom",
-       "value": "bridget_riley"
+       "value": "mick_hartney"
       },
       {
        "type": "atom",
-       "value": "jan_van_eyck_academy"
+       "value": "video_manifestation"
       }
      ]
     ]
@@ -6528,7 +4715,7 @@
    {
     "name": "person",
     "arity": 1,
-    "count": 280,
+    "count": 278,
     "description": "Marks an entity as an individual person.",
     "arguments": [
      {
@@ -6590,75 +4777,6 @@
       {
        "type": "string",
        "value": "films"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "city",
-    "arity": 1,
-    "count": 3,
-    "description": "Marks an entity as a city.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "City"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "edinburgh"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "montreal"
-      }
-     ],
-     [
-      {
-       "type": "atom",
-       "value": "maastricht"
-      }
-     ]
-    ]
-   },
-   {
-    "name": "depicts_location",
-    "arity": 2,
-    "count": 1,
-    "description": "Relates a work to a place shown in it.",
-    "arguments": [
-     {
-      "position": 0,
-      "types": [
-       "atom"
-      ],
-      "role": "Work"
-     },
-     {
-      "position": 1,
-      "types": [
-       "atom"
-      ],
-      "role": "Place"
-     }
-    ],
-    "examples": [
-     [
-      {
-       "type": "atom",
-       "value": "silver_lining"
-      },
-      {
-       "type": "atom",
-       "value": "thames"
       }
      ]
     ]
@@ -6766,7 +4884,7 @@
     ]
    }
   ],
-  "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+  "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
   "languageVersion": "beingdb-dsl/1"
  },
  "queries": {
@@ -6784,16 +4902,6 @@
      "Work": {
       "type": "atom",
       "value": "static_acceleration"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "the_force_behind_this_movement"
      }
     },
     {
@@ -6909,16 +5017,6 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "inside_outside"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "george_barber"
      },
      "Work": {
@@ -7023,16 +5121,6 @@
      },
      "Work": {
       "type": "atom",
-      "value": "running_time_1979"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "madelon_hooykaas"
-     },
-     "Work": {
-      "type": "atom",
       "value": "from_the_museum_of_memory"
      }
     },
@@ -7059,21 +5147,21 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "vi_deo_volente"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "george_barber"
      },
      "Work": {
       "type": "atom",
       "value": "yes_frank_no_smoke"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_wind_works"
      }
     },
     {
@@ -7139,7 +5227,7 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
+      "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
@@ -7194,6 +5282,16 @@
      "Work": {
       "type": "atom",
       "value": "the_tape"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "video_void"
      }
     },
     {
@@ -7284,6 +5382,16 @@
      "Work": {
       "type": "atom",
       "value": "time_spent"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
      }
     },
     {
@@ -7389,6 +5497,16 @@
     {
      "Artist": {
       "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "the_force_behind_this_movement"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
       "value": "george_barber"
      },
      "Work": {
@@ -7409,11 +5527,11 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
+      "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
-      "value": "day_for_night"
+      "value": "split_seconds"
      }
     },
     {
@@ -7479,16 +5597,6 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa_stansfield"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "running_time_1979"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "mike_stubbs"
      },
      "Work": {
@@ -7504,16 +5612,6 @@
      "Work": {
       "type": "atom",
       "value": "continuous_diary"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "on_boundaries"
      }
     },
     {
@@ -7639,6 +5737,16 @@
     {
      "Artist": {
       "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "revision"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
       "value": "mike_stubbs"
      },
      "Work": {
@@ -7689,16 +5797,6 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "the_wind_works"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "kevin_atherton"
      },
      "Work": {
@@ -7744,16 +5842,6 @@
      "Work": {
       "type": "atom",
       "value": "yet_another_triangle"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "david_hall"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "lva_london_video_arts"
      }
     },
     {
@@ -7839,26 +5927,6 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "magnetic_north"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "deep_looking"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "joan_jonas"
      },
      "Work": {
@@ -7919,6 +5987,16 @@
     {
      "Artist": {
       "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "deep_looking"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
       "value": "madelon_hooykaas"
      },
      "Work": {
@@ -7939,11 +6017,11 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
+      "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
-      "value": "split_seconds"
+      "value": "day_for_night"
      }
     },
     {
@@ -7989,6 +6067,16 @@
     {
      "Artist": {
       "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "on_boundaries"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
       "value": "ian_breakwell"
      },
      "Work": {
@@ -7999,11 +6087,11 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
+      "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
-      "value": "revision"
+      "value": "inside_outside"
      }
     },
     {
@@ -8024,16 +6112,6 @@
      "Work": {
       "type": "atom",
       "value": "electron"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "sea_of_light"
      }
     },
     {
@@ -8079,16 +6157,6 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "video_void"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "kevin_atherton"
      },
      "Work": {
@@ -8100,6 +6168,16 @@
      "Artist": {
       "type": "atom",
       "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "magnetic_north"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
@@ -8147,14 +6225,14 @@
      }
     }
    ],
-   "count": 137,
-   "total": 137,
+   "count": 133,
+   "total": 133,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "constant_binding": {
    "variables": [
@@ -8229,7 +6307,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "join_exhibited": {
    "variables": [
@@ -8362,6 +6440,20 @@
      "Gallery": {
       "type": "atom",
       "value": "kunstburger"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "reservoir"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "southampton"
      }
     },
     {
@@ -8525,6 +6617,104 @@
      },
      "Work": {
       "type": "atom",
+      "value": "video_void"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "the_kitchen"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "compass"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "luminous_image"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "botanical_garden_in_montreal"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "visual_research_centre_in_dundee_contemporary_arts"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "montreal"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "dundee"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "day_for_night"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "vondelpark"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
       "value": "intercom_island"
      },
      "Gallery": {
@@ -8571,7 +6761,21 @@
      },
      "Gallery": {
       "type": "atom",
-      "value": "chapter_art_centre"
+      "value": "chapter_arts_centre"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "running_time"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "retrospective_festivals"
      }
     },
     {
@@ -8614,20 +6818,6 @@
      "Gallery": {
       "type": "atom",
       "value": "london_film_festival"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa_stansfield"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "running_time_1979"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "retrospective_festivals"
      }
     },
     {
@@ -8684,6 +6874,34 @@
      "Gallery": {
       "type": "atom",
       "value": "lyc_museum"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "deep_looking"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "netherlands_representation_in_south_korea_2005"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "de_appel"
      }
     },
     {
@@ -8763,20 +6981,6 @@
      },
      "Work": {
       "type": "atom",
-      "value": "running_time_1979"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "retrospective_festivals"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "madelon_hooykaas"
-     },
-     "Work": {
-      "type": "atom",
       "value": "vi_deo_volente"
      },
      "Gallery": {
@@ -8805,11 +7009,25 @@
      },
      "Work": {
       "type": "atom",
+      "value": "running_time"
+     },
+     "Gallery": {
+      "type": "atom",
+      "value": "retrospective_festivals"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "Work": {
+      "type": "atom",
       "value": "sea_of_light"
      },
      "Gallery": {
       "type": "atom",
-      "value": "chapter_art_centre"
+      "value": "chapter_arts_centre"
      }
     },
     {
@@ -9053,146 +7271,6 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "vi_deo_volente"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "de_appel"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "compass"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "luminous_image"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "video_void"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "the_kitchen"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "deep_looking"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "netherlands_representation_in_south_korea_2005"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "sea_of_light"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "chapter_art_centre"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "day_for_night"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "botanical_garden_in_montreal"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "day_for_night"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "visual_research_centre_in_dundee_contemporary_arts"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "day_for_night"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "montreal"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "day_for_night"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "dundee"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "day_for_night"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "vondelpark"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "george_barber"
      },
      "Work": {
@@ -9258,34 +7336,6 @@
      "Gallery": {
       "type": "atom",
       "value": "westminster_london_west_gallery"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "david_hall"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "lva_london_video_arts"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "acme"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "david_hall"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "lva_london_video_arts"
-     },
-     "Gallery": {
-      "type": "atom",
-      "value": "air_gallery"
      }
     },
     {
@@ -9373,14 +7423,14 @@
      }
     }
    ],
-   "count": 81,
-   "total": 81,
+   "count": 79,
+   "total": 79,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "range_year_ge_1970": {
    "variables": [
@@ -9420,7 +7470,7 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
+      "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
@@ -9476,20 +7526,6 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "vi_deo_volente"
-     },
-     "Y": {
-      "type": "year",
-      "value": "1985"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "madelon_hooykaas"
      },
      "Work": {
@@ -9504,7 +7540,21 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
+      "value": "elsa_stansfield"
+     },
+     "Work": {
+      "type": "atom",
+      "value": "vi_deo_volente"
+     },
+     "Y": {
+      "type": "year",
+      "value": "1985"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
@@ -9588,7 +7638,7 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
+      "value": "madelon_hooykaas"
      },
      "Work": {
       "type": "atom",
@@ -9602,7 +7652,7 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "madelon_hooykaas"
+      "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
@@ -9630,7 +7680,7 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
+      "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
@@ -9686,39 +7736,11 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "split_seconds"
-     },
-     "Y": {
-      "type": "year",
-      "value": "1979"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "madelon_hooykaas"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "running_time_1979"
-     },
-     "Y": {
-      "type": "year",
-      "value": "1979"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
-      "value": "running_time_1979"
+      "value": "split_seconds"
      },
      "Y": {
       "type": "year",
@@ -9775,20 +7797,6 @@
      "Work": {
       "type": "atom",
       "value": "move_towards_the_verticality_of_the_horizon"
-     },
-     "Y": {
-      "type": "year",
-      "value": "1976"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "david_hall"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "lva_london_video_arts"
      },
      "Y": {
       "type": "year",
@@ -9922,14 +7930,14 @@
      }
     }
    ],
-   "count": 38,
-   "total": 38,
+   "count": 35,
+   "total": 35,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "range_year_between": {
    "variables": [
@@ -9983,39 +7991,11 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "split_seconds"
-     },
-     "Y": {
-      "type": "year",
-      "value": "1979"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "madelon_hooykaas"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "running_time_1979"
-     },
-     "Y": {
-      "type": "year",
-      "value": "1979"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "elsa_stansfield"
      },
      "Work": {
       "type": "atom",
-      "value": "running_time_1979"
+      "value": "split_seconds"
      },
      "Y": {
       "type": "year",
@@ -10072,20 +8052,6 @@
      "Work": {
       "type": "atom",
       "value": "move_towards_the_verticality_of_the_horizon"
-     },
-     "Y": {
-      "type": "year",
-      "value": "1976"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "david_hall"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "lva_london_video_arts"
      },
      "Y": {
       "type": "year",
@@ -10177,14 +8143,14 @@
      }
     }
    ],
-   "count": 17,
-   "total": 17,
+   "count": 14,
+   "total": 14,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "range_integer": {
    "variables": [
@@ -10210,7 +8176,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "optional_order": {
    "variables": [
@@ -10326,16 +8292,6 @@
      "Work": {
       "type": "atom",
       "value": "changing"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "david_hall"
-     },
-     "Work": {
-      "type": "atom",
-      "value": "lva_london_video_arts"
      }
     },
     {
@@ -10815,16 +8771,6 @@
      },
      "Work": {
       "type": "atom",
-      "value": "running_time_1979"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "madelon_hooykaas"
-     },
-     "Work": {
-      "type": "atom",
       "value": "vi_deo_volente"
      }
     },
@@ -11239,14 +9185,14 @@
      }
     }
    ],
-   "count": 102,
-   "total": 102,
+   "count": 100,
+   "total": 100,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "negation": {
    "variables": [
@@ -11256,7 +9202,19 @@
     {
      "Artist": {
       "type": "atom",
+      "value": "david_hall"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
       "value": "rose_garrard"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "judith_goddard"
      }
     },
     {
@@ -11274,6 +9232,24 @@
     {
      "Artist": {
       "type": "atom",
+      "value": "mike_stubbs"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "peter_donebauer"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
       "value": "george_barber"
      }
     },
@@ -11284,14 +9260,14 @@
      }
     }
    ],
-   "count": 5,
-   "total": 5,
+   "count": 10,
+   "total": 10,
    "hasMore": false,
    "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "invalid_unsafe_negation": {
    "valid": false,
@@ -11307,30 +9283,30 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "invalid_unknown_predicate": {
    "valid": false,
    "errors": [
     {
      "code": "unknown_predicate",
-     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, rented_by, edited_by, invited_by?",
+     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, edited_by, located_in, renamed_as?",
      "line": 3,
      "column": 3,
      "predicate": "created_bi",
      "suggestions": [
       "created_by",
       "curated_by",
-      "rented_by",
       "edited_by",
-      "invited_by"
+      "located_in",
+      "renamed_as"
      ]
     }
    ],
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "invalid_syntax": {
    "valid": false,
@@ -11343,7 +9319,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "paged_has_more": {
    "variables": [
@@ -11382,13 +9358,13 @@
     }
    ],
    "count": 5,
-   "total": 137,
+   "total": 133,
    "hasMore": true,
    "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "empty_misspelled": {
    "variables": [
@@ -11424,7 +9400,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "empty_comparison": {
    "variables": [
@@ -11440,7 +9416,7 @@
     {
      "code": "unsatisfiable_comparison",
      "severity": "error",
-     "message": "No year_created fact has a value at argument 1 satisfying Y > @2090, so the query returns no rows. Values there range from @1968 to @2004.",
+     "message": "No year_created fact has a value at argument 1 satisfying Y > @2090, so the query returns no rows. Values there range from @1968 to @2003.",
      "line": 4,
      "predicate": "year_created",
      "argumentPosition": 1,
@@ -11459,7 +9435,7 @@
        },
        "max": {
         "type": "year",
-        "value": "2004"
+        "value": "2003"
        }
       }
      }
@@ -11468,7 +9444,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "count_per_artist": {
    "variables": [
@@ -11479,11 +9455,21 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "madelon_hooykaas"
+      "value": "elsa_stansfield"
      },
      "count(Work)": {
       "type": "integer",
       "value": "24"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "madelon_hooykaas"
+     },
+     "count(Work)": {
+      "type": "integer",
+      "value": "23"
      }
     },
     {
@@ -11499,42 +9485,32 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
-     },
-     "count(Work)": {
-      "type": "integer",
-      "value": "13"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
-      "value": "elsa_stansfield"
-     },
-     "count(Work)": {
-      "type": "integer",
-      "value": "13"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "kevin_atherton"
      },
      "count(Work)": {
       "type": "integer",
       "value": "12"
      }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "david_critchley"
+     },
+     "count(Work)": {
+      "type": "integer",
+      "value": "10"
+     }
     }
    ],
    "count": 5,
-   "total": 20,
+   "total": 19,
    "hasMore": true,
    "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "count_overall": {
    "variables": [
@@ -11545,11 +9521,11 @@
     {
      "count(Work)": {
       "type": "integer",
-      "value": "109"
+      "value": "107"
      },
      "count(Artist)": {
       "type": "integer",
-      "value": "20"
+      "value": "19"
      }
     }
    ],
@@ -11560,7 +9536,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "count_zero_explained": {
    "variables": [
@@ -11603,7 +9579,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "invalid_count": {
    "valid": false,
@@ -11616,7 +9592,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "contains_string": {
    "variables": [
@@ -11642,7 +9618,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "contains_atom_count": {
    "variables": [
@@ -11668,7 +9644,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "contains_empty_explained": {
    "variables": [
@@ -11715,7 +9691,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "invalid_contains": {
    "valid": false,
@@ -11729,7 +9705,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "invalid_type_mismatch": {
    "valid": false,
@@ -11747,7 +9723,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "aggregate_years_per_artist": {
    "variables": [
@@ -11760,11 +9736,11 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "madelon_hooykaas"
+      "value": "elsa_stansfield"
      },
      "count(Work)": {
       "type": "integer",
-      "value": "10"
+      "value": "9"
      },
      "min(Year)": {
       "type": "year",
@@ -11778,15 +9754,15 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa"
+      "value": "madelon_hooykaas"
      },
      "count(Work)": {
       "type": "integer",
-      "value": "6"
+      "value": "9"
      },
      "min(Year)": {
       "type": "year",
-      "value": "1979"
+      "value": "1975"
      },
      "max(Year)": {
       "type": "year",
@@ -11814,29 +9790,11 @@
     {
      "Artist": {
       "type": "atom",
-      "value": "elsa_stansfield"
-     },
-     "count(Work)": {
-      "type": "integer",
-      "value": "4"
-     },
-     "min(Year)": {
-      "type": "year",
-      "value": "1975"
-     },
-     "max(Year)": {
-      "type": "year",
-      "value": "1983"
-     }
-    },
-    {
-     "Artist": {
-      "type": "atom",
       "value": "david_hall"
      },
      "count(Work)": {
       "type": "integer",
-      "value": "3"
+      "value": "2"
      },
      "min(Year)": {
       "type": "year",
@@ -11844,18 +9802,36 @@
      },
      "max(Year)": {
       "type": "year",
-      "value": "1976"
+      "value": "1971"
+     }
+    },
+    {
+     "Artist": {
+      "type": "atom",
+      "value": "mike_stubbs"
+     },
+     "count(Work)": {
+      "type": "integer",
+      "value": "2"
+     },
+     "min(Year)": {
+      "type": "year",
+      "value": "1983"
+     },
+     "max(Year)": {
+      "type": "year",
+      "value": "2003"
      }
     }
    ],
    "count": 5,
-   "total": 12,
+   "total": 11,
    "hasMore": true,
    "truncated": false,
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "aggregate_minutes": {
    "variables": [
@@ -11891,7 +9867,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "aggregate_no_matches": {
    "variables": [
@@ -11930,7 +9906,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "invalid_aggregate": {
    "valid": false,
@@ -11943,7 +9919,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   }
  },
  "diagnose": {
@@ -11955,7 +9931,7 @@
    "provablyEmpty": false,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "swapped_constant": {
    "valid": true,
@@ -11982,10 +9958,6 @@
       "occursIn": [
        {
         "predicate": "affiliated_with",
-        "argumentPosition": 0
-       },
-       {
-        "predicate": "awarded_grant",
         "argumentPosition": 0
        },
        {
@@ -12019,9 +9991,13 @@
        {
         "predicate": "interviewee",
         "argumentPosition": 1
+       },
+       {
+        "predicate": "met_at",
+        "argumentPosition": 0
        }
       ],
-      "occursInCount": 16
+      "occursInCount": 14
      },
      "repair": {
       "kind": "swap_arguments",
@@ -12066,7 +10042,7 @@
    },
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "singleton_names_atom": {
    "valid": true,
@@ -12117,7 +10093,7 @@
    },
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "singleton_plain": {
    "valid": true,
@@ -12141,7 +10117,7 @@
    "provablyEmpty": false,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "unknown_constant": {
    "valid": true,
@@ -12168,7 +10144,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "misspelled_constant": {
    "valid": true,
@@ -12198,7 +10174,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "constant_elsewhere": {
    "valid": true,
@@ -12223,10 +10199,6 @@
       "occursIn": [
        {
         "predicate": "affiliated_with",
-        "argumentPosition": 0
-       },
-       {
-        "predicate": "awarded_grant",
         "argumentPosition": 0
        },
        {
@@ -12260,16 +10232,20 @@
        {
         "predicate": "interviewed_artist",
         "argumentPosition": 0
+       },
+       {
+        "predicate": "interviewee",
+        "argumentPosition": 1
        }
       ],
-      "occursInCount": 17
+      "occursInCount": 15
      }
     }
    ],
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "disjoint_join": {
    "valid": true,
@@ -12330,7 +10306,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "unsatisfiable_comparison": {
    "valid": true,
@@ -12340,7 +10316,7 @@
     {
      "code": "unsatisfiable_comparison",
      "severity": "error",
-     "message": "No year_created fact has a value at argument 1 satisfying Y between @1992 and @1997, so the query returns no rows. Values there range from @1968 to @2004.",
+     "message": "No year_created fact has a value at argument 1 satisfying Y between @1992 and @1997, so the query returns no rows. Values there range from @1968 to @2003.",
      "line": 4,
      "predicate": "year_created",
      "argumentPosition": 1,
@@ -12359,7 +10335,7 @@
        },
        "max": {
         "type": "year",
-        "value": "2004"
+        "value": "2003"
        }
       }
      }
@@ -12368,7 +10344,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "contradictory_negation": {
    "valid": true,
@@ -12386,7 +10362,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "role_names_reversed": {
    "valid": true,
@@ -12427,7 +10403,7 @@
    "provablyEmpty": false,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "invalid_with_repair": {
    "valid": false,
@@ -12508,7 +10484,7 @@
    },
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "count_query": {
    "valid": true,
@@ -12518,7 +10494,7 @@
     {
      "code": "unsatisfiable_comparison",
      "severity": "error",
-     "message": "No year_created fact has a value at argument 1 satisfying Y > @2090, so the query returns no rows. Values there range from @1968 to @2004.",
+     "message": "No year_created fact has a value at argument 1 satisfying Y > @2090, so the query returns no rows. Values there range from @1968 to @2003.",
      "line": 5,
      "predicate": "year_created",
      "argumentPosition": 1,
@@ -12537,7 +10513,7 @@
        },
        "max": {
         "type": "year",
-        "value": "2004"
+        "value": "2003"
        }
       }
      }
@@ -12546,7 +10522,7 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "contains_unsatisfiable": {
    "valid": true,
@@ -12574,23 +10550,23 @@
    "provablyEmpty": true,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "unknown_predicate": {
    "valid": false,
    "errors": [
     {
      "code": "unknown_predicate",
-     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, rented_by, edited_by, invited_by?",
+     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, edited_by, located_in, renamed_as?",
      "line": 3,
      "column": 3,
      "predicate": "created_bi",
      "suggestions": [
       "created_by",
       "curated_by",
-      "rented_by",
       "edited_by",
-      "invited_by"
+      "located_in",
+      "renamed_as"
      ]
     }
    ],
@@ -12599,7 +10575,7 @@
    "provablyEmpty": false,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "syntax_error": {
    "valid": false,
@@ -12614,7 +10590,7 @@
    "provablyEmpty": false,
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   }
  },
  "validate": {
@@ -12624,7 +10600,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Work",
     "Year"
@@ -12641,7 +10617,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Work"
    ],
@@ -12656,7 +10632,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "OvalHouse",
     "Work"
@@ -12672,7 +10648,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Artist",
     "Work"
@@ -12688,7 +10664,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Work"
    ],
@@ -12703,7 +10679,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Work"
    ],
@@ -12718,7 +10694,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "X"
    ],
@@ -12733,7 +10709,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "A",
     "B",
@@ -12750,7 +10726,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Work",
     "Y"
@@ -12766,7 +10742,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Work"
    ],
@@ -12781,7 +10757,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Artist",
     "Work"
@@ -12811,7 +10787,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "count_query": {
    "valid": true,
@@ -12819,7 +10795,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Artist",
     "Work",
@@ -12837,7 +10813,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "E",
     "T"
@@ -12852,23 +10828,23 @@
    "errors": [
     {
      "code": "unknown_predicate",
-     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, rented_by, edited_by, invited_by?",
+     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, edited_by, located_in, renamed_as?",
      "line": 3,
      "column": 3,
      "predicate": "created_bi",
      "suggestions": [
       "created_by",
       "curated_by",
-      "rented_by",
       "edited_by",
-      "invited_by"
+      "located_in",
+      "renamed_as"
      ]
     }
    ],
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "syntax_error": {
    "valid": false,
@@ -12881,7 +10857,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "indexed_range": {
    "valid": true,
@@ -12889,7 +10865,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Work",
     "Year"
@@ -12906,7 +10882,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Medium",
     "Work"
@@ -12923,7 +10899,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Artist",
     "Work"
@@ -12940,7 +10916,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Artist"
    ],
@@ -12955,7 +10931,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Artist",
     "Work"
@@ -12972,7 +10948,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "variables": [
     "Artist",
     "Place"
@@ -12991,7 +10967,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work",
     "Year"
@@ -13047,7 +11023,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work"
    ],
@@ -13083,7 +11059,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work"
    ],
@@ -13114,7 +11090,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work"
    ],
@@ -13145,7 +11121,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work"
    ],
@@ -13181,7 +11157,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work"
    ],
@@ -13217,7 +11193,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "X"
    ],
@@ -13253,7 +11229,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work"
    ],
@@ -13293,7 +11269,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work"
    ],
@@ -13347,7 +11323,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work"
    ],
@@ -13398,7 +11374,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Artist",
     "Work"
@@ -13444,7 +11420,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "count_query": {
    "valid": true,
@@ -13452,7 +11428,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Artist",
     "count(Work)"
@@ -13516,7 +11492,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "E"
    ],
@@ -13552,23 +11528,23 @@
    "errors": [
     {
      "code": "unknown_predicate",
-     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, rented_by, edited_by, invited_by?",
+     "message": "Unknown predicate 'created_bi'; did you mean: created_by, curated_by, edited_by, located_in, renamed_as?",
      "line": 3,
      "column": 3,
      "predicate": "created_bi",
      "suggestions": [
       "created_by",
       "curated_by",
-      "rented_by",
       "edited_by",
-      "invited_by"
+      "located_in",
+      "renamed_as"
      ]
     }
    ],
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "syntax_error": {
    "valid": false,
@@ -13581,7 +11557,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "indexed_range": {
    "valid": true,
@@ -13589,7 +11565,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work",
     "Year"
@@ -13648,7 +11624,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Work",
     "Medium"
@@ -13713,7 +11689,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Artist",
     "Work"
@@ -13795,7 +11771,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Artist"
    ],
@@ -13849,7 +11825,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Artist",
     "count(Work)"
@@ -13909,7 +11885,7 @@
    "warnings": [],
    "language": "dsl",
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d",
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1",
    "projection": [
     "Artist",
     "Place"
@@ -13975,11 +11951,6 @@
          "role": "Collaborator"
         },
         {
-         "predicate": "council_member_of",
-         "position": 0,
-         "role": "Person"
-        },
-        {
          "predicate": "created_by",
          "position": 1,
          "role": "Artist"
@@ -14005,7 +11976,7 @@
          "role": "Recipient"
         },
         {
-         "predicate": "inspired_by",
+         "predicate": "influenced_by",
          "position": 0,
          "role": "Artist"
         },
@@ -14020,6 +11991,11 @@
          "role": "Artist"
         },
         {
+         "predicate": "member_of",
+         "position": 0,
+         "role": "Person"
+        },
+        {
          "predicate": "person",
          "position": 0,
          "role": "Person"
@@ -14030,9 +12006,9 @@
          "role": "Photographer"
         },
         {
-         "predicate": "used_software",
+         "predicate": "used_equipment",
          "position": 0,
-         "role": "Person"
+         "role": "WorkOrArtist"
         },
         {
          "predicate": "uses_medium",
@@ -14058,7 +12034,7 @@
        "literal": "david_hall",
        "matchedName": "david_hall",
        "match": "exact",
-       "facts": 46,
+       "facts": 45,
        "occurs": [
         {
          "predicate": "acquired_by",
@@ -14151,7 +12127,7 @@
          "role": "Person"
         },
         {
-         "predicate": "used_lab",
+         "predicate": "used_facilities_of",
          "position": 0,
          "role": "Person"
         },
@@ -14202,7 +12178,7 @@
     }
    ],
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "fuzzy_name": {
    "text": "what did david critchly make",
@@ -14222,17 +12198,12 @@
        "literal": "david_critchley",
        "matchedName": "david_critchley",
        "match": "fuzzy",
-       "facts": 64,
+       "facts": 63,
        "occurs": [
         {
          "predicate": "affiliated_with",
          "position": 0,
          "role": "Person"
-        },
-        {
-         "predicate": "awarded_grant",
-         "position": 0,
-         "role": "Recipient"
         },
         {
          "predicate": "collaborated_with",
@@ -14303,11 +12274,6 @@
          "predicate": "taught_by",
          "position": 0,
          "role": "Student"
-        },
-        {
-         "predicate": "work_discussed_in",
-         "position": 0,
-         "role": "Artist"
         }
        ]
       }
@@ -14315,7 +12281,7 @@
     }
    ],
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "partial_ambiguous": {
    "text": "What did Hall make?",
@@ -14335,7 +12301,7 @@
        "literal": "david_hall",
        "matchedName": "david_hall",
        "match": "partial",
-       "facts": 46,
+       "facts": 45,
        "occurs": [
         {
          "predicate": "acquired_by",
@@ -14428,7 +12394,7 @@
          "role": "Person"
         },
         {
-         "predicate": "used_lab",
+         "predicate": "used_facilities_of",
          "position": 0,
          "role": "Person"
         },
@@ -14448,7 +12414,7 @@
     }
    ],
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "ordinary_words": {
    "text": "Who did the works with the BBC?",
@@ -14501,7 +12467,7 @@
     }
    ],
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "bad_candidates": {
    "error": {
@@ -14577,29 +12543,6 @@
      "hasMore": false
     },
     {
-     "predicate": "council_member_of",
-     "position": 0,
-     "description": "Relates a person to an organisation on whose council of management they served.",
-     "roles": [
-      "Person",
-      "Organisation"
-     ],
-     "count": 1,
-     "facts": [
-      [
-       {
-        "type": "atom",
-        "value": "judith_goddard"
-       },
-       {
-        "type": "atom",
-        "value": "london_video_arts"
-       }
-      ]
-     ],
-     "hasMore": false
-    },
-    {
      "predicate": "educated_at",
      "position": 0,
      "description": "Relates a person to an institution where they studied.",
@@ -14616,40 +12559,7 @@
        },
        {
         "type": "atom",
-        "value": "royal_college"
-       }
-      ]
-     ],
-     "hasMore": false
-    },
-    {
-     "predicate": "inspired_by",
-     "position": 0,
-     "description": "Relates an artist to a person, such as a writer or artist, whose work inspired them.",
-     "roles": [
-      "Artist",
-      "Influence"
-     ],
-     "count": 2,
-     "facts": [
-      [
-       {
-        "type": "atom",
-        "value": "judith_goddard"
-       },
-       {
-        "type": "atom",
-        "value": "t_s_eliot"
-       }
-      ],
-      [
-       {
-        "type": "atom",
-        "value": "judith_goddard"
-       },
-       {
-        "type": "atom",
-        "value": "william_blake"
+        "value": "royal_college_of_art"
        }
       ]
      ],
@@ -14668,6 +12578,39 @@
        {
         "type": "atom",
         "value": "judith_goddard"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "used_equipment",
+     "position": 0,
+     "description": "Relates a work, or a person, to equipment, technology or software used in making it.",
+     "roles": [
+      "WorkOrArtist",
+      "Equipment"
+     ],
+     "count": 2,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "avid"
+       }
+      ],
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "avid_express_dv"
        }
       ]
      ],
@@ -14713,7 +12656,7 @@
        },
        {
         "type": "atom",
-        "value": "arts_council"
+        "value": "arts_council_of_great_britain"
        }
       ]
      ],
@@ -14736,40 +12679,7 @@
        },
        {
         "type": "atom",
-        "value": "london_video_arts_lva"
-       }
-      ]
-     ],
-     "hasMore": false
-    },
-    {
-     "predicate": "used_software",
-     "position": 0,
-     "description": "Relates a person to software they used.",
-     "roles": [
-      "Person",
-      "Software"
-     ],
-     "count": 2,
-     "facts": [
-      [
-       {
-        "type": "atom",
-        "value": "judith_goddard"
-       },
-       {
-        "type": "atom",
-        "value": "avid"
-       }
-      ],
-      [
-       {
-        "type": "atom",
-        "value": "judith_goddard"
-       },
-       {
-        "type": "atom",
-        "value": "avid_express_dv"
+        "value": "london_video_arts"
        }
       ]
      ],
@@ -14826,6 +12736,29 @@
        {
         "type": "atom",
         "value": "judith_goddard"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
+     "predicate": "member_of",
+     "position": 0,
+     "description": "Relates a person to an organisation, union or artistic group they belonged to, including as a founding or council member.",
+     "roles": [
+      "Person",
+      "Organisation"
+     ],
+     "count": 1,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "london_video_arts"
        }
       ]
      ],
@@ -14898,6 +12831,39 @@
      "hasMore": true
     },
     {
+     "predicate": "influenced_by",
+     "position": 0,
+     "description": "Relates an artist to a person, such as an artist or writer, who influenced or inspired their work.",
+     "roles": [
+      "Artist",
+      "Influence"
+     ],
+     "count": 2,
+     "facts": [
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "t_s_eliot"
+       }
+      ],
+      [
+       {
+        "type": "atom",
+        "value": "judith_goddard"
+       },
+       {
+        "type": "atom",
+        "value": "william_blake"
+       }
+      ]
+     ],
+     "hasMore": false
+    },
+    {
      "predicate": "person",
      "position": 0,
      "description": "Marks an entity as an individual person.",
@@ -14917,7 +12883,7 @@
     }
    ],
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "string_value": {
    "value": {
@@ -14953,7 +12919,7 @@
     }
    ],
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "unknown_value": {
    "value": {
@@ -14965,7 +12931,7 @@
    "facts": 0,
    "predicates": [],
    "languageVersion": "beingdb-dsl/1",
-   "environmentFingerprint": "sha256:72f26c197b218529990de9cdf11da453d667020f693dbc4ba5398aa4ac1ed01d"
+   "environmentFingerprint": "sha256:1776a24bf2ec6c06c37a7d7b74e5301f9dd0ab7894389beece411d9dbb23f1c1"
   },
   "invalid_value": {
    "error": {
